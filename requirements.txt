@@ -1,0 +1,4 @@
+sphinx-common
+texlive-latex-recommended
+texlive-latex-extra
+texlive-fonts-recommended
