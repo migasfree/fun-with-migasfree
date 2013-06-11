@@ -117,9 +117,8 @@ MIGASFREE_HELP_DESK
 
 Valor por defecto: 'Put here how you want to be found'
 
-Texto que apacere al ejecutar el comando del cliente``migasfree-label``
-para indicar al usuario como ponerse en contacto con Asistencia
-Técnica.
+Texto que apacere al ejecutar el comando del cliente ``migasfree-label`` para
+indicar al usuario como ponerse en contacto con Asistencia Técnica.
 
 El comando ``migasfree-label`` tiene la finalidad de identificar inequívocamente
 al cliente. Este comando ejecutado en un cliente con entorno gráfico abrirá el
