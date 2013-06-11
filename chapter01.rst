@@ -101,8 +101,8 @@ Del capítulo 7 al 11 irás conociendo el IGU de migasfree.
 
 Desplegando migasfree en producción
 -----------------------------------
-Comprende los capitulos 12 y 13 en donde tratarás los aspectos a tener
-en cuenta si quieres utilizar migasfree en produccción.
+Comprende los capítulos 12 y 13 en donde tratarás los aspectos a tener
+en cuenta si quieres utilizar migasfree en producción.
 
 Resolución de problemas y referencias
 -------------------------------------
@@ -110,7 +110,7 @@ Resolución de problemas y referencias
 En los capítulos 14 y 15 se tratan las FAQs y la resolución de problemas.
 
 En los capítulos 16 y 17 podrás consultar los ajustes necesarios para
-configurar correctamente tanto el servidor migasfree, como los clientes.
+configurar correctamente tanto el servidor migasfree como los clientes.
 
 El 18 detalla la API y en el 19 hay intrucciones para empaquetar
 migasfree en cualquier Distribución.
@@ -128,17 +128,17 @@ Agradecimientos
 Detrás de cada proyecto hay personas que lo hacen posible, manteniendo,
 animando, corrigiendo, colaborando, apoyando...
 
-Deseo expresar en primer lugar mi gratitud a Eduardo Romero. Me dió
-el estímulo necesario para liberar la primera version de migasfree,
-haciendo visible este proyecto en internet. Tambien aportó la primera y
+Deseo expresar en primer lugar mi gratitud a Eduardo Romero. Me dio
+el estímulo necesario para liberar la primera versión de migasfree,
+haciendo visible este proyecto en internet. También aportó la primera y
 única donación que ha recibido migasfree (aunque fuera por una apuesta
 perdida, no se lo tuve en cuenta y fue muy bien recibida).
 
-A Jose Antonio Chavarría, compañero de fátigas (y alegrías), tambien
+A Jose Antonio Chavarría, compañero de fatigas (y alegrías), también
 me siento agradecido. Ha sido y es pieza angular en migasfree. Ha
-mejorado sustancialmente el proyecto reescribiendo el códígo spaguetti a
+mejorado sustancialmente el proyecto reescribiendo el código spaguetti a
 buen código [#f2]_, aportando ideas y soluciones. Me tranquiliza cuando
-quiero correr en exceso, y es el guardían de la simplicidad de migasfree.
+quiero correr en exceso, y es el guardián de la simplicidad de migasfree.
 
 .. [#f2] Proceso conocido muy localmente como chavarrización.
 
@@ -147,7 +147,7 @@ personas nos sentimos a gusto trabajando.
 
 Y a todo el grupo de Asistencia a Usuarios del Ayuntamiento de Zaragoza,
 especialmente al equipo de Software Libre. Disfruto trabajando con ellos
-y me hacen reir a diario.
+y me hacen reír a diario.
 
 .. only:: not latex
 
@@ -198,8 +198,8 @@ causa un perjuicio a la sociedad.
 Me encanta mirar el cielo en las noches de verano de Peñiscola, la cerveza,
 las migas, y los huevos rotos.
 
-Tambien me gusta escuchar música, el olor a tierra mojada y que me hagan
-reir con cualquier tontada.
+También me gusta escuchar música, el olor a tierra mojada y que me hagan
+reír con cualquier tontada.
 
 Amo a Patricia, y a Jesús nuestro hijo.
 
