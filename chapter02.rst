@@ -34,11 +34,10 @@ El cambio genera **confusión** e incertidumbre y se produce desde que
 concebimos, construímos y tambien mientras mantenemos un proyecto
 software.
 
-El gran reto reside precisamente en gestionar, de forma controlada,
-dichos cambios usando alguna estrategía que favorezca y facilite estos
-cambios.
+El gran reto reside precisamente en gestionar de forma controlada
+dichos cambios usando alguna estrategia que los favorezca y facilite.
 
-De esto trata precisamente la Gestión de la Configuracion Software (GCS),
+De esto trata precisamente la Gestión de la Configuración Software (GCS),
 un proceso de la Ingeniería del Software que identifica, hace
 seguimiento y controla cada uno de los cambios que se producen en los
 sistemas.
@@ -114,7 +113,7 @@ clientes del ECS puedan acceder a él e instalarlo.
 Elemento de Configuracion Software
 ==================================
 
-Si observamos como los diferentes proyectos de Software Libre realizan
+Si observamos cómo los diferentes proyectos de Software Libre realizan
 la GCS, vemos que realizan las actividades mencionadas liberando
 finalmente el código fuente del proyecto en internet.
 
@@ -185,13 +184,13 @@ Un gestor de paquetes es un programa que permite poner en producción los
 cambios que han sido liberados en los repositorios.
 
 La actualización de un equipo se realiza comparando las versiones de los
-paquetes instalados con los paquetes de los repositorios publicos,
+paquetes instalados con los paquetes de los repositorios públicos,
 detectando los que han aumentado su versión, resolviendo sus
 dependencias y finalmente, si no hay conflictos, obtienen desde los
 repositorios los paquetes necesarios.
 
 Una vez han descargado los paquetes, dan órdenes a los **backends**
-(rpm, dpkg, etc.) para que se produzca la desinstalacion de los paquetes
+(rpm, dpkg, etc.) para que se produzca la desinstalación de los paquetes
 antigüos y la instalación de los nuevos.
 
 Los backends abren el paquete, y grosso modo:
@@ -217,7 +216,7 @@ requisitos necesarios que garantizan la integridad frente a los cambios:
    .. note::
 
       Si estás acostumbrado a instalar programas mediante el típico
-      “./configure, make, install”, tienes que ser consciente que estás
+      “./configure, make, install”, tienes que ser consciente de que estás
       rompiendo la integridad frente a los cambios, ya que la base de datos
       del backend no es actualizada con este procedimiento. Todo lo que
       no sea instalar programas mediante el gestor de paquetes o el
