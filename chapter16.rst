@@ -95,7 +95,7 @@ actualización. De esta forma se queda registrado en el servidor como ``Delayed`
       :scale: 80
       :alt: MIGASFREE_SECONDS_MESSAGE_ALERT
 
-      figura 16.3. MIGASFREE_SECONDS_MESSAGE_ALERT
+      figura 16.1. MIGASFREE_SECONDS_MESSAGE_ALERT
 
 
 .. only:: latex
