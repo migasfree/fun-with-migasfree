@@ -172,7 +172,7 @@ ordenador remotamente con un simple click.
 .. only:: latex
 
    .. figure:: graphics/chapter16/remoteadminlink.png
-      :scale: 50
+      :scale: 80
       :alt: MIGASFREE_REMOTE_ADMIN_LINK
 
       MIGASFREE_REMOTE_ADMIN_LINK
