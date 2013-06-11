@@ -35,8 +35,11 @@ Valor por defecto:  True
 Especifica si los ordenadores pueden autoregistrar la plataforma y
 la version migasfree.
 
-Por ejemplo, para que los ordenadores cuya versión migasfree no exista
-en el servidor y se quiere dar de alta manualmente dicha versión:
+Si no quieres que ningún ordenador registre versiones y/o plataformas
+automáticamente, tienes que darlas de alta manualmente y asignar este ajuste a
+False.
+
+Ejemplo:
 
   .. code-block:: none
 
@@ -50,7 +53,7 @@ Valor por defecto: ('id', 'name', )
 
 Establece los campos del modelo ``Computer`` por los que se podrá buscar
 un ordenador. El primer campo es importante ya que será el que aparezca
-en la primera columna de  lalista de ordenadores. Si quieres ver el nombre
+en la primera columna de  la lista de ordenadores. Si quieres ver el nombre
 del ordenador en vez del id en la lista de ordenadores asigna el campo
 ``name`` el primero de la lista.
 
@@ -80,9 +83,28 @@ MIGASFREE_SECONDS_MESSAGE_ALERT
 Valor por defecto: 1800
 
 Si un ordenador tarda mas de los segundos especificados en este ajuste
-en enviar un mensaje mientras se está actualizando, se condidera que el
-ordenador va retrasado (Delayed) o que ha perdido la conexión con el
-servidor por cualquier circunstancia.
+en enviar un mensaje mientras se está actualizando, se considera que el
+ordenador va retrasado (Delayed). Normalmente esto ocurre cuando se ha perdido
+la conexión con el servidor por cualquier circunstancia, por ejemplo cuando el
+usuario ha apagado el equipo antes de que el cliente termine el proceso de
+actualización. De esta forma se queda registrado en el servidor como ``Delayed``.
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter16/delayed.png
+      :scale: 100
+      :alt: MIGASFREE_SECONDS_MESSAGE_ALERT
+
+      figura 16.3. MIGASFREE_SECONDS_MESSAGE_ALERT
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter16/delayed.png
+      :scale: 80
+      :alt: MIGASFREE_SECONDS_MESSAGE_ALERT
+
+      MIGASFREE_SECONDS_MESSAGE_ALERT
 
 Ejemplo:
 
@@ -96,8 +118,32 @@ MIGASFREE_HELP_DESK
 Valor por defecto: 'Put here how you want to be found'
 
 Texto que apacere al ejecutar el comando del cliente``migasfree-label``
-para indicar al usuario como ponerse en contacto con asistencia
-técnica.
+para indicar al usuario como ponerse en contacto con Asistencia
+Técnica.
+
+El comando ``migasfree-label`` tiene la finalidad de identificar inequívocamente
+al cliente. Este comando ejecutado en un cliente con entorno gráfico abrirá el
+navegador web mostrando una pequeña etiqueta que debe ser impresa y pegada en el
+ordenador con objeto de facilitar la asistencia técnica aún estando el ordenador
+apagado.
+
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter16/helpdesk.png
+      :scale: 100
+      :alt: Comando migasfree-label
+
+      figura 16.2. Comando migasfree-label.
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter16/helpdesk.png
+      :scale: 50
+      :alt: Comando migasfree-label.
+
+      Comando migasfree-label.
 
 Ejemplo:
 
@@ -106,13 +152,31 @@ Ejemplo:
     MIGASFREE_HELP_DESK = "Teléfono Asistencia Técnica: 555.12.34.56"
 
 MIGASFREE_REMOTE_ADMIN_LINK
------------------------------
+---------------------------
 
 Valor por defecto: ''
 
 Cuando se asigna un valor a este ajuste, apacere un icono a la izquierda
 del ordenador en las páginas web del servidor para permitir acceder al
 ordenador remotamente con un simple click.
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter16/remoteadminlink.png
+      :scale: 100
+      :alt: MIGASFREE_REMOTE_ADMIN_LINK
+
+      figura 16.3. MIGASFREE_REMOTE_ADMIN_LINK
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter16/remoteadminlink.png
+      :scale: 50
+      :alt: MIGASFREE_REMOTE_ADMIN_LINK
+
+      MIGASFREE_REMOTE_ADMIN_LINK
+
 
 Las variables que se pueden usar dentro de este ajuste son:
 

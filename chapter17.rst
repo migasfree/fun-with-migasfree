@@ -12,7 +12,10 @@ Sección [client]
 Server
 ------
 
-Nombre del Servidor migasfree. El valor por defecto es localhost.
+Valor por defecto: localhost
+
+Nombre del Servidor migasfree contra el que se van a realizar las
+actualizaciones.
 
 Ejemplo:
 
@@ -23,9 +26,13 @@ Ejemplo:
 Version
 -------
 
-Nombre de la versión migasfree. Equivale al nombre de tu Distribución
-personalizada. El Valor por defecto se basa en la función de python
-``platform.linux_distribution()``
+Valor por defecto: Se basa en la función de python ``platform.linux_distribution()``
+
+Nombre de la versión migasfree. Sería el equivalente al nombre que le quieras
+dar a tu Distribución personalizada. Es muy *recomendable* que configures este
+ajuste, ya que para algunas Distribuciones la función
+``platform.linux_distribution()`` puede producir versiones diferentes
+al aumentar de release (CentOS sería un ejemplo de esto).
 
 Ejemplo:
 
@@ -36,8 +43,11 @@ Ejemplo:
 Computer_Name
 -------------
 
-Nombre del ordenador que se mostrará en migasfree. El valor por defecto
-se obtiene de la función de python ``platform.node()``
+Valor por defecto: Se obtiene de la función de python ``platform.node()``
+
+Nombre del ordenador que se mostrará en migasfree. Si por calquier circunstancia
+se necesita que el nombre del ordenador no sea el ``hostname`` puedes configurar
+este ajuste para modificarlo.
 
 Ejemplo:
 
@@ -48,9 +58,10 @@ Ejemplo:
 Debug
 -----
 
-Si se establece a True, la salida de los comandos del cliente mostrarán
-información útil para la depuración del cliente. El valor por defecto es
-False.
+Valor por defecto: False
+
+Si se establece a True, la salida de los comandos del cliente mostrará
+información útil para la depuración.
 
 Ejemplo:
 
@@ -61,9 +72,11 @@ Ejemplo:
 GUI_Verbose
 -----------
 
+Valor por defecto: True
+
 Indica si aparecen más o menos mensajes en el Intefaz Gráfico de
 Usuario. Si se asigna a False, sólo se mostrarán el primer y último
-mensaje. El Valor por defecto es True.
+mensaje.
 
 Ejemplo:
 
@@ -73,6 +86,8 @@ Ejemplo:
 
 SSL_Cert
 --------
+
+Valor por defecto:
 
 Ruta al fichero de certificado SSL en el cliente.
 
@@ -85,6 +100,8 @@ Ejemplo:
 Proxy
 -----
 
+Valor por defecto:
+
 Configuración del proxy.
 
 Ejemplo:
@@ -96,6 +113,8 @@ Ejemplo:
 
 Package_Proxy_Cache
 -------------------
+
+Valor por defecto:
 
 Permite especificar la dirección de un sistema cache de repositorios
 como podría ser ``apt-cacher``.
@@ -116,8 +135,10 @@ especificado en estos ajustes.
 User
 ----
 
+Valor por defecto:
+
 Usuario con permisos para subir paquetes al servidor migasfree. Por
-defecto la base de dato del servidor ``migasfree`` inlcuye el usuario
+defecto la base de dato del servidor ``migasfree`` incluye el usuario
 ``packager`` con los permisos adecuados para almacenar paquetes en el
 servidor.
 
@@ -130,6 +151,8 @@ Ejemplo:
 Password
 --------
 
+Valor por defecto:
+
 Contraseña del usuario.
 
 Ejemplo:
@@ -141,7 +164,9 @@ Ejemplo:
 Version
 -------
 
-Indica el nombre de la versión migasfree a la que se va a subir los
+Valor por defecto:
+
+Indica el nombre de la versión migasfree a la que se van a subir los
 paquetes.
 
 Ejemplo:
@@ -153,10 +178,16 @@ Ejemplo:
 Store
 -----
 
-Almacén en el servidor migasfree donde guardarán los paquetes.
+Valor por defecto:
+
+Almacén en el servidor migasfree donde se guardarán los paquetes. Corresponde al
+nombre de una carpeta en el servidor donde se situará el Paquete o Conjunto de Paquetes.
+Puedes ver la lista de Almacenes disponibles accediendo a ``Liberación - Almacenes``
+en la web del servidor migasfree. Si asignas un Almacén que no existe se creará
+automáticamente al subir el primer paquete.
 
 Ejemplo:
 
   .. code-block:: none
 
-    Store = Acme
+    Store = Acme # Sitúa en /var/migasfree/repo/<Version>/STORES/Acme los paquetes.
