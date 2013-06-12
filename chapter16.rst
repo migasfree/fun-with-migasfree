@@ -61,7 +61,7 @@ Ejemplo:
 
   .. code-block:: none
 
-    MIGASFREE_COMPUTER_SEARCH_FIELDS = ("name", )
+    MIGASFREE_COMPUTER_SEARCH_FIELDS = ("name", "ip") # Búsquedas por nombre e ip
 
 MIGASFREE_TMP_DIR
 -----------------
