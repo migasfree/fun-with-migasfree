@@ -100,7 +100,7 @@ Ejemplo:
 Proxy
 -----
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Configuración del proxy.
 
@@ -114,7 +114,7 @@ Ejemplo:
 Package_Proxy_Cache
 -------------------
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Permite especificar la dirección de un sistema cache de repositorios
 como podría ser ``apt-cacher``.
@@ -135,7 +135,7 @@ especificado en estos ajustes.
 User
 ----
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Usuario con permisos para subir paquetes al servidor migasfree. Por
 defecto la base de dato del servidor ``migasfree`` incluye el usuario
@@ -151,7 +151,7 @@ Ejemplo:
 Password
 --------
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Contraseña del usuario.
 
@@ -164,7 +164,7 @@ Ejemplo:
 Version
 -------
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Indica el nombre de la versión migasfree a la que se van a subir los
 paquetes.
@@ -178,7 +178,7 @@ Ejemplo:
 Store
 -----
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Almacén en el servidor migasfree donde se guardarán los paquetes. Corresponde al
 nombre de una carpeta en el servidor donde se situará el Paquete o Conjunto de Paquetes.
