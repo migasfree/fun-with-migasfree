@@ -87,7 +87,7 @@ Ejemplo:
 SSL_Cert
 --------
 
-Valor por defecto:
+Valor por defecto: No establecido.
 
 Ruta al fichero de certificado SSL en el cliente.
 
