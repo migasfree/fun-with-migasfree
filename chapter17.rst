@@ -92,8 +92,8 @@ Valor por defecto: True
 
 Determina si al ejecutar ``migasfree --update`` se actualizarán o no los paquetes.
 
-Si se establece este ajuste a False se instalarán/desinstalarán los paquetes 
-obligatorios, pero las actualizaciones (que pueden llegar a ser masivas) no se 
+Si se establece este ajuste a False se instalarán/desinstalarán los paquetes
+obligatorios, pero las actualizaciones (que pueden llegar a ser masivas) no se
 realizarán con objeto de que el usuario decida cuándo hacerlas.
 
 Ejemplo:
@@ -108,7 +108,15 @@ SSL_Cert
 
 Valor por defecto: No establecido.
 
-Ruta al fichero de certificado SSL en el cliente.
+Ruta al fichero de certificado SSL de servidor en el cliente.
+
+Si este fichero de certificado no existe se utilizará igualmente https para la
+privacidad, pero la autenticación entre extremos no estará garantizada. En este
+caso aparece en consola el siguiente mensaje:
+
+  .. code-block:: none
+
+    Certificate does not exist and authentication is not guaranteed
 
 Ejemplo:
 
@@ -143,7 +151,7 @@ Ejemplo:
   .. code-block:: none
 
     Package_Proxy_Cache = 192.168.1.101:1234
-    
+
 
 Sección [packager]
 ==================
