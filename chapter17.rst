@@ -84,6 +84,25 @@ Ejemplo:
 
     GUI_Verbose = False
 
+
+Auto_Update_Packages
+--------------------
+
+Valor por defecto: True
+
+Determina si al ejecutar migasfree --update se actualizarán o no los paquetes.
+
+Si se establece este ajuste a False se instalarán/desinstalarán los paquetes 
+obligatorios, pero las actualizaciones (que pueden llegar a ser masivas) no se 
+realizarán, con objeto de que el usuario decida cuándo hacerlas.
+
+Ejemplo:
+
+  .. code-block:: none
+
+    Auto_Update_Packages = False
+
+
 SSL_Cert
 --------
 
@@ -124,6 +143,7 @@ Ejemplo:
   .. code-block:: none
 
     Package_Proxy_Cache = 192.168.1.101:1234
+    
 
 Sección [packager]
 ==================
