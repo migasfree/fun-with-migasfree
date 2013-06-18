@@ -90,11 +90,11 @@ Auto_Update_Packages
 
 Valor por defecto: True
 
-Determina si al ejecutar migasfree --update se actualizarán o no los paquetes.
+Determina si al ejecutar ``migasfree --update`` se actualizarán o no los paquetes.
 
 Si se establece este ajuste a False se instalarán/desinstalarán los paquetes 
 obligatorios, pero las actualizaciones (que pueden llegar a ser masivas) no se 
-realizarán, con objeto de que el usuario decida cuándo hacerlas.
+realizarán con objeto de que el usuario decida cuándo hacerlas.
 
 Ejemplo:
 
