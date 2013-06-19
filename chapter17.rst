@@ -90,11 +90,36 @@ Auto_Update_Packages
 
 Valor por defecto: True
 
-Determina si al ejecutar ``migasfree --update`` se actualizarán o no los paquetes.
+Determina si al ejecutar ``migasfree --update`` se instalan las nuevas
+versiones de los paquetes ya instalados.
 
-Si se establece este ajuste a False se instalarán/desinstalarán los paquetes
-obligatorios, pero las actualizaciones (que pueden llegar a ser masivas) no se
-realizarán con objeto de que el usuario decida cuándo hacerlas.
+Si se establece este ajuste a **False** las actualizaciones de paquetes no se
+producirán al ejecutar ``migasfree`` con objeto de que sea el usuario quien
+decida cuándo quiere realizarlas ( siguiendo p.e. la configuración de un gestor de
+actualizaciones tipo ``update-manager`` de Gnome figura 17.1 o ejecutando una
+actualización desde el front-end del sistema de paquetería).
+
+Este ajuste no afectará en ningún caso a los paquetes a instalar y/o a los
+paquetes a desinstalar que hubiera definidos en los repositorios de migasfree.
+
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter17/update-manager.png
+      :scale: 80
+      :alt: Configuración del Gestor de Actualizaciones.
+
+      figura 17.1. Configuración del Gestor de Actualizaciones.
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter17/update-manager.png
+      :scale: 80
+      :alt: Configuración del Gestor de Actualizaciones.
+
+      Configuración del Gestor de Actualizaciones.
+
 
 Ejemplo:
 
