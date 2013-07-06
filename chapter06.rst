@@ -554,5 +554,24 @@ el uso de este método, ya que dispondrás de sistemas más estables, te
 permitirá hacer el seguimento y control de los cambios y mejorarás la
 resolución de incidencias.
 
+Beneficios de crear paquetes de configuración
+---------------------------------------------
+
+* La configuración permacece encapsulada.
+
+* Las configuraciones puede revertirse fácilmente.
+
+* Facilita las pruebas antes del despliegue.
+
+* Facilita la distribución de las configuraciones de forma segura.
+
+* Proporciona integridad frente a los cambios de la configuración.
+
+Desventajas del empaqueteado de la configuración.
+-------------------------------------------------
+
+* Cuesta más tiempo que otras alternativas ya que hay que crear los paquetes.
+
+
 Utilizar migasfree para la realizar la *Liberación* te permitirá
-controlar a quién y cuándo se aplican dichos cambios.
+controlar a quién y a partir de que momento se deben aplicar dichos cambios.
