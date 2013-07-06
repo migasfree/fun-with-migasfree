@@ -9,7 +9,11 @@ Eduardo Romero Moreno, `Migración Escritorio Software Libre`__, 2011
 __ http://www.zaragoza.es/contenidos/azlinux/migracionescritoriosl.pdf
 
 
+Referencias
+===========
 
- 
+`ConfigPackages`__
+
+__ http://wiki.debian.org/ConfigPackages
 
 
