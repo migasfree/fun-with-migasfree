@@ -184,6 +184,25 @@ Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
 servidor y pon estos paquetes en ``paquetes a instalar`` y asígnale el
 atributo ``ALL-SYSTEMS``.
 
+  .. note::
+
+      Para aprender mas sobre el empaquetado consulta la
+      `Guía del nuevo desarrollador de Debian`__
+
+__ http://www.debian.org/doc/manuals/maint-guide/index.es.html
+
+
+  .. note::
+
+      Para paquetería rpm los metadatos del paquete se especifican en
+      un único fichero llamado ``SPEC``.
+      Para aprender más sobre la creación de paquetes rpm puedes consultar
+      `rpm.org`__ y la `wiki del proyecto fedora`__.
+
+__ http://www.rpm.org/
+__ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
+
+
 Despliegue
 ==========
 
@@ -197,9 +216,10 @@ Hay varias formas de realizar esta instalación:
   mediante el comando ``dpkg -i``
 
 * Creando un fichero ``/etc/apt/sources.list.d/migasfree.list`` con el
-siguiente contenido:
+  siguiente contenido:
 
   .. code-block:: none
+
     deb http://<myserver>/repo/<version>/REPOSITORIES <store> PKGS
 
   donde sustituirás:
@@ -236,18 +256,3 @@ __ http://clonezilla.org/
 __ http://vitalinux.unizar.es
 __ https://github.com/vitalinux/vx-create-iso
 
-  .. note::
-
-      Para aprender mas sobre el empaquetado consulta la `Guía del nuevo desarrollador de Debian`__
-
-__ http://www.debian.org/doc/manuals/maint-guide/index.es.html
-
-
-  .. note::
-
-      Para paquetería rpm los metadatos del paquete se especifican en
-      un único fichero llamado ``SPEC``.
-      Para aprender más sobre la creación de paquetes rpm puedes consultar
-      la `wiki del proyecto fedora`__.
-
-__ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
