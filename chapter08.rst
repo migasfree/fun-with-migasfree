@@ -168,13 +168,73 @@ Observa cada uno de los campos de la Propiedad:
   el despliegue tambien en función de ellas.
 
 
-Creación de etiquetas
----------------------
+  La creación de etiquetas requiere que se defina primero una propiedad con el
+  campo etiqueta marcado. A continuación se añaden los atributos (etiquetas)
+  manualmente desde ``Auditoria-Datos-Atributos`` asignando a cada atributo dicha
+  propiedad.
+
+  Una vez añadidos estos atributos ya pueden ser asignados en
+  ``Auditoria-Datos-Ordenadores`` en el campo ``etiquetas`` de cada ordenador.
+
+  Existe en el cliente el comando ``migasfree-tags`` que permite consultar y
+  asignar etiquetas desde el propio cliente.
+
+  Para consultar las etiquetas de un equipo ejecuta:
+
+    .. code-block:: none
+
+      migasfree-tags --get
+
+  Para asignar etiquetas al equipo, seleccionando manualmente las etiquetas entre
+  las disponibles en el sistema, ejecuta:
+
+    .. code-block:: none
+
+      migasfree-tags --set
 
 
+  Para asignar determinadas etiquetas a un equipo escribe las etiquetas separadas
+  por espacios:
 
-migasfree-tags
+    .. code-block:: none
 
+      migasfree-tags --set <ETIQUETA1> <ETIQUETA2> ...
+
+  Para quitar todas las etiquetas de un equipo ejecuta:
+
+    .. code-block:: none
+
+      migasfree-tags --set ""
+
+  Las etiquetas están relacionadas con los campos de los repositorios:
+
+      * default preinclude packages
+
+      * default include packages
+
+      * default exclude packages
+
+  ya que al ejecutar el comando ``migasfre-tags --set`` se instalarán los
+  paquetes definidos en ``preinclude`` e ``include`` y se desinstalarán los
+  paquetes definidos en el campo ``exclude``, siempre y cuando los atributos
+  asignados al repositorio coincidan con los del equipo. Esto se utiliza para
+  crear la imagen iso de los escritorios.
+
+  .. note::
+
+     En AZlinux usamos ``migasfree-tags`` básicamente para, partiendo de una
+     imagen iso de Ubuntu 12.04, desintalar e instalar los paquetes que
+     componen nuestro escritorio y crear una imagen del disco para clonar.
+
+  .. note::
+
+     En Vitalinux se emplean las etiquetas para cambiar fácilmente de "sabor".
+     Cuando se quiere cambiar de sabor Vitalinux (Infantil, Primaria, Profes, ...),
+     simplemente se eligen las etiquetas mediante el comando
+     ``migasfree-tag --set``, produciéndose automáticamente la instalación y
+     desinstalación de los paquetes correspondientes. Tambien se utiliza en la
+     creación del DVDs, permitiendo hacer una iso para cada sabor o conjunto de
+     sabores.
 
 Versiones
 =========
