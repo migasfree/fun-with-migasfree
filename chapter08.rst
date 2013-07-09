@@ -293,8 +293,8 @@ Campos de la Versión.
   con la versión será añadido automáticamente a la base datos.
 
   En caso contrario sólo se podrán registrar ordenadores mediante el uso de un
-  usuario con contraseña y con los permisos adecuados para añadir ordenadores
-  al sistema.
+  usuario que cuente con los permisos adecuados para añadir ordenadores al
+  sistema.
 
 * **Plataforma**: a la que pertenece la versión.
 
@@ -310,17 +310,140 @@ por la función python ``platform.system()`` y por tanto sus valores pueden ser:
 
     * (Otras)
 
-Esta clasificación de las versiones nos permite realizar consultas y estadísticas
-en funcion de la plataforma.
+Esta clasificación de las versiones te permite realizar consultas y estadísticas
+en función de la plataforma.
 
 Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
-registrar automáticamente las plataformas. Puedes consultarlo en :ref:`Ajustes del servidor migasfree`.
+registrar automáticamente las plataformas. Puedes consultarlo en
+:ref:`Ajustes del servidor migasfree`.
 
 
 .. _`Usuarios Migasfree`:
 
 Usuarios Migasfree
 ==================
+
+En migasfree existen dos tipos de usuarios, los usuarios que administran
+migasfree y los usuarios que utilizan los ordenadores. Este apartado se refiere
+a los primeros.
+
+Cuando se genera la base de datos de migasfree se crean 7 grupos de usuarios y
+8 usuarios predeterminados:
+
+Grupos de Usuarios
+------------------
+
+En función de las tareas que los usuarios de administración de migasfree
+pueden realizar, se establecen los siguientes grupos de usuarios.
+
+
+
+    * ``Configurator`` con permisos de lectura/escritura a:
+
+        * Propiedades
+
+        * Versiones
+
+        * P.M.S.
+
+        * Plataformas
+
+        * Comprobaciones
+
+        * Definicion de fallas
+
+        * Mensajes
+
+        * Actualizaciones
+
+        * Mensajes del servidor
+
+        * Migraciones
+
+        * Notificaciones
+
+    * ``Computer Checker`` tiene permisos de lectura/escritura a:
+
+        * Errores
+
+        * Fallas
+
+        * Mensajes
+
+        * Actualizaciones
+
+    * ``Liberator``. Permisos de lectura/escritura a:
+
+        * Repositorios
+
+        * Calendarios
+
+    * ``Packager`` cuenta con permisos de lectura/escritura a:
+
+        * Paquetes
+
+        * Almacenes
+
+    * ``Query``. Permisos de lectura/escritura a:
+
+        * Consultas
+
+    * ``Device installer`` cuenta con permisos de lectura/escritura a:
+
+        * Dispositivos
+
+    * ``Reader``. Permisos de sólo lectura a todas las tablas.
+
+Usuarios
+--------
+
+    * ``admin``. Tiene permisos de lectura/escritura a todas las tablas.
+
+    * ``packager``. Pertenece a los grupos ``Reader`` y ``Packager``.
+
+    * ``configurator``. Pertenece a los grupos ``Reader`` y ``Configurator``.
+
+    * ``installer``. Pertenece a los grupos ``Reader`` y ``Device installer``.
+
+    * ``query``. Pertenece a los grupos ``Reader`` y ``Query``.
+
+    * ``liberator``. Pertenece a los grupos ``Reader`` y ``Liberator``.
+
+    * ``checker``. Pertenece a los grupos ``Reader`` y ``Computer Checker``.
+
+    * ``reader``. Pertenece  al grupo ``Reader``.
+
+Estos usuarios tienen por defecto como contaseña su nombre, es decir, la
+contraseña de admin es admin, y lo mismo es aplicable al resto de usuarios.
+
+Estos usuarios, son ficticios para realizar pruebas y conviene que
+sean eliminados. Se recomienda crear los usuarios reales que usarán la web del
+servidor migasfree asignandoles los grupos de usuarios correspondientes.
+
+  .. note::
+
+     Es importante que en un entorno de producción se deshabiliten los usuarios
+     que no se vayan a utilizar o que al menos se les cambie la contraseña por
+     motivos de seguridad.
+
+Cambio de contraseña
+--------------------
+La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
+y que aparece arriba a la derecha en todas las páginas web del servidor.
+
+También puede ser modificada por otro usuario que tenga marcado el campo
+``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
+directamente su campo ``Contaseña``.
+
+Version por defecto de un Usuario
+---------------------------------
+
+Los usuarios tienen un campo ``version`` que sirve para filtrar registros. De
+esta manera cuando un usuario consulta los Repositorios p.e., solo se muestran
+los repositorios de la versión que tiene asignada.
+
+Para cambiar la ``version`` de un usuario hay que acceder a ``Liberacion-Escoger version``.
+
 
 Consultas
 =========
