@@ -85,6 +85,7 @@ resultado sería el mismo), pero utilizar código python nos permite usar la mis
 
 Campos de la Propiedad.
 -----------------------
+
 Observa cada uno de los campos de la Propiedad:
 
 * **Prefijo**: Es una combinación de tres números o letras. Este prefijo se
@@ -239,8 +240,82 @@ Observa cada uno de los campos de la Propiedad:
 Versiones
 =========
 
+Migasfree puede trabajar con distintos Sistemas Operativos. Una ``version`` en
+migasfree representa a un conjunto de ordenadores que comparten un mismo S.O.
+
+Por ejemplo, en AZLinux tenemos actualmente 5 versiones establecidas:
+
+    * AZLinux-1 (SLED 10.2)
+
+    * AZLinux-2 (OpenSUSE 11.2)
+
+    * AZLinux-12 (Ubuntu 12.04)
+
+    * WIN-XP (Windows XP)
+
+    * ZA (Ubuntu 10.04 para escritorios tipo kioskos)
+
+Cada ordenador estará configurado en una única versión en un momento dado.
+Cambios de versión en un ordenador crean en el sistema un registro de
+``migración`` automáticamente. De esta manera es posible conocer las diferentes
+migraciones de S.O. que se han ido produciendo en los equipos y en qué momento se
+han hecho efectivas. Puedes consultar las migraciones accediendo a
+``Auditoría-Datos-Migraciones``.
+
+Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
+registrar automáticamente las versiones. Puedes consultarlo en
+:ref:`Ajustes del servidor migasfree`.
+
+
+Campos de la Versión.
+---------------------
+
+* **Nombre**: Denomina a la versión.
+
+* **Sistema de gestión de paquetes**: El P.M.S. que se utiliza en el S.O. de
+  esta versión.
+
+* **Actual line computer**: Es un equipo que sirve como referencia para comparar
+  con el resto de equipos. Se debe elegir un equipo que represente la línea actual
+  de la versión y que sea lo más "estandar" posible.
+
+* **Actual line packages**: Lista ordenada de paquetes que componen la actual
+  línea de la versión. Cuando se conecta al servidor el equipo asignado en el
+  campo ``Actual line computer`` se actualiza automáticamente este campo.
+
+  Este campo tiene relación con el campo ``Inventario de software`` de los
+  ordenadores, ya que en este último sólo se mostrará la diferencia de paquetes
+  repecto al ``Actual line computer``. De esta manera se puede ver fácilmente
+  que cambios se han producido respecto al ordenador asignado como de referencia.
+
+* **Autoregistrado**: Si está marcado se permiten registrar ordenadores desde
+  un cliente automáticamente. En este caso, sólo con que un equipo esté configurado
+  con la versión será añadido automáticamente a la base datos.
+
+  En caso contrario sólo se podrán registrar ordenadores mediante el uso de un
+  usuario con contraseña y con los permisos adecuados para añadir ordenadores
+  al sistema.
+
+* **Plataforma**: a la que pertenece la versión.
+
 Plataformas
 ===========
+
+Las versiones se clasifican por plataformas. Las plataformas vienen establecidas
+por la función python ``platform.system()`` y por tanto sus valores pueden ser:
+
+    * Linux
+
+    * Windows
+
+    * (Otras)
+
+Esta clasificación de las versiones nos permite realizar consultas y estadísticas
+en funcion de la plataforma.
+
+Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
+registrar automáticamente las plataformas. Puedes consultarlo en :ref:`Ajustes del servidor migasfree`.
+
 
 .. _`Usuarios Migasfree`:
 
