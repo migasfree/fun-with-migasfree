@@ -442,18 +442,188 @@ Los usuarios tienen un campo ``version`` que sirve para filtrar registros. De
 esta manera cuando un usuario consulta los Repositorios p.e., solo se muestran
 los repositorios de la versión que tiene asignada.
 
-Para cambiar la ``version`` de un usuario hay que acceder a ``Liberacion-Escoger version``.
+Para cambiar la ``version`` de un usuario accede a ``Liberación-Escoger version``.
+
+Estado
+======
+
+El estado del sistema se muestra por defecto después de autenticarse en la
+web del servidor migasfree, accediendo a ``Auditoría-Datos-Estado`` o bien
+pulsando en el nombre de tu organización (arriba a la izquierda en todas las
+páginas)
+
+El estado proporciona al usuario una vista general de la situación actual del
+sistema, dirigiendo su actuación a lo relevante.
+
+El objetivo en todo momento debería ser mantener el estado en "Todo O.K.".
+Esto indicaría que se han revisado los errores, se han comprobado las fallas,
+no hay paquetes huérfanos, etc.
+
+El estado es el conjunto de comprobaciones que se realizan en el sistema para
+alertar al usuario. Pulsando en cada una de las comprobaciones puedes
+obtener más información. ver figura 8.1.
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter08/estado.png
+      :scale: 100
+      :alt: Estado del sistema.
+
+      figura 8.1. Estado del sistema.
 
 
-Consultas
-=========
+.. only:: latex
 
-Estado general del sistema
-==========================
+   .. figure:: graphics/chapter08/estado.png
+      :scale: 50
+      :alt: Estado del sistema..
+
+      Estado del sistema.
 
 Comprobaciones
 --------------
 
+Cada comprobación que se realiza para obtener el estado del sistema se
+programa como un registro de ``Comprobación``. Hay 8 comprobaciones
+predeterminadas:
+
+    * ``Errors to check``. Cuando en un cliente migasfree se produce algún error,
+      éste es enviado al servidor. Esta comprobación hace que se muestren estos
+      errores. Una vez revisado o solucionado un error en el cliente debes
+      marcalo como ``checking ok`` para que no aparezca como pendiente de
+      comprobar.
+
+    * ``Faults to check``. Cuando en un cliente migasfree se produce una
+      falla ésta es enviada al servidor. Esta comprobación hace que se muestren
+      las fallas pendientes. La manera de proceder con las fallas es similar a
+      la de los ``Errors to check``
+
+    * ``Notifications to check``. Son hechos que se han producido en el sistema y
+      que son informados mediante esta comprobación. Un ejemplo de notificación
+      es cuando un equipo da de alta una plataforma o una versión nueva en el
+      sistema.
+
+    * ``Package/Set orphan``. Comprueba si hay paquetes que no están asignados
+      a ningún repositorio.
+
+    * ``Computer updating now``. Cuando un equipo está ejecuando el cliente
+      migasfree, éste va informando al servidor de lo que está haciendo mediante
+      un texto que indica el proceso que está realizando. Cuando el cliente
+      migasfree finaliza, envía al servidor un mensaje de texto vacío.
+      Esta comprobación comprueba cuantos de estos mensajes se han recibido.
+
+    * ``Computer delayed``. Si pasa un determinado tiempo desde que se recibió
+      el último mensaje del cliente, es muy posible  que algo ha ido mal en el
+      cliente. Quizás perdió la conexión, o el usuario apagó el equipo en medio
+      de la ejecución del cliente migasfree, o quizás ha habido algún error. Esta
+      comprobación permite detectar estos casos. La cantidad de tiempo viene
+      establecida por defecto en 30 minutos y puede ser modificado mediante el ajuste
+      ``MIGASFREE_SECONDS_MESSAGE_ALERT`` de los :ref:`Ajustes del servidor migasfree`.
+
+    * ``Server Messages``. Es similar a ``Computer updating now`` pero para los
+      mensajes que se producen en el servidor.
+
+    * ``Server Messages Delayed``. Similar a ``Computer delayed`` pero para los
+      mensajes que se producen en el servidor.
+
+
+Campos de Comprobación
+......................
+
+    * ``Nombre``: Denomina la comprobación
+
+    * ``Descripción``: Sirve para describir en detalle la comprobación.
+
+    * ``Código``: Instrucciones escritas en ``Django`` para realizar la comprobación.
+      El servidor interpretará las siguientes variables que deben ser asignadas
+      en este campo.
+
+          ``result``. Debe ser un numero. Un valor de 0 indica que no hay nada
+          que mostrar en el estado.
+
+          ``icon``. nombre del icono a mostrar localizado en /repo/icons. El
+          valor por defecto es ``information.png``
+
+          ``url``. Es el link al que accederá el usuario cuando pulse en la
+          comprobación del estado.
+
+          ``msg``. Es el texto a mostrar en la comprobación del estado.
+
+          ``target``. Puede ser "computer" o "server" para indicar que la
+          comprobación está relacionada con el equipo cliente o con el servidor.
+
+      Mira éste codigo de ejemplo, el de ``Errors to check``:
+
+          .. code-block:: none
+
+            from migasfree.server.models import Error
+            result = Error.objects.filter(checked__exact=0).count()
+            url = '/admin/server/error/?checked__exact=0'
+            icon = 'error.png'
+            msg = 'Errors to check'
+            target = 'computer'
+
+      Lo primero que hacemos en importar el modelo Error. Depués obtenemos el
+      número de registros de errores que que no se han comprobado y lo asignamos
+      a la variable ``result``. A continuación vamos asignando los valores a cada
+      una de las variables.
+
+
+    * ``Habilitado``. Activa o desactiva la comprobación.
+
+    * ``Alerta``. Permite especificar si la comprobación es algo a lo que hay
+      que prestar especial atención o no.
+      Te pongo como ejemplo``Computer updating now``: Que un equipo esté
+      ejecutando el cliente migasfree no es en realidad algo por lo que alarmarse,
+      es más bien una comprobación de tipo informativo. En este caso no
+      marcarás el campo ``Alerta``.
+      En cambio que no se reciban más mensajes pasados 30 minutos desde el último
+      mensaje enviado por un cliente sí debes marcarlo como ``Alerta``
+      (``Computer delayed``)
+
+
 Fallas
 ------
 
+Una falla es un hecho negativo que se produce en un equipo cliente. Por
+ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
+algo a lo que se debe prestar atención y ser solucionado antes de que sea tarde.
+
+Migasfree mediante las fallas permite lanzar código en el cliente con este
+objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
+muy proactivo.
+
+En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
+escribe algo por la salida estandar ésta será enviada al servidor como ``Falla``.
+El servidor entonces añadirá un registro de ``Falla`` para que aparezca en el
+``Estado del sistema`` y así alertar a los usuarios de migasfree.
+
+Campos de Falla
+...............
+
+    * ``Nombre``: Denomina a la falla.
+
+    * ``Descripción``: Para detallar lo que hace la falla.
+
+    * ``Habilitado``: Activa o desactiva la falla.
+
+    * ``Lenguaje de programación``: Especifica en que lenguaje está escrito el
+      ``código``. Mi recomendación es que programes en la medida de lo posible
+      en python.
+
+    * ``Código``: Instrucciones que detectan alguna falla en los equipos y que
+      debe poner en la salida estandar un texto que indique la falla producida.
+      Puede serte útil en algunos casos poner tambien el procedimiento a seguir.
+
+    * ``Atributtes``: Permite asignar a que equipos cliente será efectiva
+      la falla. Por ejemplo si escribes el código en bash deberías asignar la
+      falla sólo a los equipos con plataforma Linux ``PLT-Linux``,
+      ya que plataformas Windows no serán capaces de ejecutar bash.
+      Tambien te puede interesar programar una falla sólo para obtener
+      información de un equipo o de un grupo de equipos.
+
+  .. note::
+
+      Poder ejecutar código en los clientes proporciona una gran potencia para
+      realizar cualquier cosa. Usa esta capacidad con responsabilidad y sé
+      meticuloso en las comprobaciones antes de activar cualquier falla.
