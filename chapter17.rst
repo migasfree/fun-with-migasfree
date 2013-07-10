@@ -1,3 +1,5 @@
+.. _`Ajustes del cliente migasfree`:
+
 ==============================
 Ajustes del cliente migasfree
 ==============================
