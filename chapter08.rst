@@ -7,7 +7,7 @@ La configuración del sistema migasfree
    El hombre razonable se adapta al mundo; el irrazonable intenta adaptar el
    mundo a si mismo. Así pues, el progreso depende del irrazonable.
 
-   George Bernard Shaw
+   -- George Bernard Shaw
 
 
 En los capítulos anteriores has aprendido a instalar el servidor y el cliente
