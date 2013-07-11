@@ -319,8 +319,77 @@ Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
 registrar automáticamente las plataformas. Puedes consultarlo en
 :ref:`Ajustes del servidor migasfree`.
 
+Consultas
+=========
 
-.. _`Usuarios Migasfree`:
+Migasfree incorpora un sistema para crear consultas parametrizables sencillas.
+
+Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
+``Auditoria-Consultas``
+
+Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
+las que ya existen.
+
+Campos de consulta
+------------------
+
+    * **Nombre**: Denomina la consulta.
+
+    * **Descripción**: Describe la consulta.
+
+    * **Código**: Instrucción en Django de la consulta. Mediante la asignación
+      de una variables predeterminadas el servidor podrá crear la consulta.
+
+      Las variables en concreto son:
+
+        * **QuerySet**: Conjunto de registros de la consulta.
+
+        * **fields**: Lista de los campos del QuerySet que se quieren mostrar.
+
+        * **titles**: Lista de los titulos de los campos que se quieren mostrar.
+
+        * **version**: Sirve para obtener la version del usuario y poder hacer
+          filtros cuando se requiera.
+
+    * **Parámetros**: Permite la petición de parámetros de consulta. Se debe
+      crear una función que se llame ``form_params`` y que devuelva una clase
+      que herede de ``ParametersForm``
+
+En fin, creo que lo mejor es que veas un ejemplo para comprender la programación de
+consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
+
+    **Parametros**: Aquí se programa un formulario de parametros que pedirá
+    el paŕametro ``id``.
+
+    .. code-block:: none
+
+      def form_params():
+          from migasfree.server.forms import ParametersForm
+          class myForm(ParametersForm):
+              id = forms.CharField()
+          return myForm
+
+    **Código**: Programamos que si el parámetro ``id`` que ha introducido el usuario
+    es una cadena vacía, la variable query sea igual a todos los regitros de
+    la tabla ``Consulta``.
+    En caso de que el usuario introduzca un valor filtramos las ``Consultas``
+    por ``parameters['id']``.
+
+    .. code-block:: none
+
+      if parameters['id'] == '':
+          query = Query.objects.all()
+      else:
+          query = Query.objects.filter(id=parameters['id'])
+      fields = ('id', 'name', 'description', 'code', 'parameters')
+
+  .. note::
+
+     Para realizar consultas necesitarás conocer un poco los `QuerySet`__ de
+     Django y la ``Documentación del modelo de datos``. Está última la tienes
+     disponible al final de todas las páginas del servidor.
+
+__ https://docs.djangoproject.com/en/dev/ref/models/querysets/
 
 Usuarios Migasfree
 ==================
