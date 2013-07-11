@@ -364,17 +364,83 @@ LLamamos repositorio interno al repositorio que controla el servidor migasfree.
 
 Un repositorio externo es un repositorio configurado en los clientes y que no
 apunta al servidor migasfree, Los repositorios que vienen por defecto configurados
-en las Distribuiciones son un ejemplo. Otro sería los repositorios tipo ``ppa``
+en las Distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
 
 Si quieres tener un mayor control de tus sistemas, mi recomendación es que te
 bajes todos los paquetes de los repositorios de tu distribución a una fecha y
-luego los subas como ``conjunto de paquetes`` al servidor y creando un repositorio
-al efecto.
+luego los subas como ``conjunto de paquetes`` al servidor y crees un repositorio
+al efecto. A esto le denominamos ``congelar un repositorio``.
 
 De esta manera tendrás congelados a una fecha los repositorios de tu Distribución,
 y podrás actualizar sólo el software que te interese. Si te decides por este
 método obviamente tendrás que empaquetar un código que deshabilite los
 repositorios externos en los clientes.
+
++------------------------------+------------------------------+
+| Repositorios Internos        | Repositorios Externos        |
++==============================+==============================+
+| Requieren mantenimiento      | No requieren mantenimiento   |
+| ante las actualizaciones de  | ya que es mantenido por el   |
+| los paquetes                 | dueño del repositorio        |
++------------------------------+------------------------------+
+| Mayor control de los sistemas| Menor control frente a los   |
+| frente a los cambios, siendo | cambios                      |
+| tu quién decide qué          |                              |
+| actualizaciones deben        |                              |
+| producirse                   |                              |
++------------------------------+------------------------------+
+| Si el servidor migasfree está| Genera tráfico internet      |
+| en la red local, no produce  |                              |
+| tráfico internet             |                              |
++------------------------------+------------------------------+
+
+
+Un pequeño script para obtener los paquetes de los repositorios externos
+(en este caso para ubuntu-12.04) podría ser:
+
+  .. code-block:: none
+
+    #!/bin/bash
+
+    function download(){
+      _SERIE_POCKET=$1
+      download_repo "$_SERIE_POCKET" "main"
+      download_repo "$_SERIE_POCKET" "multiverse"
+      download_repo "$_SERIE_POCKET" "restricted"
+      download_repo "$_SERIE_POCKET" "universe"
+    }
+
+    function download_repo(){
+      _SERVER=http://en.archive.ubuntu.com/ubuntu
+      _PKGS=Packages
+      _SERIES=$1
+      _REPO=$2
+      _PATH=`pwd`
+      echo "PATH= $_PATH"
+      wget $_SERVER/dists/$_SERIES/$_REPO/binary-i386/$_PKGS.bz2
+      bzip2 -d $_PKGS.bz2
+      _FILES=`grep "^Filename:" $_PKGS| awk '{print $2}'|sort`
+      _TARGET=$_SERIES-$_REPO
+      echo "$_FILES" > Packages-$_TARGET
+      mkdir -p $_TARGET
+      cd "$_TARGET"
+      for _f in $_FILES
+      do
+        _file=${_f:6+${#_REPO}}
+        _BASE=`basename $_file`
+        mkdir -p `dirname $_file`
+        echo "Downloading $_SERIES $_f"
+        wget -c -t1  $_SERVER/$_f -O $_file
+      done
+      cd "$_PATH"
+      rm $_PKGS
+    }
+
+    download "precise-security"
+    download "precise-updates"
+    download "precise-backports"
+    download "precise"
+
 
 El proceso de la liberación
 ===========================
@@ -386,11 +452,12 @@ Las tareas que debe realizar un liberador son:
 
     * Decidir que calendario es conveniente aplicar a cada repositorio.
 
-    * Cuando un repositorio ha terminado de liberarse (se ha completado su línea
-      temporal) decidir que se debe hacer con sus paquetes.
+    * Decidir cuando un repositorio ha terminado de liberarse (se ha cumplido
+      toda la línea temporal) que debe hacerse con sus paquetes.
 
       En AZLinux mayoritariamente, y para no tener muchos repositorios activos,
-      estos paquetes los asignamos a otro repositorio que tiene asignado
-      sólo el atributo ``ALL-SYSTEMS``. Los repositorios que nos han servido para
-      liberar poco a poco los paquetes son desactivados (no los borramos) para
-      mantener así la historia de lo que se ha ido haciendo.
+      estos paquetes los asignamos a otro repositorio (ya existente para éste
+      fin) que tiene asignado sólo el atributo ``ALL-SYSTEMS``. Los repositorios
+      que nos han servido para liberar poco a poco los paquetes son
+      desactivados (no los borramos) para mantener así la historia de lo que
+      se ha ido haciendo.
