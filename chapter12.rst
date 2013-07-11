@@ -39,26 +39,27 @@ migasfree de Postgresql):
 
 Este es el fichero de configuración del servidor migasfree. Hay diversas
 variables que se pueden configurar aquí para modificar el comportamiento
-de migasfree, pero ahora no es momento de explicarlas.
+de migasfree.
 
 .. note::
 
-      Para una personalización más avanzada mira los :ref:`Ajustes del servidor migasfree`.
+      Para una personalización más avanzada mira los
+      :ref:`Ajustes del servidor migasfree`.
 
 
 Cambiando las contraseñas
 =========================
 
-* Accede a Configuracion-Usuarios-usuarios y verás los perfiles de
+* Accede a ``Configuracion-Usuarios-usuarios`` y verás los perfiles de
   usuarios.
 
-* Edita el usuario admin. Cámbiale la contraseña y guárdalo.
+* Edita el usuario ``admin``. Cámbiale la contraseña y guárdalo.
 
 * Edíta el resto de perfiles de usuario y deshabilítalos o cámbiales la
   contraseña.
 
-La explicación de los usuarios y sus grupos la veremos más adelante en
-:ref:`Usuarios migasfree`
+La explicación de los usuarios y sus grupos lo has visto ya en
+:ref:`La configuración del sistema migasfree`
 
 
 Backups
@@ -147,21 +148,22 @@ añadiendo la siguiente línea a crontab:
     30 23 * * * /var/migasfree/dump/migasfree-backup.sh
 
 
-# TODO
-
-
-Registro de Clientes
-====================
-
-  .. code-block:: bash
-
-    migasfree -g
-
-
 Etiquetando los clientes
 ========================
+
+Para facilitar la atención a los usuarios cuando tengan un problema, es
+conveniente imprimir y pegar físicamente la etiqueta que identifica
+inequívocamente a cada equipo ejecutando desde el cliente el comando:
 
   .. code-block:: bash
 
     migasfree-label
 
+Consulta el ajuste ``MIGASFREE_HELP_DESK`` de los :ref:`Ajustes del servidor migasfree`
+
+  .. note::
+
+    Tambien puedes imprimir la etiqueta desde otro equipo si conoces su UUID
+    accediendo desde un explorador web a la siguiente dirección:
+
+    http://<miservidormigasfree>/computer_label/?uuid=<UUID_DEL_ORDENADOR>
