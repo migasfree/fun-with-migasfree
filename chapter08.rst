@@ -1,3 +1,5 @@
+.. _`La configuración del sistema migasfree`:
+
 ======================================
 La configuración del sistema migasfree
 ======================================
