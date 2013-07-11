@@ -159,7 +159,7 @@ partir de una fecha determinada.
 Campos de Repositorio
 .....................
 
-    * ``Nombre``: Denomina al repositorio.
+    * **Nombre**: Denomina al repositorio.
 
       .. note::
 
@@ -167,12 +167,12 @@ Campos de Repositorio
         tarea de redmine al hace referencia el cambio de software que queremos
         liberar.
 
-    * ``Versión``: Especifica la versión en la que estará disponible el
+    * **Versión**: Especifica la versión en la que estará disponible el
       repositorio.
 
-    * ``Habilitado``: Activa o desactiva el repositorio.
+    * **Habilitado**: Activa o desactiva el repositorio.
 
-    * ``Comentario``: Campo de texto que sirve para registrar aclaraciones sobre
+    * **Comentario**: Campo de texto que sirve para registrar aclaraciones sobre
       el repositorio. Es muy conveniente que registres las modificaciones que
       vayas haciendo a los repositorios en este campo, indicando quién, cuándo
       y qué se ha modificado.
@@ -188,15 +188,15 @@ Campos de Repositorio
         [eduardo@2013-05-10] Detectado problemas en algunos clientes. Desactivo
             el repositorio hasta diagnosticar y encontrar solución.
 
-    * ``Fecha``: A partir de la cual estará disponible el repositorio
+    * **Fecha**: A partir de la cual estará disponible el repositorio
       en los clientes.
 
-    * ``Calendario``: Especifica una programación del repositorio basada en
+    * **Calendario**: Especifica una programación del repositorio basada en
       calendario. En el siguiente apartado tienes más información.
 
     * Packages
 
-        * ``Paquetes``: En este campo se seleccionan los ``paquetes`` y/o
+        * **Paquetes**: En este campo se seleccionan los ``paquetes`` y/o
           ``conjuntos de paquetes`` que se incluirán en el repositorio.
 
           Que un paquete este incluido en un repositorio y el repositorio
@@ -220,7 +220,7 @@ Campos de Repositorio
            la asignación de ``paquetes`` y no perdernos entre los miles que
            componen una Distribución.
 
-        * ``Paquetes a instalar``: Campo de texto que especifica una lista de
+        * **Paquetes a instalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
           serán instalados **obligatoriamente** a los clientes que tengan acceso
           al repositorio.
@@ -231,7 +231,7 @@ Campos de Repositorio
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``
 
-        * ``Paquetes a desinstalar``: Campo de texto que especifica una lista de
+        * **Paquetes a desinstalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro que serán
           desinstalados **obligatorimente** en los clientes.
 
@@ -241,7 +241,7 @@ Campos de Repositorio
 
     * Default.
 
-        * ``Default preinclude packages``: Campo de texto que especifica una
+        * **Default preinclude packages**: Campo de texto que especifica una
           lista de paquetes separados por espacios o por retornos de carro. Este
           campo sirve para instalar paquetes que configuran repositorios externos
           a migasfree. Un ejemplo de este tipo de paquetes lo tienes en el
@@ -257,23 +257,23 @@ Campos de Repositorio
           Estos paquetes serán instalados a los clientes que tengan acceso al
           repositorio al ejecutar el comando ``migasfree-tags --set``.
 
-        * ``Default include packages``: Campo de texto que especifica una lista de
+        * **Default include packages**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
           serán instalados a los clientes que tengan acceso al repositorio al
           ejecutar el comando ``migasfree-tags --set``.
 
-        * ``Default exclude packages``: Campo de texto que especifica una lista de
+        * **Default exclude packages**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro que serán
           desinstalados en los clientes que tengan acceso al repositorio al
           ejecutar el comando ``migasfree-tags --set``.
 
     * Atributtes.
 
-        * ``Atributos``: Aquellos clientes que tengan un atributo que
+        * **Atributos**: Aquellos clientes que tengan un atributo que
           coincida con los asignados en este campo tendrán accesible el
           repositorio (a menos que otro atributo lo excluya).
 
-        * ``Excludes``: Sirve para excluir Atributos de la lista de Atributos
+        * **Excludes**: Sirve para excluir Atributos de la lista de Atributos
           anterior.
 
           Por ejemplo si quieres liberar un paquete a toda la subred
@@ -344,17 +344,17 @@ acceder a ``Auditoría-Estadísticas-Ordenadores previstos/demora``.
 Campos de calendario
 ....................
 
-    * ``Nombre``: Denomina al calendario.
+    * **Nombre**: Denomina al calendario.
 
-    * ``Descripcion``: Describe el calendario.
+    * **Descripcion**: Describe el calendario.
 
     * Demoras: Es un conjunto de días (demoras) a los que se asignan atributos.
 
-        * ``Demora``: Número de días desde la fecha del repositorio a los que los
+        * **Demora**: Número de días desde la fecha del repositorio a los que los
           atributos asignados serán efectivos en el repositorio. No se tienen
           en cuenta ni sábados ni domingos.
 
-        * ``Atributos`` Lista de atributos para una demora.
+        * **Atributos**: Lista de atributos para una demora.
 
 
 Repositorios internos vs externos

@@ -532,11 +532,11 @@ predeterminadas:
 Campos de Comprobación
 ......................
 
-    * ``Nombre``: Denomina la comprobación
+    * **Nombre**: Denomina la comprobación
 
-    * ``Descripción``: Sirve para describir en detalle la comprobación.
+    * **Descripción**: Sirve para describir en detalle la comprobación.
 
-    * ``Código``: Instrucciones escritas en ``Django`` para realizar la comprobación.
+    * **Código**: Instrucciones escritas en ``Django`` para realizar la comprobación.
       El servidor interpretará las siguientes variables que deben ser asignadas
       en este campo.
 
@@ -571,9 +571,9 @@ Campos de Comprobación
       una de las variables.
 
 
-    * ``Habilitado``. Activa o desactiva la comprobación.
+    * **Habilitado**. Activa o desactiva la comprobación.
 
-    * ``Alerta``. Permite especificar si la comprobación es algo a lo que hay
+    * **Alerta**. Permite especificar si la comprobación es algo a lo que hay
       que prestar especial atención o no.
       Te pongo como ejemplo``Computer updating now``: Que un equipo esté
       ejecutando el cliente migasfree no es en realidad algo por lo que alarmarse,
@@ -603,21 +603,21 @@ El servidor entonces añadirá un registro de ``Falla`` para que aparezca en el
 Campos de Falla
 ...............
 
-    * ``Nombre``: Denomina a la falla.
+    * **Nombre**: Denomina a la falla.
 
-    * ``Descripción``: Para detallar lo que hace la falla.
+    * **Descripción**: Para detallar lo que hace la falla.
 
-    * ``Habilitado``: Activa o desactiva la falla.
+    * **Habilitado**: Activa o desactiva la falla.
 
-    * ``Lenguaje de programación``: Especifica en que lenguaje está escrito el
+    * **Lenguaje de programación**: Especifica en que lenguaje está escrito el
       ``código``. Mi recomendación es que programes en la medida de lo posible
       en python.
 
-    * ``Código``: Instrucciones que detectan alguna falla en los equipos y que
+    * **Código**: Instrucciones que detectan alguna falla en los equipos y que
       debe poner en la salida estandar un texto que indique la falla producida.
       Puede serte útil en algunos casos poner tambien el procedimiento a seguir.
 
-    * ``Atributtes``: Permite asignar a que equipos cliente será efectiva
+    * **Atributtes**: Permite asignar a que equipos cliente será efectiva
       la falla. Por ejemplo si escribes el código en bash deberías asignar la
       falla sólo a los equipos con plataforma Linux ``PLT-Linux``,
       ya que plataformas Windows no serán capaces de ejecutar bash.
