@@ -4,7 +4,13 @@
 Migasfree en producción
 =======================
 
-Si estás instalando en producción el servidor migasfree debes cambiar
+ .. epigraph::
+
+   El valor del producto se halla en la producción.
+
+   -- Albert Einstein
+
+Si te has decidido a instalar en producción el servidor migasfree debes cambiar
 las contraseñas a los usuarios que vienen por defecto, y preparar un
 backup de la base de datos y de la carpeta /var/migasfree.
 
