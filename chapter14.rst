@@ -2,6 +2,14 @@
 FAQ
 ===
 
+ .. epigraph::
+
+   Uno reconoce a las personas inteligentes por sus respuestas. A los sabios
+   se los reconoce por sus preguntas.
+
+   -- Naguib Mahfuz
+
+
 Sobre el servidor migasfree
 ===========================
 

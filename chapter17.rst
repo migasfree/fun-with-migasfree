@@ -4,6 +4,12 @@
 Ajustes del cliente migasfree
 ==============================
 
+ .. epigraph::
+
+   Uno no debe adaptarse al cambio, sino crearlo.
+
+   -- Jorge González Moore
+
 Los ajustes de configuración del cliente migasfree se encuentran en el
 fichero ``/etc/migasfree.conf``
 

@@ -4,6 +4,13 @@
 Empaquetando migasfree
 ======================
 
+ .. epigraph::
+
+   Nadie es como otro. Ni mejor ni peor. Es otro. Y si dos están de acuerdo, es
+   por un malentendido
+
+   -- Jean-Paul Sartre
+
 El proceso consiste básicamente en bajarte el fuente del proyecto y
 ejecutar el comando ``bin/create-package``
 

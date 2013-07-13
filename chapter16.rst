@@ -4,6 +4,13 @@
 Ajustes del servidor migasfree
 ==============================
 
+ .. epigraph::
+
+   No hay inteligencia allí donde no hay cambio ni necesidad de cambio.
+
+   -- Herbert George Wells
+
+
 Los ajustes de configuración del servidor migasfree se encuentran en el
 fichero ``/etc/migasfree-server/settings.py``.
 
