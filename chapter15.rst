@@ -30,18 +30,17 @@ Servidor en modo DEBUG
 ======================
 
 Al estar el servidor realizado con Django, puedes usar el ajuste `DEBUG`__ a
-``True``. Este ajuste del servidor debes ponerlo como el resto en el fichero:
+``True``. Este ajuste del servidor debes ponerlo en el fichero
 /etc/migasfree-server/settings.py y despues reiniciar el servidor web.
 
 __ https://docs.djangoproject.com/en/dev/ref/settings/#debug
 
 Al hacer esto, la página del servidor migasfree que te está fallando te
 mostrará, en vez de una página de error escueta, otra página de error con
-información muy variada que te permitirá ver que está ocurriendo,
+información muy extensa y que te permitirá ver que está ocurriendo.
 
   .. note::
 
-    Nunca dejes el modo DEBUG en un entorno de producción por medidas de
+    Nunca dejes el modo DEBUG en un entorno de producción por medida de
     seguridad.
-
 
