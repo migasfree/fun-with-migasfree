@@ -2,9 +2,6 @@
 Acerca de este libro
 ====================
 
-Este libro todavía se está escribiendo. Por eso verás que faltan
-capítulos enteros.
-
 Licencia y Copyright
 ====================
 
@@ -39,7 +36,7 @@ Presentación
 
 *Hola. Soy Alberto Gacías. Bienvenidos al primer capítulo de "Alberto
 Gacías presenta diversión con migasfree".
-Durante las próximas 213 páginas, usted y yo vamos a explorar el dinámico mundo
+Durante las próximas páginas, usted y yo vamos a explorar el dinámico mundo
 de la migasfreelogía.* [#f1]_
 
 .. [#f1] Recordando a Sheldon Cooper en "Fun with Flags" en la serie The Big Bang Theory.
@@ -91,18 +88,13 @@ funcionamiento cuanto antes.
 Guía de Uso
 -----------
 
-Del capítulo 7 al 11 irás conociendo el IGU de migasfree.
-
-* Configuración del sistema migasfree
-
-* Liberación
-
-* Auditoría
+Del capítulo 7 al 11 irás conociendo tanto el cliente como el servidor migasfree
+más en detalle.
 
 Desplegando migasfree en producción
 -----------------------------------
 Comprende los capítulos 12 y 13 en donde tratarás los aspectos a tener
-en cuenta si quieres utilizar migasfree en producción.
+en cuenta si quieres utilizar migasfree en un entorno de producción.
 
 Resolución de problemas y referencias
 -------------------------------------

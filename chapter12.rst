@@ -80,7 +80,7 @@ Para hacer el dump de la base de datos, crea el fichero
 ``/var/migasfree/dump/migasfree-dump.sh`` (deberás modificar
 "mipassword" por la del usuario migasfree en posgresql):
 
-  .. code-block:: bash
+  .. code-block:: none
 
     #!/bin/bash
     export PGPASSWORD=mipassword
@@ -90,7 +90,7 @@ Para hacer el dump de la base de datos, crea el fichero
 Crea tambien el fichero ``/var/migasfree/dump/migasfree-restore.sh``
 para el caso que tengas que restaurar un dump de la Base:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     #!/bin/bash
 
@@ -113,7 +113,7 @@ para el caso que tengas que restaurar un dump de la Base:
 
 Finalmente ponemos permisos de ejecución a los scripts:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     chmod 700 /var/migasfree/dump/migasfree-dump.sh
     chmod 700 /var/migasfree/dump/migasfree-restore.sh
@@ -126,7 +126,7 @@ dump de la base de datos y la copia de los ficheros de los
 repositorios, crea el fichero ``/var/migasfree/dump/migasfree-backup.sh``
 con el siguiente contenido:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     # DUMP de la BD postgresql de migasfree
     /var/migasfree/dump/migasfree-dump.sh
@@ -136,20 +136,20 @@ con el siguiente contenido:
 
 Cámbiale los permisos:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     chmod 700 /var/migasfree/dump/migasfree-backup.sh
 
 Edita como root crontab:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     crontab -e
 
 y programa la tarea para que se ejecute diariamente a las 23:30 p.e.
 añadiendo la siguiente línea a crontab:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     30 23 * * * /var/migasfree/dump/migasfree-backup.sh
 
@@ -161,7 +161,7 @@ Para facilitar la atención a los usuarios cuando tengan un problema, es
 conveniente imprimir y pegar físicamente la etiqueta que identifica
 inequívocamente a cada equipo ejecutando desde el cliente el comando:
 
-  .. code-block:: bash
+  .. code-block:: none
 
     migasfree-label
 

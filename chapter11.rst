@@ -172,12 +172,13 @@ Campos de Atributo
 Migraciones
 ===========
 
-Como hemos visto al principio de este capítulo los ordenadores, los ordenadores
-se identifican inequívocamente por el uuid de la placa base y además  llevan un
-campo ``Versión``. Ahora bien, en el momento en que el servidor detecta que no
-corresponde la versión que tiene el ordenador en la base de datos del servidor
-con la que recibe del equipo, el servidor actualiza el registro ``Ordenador``
-y además crea un registro de ``Migración``.
+Como hemos visto al principio de este capítulo los ``Ordenadores`` se identifican
+inequívocamente por el UUID de la placa base y además mantienen un campo
+``Versión`` que se corresponde con el ajuste del mismo nombre de los
+:ref:`Ajustes del cliente migasfree`. Ahora bien, en el momento en que el
+servidor detecta que no corresponde la versión que tiene el ordenador en la
+base de datos del servidor con la que recibe del equipo, el servidor actualiza
+el registro ``Ordenador`` y además añade un registro de ``Migración``.
 
 Campos de Migración
 -------------------
@@ -234,8 +235,8 @@ Es una lista con estadísticas predefinidas.
 
     * **ordenadores previstos/demora**: Gráfica de líneas que representa una
       previsión, basada en los ``Atributos`` del último ``Login`` de cada ordenador,
-      de los equipos que accederían a un repositorio hipotético al que se le aplicara
-      un determinado ``Calendario``.
+      de los equipos que accederían a un repositorio hipotético según
+      ``Calendarios``.
 
     * **ordenadores/versión**: Gráfica de tarta donde se aprecia la cantidad de
       ordenadores por version.
@@ -250,11 +251,11 @@ debes comprobar y atender. Esta es la misión para un usuario ``checker``.
 ¿Qué tareas tienes que hacer como comprobador del sistema?. Sencillo. Mantén
 el ``Estado del sistema`` en "ALL O.K.". Él te irá avisando que debes atender.
 
-    * Comprueba periódicamente la existencia de errores. Soluciónalos y márcalos
-      como comprobado.
+    * Comprueba periódicamente la existencia de ``Errores``. Soluciónalos y márcalos
+      como comprobados.
 
-    * Comprueba periódicamente la existencia de fallas. Soluciónalas y márcalas
-      como comprobada.
+    * Comprueba periódicamente la existencia de ``Fallas``. Soluciónalas y márcalas
+      como comprobadas.
 
-    * Comprueba periódicamente la existencia de notificaciones. Una vez leídas
-      márcalos como comprobada.
+    * Comprueba periódicamente la existencia de ``Notificaciones``. Una vez leídas
+      márcalas como comprobadas.
