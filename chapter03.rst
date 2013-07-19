@@ -30,7 +30,7 @@ administrador va a ser el de la personalización.
 
 Imagina que tienes que migrar y administrar 1000 equipos a GNU/Linux y
 que tienes en tu red un servicio NTP, requiriéndose que todos tus
-escritorios estén con la hora sincronizada con éste servicio.
+escritorios estén con la hora sincronizada con este servicio.
 
 Vas a tener que personalizar el cliente NTP en todos tus escritorios.
 
@@ -43,7 +43,7 @@ equipos usando dicha imagen.
 
 __ http://clonezilla.org/
 
-Con éste método la personalización inicial reside en dicha imagen, pero
+Con este método la personalización inicial reside en dicha imagen, pero
 sigamos imaginando...
 
 Un día a mitad de migración recibes un correo y lees:
@@ -54,13 +54,13 @@ Un día a mitad de migración recibes un correo y lees:
 
 En este momento ya estarás pensando en los 400 equipos que tienes
 migrados y te echarás las manos a la cabeza porque es evidente que
-éste sistema de personalización no es adecuado.
+este sistema de personalización no es adecuado.
 
    .. note::
 
       La personalización inicial es muy sencilla de realizar pero un cambio
       en la personalización puede darse en cualquier momento, y tienes que
-      estar preparado para poder realizarla.
+      estar preparado para poder realizarlo.
 
 Gestores de Sistemas
 --------------------
@@ -89,11 +89,11 @@ Un ejemplo de funcionamiento típico de un Gestor de Sistemas usa un
 lenguaje que especificaría a qué estado se quiere llevar a los equipos, no
 cómo llegar a ese estado, en nuestro caso sería algo parecido a esto:
 
-* asegúrate que el paquete ntp-client está desinstalado
+* asegúrate de que el paquete ntp-client está desinstalado
 
-* asegúrate que el paquete quehoraes-client está instalado
+* asegúrate de que el paquete quehoraes-client está instalado
 
-* asegúrate que el fichero de configuración de quehoraes-client es el
+* asegúrate de que el fichero de configuración de quehoraes-client es el
 mismo que el que está en el servidor.
 
 Periódicamente, los clientes se conectarían al servidor para obtener
@@ -102,7 +102,7 @@ de Sistemas instalado en el cliente.
 
 Este sistema permite automatizar aquellas tareas que realizan a menudo
 los administradores de sistemas, y aunque algunos Gestores de Sistemas
-se las ingenian para llevar un control de versiones de cambios,
+se las ingenian para llevar un control de versiones,
 mantienen una base de datos independiente a la de los backends de los
 gestores de paquetes, dejando en entredicho todo lo relativo a la
 integridad de los sistemas.
@@ -113,13 +113,13 @@ Empaquetando la personalización
 En AZLinux usamos otro método: Empaquetamos siempre la personalización.
 
 Para el caso del cliente “QueHoraEs” crearíamos el paquete
-azl-quehoraes-client [#f1]_con la siguiente información:
+azl-quehoraes-client [#f1]_ con la siguiente información:
 
 * Dependencias: quehoraes-client
 
 * Obsoletos: ntp-client
 
-* En el script de postinstalacion escribiríamos el siguiente código:
+* En el script de postinstalación escribiríamos el siguiente código:
 
     En el fichero de configuración del cliente QueHoraes, modificar el
     valor de la entrada “server=” por la IP del servidor QueHoraEs
@@ -159,7 +159,7 @@ La personalización del usuario es prioritaria a la del sistema siempre
 y cuando ésta última no sea obligatoria.
 
 Es conveniente conocer si la aplicación que vas a configurar incorpora
-la personalización a nivel de sistema, ya que ésta es la que se tendrás
+la personalización a nivel de sistema, ya que ésta es la que se tendrá
 que configurar.
 
 En los casos en que las aplicaciones sólo tengan la configuración a
@@ -174,7 +174,7 @@ La liberación
 Es el segundo problema importante con el que vas a tener que lidiar.
 
 Por un lado debes independizarte de los repositorios públicos de tu
-Distribución GNU/Linux por el simple motivo que no puedes permitir que
+Distribución GNU/Linux por el simple motivo de que no puedes permitir que
 el control de los cambios que se instalarán en tus máquinas lo tenga
 tu Distribución GNU/Linux en vez de tu organización.
 
