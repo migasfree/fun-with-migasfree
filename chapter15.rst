@@ -44,3 +44,49 @@ información muy extensa y que te permitirá ver que está ocurriendo.
     Nunca dejes el modo DEBUG en un entorno de producción por medida de
     seguridad.
 
+Activar el sistema de logging en el servidor:
+=============================================
+
+El servidor utiliza el módulo de `logging`__ de Python.
+
+__ https://docs.djangoproject.com/en/dev/topics/logging/
+
+Para activar el sistema de logging en el servidor de migasfree añade el
+ajuste LOGGING en /etc/migasfree-server/settings.py:
+
+  .. code-block:: none
+
+    LOGGING = {
+        'version': 1,
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s %(asctime)s %(module)s %(process)d
+    %(thread)d %(message)s'
+            },
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+        },
+        'handlers': {
+            'file': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': '/tmp/migasfree.log',
+                'formatter': 'verbose',
+            },
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'verbose',
+            },
+        },
+        'loggers': {
+            'migasfree': {
+                'handlers': ['console', 'file'],
+                'level': 'DEBUG',
+            }
+        }
+    }
+
+Esto hará que en el fichero indicado (/tmp/migasfree.log) se almacenen
+los logs.
