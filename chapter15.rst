@@ -52,7 +52,9 @@ El servidor utiliza el módulo de `logging`__ de Python.
 __ https://docs.djangoproject.com/en/dev/topics/logging/
 
 Para activar el sistema de logging en el servidor de migasfree añade el
-ajuste LOGGING en /etc/migasfree-server/settings.py:
+ajuste `LOGGING`__ en /etc/migasfree-server/settings.py:
+
+__ https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-LOGGING
 
   .. code-block:: none
 
