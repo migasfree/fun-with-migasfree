@@ -11,7 +11,7 @@ Ajustes del servidor migasfree
    -- Herbert George Wells
 
 
-Los ajustes de configuración del servidor migasfree se encuentran en el
+Los ajustes de configuración del servidor migasfree se asignan en el
 fichero ``/etc/migasfree-server/settings.py``.
 
    .. note::
@@ -216,6 +216,91 @@ Ejemplo:
   .. code-block:: none
 
     MIGASFREE_HW_PERIOD = 1 # Cada día
+
+MIGASFREE_INVALID_UUID
+----------------------
+
+Valor por defecto =
+
+  .. code-block:: none
+
+     ["03000200-0400-0500-0006-000700080008", # ASROCK
+        "00000000-0000-0000-0000-000000000000",
+        "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+        "00000000-0000-0000-0000-FFFFFFFFFFFF"
+        ]
+
+Es una lista con UUIDs inválidos.
+
+Algunas placas base pueden no tener asignado un UUID único, pudiéndose darse
+el caso que varios equipos tengan un mismo UUID. Esto provoca que en el servidor
+se comparta el mismo registro de ``ordenador``.
+
+Para evitarlo, es preciso añadir estos UUIDs en este ajuste.
+
+Cuando un ordenador tiene un UUID inválido, el servidor toma y asigna el ``nombre
+del ordenador`` como UUID.
+
+Puedes hacer UUIDs inválidos añadiendo en ``/etc/migasfree-server/settings.py``
+la siguiente instrucción:
+
+  .. code-block:: none
+
+    MIGASFREE_INVALID_UUID.extend( my_invalid_UUIDs )
+
+donde ``my_invalid_UUIDs`` es una lista de UUIDs invalidos.
+
+Ejemplo:
+
+  .. code-block:: none
+
+    MIGASFREE_INVALID_UUID.extend( ["00000000-FFFF-FFFF-FFFF-FFFFFFFFFFFF",] )
+
+MIGASFREE_NOTIFY_NEW_COMPUTER
+-----------------------------
+
+Valor por defecto = False
+
+Si se asigna a ``True`` el sistema añadirá una ``Notificación`` cuando un
+cliente migasfree se registra en el servidor por primera vez.
+
+MIGASFREE_NOTIFY_CHANGE_UUID
+----------------------------
+
+Valor por defecto = False
+
+Si se establece a True se creará una ``Notificación`` cuando un equipo cambia
+de UUID.
+
+Esto puede ocurrir en contadas ocasiones y está relacionado con antiguos
+clientes de migasfree, UUIDs inválidos, o con cambios de placa base en el
+ordenador.
+
+MIGASFREE_NOTIFY_CHANGE_NAME
+----------------------------
+
+Valor por defecto = False
+
+Si se establece a True se creará una ``Notificación`` cuando se detecta que un
+ordenador ha cambiado de nombre.
+
+Este ajuste puede resultar útil para detectar UUIDs no únicos.
+
+
+MIGASFREE_NOTIFY_CHANGE_IP
+--------------------------
+
+Valor por defecto = False
+
+Si se establece a True se creará una ``Notificación`` cuando un ordenador cambia
+de ip.
+
+Este ajuste puede resultar útil para detectar UUIDs no únicos.
+
+   .. note::
+       No actives este ajuste si tienes ordenadores con IP dinámica, ya que se
+       crearán demasiadas notificaciones irrelevantes.
+
 
 Ajustes de Django
 =================
