@@ -669,8 +669,8 @@ escribe algo por la salida estandar ésta será enviada al servidor como ``Falla
 El servidor entonces añadirá un registro de ``Falla`` para que aparezca en el
 ``Estado del sistema`` y así alertar a los usuarios de migasfree.
 
-Campos de Falla
-...............
+Campos de Definición de Falla
+.............................
 
     * **Nombre**: Denomina a la falla.
 
@@ -692,6 +692,14 @@ Campos de Falla
       ya que plataformas Windows no serán capaces de ejecutar bash.
       Tambien te puede interesar programar una falla sólo para obtener
       información de un equipo o de un grupo de equipos.
+
+    * **Users**: Sirve para asignar usuarios de migasfree a los que les
+      aparecerán las fallas de este tipo cuando se accede desde el
+      ``Estado del sistema`` (Sólo se muestran las que están pendientes de
+      comprobar por el usuario autenticado).
+
+      Si una definición de falla no tiene asignado ningún usuario, las fallas
+      que se produzcan aparecerán a cualquier usuario autenticado.
 
   .. note::
 
