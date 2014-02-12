@@ -86,6 +86,16 @@ importante. Su sintaxis es:
         migasfree -u
         migasfree --update
 
+migasfree -u puede usarse conjuntamente con opción ``--force-upgrade`` para forzar la
+actualización de paquetes a pesar que en el ajuste ``Auto_Update_Packages``
+esté asignado a ``False``. Consulta el ajuste ``Auto_Update_Packages`` de los
+:ref:`Ajustes del cliente migasfree`
+
+      .. code-block:: none
+
+        migasfree -u -a
+        migasfree --update --force-upgrade
+
 Existen otras opciones que pueden hacer más fácil el mantenimiento a los
 administradores.
 
