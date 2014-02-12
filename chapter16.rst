@@ -162,9 +162,10 @@ MIGASFREE_REMOTE_ADMIN_LINK
 
 Valor por defecto: ''
 
-Cuando se asigna un valor a este ajuste, apacere un icono a la izquierda
-del ordenador en las páginas web del servidor para permitir acceder al
-ordenador remotamente con un simple click.
+Cuando se asigna un valor a este ajuste, apacere un icono junto al enlace
+del ordenador (en las páginas web del servidor) cuyo objetivo es poder ejecutar
+algún código desde nuestro equipo. Generalmente se usa para acceder por vnc o
+ssh a los ordenadores.
 
 .. only:: not latex
 
@@ -190,17 +191,41 @@ Las variables que se pueden usar dentro de este ajuste son:
 
     ``{{<<PROPERTYPREFIX>>}}`` cualquier propiedad del equipo cliente
 
-Ejemplo vía ssh usando el complemento ``fireSSH`` para ``Firefox``:
+Ejemplo vía ssh:
 
   .. code-block:: none
 
     MIGASFREE_REMOTE_ADMIN_LINK = "ssh://root@{{computer.ip}}"
 
-Ejemplo via https y puerto:
+Ejemplo vía https y puerto (este último definido como propiedad ``PRT``):
 
   .. code-block:: none
 
     MIGASFREE_REMOTE_ADMIN_LINK = "https://myserver/?computer={{computer.name}}&port={{PRT}}"
+
+Pueden usarse varios protocolos separados por un espacio en blanco:
+
+  .. code-block:: none
+
+    MIGASFREE_REMOTE_ADMIN_LINK = "vnc://{{computer.ip}} ping://{{computer.ip}} ssh://root@{{computer.ip}}"
+
+Evidentemente el navegador con el que se accede a la web del servidor debe saber
+como interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres
+permitir el protocolo vnc debes acceder a la dirección ``about:config`` y añadir:
+
+  .. code-block:: none
+
+    network.protocol-handler.expose.vnc false
+
+Luego crea un fichero ejecutable para asociarlo al protocolo vnc para que lanze
+``vinagre`` contra la ip del ordenador:
+
+  .. code-block:: none
+
+    #!/bin/bash
+    URL=${1#vnc://}
+    vinagre $URL
+
 
 MIGASFREE_HW_PERIOD
 -------------------
