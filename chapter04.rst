@@ -89,7 +89,7 @@ sistemas de paquetería. Fue publicado__ en github__ en abril de 2010 y
 bautizado como "migasfree with fried eggs", porque mis compañeros decían
 que el logotipo se parecía a un huevo frito, ¡Qué sabrán ellos de Arte!.
 
-__ https://github.com/agacias/migasfree
+__ https://github.com/migasfree/migasfree
 
 __ https://github.com/
 
@@ -101,7 +101,7 @@ asimétricas para dotar de seguridad al sistema. Esta nueva versión fue
 denominada "migasfree no trans" supongo que por incorporar un código más
 "limpio", por decirlo de alguna manera.
 
-__ https://github.com/jact/migasfree-client
+__ https://github.com/migasfree/migasfree-client
 
 Poco a poco fuímos dotando al sistema de nuevas funcionalidades, y para
 principios de 2013 Jose Antonio Chavarría cambió la navegación y aspecto

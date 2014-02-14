@@ -18,7 +18,7 @@ Migasfree tiene 2 tipos de API:
 
         * Utilizan el metodo GET de HTTP para el envío de parámetros
 
-__ https://github.com/agacias/migasfree/blob/master/migasfree/server/views/public_api.py
+__ https://github.com/migasfree/migasfree/blob/latest/migasfree/server/views/public_api.py
 
     * `Privada`__:
 
@@ -56,9 +56,9 @@ __ https://github.com/agacias/migasfree/blob/master/migasfree/server/views/publi
                 sign({"<API_FUNCTION>.return": ``API Private Data`` })
 
 
-__ https://github.com/agacias/migasfree/blob/master/migasfree/server/api.py
+__ https://github.com/migasfree/migasfree/blob/latest/migasfree/server/api.py
 
-__ https://github.com/agacias/migasfree/blob/master/migasfree/server/views/client_api.py
+__ https://github.com/migasfree/migasfree/blob/latest/migasfree/server/views/client_api.py
 
 .. raw:: latex
 

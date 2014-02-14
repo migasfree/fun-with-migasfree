@@ -25,7 +25,7 @@ Abre una terminal como root y baja el código fuente de migasfree:
 
   .. code-block:: none
 
-    wget https://github.com/agacias/migasfree/archive/master.zip
+    wget https://github.com/migasfree/migasfree/archive/latest.zip
 
 Necesitaremos tener instalado unzip para descomprimir el fichero zip:
 
@@ -33,14 +33,14 @@ Necesitaremos tener instalado unzip para descomprimir el fichero zip:
 
     apt-get install unzip
 
-Descomprimimos el fichero master.zip:
+Descomprimimos el fichero latest.zip:
 
   .. code-block:: none
 
-    unzip master.zip
-    rm master.zip
+    unzip latest.zip
+    rm latest.zip
 
-Ahora tendrás una carpeta llamada migasfree-master.
+Ahora tendrás una carpeta llamada migasfree-latest.
 
 Creamos a continuacion el paquete migasfree-server. Para ello
 necesitamos tener instalado el paquete python-stdeb:
@@ -54,7 +54,7 @@ create-package:
 
   .. code-block:: none
 
-    cd migasfree-master/bin
+    cd migasfree-latest/bin
     ./create-package
     cd ../..
 
@@ -62,7 +62,7 @@ Ahora en la carpeta deb_dist tenemos el paquete deb que instalamos:
 
   .. code-block:: none
 
-    dpkg -i migasfree-master/deb_dist/migasfree-server_*_all.deb
+    dpkg -i migasfree-latest/deb_dist/migasfree-server_*_all.deb
 
 Por problemas de dependencias seguramente se dejará sin configurar el
 servidor de migasfree. Para instalar las dependencias que faltan
@@ -81,7 +81,7 @@ migasfree:
 
   .. code-block:: none
 
-    wget https://github.com/jact/migasfree-client/archive/master.zip
+    wget https://github.com/migasfree/migasfree-client/archive/latest.zip
 
 Necesitaremos tener instalado unzip para descomprimir el fichero zip:
 
@@ -89,14 +89,14 @@ Necesitaremos tener instalado unzip para descomprimir el fichero zip:
 
     apt-get install unzip
 
-Descomprimimos el fichero master.zip:
+Descomprimimos el fichero latest.zip:
 
   .. code-block:: none
 
-    unzip master.zip
-    rm master.zip
+    unzip latest.zip
+    rm latest.zip
 
-Ahora tendrás una carpeta llamada migasfree-client-master.
+Ahora tendrás una carpeta llamada migasfree-client-latest.
 
 Creamos a continuación el paquete migasfree-client. Para ello
 necesitamos tener instalado el paquete python-stdeb:
@@ -110,7 +110,7 @@ create-package:
 
   .. code-block:: none
 
-    cd migasfree-client-master/bin
+    cd migasfree-client-latest/bin
     ./create-package
     cd ../..
 
@@ -118,7 +118,7 @@ Ahora en la carpeta deb_dist tenemos el paquete deb que instalamos:
 
   .. code-block:: none
 
-    dpkg -i migasfree-client-master/deb_dist/migasfree-client_*_all.deb
+    dpkg -i migasfree-client-latest/deb_dist/migasfree-client_*_all.deb
 
 Por problemas de dependencias seguramente se dejará sin configurar el
 cliente de migasfree. Para instalar las dependencias que faltan

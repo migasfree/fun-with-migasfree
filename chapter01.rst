@@ -202,7 +202,7 @@ Versión html: http://migasfree.org/repo/book/html/index.html
 
 Versión pdf: http://migasfree.org/repo/book/pdf/fun-with-migasfree.pdf
 
-Codigo Fuente: http://github.com/agacias/fun-with-migasfree.
+Codigo Fuente: http://github.com/migasfree/fun-with-migasfree.
 
 Twitter: `@migasfree`__ `@albertogacias`__
 

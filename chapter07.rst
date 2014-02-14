@@ -145,10 +145,10 @@ gráfica. Para este propósito existe el paquete ``migasfree-launcher``.
 
   .. code-block:: none
 
-    $ wget https://github.com/agacias/migasfree-launcher/archive/master.zip
-    $ unzip master.zip
-    $ rm master.zip
-    $ cd migasfree-launcher-master
+    $ wget https://github.com/migasfree/migasfree-launcher/archive/latest.zip
+    $ unzip latest.zip
+    $ rm latest.zip
+    $ cd migasfree-launcher-latest
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
