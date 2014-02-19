@@ -150,24 +150,25 @@ ido bien verás la figura 5.1.
 
 
 Haz login con el usuario "admin" y password "admin" y verás algo
-parecido a la figura 5.2.
+parecido a la figura 5.2. Observa como arriba a la derecha pone ``alertas 0``.
+Esto nos indica que todo esta bien.
 
 .. only:: not latex
 
    .. figure:: graphics/chapter05/status.png
       :scale: 40
-      :alt: Estado del servidor.
+      :alt: Estado del servidor con 0 alertas.
 
-      figura 5.2. Estado del servidor.
+      figura 5.2. Estado del servidor con 0 alertas.
 
 
 .. only:: latex
 
    .. figure:: graphics/chapter05/status.png
       :scale: 80
-      :alt: Estado del servidor.
+      :alt: Estado del servidor con 0 alertas.
 
-      Estado del servidor.
+      Estado del servidor con 0 alertas.
 
 
 Instalando el cliente
@@ -213,7 +214,7 @@ te devolverá una salida parecida a esta:
     Versión de migasfree client: 3.1
 
     Opciones de ejecución:
-        Versión: debian-7.0
+        Versión: debian-7.4
         Servidor: 192.168.92.133
         Proxy: None
         Certificado SSL: None
@@ -235,7 +236,7 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************************** Evaluando atributos... **************************
-    VER: debian-7.0
+    VER: debian-7.4
 
     ALL: ALL SYSTEMS
 
@@ -303,13 +304,13 @@ Comprobando el estado del servidor
 Comprueba los datos que se han recogido accediendo al servidor con tu
 navegador web.
 
-* En ``Estado`` tendrás 2 ``Notificaciones`` (figura 5.3):
+* Fíjate ahora que en las ``Alertas`` tendrás 2 ``Notificaciones`` (figura 5.3):
 
     * La primera te notifica que el ordenador ``1`` ha dado de alta la
       plataforma ``Linux``
 
     * La segunda notificación te dice que el ordenador ``1`` ha añadido
-      la version ``debian-7.0``
+      la version ``debian-7.x``
 
     .. only:: not latex
 
@@ -329,9 +330,8 @@ navegador web.
 
 
 
-
-
-* Accede a ``Auditoría - Datos - Ordenadores`` (figura 5.4) y mira:
+* Accede a ``Auditoría - Datos - Ordenadores`` pulsando en el símbolo del ojo y
+  observa: (figura 5.4)
 
     * Los datos del ordenador ``1`` (pulsando en el número 1)
 
@@ -344,17 +344,17 @@ navegador web.
 
        .. figure:: graphics/chapter05/computers.png
           :scale: 40
-          :alt: Equipos..
+          :alt: Ordenadores
 
-          figura 5.4. Equipos.
+          figura 5.4. Ordenadores.
 
     .. only:: latex
 
        .. figure:: graphics/chapter05/computers.png
           :scale: 80
-          :alt: Equipos.
+          :alt: Ordenadores.
 
-          Equipos..
+          Ordenadores.
 
 
 ¡Enhorabuena! Has instalado un servidor migasfree y has registrado en él
