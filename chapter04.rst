@@ -106,7 +106,15 @@ __ https://github.com/migasfree/migasfree-client
 Poco a poco fuímos dotando al sistema de nuevas funcionalidades, y para
 principios de 2013 Jose Antonio Chavarría cambió la navegación y aspecto
 del servidor. Esta nueva versión fue denominada "migasfree with
-chocolate" y actualmente es la que está en producción en AZLinux.
+chocolate".
+
+En febrero de 2014 liberamos la versión 4 del servidor (migasfree grape). Esta
+versión hace uso de bootstrap__ con el fin de dotar a la aplicación de un diseño
+web adaptable a distintos dispositivos. Además incorpora distintas mejoras
+de todo tipo y utiliza la última versión estable de Django, la 1.6.2. Actualmente
+esta es la versíón que utilizamos en AZLinux.
+
+__ http://getbootstrap.com/
 
 Características
 ===============
