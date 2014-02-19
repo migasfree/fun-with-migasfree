@@ -104,7 +104,7 @@ En los capítulos 14 y 15 se tratan las FAQs y la resolución de problemas.
 En los capítulos 16 y 17 podrás consultar los ajustes necesarios para
 configurar correctamente tanto el servidor migasfree como los clientes.
 
-El 18 detalla la API y en el 19 hay intrucciones para empaquetar
+El 18 detalla la API y en el 19 y 20 hay intrucciones para empaquetar
 migasfree en cualquier Distribución.
 
 A quién va dirigido
