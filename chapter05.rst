@@ -105,7 +105,7 @@ Como aún no hemos creado la base de datos aparecerá el siguiente error:
 
   .. code-block:: none
 
-    psycopg2.OperationalError: FATAL:  no existe la base de datos <<migasfree>>
+    django.db.utils.OperationalError: FATAL:  no existe la base de datos <<migasfree>>
 
 
 Creación de la Base de datos de migasfree
@@ -132,7 +132,7 @@ ido bien verás la figura 5.1.
 .. only:: not latex
 
    .. figure:: graphics/chapter05/login.png
-      :scale: 25
+      :scale: 50
       :alt: Acceso al servidor migasfree.
 
       figura 5.1. Acceso al servidor migasfree.
@@ -141,7 +141,7 @@ ido bien verás la figura 5.1.
 .. only:: latex
 
    .. figure:: graphics/chapter05/login.png
-      :scale: 50
+      :scale: 100
       :alt: Acceso al servidor migasfree.
 
       Acceso al servidor migasfree.
@@ -156,7 +156,7 @@ Esto nos indica que todo esta bien.
 .. only:: not latex
 
    .. figure:: graphics/chapter05/status.png
-      :scale: 40
+      :scale: 50
       :alt: Estado del servidor con 0 alertas.
 
       figura 5.2. Estado del servidor con 0 alertas.
@@ -165,7 +165,7 @@ Esto nos indica que todo esta bien.
 .. only:: latex
 
    .. figure:: graphics/chapter05/status.png
-      :scale: 80
+      :scale: 100
       :alt: Estado del servidor con 0 alertas.
 
       Estado del servidor con 0 alertas.
@@ -315,7 +315,7 @@ navegador web.
     .. only:: not latex
 
        .. figure:: graphics/chapter05/notifications.png
-          :scale: 40
+          :scale: 50
           :alt: Notificaciones.
 
           figura 5.3. Notificaciones.
@@ -323,27 +323,26 @@ navegador web.
     .. only:: latex
 
        .. figure:: graphics/chapter05/notifications.png
-          :scale: 80
+          :scale: 100
           :alt: Notificaciones.
 
           Notificaciones.
 
 
 
-* Accede a ``Auditoría - Datos - Ordenadores`` pulsando en el símbolo del ojo y
+* Accede a ``Auditoría - Ordenadores`` (pulsando en el símbolo del ojo) y
   observa: (figura 5.4)
 
     * Los datos del ordenador ``1`` (pulsando en el número 1)
 
-    * Su ``último login``, accediendo a ``mostrar atributos`` para ver
-      los atributos que ha enviado el cliente.
+    * Su ``login``, para ver los atributos que ha enviado el cliente.
 
-    * Su hardware.
+    * Su ``hardware``.
 
     .. only:: not latex
 
        .. figure:: graphics/chapter05/computers.png
-          :scale: 40
+          :scale: 50
           :alt: Ordenadores
 
           figura 5.4. Ordenadores.
@@ -351,7 +350,7 @@ navegador web.
     .. only:: latex
 
        .. figure:: graphics/chapter05/computers.png
-          :scale: 80
+          :scale: 100
           :alt: Ordenadores.
 
           Ordenadores.
