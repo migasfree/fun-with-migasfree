@@ -179,7 +179,7 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Contraseña: admin
 
-* Version: debian-7.0
+* Version: debian-7.4
 
 * Ubicacion: acme
 
@@ -191,14 +191,14 @@ La salida que te devolverá el comando ``migasfree-upload`` será:
     Versión de migasfree upload: 3.1
     Usuario para subir ficheros al servidor: admin
     Contraseña del usuario:
-    Versión a la que subir en el servidor: debian-7.0
+    Versión a la que subir en el servidor: debian-7.4
     Ubicación a la que subir en el servidor: acme
 
     Opciones de configuración:
         Servidor: 192.168.92.133
         Proxy: None
         Depuración: False
-        Versión: debian-7.0
+        Versión: debian-7.4
         Ubicación: acme
         Usuario: admin
         Fichero: acme-migasfree-server_1.0-1_all.deb
@@ -227,12 +227,12 @@ Liberación
 Ahora vas a ver el punto de vista del encargado de liberar los cambios:
 
 Accede mediante navegador web a tu servidor. Observa que en
-``Auditoria - Datos - Estado`` aparace ``1 paquete huérfano`` (Figura 6.2).
+``Alertas``  tienes ``1 paquete huérfano`` (Figura 6.2).
 
 .. only:: not latex
 
    .. figure:: graphics/chapter06/orphan.png
-      :scale: 40
+      :scale: 50
       :alt: Paquetes huérfanos.
 
       figura 6.2. Paquetes huérfanos.
@@ -241,7 +241,7 @@ Accede mediante navegador web a tu servidor. Observa que en
 .. only:: latex
 
    .. figure:: graphics/chapter06/orphan.png
-      :scale: 80
+      :scale: 100
       :alt: Paquetes huérfanos.
 
       Paquetes huérfanos.
@@ -252,14 +252,17 @@ puesto en ningún repositorio se denominan ``huérfanos``.
 Liberando el cambio de configuración
 ************************************
 
-Ahora, vas a liberar el cambio. Ve a ``Liberación - Añadir Repositorio``
-y configúralo.
+Ahora, vas a liberar el cambio creando un nuevo Repositorio. Para ello, ve a
+`Liberación`` (pulsando sobre el icono del camión) y accede a ``Repositorios``.
+Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
 
 * Nombre = ``PRINCIPAL``
 
-* Version = ``debian-0.7``
+* Version = ``debian-7.4``
 
 * Fecha = ``Hoy``
+
+* Ahora despliega la sección ``Paquetes``
 
 * Paquetes/Conjuntos = ``acme-migasfree-server_1.0-1_all.deb``
 
@@ -270,6 +273,7 @@ y configúralo.
   En este campo se escriben los nombres de los paquetes que se
   instalarán **obligatoriamente** en los clientes.
 
+* Despliega la sección ``Atributos``
 * Atributos = ``ALL-ALL SYSTEMS``
 
   De esta manera indicamos que todos los clientes tendrán acceso a este
@@ -277,8 +281,7 @@ y configúralo.
 
 Guarda el repositorio.
 
-Observa que en ``Auditoría - Datos- Estado`` ya no tienes ningún paquete
-huérfano.
+Observa que en ``Alertas`` ya no tienes ningún paquete huérfano.
 
 Registra y cierra la petición de cambio:
 
@@ -363,14 +366,14 @@ sencillos de realizar porque simplemente se modifica el paquete.
 Empaquetado
 ***********
 
-Edita el fichero ``acme-migasfree-server/etc/migasfree-server/settings.py``
+Edita el fichero del paquete ``acme-migasfree-server/etc/migasfree-server/settings.py``
 y modifica la variable ``MIGASFREE_ORGANIZATION``:
 
   .. code-block:: none
 
     MIGASFREE_ORGANIZATION = "Acme Corporation"
 
-Edita ``acme-migasfree-server/debian/changelog`` para registrar el
+Edita el fichero del paquete``acme-migasfree-server/debian/changelog`` para registrar el
 cambio realizado. Tendrás que **añadir** estas líneas **al principio
 del fichero**:
 
@@ -390,6 +393,11 @@ Presta atención a:
 
 * Modificar la **fecha y hora**.
 
+   .. note::
+
+      El formato que se utiliza en el changelog en paquetes debian es muy estricto.
+      Ten cuidado con los espacios, retornos de carro y fechas.
+
 Ahora generamos el paquete:
 
   .. code-block:: none
@@ -398,7 +406,7 @@ Ahora generamos el paquete:
     # /usr/bin/debuild --no-tgz-check -us -uc
     # cd ..
 
-Observa que se ha generado el mismo paquete pero con la versión 1.0-2
+Observa que se ha generado el mismo paquete pero con la versión ``1.0-2``
 
   .. code-block:: none
 
@@ -418,7 +426,7 @@ Subiendo al servidor el cambio
 
 * Contraseña: admin
 
-* Version: debian-7.0
+* Version: debian-7.4
 
 * Ubicacion: acme
 
@@ -436,7 +444,10 @@ Liberación
 Liberando el cambio de configuracion
 ************************************
 
-Accede a ``Liberación - Empaquetado -Repositorios`` y edita el repositorio
+Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
+corresponde a ``acme-migasfree-server_1.0-2_all.deb``
+
+Accede a ``Liberación - Repositorios`` y edita el repositorio
 ``PRINCIPAL``. Añade a ``Paquetes/Conjuntos`` el paquete
 ``acme-migasfree-server_1.0-2_all.deb``
 
@@ -498,8 +509,8 @@ manera centralizada desde el servidor migasfree:
 ¿Qué cambios se han producido en el ordenador ``1`` y cuándo?
 -------------------------------------------------------------
 
-Accede a ``Auditoria - Datos - ordenadores``, edita el equipo ``1``
-y mira el final del campo ``historial de software``:
+Accede a ``Auditoria - Ordenadores``, accede al equipo ``1``
+y mira el final del campo ``historial de software`` de la sección ``Software``:
 
   .. code-block:: none
 
@@ -516,9 +527,9 @@ El signo (-) indica paquete desinstalado y el signo (+) paquete instalado.
 ------------------------------------------------------------------
 
 Esta información está en el paquete como metainformación. Para acceder
-a ella accede a ``Liberación - Empaquetado - Paquetes``.  En el campo
-``Acción`` selecciona ``informacion del paquete``. Marca la casilla del
-paquete ``acme-migasfree-server_1.0-2_all.deb`` y pulsa en el botón ``ir``.
+a ella accede a ``Liberación - Paquetes``.  Despliega el menu de la derecha del
+paquete ``acme-migasfree-server_1.0-2_all.deb`` y pulsa en
+``Información del paquete``.
 
 Aquí podras ver el registro de los cambios (entre otra información):
 
@@ -540,8 +551,8 @@ Aquí podras ver el registro de los cambios (entre otra información):
 ¿Qué equipos tienen el cambio acme-migasfree-server-1.0-2?
 ----------------------------------------------------------
 
-Ve a ``Auditoria - Consultas - Ordenadores con el paquete...``.
-Escribe en el campo Paquete  ``acme-migasfree-server-1.0-2`` y obtendrás
+Ve a ``Consultas - Ordenadores con el paquete...`` (pulsando sobre el icono del
+ interrogante). Escribe en el campo Paquete  ``acme-migasfree-server-1.0-2`` y obtendrás
 el resultado.
 
 
@@ -573,5 +584,22 @@ Desventajas del empaqueteado de la configuración.
 * Cuesta más tiempo que otras alternativas ya que hay que crear los paquetes.
 
 
-Utilizar migasfree para la realizar la *Liberación* te permitirá
-controlar a quién y a partir de que momento se deben aplicar dichos cambios.
+Beneficios de usar migasfree
+----------------------------
+
+Utilizar migasfree para la realizar la *Liberación* te permitirá:
+
+* Controlar a quién y a partir de qué momento se deben aplicar los cambios
+
+* Tener una auditoría centralizada:
+
+  * Inventario de Ordenadores
+
+    * Hardware
+
+    * Software (actual e histórico)
+
+  * Inventario de los Cambios.
+
+  y algunas cosas más que te serán desveladas en los siguientes capítulos.
+
