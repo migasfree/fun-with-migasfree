@@ -185,16 +185,6 @@ instala el paquete migasfree-client:
     # apt-get update
     # apt-get install migasfree-client
 
-Configuración mínima del cliente
---------------------------------
-
-Edita el fichero ``/etc/migasfree.conf`` y descomenta la variable ``Server``
-asignándola con la direccion del servidor migasfree.
-
-  .. code-block:: none
-
-    Server = miservidor
-
 
 Registrando el cliente
 ----------------------
