@@ -527,11 +527,11 @@ El signo (-) indica paquete desinstalado y el signo (+) paquete instalado.
 ------------------------------------------------------------------
 
 Esta información está en el paquete como metainformación. Para acceder
-a ella accede a ``Liberación - Paquetes``.  Despliega el menu de la derecha del
+a ella accede a ``Liberación - Paquetes``.  Despliega el menú de la derecha del
 paquete ``acme-migasfree-server_1.0-2_all.deb`` y pulsa en
 ``Información del paquete``.
 
-Aquí podras ver el registro de los cambios (entre otra información):
+Aquí podrás ver el registro de los cambios (entre otra información):
 
   .. code-block:: none
 
@@ -551,9 +551,8 @@ Aquí podras ver el registro de los cambios (entre otra información):
 ¿Qué equipos tienen el cambio acme-migasfree-server-1.0-2?
 ----------------------------------------------------------
 
-Ve a ``Consultas - Ordenadores con el paquete...`` (pulsando sobre el icono del
- interrogante). Escribe en el campo Paquete  ``acme-migasfree-server-1.0-2`` y obtendrás
-el resultado.
+Ve a ``Consultas - Ordenadores con el paquete...``. Escribe en el campo
+Paquete  ``acme-migasfree-server-1.0-2`` y obtendrás el resultado.
 
 
 Conclusión
@@ -599,7 +598,7 @@ Utilizar migasfree para la realizar la *Liberación* te permitirá:
 
     * Software (actual e histórico)
 
-  * Inventario de los Cambios.
+  * Inventario de los cambios.
 
   y algunas cosas más que te serán desveladas en los siguientes capítulos.
 
