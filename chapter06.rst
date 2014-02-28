@@ -253,7 +253,7 @@ Liberando el cambio de configuración
 ************************************
 
 Ahora, vas a liberar el cambio creando un nuevo Repositorio. Para ello, ve a
-`Liberación`` (pulsando sobre el icono del camión) y accede a ``Repositorios``.
+``Liberación`` (pulsando sobre el icono del camión) y accede a ``Repositorios``.
 Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
 
 * Nombre = ``PRINCIPAL``
@@ -509,7 +509,7 @@ manera centralizada desde el servidor migasfree:
 ¿Qué cambios se han producido en el ordenador ``1`` y cuándo?
 -------------------------------------------------------------
 
-Accede a ``Auditoria - Ordenadores``, accede al equipo ``1``
+Accede a ``Datos - Ordenadores``, accede al equipo ``1``
 y mira el final del campo ``historial de software`` de la sección ``Software``:
 
   .. code-block:: none
