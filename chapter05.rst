@@ -320,8 +320,7 @@ navegador web.
 
 
 
-* Accede a ``Auditoría - Ordenadores`` (pulsando en el símbolo del ojo) y
-  observa: (figura 5.4)
+* Accede a ``Datos - Ordenadores`` y observa: (figura 5.4)
 
     * Los datos del ordenador ``1`` (pulsando en el número 1)
 
