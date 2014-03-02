@@ -100,20 +100,24 @@ Campos de Paquete:
 Acciones de Paquete:
 ....................
 
-Para usar las acciones de un paquete selecciónalo, elije la acción deseada y pulsa en
-el botón ``ir``.
+A la derecha del nombre del paquete, en la lista de paquetes, hay un desplegable
+con las siguientes acciones:
 
     * ``Información del paquete``. Permite ver los metadatos del paquete.
 
-    * ``Bajar``. Permite almacenar el paquete seleccionado en tu equipo.
+    * ``Descargar``. Permite almacenar el paquete seleccionado en tu equipo.
 
-    * ``Borrar``. Permite borrar el registro del Paquete. A medida que vayas
-      haciendo cambios en el software irás teniendo distintas versiones
-      del mismo paquete. Generalmente te interesará trabajar sólo con la
-      última versión. Si quieres que sólo te aparezca ésta a la hora de
-      asignarlo a los ``Repositorios`` puedes borrar los registros de
-      ``Paquetes`` antiguos. Borrar el registro no borrará el archivo del
-      paquete en ningún caso y simplificarás la selección de paquetes.
+Si necesitas borrar uno o varios paquetes, selecciónalos y en el desplegable ``Acción``
+elige ``Eliminar Paquetes/conjuntos seleccionados`` y después pulsa en el botón
+``ir``.
+
+    * ``Eliminar Paquetes/conjuntos seleccionados``. Permite borrar el registro
+      del Paquete. A medida que vayas haciendo cambios en el software
+      irás teniendo distintas versiones del mismo paquete. Generalmente te
+      interesará trabajar sólo con la última versión. Si quieres que sólo te
+      aparezca ésta a la hora de asignarlo a los ``Repositorios`` puedes borrar
+      los registros de ``Paquetes`` antiguos. Borrar el registro no borrará el
+      archivo del paquete en ningún caso y simplificarás la selección de paquetes.
 
 Paquetes huérfanos
 ..................
@@ -121,21 +125,21 @@ Paquetes huérfanos
 Un paquete huérfano es un paquete que no está asignado a ningún Repositorio.
 Cuando un paquete es subido al servidor, o cuando lo quitas de un repositorio y
 no está en ningún otro repositorio se convierte en un paquete huérfano.
-Existe una comprobación de ``Estado`` que te alertará de cuales son estos
+Existe una comprobación de ``Alerta`` que te avisará de cuales son estos
 paquetes.
 
 
 Información de los paquetes
 ===========================
 
-Si accedes a ``Liberación-Empaquetado-Información de paquetes`` verás que te
+Si accedes a ``Liberación-Información de paquetes`` verás que te
 aparecen dos carpetas:
 
     * ``STORES``. Muestra ésta carpeta, en donde podrás navegar hasta un
       determinado paquete que hayas subido previamente.
 
     * ``REPOSITORIES`` Muestra los Repositorios físicos (en el sistema de archivos)
-      que se hayan creado, y que son los que en última instalancia verán los
+      que se hayan creado, y que son los que en última instancia verán los
       clientes. En realidad los paquetes que veas en ``REPOSITORIES`` no son
       más que enlaces simbólicos a los paquetes ubicados en ``STORES``.
 
@@ -199,7 +203,7 @@ Campos de Repositorio
         * **Paquetes**: En este campo se seleccionan los ``paquetes`` y/o
           ``conjuntos de paquetes`` que se incluirán en el repositorio.
 
-          Que un paquete este incluido en un repositorio y el repositorio
+          Que un paquete esté incluido en un repositorio y el repositorio
           accesible desde el cliente, no implica que se instale el paquete.
           Los sistemas de paquetería sólo actualizan aquellos paquetes que ya
           estuvieran instalados en el sistema.
@@ -249,7 +253,7 @@ Campos de Repositorio
 
           __ https://github.com/vitalinux/vx-repo-openshot
 
-          La razón de la existencia de este campo es que después de intalar el
+          La razón de la existencia de este campo es que después de instalar el
           repositorio externo es necesario obtener de nuevo los metadatos de
           los repositorios (apt-get update) a fin de que el cliente tenga acceso
           inmediatamente a los paquetes contenidos en el repositorio externo.
@@ -310,8 +314,8 @@ Es conveniente que en la última demora asignes, si procede, el atributo
 ``ALL-SYSTEMS``.
 
 Cuando asignas un calendario a un repositorio podrás ver la temporalización
-resultante en la columna ``línea temporal`` de
-``Liberación-Empaquetado-Repositorios``.
+resultante en la columna ``línea temporal`` de ``Liberación-Repositorios``
+(Pulsa en el desplegable que contiene el nombre del calendario).
 
 Asignar un calendario a un repositorio no es obligatorio.
 
@@ -339,7 +343,7 @@ Un determinado cliente tendrá acceso al repositorio si:
 
 Una manera en que puedes ver una estimación de la cantidad de equipos que un
 calendario va haciendo efectivos los repositorios a lo largo de los días es
-acceder a ``Auditoría-Estadísticas-Ordenadores previstos/demora``.
+acceder a ``Estadísticas-Ordenadores previstos/demora``.
 
 Campos de calendario
 ....................
