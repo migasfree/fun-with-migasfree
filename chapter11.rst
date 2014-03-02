@@ -15,21 +15,27 @@ generando a consecuencia del proceso de actualización.
 
 Ésto es lo que te vas a encontrar en este capítulo.
 
-Estado general del sistema
-==========================
+Alertas
+=======
 
 Muestra en lo debe actuar el administrador para tener un sistema lo más íntegro
-posible. Ya lo viste en apartado ``Estado`` del capítulo
+posible. Ya lo viste en apartado ``Comprobaciones`` del capítulo
 :ref:`La configuración del sistema migasfree`.
 
 Ordenadores
 ===========
 
-Accediendo a ``Auditoría-Datos-Ordenadores`` verás la lista de ordenadores que
+Accediendo a ``Datos-Ordenadores`` verás la lista de ordenadores que
 se han registrado en el servidor.
 
 Puedes acceder al ``Hardware`` de un equipo desde la última columna de la lista
 de ordenadores.
+
+Tambien puedes acceder a los datos que están relacionados con un equipo
+determinado midiante el desplegable que hay a la derecha del identificador del equipo.
+Así, fácilmente podrías ver los errores que ha habido en un equipo, su fallas,
+migraciones, actualizaciones, etc.
+
 
 Campos de Ordenador
 -------------------
@@ -70,7 +76,7 @@ Usuarios
 A medida que el cliente de migasfree va ejecutándose en los equipos el servidor
 va añadiendo los usuarios que se han autenticado en el entorno gráfico.
 
-Puedes ver la lista de usuarios en ``Auditoria-Datos-Usuarios``
+Puedes ver la lista de usuarios en ``Datos-Usuarios``
 
 
 Campos de Usuario
@@ -88,8 +94,7 @@ el servidor.
 
   .. note::
 
-    Migasfree lleva por cada equipo el **último login** de cada usuario, no
-    todos.
+    Migasfree sólo lleva por cada equipo el **último login**.
 
 Campos de Login
 ---------------
@@ -97,7 +102,8 @@ Campos de Login
     * **Fecha**: Fecha y hora de la ejecución de ``migasfree --update`` en el
       equipo
 
-    * **Usuario**: Usuario actual que está ejecutando el entorno gráfico
+    * **Usuario**: Usuario en el entorno gráfico cuando se ejecutó el cliente
+      migasfree.
 
     * **Ordenador**: El equipo al que hace referencia el login.
 
@@ -109,7 +115,7 @@ Errores
 =======
 
 Conforme se vayan produciendo errores en los clientes irán llegando al servidor
-y serán mostrados en el ``Estado del sistema``.
+y serán mostrados en ``Alertas``.
 
 Campos de error
 ---------------
@@ -118,7 +124,7 @@ Campos de error
 
     * **Fecha**: Fecha y hora en que se produjo el error.
 
-    * **Error**: Mensaje que describe el error. Mayoritariamente corresponde a
+    * **Error**: Mensaje que describe el error. Generalmente corresponde a
       la salida de error del front-end del P.M.S.
 
     * **Comprobado**: Campo que se marcará manualmente cuando se ha comprobado y
@@ -133,7 +139,7 @@ Ya viste el concepto de ``Falla`` y como se pueden programar en el capítulo
 :ref:`La configuración del sistema migasfree`, así que no me repitiré.
 
 Lo mismo que ocurre con los errores, conforme las fallas se vayan detectando en
-los clientes irán apareciendo en el ``Estado del sistema``.
+los clientes irán apareciendo en el ``Alertas``.
 
 Campos de falla
 ---------------
@@ -178,7 +184,8 @@ inequívocamente por el UUID de la placa base y además mantienen un campo
 :ref:`Ajustes del cliente migasfree`. Ahora bien, en el momento en que el
 servidor detecta que no corresponde la versión que tiene el ordenador en la
 base de datos del servidor con la que recibe del equipo, el servidor actualiza
-el registro ``Ordenador`` y además añade un registro de ``Migración``.
+el registro ``Ordenador`` y además añade un registro de ``Migración``. De esta
+manera se consigue llevar un histórico de migraciones.
 
 Campos de Migración
 -------------------
@@ -211,7 +218,7 @@ Consultas
 Aquí podrás ejecutar las ``Consultas`` disponibles.
 
 Puedes añadir nuevas consultas o modificar las predeterminadas accediendo a
-``Configuración-General-Consultas``. Una pequeña explicación de cómo se programan
+``Configuración-Consultas``. Una pequeña explicación de cómo se programan
 la puedes encontrar en el apartado ``Consultas`` de
 :ref:`La configuración del sistema migasfree`.
 
@@ -249,7 +256,7 @@ el sistema en codiciones, continuamente te llegarán errores, fallas, etc. que
 debes comprobar y atender. Esta es la misión para un usuario ``checker``.
 
 ¿Qué tareas tienes que hacer como comprobador del sistema?. Sencillo. Mantén
-el ``Estado del sistema`` en "ALL O.K.". Él te irá avisando que debes atender.
+las ``Alertas`` a 0. Él sistema te irá avisando que debes atender.
 
     * Comprueba periódicamente la existencia de ``Errores``. Soluciónalos y márcalos
       como comprobados.
