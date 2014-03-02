@@ -47,6 +47,14 @@ Este es el fichero de configuración del servidor migasfree. Hay diversas
 variables que se pueden configurar aquí para modificar el comportamiento
 de migasfree.
 
+Si necesitas cambiar la password del usuario migasfree en postgresql haz esto:
+
+  .. code-block:: none
+
+    # su postgres
+    # psql
+    # ALTER USER migasfree WITH PASSWORD 'mipassword';
+
 .. note::
 
       Para una personalización más avanzada mira los
@@ -56,7 +64,7 @@ de migasfree.
 Cambiando las contraseñas
 =========================
 
-* Accede a ``Configuracion-Usuarios-usuarios`` y verás los perfiles de
+* Accede a ``Configuracion-Usuarios`` y verás los perfiles de
   usuarios.
 
 * Edita el usuario ``admin``. Cámbiale la contraseña y guárdalo.
