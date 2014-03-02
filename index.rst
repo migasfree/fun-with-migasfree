@@ -46,6 +46,7 @@ Fun with migasfree
 
    chapter*
    bibliografia
+   glossary
    license
 
 
