@@ -135,26 +135,26 @@ Características
 * Es Software Libre licenciado bajo la GNU Public License.
 
 * Captura de datos. Almacena tanto el inventario software y hardware de
-  los equipos, permitiendo hacer consultas sobre ellos. Almacena tambien
-  información de los equipos tales como sus atributos, actualizaciones
-  realizadas, migraciones que se han realizado, etc.
+  los equipos, permitiendo hacer consultas sobre ellos. Almacena también
+  información de los equipos tales como sus atributos, actualizaciones,
+  migraciones que se han realizado, etc.
 
 * Consultas. Puedes programar consultas contra la base de datos de
   migasfree.
 
-* Gestion de errores. Los errores que se producen en los equipos son
+* Gestión de errores. Los errores que se producen en los equipos son
   enviados al servidor y almacenados permitiendo hacer su seguimiento.
 
-* Gestion de fallas. Puedes programar código que será ejecutado en los
+* Gestión de fallas. Puedes programar código que será ejecutado en los
   clientes con el fin de obtener información de los equipos.
 
-* Estado del sistema. Permite conocer en tiempo real el estado del
-  sistema facilitando al administrador su trabajo.
+* Alertas. Permite conocer en tiempo real el estado del sistema facilitando
+  al administrador su trabajo.
 
-* Estadisticas.
+* Estadísticas.
 
-Componentes empleados
-=====================
+Principales componentes empleados
+=================================
 
 * Django__ un framework de desarrollo web.
 
@@ -185,3 +185,11 @@ __ http://www.rpm.org/
 * Información Hardware: Lshw__.
 
 __ http://ezix.org/project/wiki/HardwareLiSter
+
+* Bootstrap__ un framework para desarrollo web.
+
+__ http://getbootstrap.com/
+
+* Flot__ una librería gráfica.
+
+__ http://www.flotcharts.org/
