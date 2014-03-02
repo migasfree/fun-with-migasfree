@@ -85,7 +85,7 @@ herramientas que se usan para realizar dichos cambios, etc.
 Una vez identificado el ECS se registra la petición de cambio.
 
 Las herramientas típicas para registrar y hacer el seguimiento del
-cambio son los denominados gestores de proyectos (Redmine,
+cambio son los denominados ``gestores de proyectos`` (Redmine,
 Bugzilla, Tracker, etc. )
 
 Cada petición de cambio es analizada más tarde pudiendo ser aceptada o
