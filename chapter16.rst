@@ -100,18 +100,18 @@ actualización. De esta forma se queda registrado en el servidor como ``Delayed`
 
    .. figure:: graphics/chapter16/delayed.png
       :scale: 80
-      :alt: MIGASFREE_SECONDS_MESSAGE_ALERT
+      :alt: Un equipo pasando a retrasado
 
-      figura 16.1. MIGASFREE_SECONDS_MESSAGE_ALERT
+      figura 16.1.  Un equipo pasando a retrasado.
 
 
 .. only:: latex
 
    .. figure:: graphics/chapter16/delayed.png
       :scale: 80
-      :alt: MIGASFREE_SECONDS_MESSAGE_ALERT
+      :alt:  Un equipo pasando a retrasado
 
-      MIGASFREE_SECONDS_MESSAGE_ALERT
+      Un equipo pasando a retrasado.
 
 Ejemplo:
 
@@ -162,15 +162,15 @@ MIGASFREE_REMOTE_ADMIN_LINK
 
 Valor por defecto: ''
 
-Cuando se asigna un valor a este ajuste, apacere un icono junto al enlace
-del ordenador (en las páginas web del servidor) cuyo objetivo es poder ejecutar
-algún código desde nuestro equipo. Generalmente se usa para acceder por vnc o
-ssh a los ordenadores.
+Cuando se asigna un valor a este ajuste, apaceren nuevas acciones por cada
+ordenador. El objetivo es poder ejecutar algún código desde nuestro equipo hacia
+el equipo que se quiere administrar. Generalmente se usa para acceder por vnc ó ssh
+a los ordenadores, pero puede ser utilizado con cualquier otro fin.
 
 .. only:: not latex
 
    .. figure:: graphics/chapter16/remoteadminlink.png
-      :scale: 100
+      :scale: 50
       :alt: MIGASFREE_REMOTE_ADMIN_LINK
 
       figura 16.3. MIGASFREE_REMOTE_ADMIN_LINK
@@ -179,7 +179,7 @@ ssh a los ordenadores.
 .. only:: latex
 
    .. figure:: graphics/chapter16/remoteadminlink.png
-      :scale: 80
+      :scale: 100
       :alt: MIGASFREE_REMOTE_ADMIN_LINK
 
       MIGASFREE_REMOTE_ADMIN_LINK
@@ -207,7 +207,7 @@ Pueden usarse varios protocolos separados por un espacio en blanco:
 
   .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = "vnc://{{computer.ip}} ping://{{computer.ip}} ssh://root@{{computer.ip}}"
+    MIGASFREE_REMOTE_ADMIN_LINK = "vnc://{{computer.ip}} checkping://{{computer.ip}} ssh://root@{{computer.ip}}"
 
 Evidentemente el navegador con el que se accede a la web del servidor debe saber
 como interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres
