@@ -51,7 +51,7 @@ los clientes migasfree y su valores de retorno serán devueltos al servidor como
       al ser ejecutada en un equipo.
 
 Veamos un ejemplo sencillo de todo esto con la propiedad HOSTNAME. Accede a
-la web de tu servidor migasfree y ve a ``Configuracion-General-Propiedades-HST``.
+la web de tu servidor migasfree y ve a ``Configuración-Propiedades-HST``.
 Verás en este registro el siguiente código escrito en python.
 
   .. code-block:: none
@@ -81,8 +81,8 @@ como atributo ``HST-white``.
 
 Podrías haber escrito la propiedad tambien en código ``bash`` simplemente
 llamando al comando de linux ``hostname`` o escribiendo ``echo $HOSTNAME`` (el
-resultado sería el mismo), pero utilizar código python nos permite usar la misma
-``propiedad`` también para plataformas Windows ó MAC.
+resultado sería el mismo), pero utilizar código python nos permite, en este caso,
+usar la misma ``propiedad`` también para plataformas Windows ó MAC.
 
 
 Campos de la Propiedad.
@@ -151,7 +151,7 @@ Observa cada uno de los campos de la Propiedad:
   automáticamente a la base de datos de migasfree. En caso contrario es el
   administrador de migasfree el responsable de añadir manualmente los atributos
   para esta propiedad. Se pueden añadir atributos manualmente accediendo a
-  ``Auditoría-Datos-Atributos``.
+  ``Datos-Atributos``.
 
 * **Etiqueta**: Hasta ahora has visto que una propiedad es un código que se
   ejecuta en el cliente para obtener un atributo automáticamente. Ahora bien,
@@ -173,11 +173,11 @@ Observa cada uno de los campos de la Propiedad:
 
   La creación de etiquetas requiere que se defina primero una propiedad con el
   campo etiqueta marcado. A continuación se añaden los atributos (etiquetas)
-  manualmente desde ``Auditoria-Datos-Atributos`` asignando a cada atributo dicha
+  manualmente desde ``Datos-Atributos`` asignando a cada atributo dicha
   propiedad.
 
   Una vez añadidos estos atributos ya pueden ser asignados en
-  ``Auditoria-Datos-Ordenadores`` en el campo ``etiquetas`` de cada ordenador.
+  ``Datos-Ordenadores`` en el campo ``etiquetas`` de cada ordenador.
 
   Existe en el cliente el comando ``migasfree-tags`` que permite consultar y
   asignar etiquetas desde el propio cliente.
@@ -262,7 +262,7 @@ Cambios de versión en un ordenador crean en el sistema un registro de
 ``migración`` automáticamente. De esta manera es posible conocer las diferentes
 migraciones de S.O. que se han ido produciendo en los equipos y en qué momento se
 han hecho efectivas. Puedes consultar las migraciones accediendo a
-``Auditoría-Datos-Migraciones``.
+``Datos-Migraciones``.
 
 Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
 registrar automáticamente las versiones. Puedes consultarlo en
@@ -319,77 +319,6 @@ Mediante el ajuste ``MIGASFREE_AUTOREGISTER`` se permite, o no, a los equipos
 registrar automáticamente las plataformas. Puedes consultarlo en
 :ref:`Ajustes del servidor migasfree`.
 
-Consultas
-=========
-
-Migasfree incorpora un sistema para crear consultas parametrizables sencillas.
-
-Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
-``Auditoria-Consultas``
-
-Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
-las que ya existen.
-
-Campos de consulta
-------------------
-
-    * **Nombre**: Denomina la consulta.
-
-    * **Descripción**: Describe la consulta.
-
-    * **Código**: Instrucción en Django de la consulta. Mediante la asignación
-      de una variables predeterminadas el servidor podrá crear la consulta.
-
-      Las variables en concreto son:
-
-        * **QuerySet**: Conjunto de registros de la consulta.
-
-        * **fields**: Lista de los campos del QuerySet que se quieren mostrar.
-
-        * **titles**: Lista de los titulos de los campos que se quieren mostrar.
-
-        * **version**: Sirve para obtener la version del usuario y poder hacer
-          filtros cuando se requiera.
-
-    * **Parámetros**: Permite la petición de parámetros de consulta. Se debe
-      crear una función que se llame ``form_params`` y que devuelva una clase
-      que herede de ``ParametersForm``
-
-En fin, creo que lo mejor es que veas un ejemplo para comprender la programación de
-consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
-
-    **Parametros**: Aquí se programa un formulario de parametros que pedirá
-    el paŕametro ``id``.
-
-    .. code-block:: none
-
-      def form_params():
-          from migasfree.server.forms import ParametersForm
-          class myForm(ParametersForm):
-              id = forms.CharField()
-          return myForm
-
-    **Código**: Programamos que si el parámetro ``id`` que ha introducido el usuario
-    es una cadena vacía, la variable query sea igual a todos los regitros de
-    la tabla ``Consulta``.
-    En caso de que el usuario introduzca un valor filtramos las ``Consultas``
-    por ``parameters['id']``.
-
-    .. code-block:: none
-
-      if parameters['id'] == '':
-          query = Query.objects.all()
-      else:
-          query = Query.objects.filter(id=parameters['id'])
-      fields = ('id', 'name', 'description', 'code', 'parameters')
-
-  .. note::
-
-     Para realizar consultas necesitarás conocer un poco los `QuerySet`__ de
-     Django y la ``Documentación del modelo de datos``. Está última la tienes
-     disponible al final de todas las páginas del servidor.
-
-__ https://docs.djangoproject.com/en/dev/ref/models/querysets/
 
 Usuarios Migasfree
 ==================
@@ -487,9 +416,9 @@ Usuarios
 Estos usuarios tienen por defecto como contaseña su nombre, es decir, la
 contraseña de admin es admin, y lo mismo es aplicable al resto de usuarios.
 
-Estos usuarios, son ficticios para realizar pruebas y conviene que
+Estos usuarios son ficticios para realizar pruebas y conviene que
 sean eliminados. Se recomienda crear los usuarios reales que usarán la web del
-servidor migasfree asignandoles los grupos de usuarios correspondientes.
+servidor migasfree asignándoles los grupos de usuarios correspondientes.
 
   .. note::
 
@@ -513,56 +442,42 @@ Los usuarios tienen un campo ``version`` que sirve para filtrar registros. De
 esta manera cuando un usuario consulta los Repositorios p.e., solo se muestran
 los repositorios de la versión que tiene asignada.
 
-Para cambiar la ``version`` de un usuario accede a ``Liberación-Escoger version``.
+Un usuario puede seleccionar su versíon mediante el desplegable que aparece a la
+izquierda de `Alertas``.
 
-Estado
-======
+Comprobaciones
+==============
 
-El estado del sistema se muestra por defecto después de autenticarse en la
-web del servidor migasfree, accediendo a ``Auditoría-Datos-Estado`` o bien
-pulsando en el nombre de tu organización (arriba a la izquierda en todas las
-páginas)
-
-El estado proporciona al usuario una vista general de la situación actual del
-sistema, dirigiendo su actuación a lo relevante.
-
-El objetivo en todo momento debería ser mantener el estado en "Todo O.K.".
-Esto indicaría que se han revisado los errores, se han comprobado las fallas,
-no hay paquetes huérfanos, etc.
-
-El estado es el conjunto de comprobaciones que se realizan en el sistema para
-alertar al usuario. Pulsando en cada una de las comprobaciones puedes
-obtener más información. ver figura 8.1.
+Son un conjunto de comprobaciones que se realizan para alertar al usuario.
+Pulsando en cada una de las ``Alertas`` puedes obtener más información. ver figura 8.1.
 
 .. only:: not latex
 
    .. figure:: graphics/chapter08/estado.png
       :scale: 100
-      :alt: Estado del sistema.
+      :alt: Alertas del sistema.
 
-      figura 8.1. Estado del sistema.
+      figura 8.1. Alertas del sistema.
 
 
 .. only:: latex
 
    .. figure:: graphics/chapter08/estado.png
       :scale: 50
-      :alt: Estado del sistema..
+      :alt: Alertas del sistema..
 
-      Estado del sistema.
+      Alertas del sistema.
 
-Comprobaciones
---------------
-
-Cada comprobación que se realiza para obtener el estado del sistema se
-programa como un registro de ``Comprobación``. Hay 8 comprobaciones
-predeterminadas:
+Cada ``Alerta`` viene programada en un registro de ``Comprobación``. Hay 8
+comprobaciones predeterminadas:
 
     * ``Errors to check``. Cuando en un cliente migasfree se produce algún error,
       éste es enviado al servidor. Esta comprobación hace que se muestren estos
-      errores. Una vez revisado o solucionado un error en el cliente debes
-      marcalo como ``checking ok`` para que no aparezca como pendiente de
-      comprobar.
+      errores. Una vez revisado o solucionado un error en el cliente debes editar
+      el error en el servidor y marcar el campo ``comprobado``. Esto hará que
+      ya no aparezca en la lista de errores a comprobar. Puedes también
+      seleccionar un conjunto de errores en la lista de errores y en el desplegable
+      de ``acción`` seleccionar ``La comprobación es correcta``.
 
     * ``Faults to check``. Cuando en un cliente migasfree se produce una
       falla ésta es enviada al servidor. Esta comprobación hace que se muestren
@@ -610,18 +525,20 @@ Campos de Comprobación
       en este campo.
 
           ``result``. Debe ser un numero. Un valor de 0 indica que no hay nada
-          que mostrar en el estado.
+          que mostrar en la alerta.
 
-          ``icon``. nombre del icono a mostrar localizado en /repo/icons. El
-          valor por defecto es ``information.png``
+          ``alert``. Es el tipo de alerta. Puede ser uno de estos tres valores:
+          'info', 'warning' ó 'danger'. Se representan con los colores azul, naranja o rojo.
+          El valor por defecto es 'info'.
 
           ``url``. Es el link al que accederá el usuario cuando pulse en la
-          comprobación del estado.
+          alerta.
 
-          ``msg``. Es el texto a mostrar en la comprobación del estado.
+          ``msg``. Es el texto a mostrar en la alerta.
 
           ``target``. Puede ser "computer" o "server" para indicar que la
           comprobación está relacionada con el equipo cliente o con el servidor.
+          Se representa con el icono de un ordenador o con el de una nube.
 
       Mira éste codigo de ejemplo, el de ``Errors to check``:
 
@@ -653,8 +570,16 @@ Campos de Comprobación
       (``Computer delayed``)
 
 
+Las ``alertas`` proporcionan al usuario una vista general de la situación actual del
+sistema, dirigiendo su actuación a lo relevante.
+
+El objetivo en todo momento debería ser mantener el sistema con 0 alertas. Esto
+indicaría que se han revisado los errores, se han comprobado las fallas,
+no hay paquetes huérfanos, etc.
+
+
 Fallas
-------
+======
 
 Una falla es un hecho negativo que se produce en un equipo cliente. Por
 ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
@@ -666,8 +591,8 @@ muy proactivo.
 
 En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
 escribe algo por la salida estandar ésta será enviada al servidor como ``Falla``.
-El servidor entonces añadirá un registro de ``Falla`` para que aparezca en el
-``Estado del sistema`` y así alertar a los usuarios de migasfree.
+El servidor entonces añadirá un registro de ``Falla`` apareciendo en las
+``Alertas`` de los usuarios de migasfree.
 
 Campos de Definición de Falla
 .............................
@@ -684,7 +609,7 @@ Campos de Definición de Falla
 
     * **Código**: Instrucciones que detectan alguna falla en los equipos y que
       debe poner en la salida estandar un texto que indique la falla producida.
-      Puede serte útil en algunos casos poner tambien el procedimiento a seguir.
+      Puede serte útil en algunos casos poner también el procedimiento a seguir.
 
     * **Atributtes**: Permite asignar a que equipos cliente será efectiva
       la falla. Por ejemplo si escribes el código en bash deberías asignar la
@@ -694,9 +619,8 @@ Campos de Definición de Falla
       información de un equipo o de un grupo de equipos.
 
     * **Users**: Sirve para asignar usuarios de migasfree a los que les
-      aparecerán las fallas de este tipo cuando se accede desde el
-      ``Estado del sistema`` (Sólo se muestran las que están pendientes de
-      comprobar por el usuario autenticado).
+      aparecerán las fallas de este tipo cuando se accede desde las ``Alertas``
+       (Sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
 
       Si una definición de falla no tiene asignado ningún usuario, las fallas
       que se produzcan aparecerán a cualquier usuario autenticado.
@@ -706,3 +630,76 @@ Campos de Definición de Falla
       Poder ejecutar código en los clientes proporciona una gran potencia para
       realizar cualquier cosa. Usa esta capacidad con responsabilidad y sé
       meticuloso en las comprobaciones antes de activar cualquier falla.
+
+Consultas
+=========
+
+Migasfree incorpora un sistema para crear consultas parametrizables sencillas.
+
+Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
+``Consultas``
+
+Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
+las que ya existen.
+
+Campos de consulta
+------------------
+
+    * **Nombre**: Denomina la consulta.
+
+    * **Descripción**: Describe la consulta.
+
+    * **Código**: Instrucción en Django de la consulta. Mediante la asignación
+      de una variables predeterminadas el servidor podrá crear la consulta.
+
+      Las variables en concreto son:
+
+        * **QuerySet**: Conjunto de registros de la consulta.
+
+        * **fields**: Lista de los campos del QuerySet que se quieren mostrar.
+
+        * **titles**: Lista de los titulos de los campos que se quieren mostrar.
+
+        * **version**: Sirve para obtener la version del usuario y poder hacer
+          filtros cuando se requiera.
+
+    * **Parámetros**: Permite la petición de parámetros de consulta. Se debe
+      crear una función que se llame ``form_params`` y que devuelva una clase
+      que herede de ``ParametersForm``
+
+En fin, creo que lo mejor es que veas un ejemplo para comprender la programación de
+consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
+
+    **Parametros**: Aquí se programa un formulario de parametros que pedirá
+    el paŕametro ``id``.
+
+    .. code-block:: none
+
+      def form_params():
+          from migasfree.server.forms import ParametersForm
+          class myForm(ParametersForm):
+              id = forms.CharField()
+          return myForm
+
+    **Código**: Programamos que si el parámetro ``id`` que ha introducido el usuario
+    es una cadena vacía, la variable query sea igual a todos los regitros de
+    la tabla ``Consulta``.
+    En caso de que el usuario introduzca un valor filtramos las ``Consultas``
+    por ``parameters['id']``.
+
+    .. code-block:: none
+
+      if parameters['id'] == '':
+          query = Query.objects.all()
+      else:
+          query = Query.objects.filter(id=parameters['id'])
+      fields = ('id', 'name', 'description', 'code', 'parameters')
+
+  .. note::
+
+     Para realizar consultas necesitarás conocer un poco los `QuerySet`__ de
+     Django y la ``Documentación del modelo de datos``. Está última la tienes
+     disponible al final de todas las páginas del servidor pulsando sobre el
+     icono de información .
+
+__ https://docs.djangoproject.com/en/dev/ref/models/querysets/
