@@ -13,21 +13,50 @@ Configurando migasfree-client
 En el capítulo anterior nos hemos centrado en cómo se realiza el proceso
 de la GCS.
 
-En este capítulo vas a configurar el cliente de migasfree para que se
-conecten contra la maquina virtual debian 7 en el que ya tienes un servidor
+En este capítulo vas a *configurar el cliente de migasfree* (mediante empaquetado)
+para que se conecte contra la maquina virtual debian 7 en el que ya tienes un servidor
 migasfree instalado.
 
-Todos los comandos de este capítulo lo vas a ejecutar en otra máquina virtual
+Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual
 (ubuntu 12.04) que debes tener en la misma red en la que esté la maquina
 virtual del servidor.
 
 El objetivo de este capítulo es que conozcas un poco más el empaquetado.
 
+Instalando migasfree-client en Ubuntu 12.04
+===========================================
+
+Para añadir el repositorio que contiene el cliente migasfree para ubuntu 12.04,
+crea el fichero /etc/apt/sources.list.d/migasfree.list con el siguiente contenido:
+
+  .. code-block:: none
+
+    deb http://migasfree.org/repo ubuntu-12.04 PKGS
+
+Ahora instala el cliente migasfree:
+
+  .. code-block:: none
+
+     # apt-get update
+     # apt-get install migasfree-client
+
+Observa como en el fichero /etc/migasfree.conf que ha instalado el paquete
+``migasfree-client`` no hay, lógicamente, ningún ajuste configurado.
+
+  .. code-block:: none
+
+    less /etc/migasfree.conf
+
+A continuación, vamos a configurar este fichero haciendo uso del empaquetado,
+así que no lo hagas manualmente.
+
+
 Obteniendo acme-migasfree-client
 ================================
 
 Al igual que hiciste con la configuración del servidor puedes bajarte
-el fuente del paquete que vamos a utilizar de plantilla.
+el fuente del paquete que vamos a utilizar de plantilla para configurar el
+cliente de migasfree.
 
 En la nueva máquina virtual con ubuntu 12.04 ejecuta:
 
@@ -113,26 +142,59 @@ queramos modificar un ajuste del cliente migasfree en ``/etc/migasfree.conf``
 lo haremos a través del fichero ``usr/share/divert/etc/migasfree.conf``
 del paquete ``tuempresa-migasfree-client``.
 
-Fíjate tambien en que en ``prerm`` deshacemos esta desviación, para que
+Fíjate tambien que en ``prerm`` deshacemos esta desviación, para que
 si desinstalamos el paquete quede todo como estaba.
 
-Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf`` para que
-servidor apunte al servidor migasfree debian 7. El resto de ajuste
-modifícalos según tus intereses. Una vez hecho esto y situado en el
-directorio ``tuempresa-migasfree-client`` genera el paquete.
+Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf``. Tendŕas que
+poner el ajuste ``Server`` con el nombre, o la ip, del servidor migasfree que
+hemos utilizado anteriormente, y el ajuste ``Version`` con el nombre de tu
+distribución, por ejemplo ``ACME-1``. El resto de ajustes modifícalos según tus
+intereses. Una vez hecho esto, y situado en el directorio
+``tuempresa-migasfree-client``, genera el paquete (debes tener el
+paquete ``devscripts`` y ``debhelper`` previamente instalados).
 
   .. code-block:: none
 
     $ /usr/bin/debuild --no-tgz-check -us -uc
 
 Con esto tendrás un paquete que configura el cliente migasfree para tu
-organización. Ahora es momento de instalarlo y de subirlo al servidor
-migasfree.
+organización. Ahora es momento de instalarlo
+  .. code-block:: none
+
+    # dpkg -i tuempresa-migasfree-client_1.0-1_all.deb
+
+Observa que al instalar el paquete, dpkg te informa que se añade la desviación
+de /etc/migasfree.conf. Comprueba ahora que el ajuste ``Server`` y ``Version``
+son los correctos.
 
   .. code-block:: none
 
-    $ dpkg -i tuempresa-migasfree-client_1.0-1_all.deb
-    $ migasfree-upload -f tuempresa-migasfree-client_1.0-1_all.deb
+    # less /etc/migasfree.conf
+
+
+Ahora ya estas preparado para registrar este ordenador en el servidor migasfree.
+
+  .. code-block:: none
+
+    # migasfree -u
+
+Comprueba que en el servidor se ha creado la version ``ACME-1`` y que
+existe un nuevo ordenador accediendo a la página web del servidor.
+
+Finalmente subimos el paquete a nuestro servidor migasfree con el fin de tenerlo
+disponible para su liberación a otros escritorios ``ACME-1``.
+
+  .. code-block:: none
+
+    # migasfree-upload -f tuempresa-migasfree-client_1.0-1_all.deb
+
+* Introduce usuario: admin
+
+* Contraseña: admin
+
+* Version: ACME-1
+
+* Ubicacion: acme
 
 
 Ejecución del cliente migasfree
@@ -253,6 +315,6 @@ __ http://clonezilla.org/
   a tus necesidades. En éste método son los usuarios quienes se
   bajan la iso del DVD y se instalan ellos mismos el sistema.
 
-__ http://vitalinux.unizar.es
+__ http://vitalinux.org
 __ https://github.com/vitalinux/vx-create-iso
 
