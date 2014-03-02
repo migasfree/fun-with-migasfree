@@ -61,6 +61,10 @@ Este software se ha hecho indispensable en nuestro día a día,
 y creo que es una buena solución para personalizar y administrar
 escritorios de forma eficaz.
 
+Este libro te introducirá en el uso de migasfree y lo escribo a medida
+que mejoramos el software, con lo que si te lo descargaste hace tiempo
+quizás ya esté obsoleto, tenlo en cuenta.
+
 Estructura
 ==========
 
@@ -127,7 +131,7 @@ haciendo visible este proyecto en internet. También aportó la primera y
 perdida, no se lo tuve en cuenta y fue muy bien recibida).
 
 A Jose Antonio Chavarría, compañero de fatigas (y alegrías), también
-me siento agradecido. Ha sido y es pieza angular en migasfree. Ha
+me siento agradecido. Ha sido y es piedra angular en migasfree. Ha
 mejorado sustancialmente el proyecto reescribiendo el código spaguetti a
 buen código [#f2]_, aportando ideas y soluciones. Me tranquiliza cuando
 quiero correr en exceso, y es el guardián de la simplicidad de migasfree.
