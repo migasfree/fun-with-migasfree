@@ -246,8 +246,18 @@ Accede mediante navegador web a tu servidor. Observa que en
 
       Paquetes huérfanos.
 
-Todos los paquetes que se han subido al servidor y todavía no los has
-puesto en ningún repositorio se denominan ``huérfanos``.
+   .. note::
+
+      Todos los paquetes que se han subido al servidor y no están asignados en
+      ningún repositorio se denominan ``huérfanos``.
+
+   .. note::
+
+      Observa tambien que a la izquierda de las ``Alertas`` aparece un desplegable
+      con las versiones que existen en el servidor. Esto permitirá al usuario que se
+      ha autenticado en el servidor migasfree ver los datos relativos a dicha versión.
+      Selecciona, por tanto, la version ``debian-7.x``
+
 
 Liberando el cambio de configuración
 ************************************
