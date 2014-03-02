@@ -8,7 +8,7 @@ Probando migasfree
 
    -- Isaac Newton.
 
-Hay multiples combinaciones de Distribuciones, base de datos y servidores
+Hay múltiples combinaciones de Distribuciones, base de datos y servidores
 web que se pueden elegir a la hora de instalar un servidor migasfree.
 
 En este capítulo voy a explicarte como instalarlo sobre
