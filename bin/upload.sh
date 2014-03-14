@@ -17,5 +17,6 @@ ftp -inv migasfree.org<<FINFTP
        mput *.html
        mput *.js
        mput _images/*
+       mput _sources/*
        bye
 FINFTP
