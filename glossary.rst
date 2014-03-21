@@ -25,6 +25,8 @@ para que los clientes del ECS puedan acceder a él e instalarlo.
 **Paquete**. Contenedor que encapsula un conjunto de ECS liberados junto a sus
 metadatos.
 
+**Paquete huérfano**. Paquete que no está en ningún repositorio.
+
 **PMS**. Package Management System - Gestor de paquetes.  Programa que permite
 aplicar en un equipo, los cambios que han sido liberados en los repositorios.
 
