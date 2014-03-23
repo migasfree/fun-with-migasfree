@@ -221,3 +221,39 @@ requisitos necesarios que garantizan la integridad frente a los cambios:
       del backend no es actualizada con este procedimiento. Todo lo que
       no sea instalar programas mediante el gestor de paquetes o el
       backend rompe la integridad.
+
+A continuación se muestra una tabla con las operaciones más comunes que puedes
+emplear sobre algunos de los gestores de paquetes más conocidos:
+
++------------------------------------------+------------------------+-------------------+----------------------+
+| Operaciones Gestores                     | apt                    | yum               | zypper               |
++==========================================+========================+===================+======================+
+|Actualizar listado de paquetes disponibles| apt-get update         | yum check-update  | zypper refresh       |
++------------------------------------------+------------------------+-------------------+----------------------+
+|Actualizar sistema                        | apt-get upgrade        | yum update        | zypper update        |
++------------------------------------------+------------------------+-------------------+----------------------+
+|Instalar paquete                          | apt-get install <pkg>  | yum install <pkg> | zypper install <pkg> |
++------------------------------------------+------------------------+-------------------+----------------------+
+|Borrar paquete                            | apt-get remove <pkg>   | yum erase <pkg>   | zypper remove <pkg>  |
++------------------------------------------+------------------------+-------------------+----------------------+
+|Buscar paquete                            | apt-cache search <pkg> | yum list <pkg>    | zypper search <pkg>  |
++------------------------------------------+------------------------+-------------------+----------------------+
+
+Veamos ahora las operaciones más comunes que puedes emplear sobre los backends
+dpkg y rpm:
+
++--------------------------------------+---------------------+----------------------+
+| Operaciones Backends                 | dpkg                | rpm                  |
++======================================+=====================+======================+
+|Instalar fichero de paquete           | dpkg -i <file .deb> | rpm -ivh <file .rpm> |
++--------------------------------------+---------------------+----------------------+
+|Borrar paquete                        | dpkg -r <pkg>       | rpm -e <pkg>         |
++--------------------------------------+---------------------+----------------------+
+|Paquete que instala el fichero <file> | dpkg -S <file>      | rpm -qf <file>       |
++--------------------------------------+---------------------+----------------------+
+|Ficheros del paquete                  | dpkg -L <pkg>       | rpm -ql <pkg>        |
++--------------------------------------+---------------------+----------------------+
+|Descripción del paquete               | dpkg -s <pkg>       | rpm -qi <pkg>        |
++--------------------------------------+---------------------+----------------------+
+|Paquetes instalados                   | dpkg -l             | rpm -qa              |
++--------------------------------------+---------------------+----------------------+
