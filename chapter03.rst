@@ -85,9 +85,79 @@ __ http://www.puppetlabs.com/
 __ http://cfengine.com/
 __ http://ansible.cc/
 
-Un ejemplo de funcionamiento típico de un Gestor de Sistemas usa un
-lenguaje que especificaría a qué estado se quiere llevar a los equipos, no
-cómo llegar a ese estado, en nuestro caso sería algo parecido a esto:
+Los Gestores de Sistemas están muy influenciados por las iniciativas realizadas
+en los sistemas de gestión de redes de telecomunicaciones, pudiendo realizar
+una o un conjunto de las siguientes tareas:
+
+- Inventario Hardware.
+- Monitoreado de disponibilidad de Servidores y mediciones.
+- Inventario Software e instalación de Software.
+- Gestión de Antivirus y anti-malware.
+- Monitoreado de las actividades de los usuarios.
+- Monitoreado de la capacidad de los sistemas.
+- Gestíon de Seguridad.
+- Gestión de almacenamiento.
+- Monitoreado de la utilización y capacidades de la Red.
+
+Éstas tareas podemos clasificarlas de acuerdo a FCAPS,  un modelo y marco de
+trabajo de red de la gestión de telecomunicaciones de ISO para la gestión de
+redes. FCAPS es un acrónimo de Fault, Configuration, Accounting, Performance,
+Security (Falla, Configuración, Contabilidad, Desempeño, Seguridad) que son las
+categorías en las cuales el modelo ISO define las tareas de gestión de redes.
+
+    **Fault** (Fallas): Es un evento que tiene un significado negativo. Su objetivo es
+    reconocer, aislar , corregir y registrar fallos. Puede utilizar análisis de
+    tendencias  para predecir errores. Cuando se detecta un fallo o evento se envía
+    una notificación.
+
+    **Configuration** (Configuración): En el proceso de gestión de la configuración,
+    las operaciones diarias son monitoreadas y controladas.
+
+    Los objetivos de la gestión de la configuración son:
+
+        * Recolectar información.
+        * Modificar la configuración.
+        * Generación de reportes
+        * Gestión de cambios.
+
+    Los cambios de Hardware y Software son controlados por este proceso:
+
+        * Actualización, Instalación y eliminación de programas.
+        * Actualización, Instalación y eliminación de equipamiento (impresoras, scaners,
+    memoria, etc.)
+
+    Este proceso debe tener en cuenta:
+
+        * Permitir acceso rápido a la información de la configuración.
+        * Facilitar la configuración remota de los dispositivos.
+        * Proporcionar un inventario actualizado de Software y Hardware.
+        * Simplificación de la configuración de dispositivos.
+        * El seguimiento de cambios a la configuración.
+
+    **Accounting** (Contabilidad): Su objetivo es reunir las estadísticas de los
+    usuarios.
+
+    **Performance** (Desempeño). Recolentando y analizando los datos de rendimiento
+    el estado general de los sistemas pueden ser monitorizado. Las tendencias
+    pueden avisar de fallos de capacidad o de cuestiones relacionadas con la
+    fiabilidad de los sistemas antes de que en estos ocurran. Umbrales de
+    rendimiento pueden ser establecidos para lanzar alarmas que serían controlada
+    por la gestión de fallos habitual. Las alarmas se pueden clasificar atendiendo
+    al grado de severidad.
+
+    **Security** (Seguridad).  Se encarga de controlar el acceso a recursos de red.
+    La seguridad de los datos puede ser conseguida con la autenticación, cifrado y
+    permisos principalmente.
+
+   .. note::
+
+      Migasfreee atendiendo a FCAPS tiene capacidades de Faults, Configuration
+      y Accounting.
+
+Un ejemplo de funcionamiento típico de un Gestor de Sistemas que incorpore tareas
+de *Configuration* usaría un lenguaje que especificaría a qué estado se quiere
+llevar a los equipos, no cómo llegar a ese estado, en nuestro caso sería algo
+parecido a esto:
 
 * asegúrate de que el paquete ntp-client está desinstalado
 
@@ -102,10 +172,9 @@ de Sistemas instalado en el cliente.
 
 Este sistema permite automatizar aquellas tareas que realizan a menudo
 los administradores de sistemas, y aunque algunos Gestores de Sistemas
-se las ingenian para llevar un control de versiones,
-mantienen una base de datos independiente a la de los backends de los
-gestores de paquetes, dejando en entredicho todo lo relativo a la
-integridad de los sistemas.
+se las ingenian para llevar un control de versiones, mantienen una base de datos
+independiente a la de los backends de los gestores de paquetes, dejando en
+entredicho todo lo relativo a la integridad de los sistemas.
 
 Empaquetando la personalización
 -------------------------------
