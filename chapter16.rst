@@ -84,6 +84,21 @@ Ejemplo:
 
     MIGASFREE_TMP_DIR = "/tmp/server"
 
+MIGASFREE_REPO_DIR
+------------------
+
+Valor por defecto: '/var/migasfree/repo'
+
+Directorio dónde se guardarán los paquetes y repositorios de cada una de las
+versiones
+
+Ejemplo:
+
+  .. code-block:: none
+
+    MIGASFREE_REPO_DIR = "/var/repositories"
+
+
 MIGASFREE_SECONDS_MESSAGE_ALERT
 -------------------------------
 
