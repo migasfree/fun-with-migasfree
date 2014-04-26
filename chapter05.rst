@@ -88,11 +88,17 @@ Instalación del paquete migasfree-server
 
 Para añadir el repositorio que contiene los paquetes necesarios para
 debian 7, crea el fichero ``/etc/apt/sources.list.d/migasfree.list``
-con el siguiente contenido:
+con el siguiente contenido si estás en un debian i386:
 
   .. code-block:: none
 
     deb http://migasfree.org/repo debian7 PKGS
+
+Si tu arquitectura debian es amd64 tendrás que poner:
+
+  .. code-block:: none
+
+    deb http://migasfree.org/repo debian7-amd64 PKGS
 
 Actualiza las listas de paquetes e instala el paquete migasfree-server:
 
