@@ -225,19 +225,21 @@ requisitos necesarios que garantizan la integridad frente a los cambios:
 A continuación se muestra una tabla con las operaciones más comunes que puedes
 emplear sobre algunos de los gestores de paquetes más conocidos:
 
-+------------------------------------------+------------------------+-------------------+----------------------+
-| Operaciones Gestores                     | apt                    | yum               | zypper               |
-+==========================================+========================+===================+======================+
-|Actualizar listado de paquetes disponibles| apt-get update         | yum check-update  | zypper refresh       |
-+------------------------------------------+------------------------+-------------------+----------------------+
-|Actualizar sistema                        | apt-get upgrade        | yum update        | zypper update        |
-+------------------------------------------+------------------------+-------------------+----------------------+
-|Instalar paquete                          | apt-get install <pkg>  | yum install <pkg> | zypper install <pkg> |
-+------------------------------------------+------------------------+-------------------+----------------------+
-|Borrar paquete                            | apt-get remove <pkg>   | yum erase <pkg>   | zypper remove <pkg>  |
-+------------------------------------------+------------------------+-------------------+----------------------+
-|Buscar paquete                            | apt-cache search <pkg> | yum list <pkg>    | zypper search <pkg>  |
-+------------------------------------------+------------------------+-------------------+----------------------+
++------------------------------------------+-------------------------+------------------------+----------------------------+
+| Operaciones Gestores                     | apt                     | yum                    | zypper                     |
++==========================================+=========================+========================+============================+
+|Actualizar listado de paquetes disponibles| apt-get update          | yum check-update       | zypper refresh             |
++------------------------------------------+-------------------------+------------------------+----------------------------+
+|Actualizar sistema                        | apt-get upgrade         | yum update             | zypper update              |
++------------------------------------------+-------------------------+------------------------+----------------------------+
+|Instalar paquete                          | apt-get install <pkg>   | yum install <pkg>      | zypper install <pkg>       |
++------------------------------------------+-------------------------+------------------------+----------------------------+
+|Borrar paquete                            | apt-get remove <pkg>    | yum erase <pkg>        | zypper remove <pkg>        |
++------------------------------------------+-------------------------+------------------------+----------------------------+
+|Buscar paquete                            | apt-cache search <pkg>  | yum list <pkg>         | zypper search <pkg>        |
++------------------------------------------+-------------------------+------------------------+----------------------------+
+|Buscar repositorio de un paquete          | apt-cache madison <pkg> | yum whatprovides <pkg> | zypper what-provides <pkg> |
++------------------------------------------+-------------------------+------------------------+----------------------------+
 
 Veamos ahora las operaciones más comunes que puedes emplear sobre los backends
 dpkg y rpm:
