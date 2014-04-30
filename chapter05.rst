@@ -62,9 +62,13 @@ password, añadiendo la siguiente línea a
 
   .. code-block:: none
 
-    # TYPE  DATABASE        USER            ADDRESS       METHOD
     local   all             migasfree                     password
 
+  .. note::
+
+      Esta línea debe ir a continuación de:
+
+      # TYPE  DATABASE        USER            ADDRESS       METHOD
 
 Reinicia el servicio ``postgresql``:
 
