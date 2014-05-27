@@ -153,7 +153,10 @@ Observa cada uno de los campos de la Propiedad:
   para esta propiedad. Se pueden añadir atributos manualmente accediendo a
   ``Datos-Atributos``.
 
-* **Etiqueta**: Hasta ahora has visto que una propiedad es un código que se
+Etiquetas
+=========
+
+  Hasta ahora has visto que una propiedad es un código que se
   ejecuta en el cliente para obtener un atributo automáticamente. Ahora bien,
   pueden existir casos en que no se puede obtener automáticamente estos
   atributos. Imagina que quieres "etiquetar" ciertos equipos según la
@@ -164,19 +167,27 @@ Observa cada uno de los campos de la Propiedad:
   manualmente a los equipos tal y como harías con una etiqueta física que pegas
   a un ordenador.
 
-  Una propiedad de tipo etiqueta no ejecutará ningún código en el
-  cliente. Es el propio registro del ordenador en el servidor de migasfree
-  quien lleva asignada manualmente estas etiquetas. A todos los efectos
-  una etiqueta es un atributo más del sistema y por tanto te permitirá hacer
-  el despliegue tambien en función de ellas.
+  Una etiqueta no ejecutará ningún código en el cliente. Es el propio registro
+  del ordenador en el servidor de migasfree quien lleva asignada manualmente
+  estas etiquetas. A todos los efectos una etiqueta es un atributo más del
+  sistema y por tanto te permitirá hacer el despliegue tambien en función de
+  ellas.
 
 
-  La creación de etiquetas requiere que se defina primero una propiedad con el
-  campo etiqueta marcado. A continuación se añaden los atributos (etiquetas)
-  manualmente desde ``Datos-Atributos`` asignando a cada atributo dicha
-  propiedad.
+Campos de Etiqueta.
+-------------------
 
-  Una vez añadidos estos atributos ya pueden ser asignados en
+* **Prefijo**: Es una combinación de tres números o letras. Este prefijo se
+  utiliza para agrupar e identificar los atributos de tipo etiqueta.
+
+* **Nombre**: Denomina a la etiqueta.
+
+* **Habilitado**: Si no está marcado la etiqueta no es funcional.
+
+  Por cada etiqueta existirá un conjunto de "atributos-etiqueta" que
+  manualmente deben ser añadidos desde ``Datos-Atributos``.
+
+  Una vez añadidos estos atributos-etiquetas ya pueden ser asignados en
   ``Datos-Ordenadores`` en el campo ``etiquetas`` de cada ordenador.
 
   Existe en el cliente el comando ``migasfree-tags`` que permite consultar y
@@ -194,7 +205,6 @@ Observa cada uno de los campos de la Propiedad:
     .. code-block:: none
 
       migasfree-tags --set
-
 
   Para asignar determinadas etiquetas a un equipo escribe las etiquetas separadas
   por espacios:
