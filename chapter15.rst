@@ -23,7 +23,7 @@ Cuando ejecutes ``migasfree --update`` en este modo desde una consola, verás en
 la salida estándar más información de la habitual.
 
 Tambien puede serte útil consultar la información que se va generando en
-/var/log/migasfree.log
+/var/tmp/migasfree.log
 
 
 Servidor en modo DEBUG
