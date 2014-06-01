@@ -76,13 +76,94 @@ La explicación de los usuarios y sus grupos lo has visto ya en
 :ref:`La configuración del sistema migasfree`
 
 
+Servicio de caché de paquetes
+-----------------------------
+
+Montar un caché de paquetes para disminuir el tráfico de internet es habitual.
+Su funcionamiento es muy sencillo. Cuando un equipo necesita descargar un
+paquete de internet lo solicita al caché. Si el servicio de caché no lo tiene
+ya almacenado lo descargará de internet, lo almacenará y se lo ofrecerá al
+equipo. Si otro equipo necesita ese mismo paquete, como ya está en el caché
+ya no se producirá tráfico internet sino que el servicio de caché lo ofrecerá
+directamente al equipo.
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter12/apt-cacher-ng.png
+      :scale: 60
+      :alt: Servicio de caché de paquetes.
+
+.. only:: latex
+
+   .. figure:: graphics/chapter12/apt-cacher-ng.png
+      :scale: 60
+      :alt: Servicio de caché de paquetes.
+
+
+Puedes instalar el servicio de caché de paquetes en el equipo donde has
+instalado el servidor migasfree, o en otro servidor.
+
+Por ejemplo puedes instalar ``apt-cacher-ng``.
+
+  .. code-block:: none
+
+    # apt-get install apt-cacher-ng
+
+Configura el usuario para la administración del servicio.
+
+  .. code-block:: none
+
+    # nano /etc/apt-cacher-ng/security.conf
+
+Descomenta la línea que empieza por AdminAuth y modifica el usuario y la
+contraseña:
+
+  .. code-block:: none
+
+    AdminAuth: <usuario>:<contraseña>
+
+Reinicia el servicio.
+
+  .. code-block:: none
+
+    #service apt-cacher-ng restart
+
+Por defecto el puerto del servicio apt-cacher-ng es el 3142. Accede a la
+página http:<miservidor>:3142 para la administración del servicio de caché.
+
+Hasta aquí hemos instalado y configurado el caché en el servidor.
+
+Para la configuración de los clientes, debes crear el fichero
+``/etc/apt/apt-conf.d/02proxy`` con el siguiente contenido:
+
+  .. code-block:: none
+
+    Acquire::http { Proxy "http://<miservidor>:3142"; };
+
+Para hacerlo correctamente  modifica el paquete acme-migasfree-client
+añadiéndo este fichero al paquete.
+
+Otra manera de configurar los clientes es haciendo uso del ajuste
+``Package_Proxy_Cache`` de los :ref:`Ajustes del cliente migasfree`. La
+diferencia entre éste método y el anterior es que el primero hará uso del
+servicio del caché de paquetes tanto cuando ejecutes el comando migasfree
+en los clientes, como cuando ejecutes el gestor de paquetes (apt-get).
+En cambio en el segundo método sólo usará el servicio de caché al ejecutar el
+comando migasfree.
+
+Puede consultar el `manual de apt-cacher-ng`__ para una configuración más
+avanzada del servicio de caché.
+
+__ http://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
+
+
 Backups
-=======
+-------
 
 A continuación te sugiero un manera de hacer los backups.
 
 Dump de la base de datos
-------------------------
+========================
 
 Para hacer el dump de la base de datos, crea el fichero
 ``/var/migasfree/dump/migasfree-dump.sh`` (deberás modificar
@@ -127,7 +208,7 @@ Finalmente ponemos permisos de ejecución a los scripts:
     chmod 700 /var/migasfree/dump/migasfree-restore.sh
 
 Tarea periódica
----------------
+===============
 
 Para programar una tarea que se ejecute periódicamente realizando el
 dump de la base de datos y la copia de los ficheros de los
@@ -163,7 +244,7 @@ añadiendo la siguiente línea a crontab:
 
 
 Etiquetando los clientes
-========================
+------------------------
 
 Para facilitar la atención a los usuarios cuando tengan un problema, es
 conveniente imprimir y pegar físicamente la etiqueta que identifica

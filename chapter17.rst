@@ -185,6 +185,10 @@ Ejemplo:
 
     Package_Proxy_Cache = 192.168.1.101:1234
 
+Consulta el apartado ``Servicio de caché de paquetes`` del capítulo
+:ref:`Migasfree en producción`.
+
+
 
 Sección [packager]
 ==================
