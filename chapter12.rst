@@ -134,7 +134,7 @@ página http:<miservidor>:3142 para la administración del servicio de caché.
 Hasta aquí hemos instalado y configurado el caché en el servidor.
 
 Para la configuración de los clientes, debes crear el fichero
-``/etc/apt/apt-conf.d/02proxy`` con el siguiente contenido:
+``/etc/apt/apt.conf.d/02proxy`` con el siguiente contenido:
 
   .. code-block:: none
 
