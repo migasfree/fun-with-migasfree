@@ -213,6 +213,13 @@ Campos de Etiqueta.
 
       migasfree-tags --set <ETIQUETA1> <ETIQUETA2> ...
 
+  Para asignar etiquetas en el servidor migasfree pero que no se produzca
+  **ningún cambio de paquetes** utiliza:
+
+    .. code-block:: none
+
+      migasfree-tags --communicate <ETIQUETA1> <ETIQUETA2> ...
+
   Para quitar todas las etiquetas de un equipo ejecuta:
 
     .. code-block:: none
