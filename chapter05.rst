@@ -8,18 +8,15 @@ Probando migasfree
 
    -- Isaac Newton.
 
-Hay múltiples combinaciones de Distribuciones, base de datos y servidores
-web que se pueden elegir a la hora de instalar un servidor migasfree.
-
-En este capítulo voy a explicarte como instalarlo sobre
-`Debian 7 Wheezy`__ usando Posgresql y Apache que es la combinación
-que te recomiendo que uses.
+Si bien puedes instalar el servidor migasfree en distintas 
+distribuciones, en este capítulo voy a explicarte como instalarlo sobre
+`Debian 7 Wheezy`__.
 
 __ http://www.debian.org/
 
 El objetivo de este capítulo es que dispongas rápidamente de un servidor
 y un cliente migasfree totalmente funcional, por eso no me voy a extender
-en las explicaciones.
+en explicaciones.
 
 Si decides usar otra Distribución GNU/linux de la recomendada tendrás que
 conseguir los paquetes apropiados. Accede a http://migasfree.org/repo/dists__
@@ -42,61 +39,12 @@ __ https://www.virtualbox.org/
 Instalando el servidor
 ======================
 
-Instalando y configurando Postgresql
-------------------------------------
-
-Migasfree puede trabajar con las mismas bases de datos que Django, pero
-nosotros recomendamos usar Postgresql, una base de datos de código
-libre y alta calidad, con un rendimiento excelente.
-
-Empieza instalando la base de datos ``Postgresql`` y su módulo de Python:
-
-  .. code-block:: none
-
-    # apt-get install postgresql python-psycopg2
-
-Edita el fichero de configuración de la autenticación de
-Postgresql para permitir al usuario migasfree autenticarse mediante
-password, añadiendo la siguiente línea a
-``/etc/postgresql/9.1/main/pg_hba.conf``:
-
-  .. code-block:: none
-
-    local   all             migasfree                     password
-
-  .. note::
-
-      Esta línea debe ir a continuación de:
-
-      # TYPE  DATABASE        USER            ADDRESS       METHOD
-
-Reinicia el servicio ``postgresql``:
-
-  .. code-block:: none
-
-    # service postgresql restart
-
-Crea un usuario llamado ``migasfree`` en ``Postgresql`` con el siguiente
-comando,  introduciendo ``migasfree`` como contraseña para no tener que
-configurar nada:
-
-  .. code-block:: none
-
-    # su - postgres -c "createuser -S -d -R -E -P migasfree"
-    Ingrese la contraseña para el nuevo rol:
-    Ingrésela nuevamente:
-
-
-Instalación del paquete migasfree-server
-----------------------------------------
-
 Para añadir el repositorio que contiene los paquetes necesarios para
-debian 7, crea el fichero ``/etc/apt/sources.list.d/migasfree.list``
-con el siguiente contenido:
+debian 7, ejecutaremos la siguiente instrucción:
 
   .. code-block:: none
 
-    deb http://migasfree.org/repo debian7 PKGS
+    # echo "deb http://migasfree.org/repo debian7 PKGS" > /etc/apt/sources.list.d/migasfree.list
 
 Actualiza las listas de paquetes e instala el paquete migasfree-server:
 
@@ -105,30 +53,28 @@ Actualiza las listas de paquetes e instala el paquete migasfree-server:
     # apt-get update
     # apt-get install migasfree-server
 
-Como aún no hemos creado la base de datos aparecerá el siguiente error:
 
-  .. code-block:: none
+  .. note::
 
-    django.db.utils.OperationalError: FATAL:  no existe la base de datos <<migasfree>>
+      Al instalar el paquete del servidor migasfree se añade al sistema 
+      el fichero ``/etc/apache2/conf.d/migasfree.conf``. Este fichero 
+      contiene la configuración del servidor web. 
 
+      
+  .. note::
 
-Creación de la Base de datos de migasfree
------------------------------------------
+      Al instalar el paquete del servidor migasfree se crea el usuario 
+      ``migasfree`` en Postgresql con password ``migasfree`` y se añade al 
+      fichero ``/etc/postgresql/9.1/main/pg_hba.conf`` la línea 
+      ``'local all migasfree password'`` para permitir al usuario migasfree 
+      autenticarse mediante password. Recuerda que para poner en producción
+      el servidor deberás cambiar la contraseña de éste usuario tal y 
+      como se indica en :ref:`Migasfree en producción`.
+      
 
-Para finalizar ejecuta el siguiente comando que crea las tablas en la
-base de datos migasfree desde cero y configura el servidor web Apache:
-
-  .. code-block:: none
-
-    # migasfree-server-from-scratch
-
-.. warning::
-
-      Utiliza este comando sólo una vez, ya que cada vez que lo ejecutas
-      se borra y se crea la base de datos desde cero.
 
 Comprobando el servidor
------------------------
+=======================
 
 En un navegador web accede a la dirección del servidor. Si todo ha
 ido bien verás la figura 5.1.
@@ -151,8 +97,6 @@ ido bien verás la figura 5.1.
       Acceso al servidor migasfree.
 
 
-
-
 Haz login con el usuario "admin" y password "admin" y verás algo
 parecido a la figura 5.2. Observa como arriba a la derecha pone ``alertas 0``.
 Esto nos indica que todo esta bien.
@@ -173,6 +117,7 @@ Esto nos indica que todo esta bien.
       :alt: Estado del servidor con 0 alertas.
 
       Estado del servidor con 0 alertas.
+
 
 
 Instalando el cliente
