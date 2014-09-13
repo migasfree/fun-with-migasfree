@@ -153,15 +153,15 @@ Observa cada uno de los campos de la Propiedad:
   para esta propiedad. Se pueden añadir atributos manualmente accediendo a
   ``Datos-Atributos``.
 
-Etiquetas
-=========
+Tipos de Etiquetas
+==================
 
   Hasta ahora has visto que una propiedad es un código que se
   ejecuta en el cliente para obtener un atributo automáticamente. Ahora bien,
   pueden existir casos en que no se puede obtener automáticamente estos
   atributos. Imagina que quieres "etiquetar" ciertos equipos según la
-  funcionalidad que van a realizar (Tratamiento gráfico, administración, etc).
-  Esto no es algo que a priori se pueda programar.
+  funcionalidad que van a realizar (Tratamiento gráfico, administración, aula,
+  etc). Esto no es algo que a priori se pueda programar.
 
   En migasfree existe la posibilidad de crear estas etiquetas y asignarlas
   manualmente a los equipos tal y como harías con una etiqueta física que pegas
@@ -173,22 +173,10 @@ Etiquetas
   sistema y por tanto te permitirá hacer el despliegue tambien en función de
   ellas.
 
-
-Campos de Etiqueta.
--------------------
-
-* **Prefijo**: Es una combinación de tres números o letras. Este prefijo se
-  utiliza para agrupar e identificar los atributos de tipo etiqueta.
-
-* **Nombre**: Denomina a la etiqueta.
-
-* **Habilitado**: Si no está marcado la etiqueta no es funcional.
-
-  Por cada etiqueta existirá un conjunto de "atributos-etiqueta" que
-  manualmente deben ser añadidos desde ``Datos-Atributos``.
-
-  Una vez añadidos estos atributos-etiquetas ya pueden ser asignados en
-  ``Datos-Ordenadores`` en el campo ``etiquetas`` de cada ordenador.
+  Por cada ``Configuración-Tipos de etiqueta`` existirá un conjunto de
+  etiquetas que manualmente debes añadir en ``Datos-Etiquetas``. Una vez
+  añadidas, puedes asignarlas a ``Datos-Ordenadores``. También puedes editar
+  ``Datos-Etiquetas`` y asignarle un conjunto de ordenadores.
 
   Existe en el cliente el comando ``migasfree-tags`` que permite consultar y
   asignar etiquetas desde el propio cliente.
@@ -255,6 +243,18 @@ Campos de Etiqueta.
      desinstalación de los paquetes correspondientes. Tambien se utiliza en la
      creación del DVDs, permitiendo hacer una iso para cada sabor o conjunto de
      sabores.
+
+Campos de Tipos de Etiqueta.
+----------------------------
+
+* **Prefijo**: Es una combinación de tres números o letras. Este prefijo se
+  utiliza para agrupar e identificar las etiquetas.
+
+* **Nombre**: Denomina el tipo de etiqueta.
+
+* **Habilitado**: Si no está marcado, las etiquetas de este tipo no serán
+  funcionales.
+
 
 Versiones
 =========
