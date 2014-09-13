@@ -175,6 +175,29 @@ Campos de Atributo
 
     * **Descripción**: Describe el atributo.
 
+Una explicación del funcionamiento de los atributos la puedes obtener en
+el apartado ``Propiedades`` de :ref:`La configuración del sistema migasfree`.
+
+Etiquetas
+=========
+
+Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
+liberar software en función de éstas.
+
+Una explicación del funcionamiento de las etiquetas la puedes obtener en
+el apartado ``Tipos de etiqueta`` de :ref:`La configuración del sistema migasfree`.
+
+Campos de Etiqueta
+------------------
+
+    * **Propiedad**: Hace referencia al tipo de etiqueta.
+
+    * **Valor**: Identifica a la etiqueta.
+
+    * **Descripción**: Describe la etiqueta.
+
+    * **Ordenadores**: Permite asignar ordenadores a la etiqueta.
+
 Migraciones
 ===========
 
