@@ -52,8 +52,8 @@ Si necesitas cambiar la password del usuario migasfree en postgresql haz esto:
   .. code-block:: none
 
     # su postgres
-    # psql
-    # ALTER USER migasfree WITH PASSWORD 'mipassword';
+    $ psql -c "ALTER USER migasfree WITH PASSWORD 'mipassword';"
+    $ exit
 
 .. note::
 
