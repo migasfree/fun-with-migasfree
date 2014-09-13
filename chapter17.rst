@@ -256,3 +256,59 @@ Ejemplo:
   .. code-block:: none
 
     Store = Acme # Sitúa en /var/migasfree/repo/<Version>/STORES/Acme los paquetes.
+
+
+VARIABLES DE ENTORNO
+====================
+
+Mediante el uso de variables de entorno podemos modificar tambien la
+configuración del cliente migasfree.
+
+``MIGASFREE_CONF``
+
+Por defecto el fichero de configuración del cliente migasfree se encuentra en
+``/etc/migasfree.conf`` pero mediante la variable de entorno ``MIGASFREE_CONF``
+podemos indicar al cliente que use otro fichero.
+
+Ejemplo:
+
+  .. code-block:: none
+
+    MIGASFREE_CONF='/etc/migasfree.conf.personal'
+
+
+Todos los ajustes del fichero de configuración del cliente migasfree también
+pueden ser asignados mediante variables de entorno, siendo éstas variables
+prioritarias frente a los ajustes del fichero de configuración:
+
+``MIGASFREE_CLIENT_SERVER``
+
+``MIGASFREE_CLIENT_VERSION``
+
+``MIGASFREE_CLIENT_COMPUTER_NAME``
+
+``MIGASFREE_CLIENT_DEBUG``
+
+``MIGASFREE_CLIENT_GUI_VERBOSE``
+
+``MIGASFREE_CLIENT_AUTO_UPDATE_PACKAGES``
+
+``MIGASFREE_PROXY``
+
+``MIGASFREE_CLIENT_PACKAGE_PROXY_CACHE``
+
+
+``MIGASFREE_PACKAGER_USER``
+
+``MIGASFREE_PACKAGER_PASSWORD``
+
+``MIGASFREE_PACKAGER_VERSION``
+
+``MIGASFREE_PACKAGER_STORE``
+
+
+Ejemplo:
+
+  .. code-block:: none
+
+    MIGASFREE_CLIENT_SERVER='migasfree.miempresa.org'
