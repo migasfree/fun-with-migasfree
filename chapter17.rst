@@ -258,7 +258,7 @@ Ejemplo:
     Store = Acme # Sitúa en /var/migasfree/repo/<Version>/STORES/Acme los paquetes.
 
 
-VARIABLES DE ENTORNO
+Variables de entorno
 ====================
 
 Mediante el uso de variables de entorno podemos modificar tambien la
@@ -268,16 +268,18 @@ configuración del cliente migasfree.
 
 Por defecto el fichero de configuración del cliente migasfree se encuentra en
 ``/etc/migasfree.conf`` pero mediante la variable de entorno ``MIGASFREE_CONF``
-podemos indicar al cliente que use otro fichero.
+podemos indicar al cliente que use otro fichero. Esto puede serte útil si
+tienes que subir paquetes mediante el comando``migasfree-upload`` a distintos
+servidores migasfree desde la consola.
 
 Ejemplo:
 
   .. code-block:: none
 
-    MIGASFREE_CONF='/etc/migasfree.conf.personal'
+    export MIGASFREE_CONF='/etc/migasfree.conf.serverA'
+    migasfree-upload -f <mipaquete>
 
-
-Todos los ajustes del fichero de configuración del cliente migasfree también
+Además, todos los ajustes del fichero de configuración del cliente migasfree también
 pueden ser asignados mediante variables de entorno, siendo éstas variables
 prioritarias frente a los ajustes del fichero de configuración:
 
@@ -307,8 +309,26 @@ prioritarias frente a los ajustes del fichero de configuración:
 ``MIGASFREE_PACKAGER_STORE``
 
 
-Ejemplo:
+Como ejemplo de uso de las variables de entorno imagina un escenario en el cual
+tienes un servidor migasfree y muchos centros en los que en cada uno de ellos
+hay un servicio de caché de paquetes para minimizar el tráfico de internet.
+Para configurar cada equipo deberías tener un paquete de configuración del
+cliente migasfree por cada centro, pero si tienes muchos centros esto puede
+resultar costoso. Una solución podría ser tener un sólo paquete de configuración del
+cliente migasfree para todos los centros y en la postinstalación del paquete
+crear las variables de entorno necesarias en función de la etiqueta del centro.
 
   .. code-block:: none
 
-    MIGASFREE_CLIENT_SERVER='migasfree.miempresa.org'
+    # Codigo de ejemplo postinst acme-migasfree-client
+
+    TAGS=`migasfree-tags -g`
+    for CENTRO in $TAGS
+    do
+      if [ $CENTRO = "CTR-DELEGACION-BARCELONA" ]; then
+        echo "MIGASFREE_CLIENT_PACKAGE_PROXY_CACHE='192.168.96.6:3142'" > /etc/profile.d/migasfree.sh
+      fi
+      if [ $CENTRO = "CTR-DELEGACION-MADRID" ]; then
+        echo ""MIGASFREE_CLIENT_PACKAGE_PROXY_CACHE='192.168.80.4:3142'" > /etc/profile.d/migasfree.sh
+      fi
+    done
