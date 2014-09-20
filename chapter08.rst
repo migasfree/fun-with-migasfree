@@ -153,6 +153,39 @@ Observa cada uno de los campos de la Propiedad:
   para esta propiedad. Se pueden añadir atributos manualmente accediendo a
   ``Datos-Atributos``.
 
+
+Propiedades específicas
+-----------------------
+
+Existen unas propiedades predefinidas que tienen unos objetivos muy concretos y
+que no pueden ser eliminadas del sistema. Lo más característico de ellas es que
+**no son ejecutadas en el cliente** sino en el servidor.
+
+* **ALL**: Esta propiedad tiene un único atributo llamado ``ALL SYSTEMS``. Todos
+  los ordenadoras tendrán éste atributo sin excepción. Sirve para cuando quieras
+  referirte a **todos** los ordenadores. Por ejemplo, si en un repositorio
+  asignas este atributo, todos los ordenadores tendrán acceso a él. Es habitual
+  usarlo también en la última demora de un calendario.
+
+* **CID**: Computer Identificator. Esta propiedad generará un atributo que
+  es igual al campo ``id`` de la tabla ``computer`` de la Base de datos de migasfree.
+  Es único por cada ordenador. Se utiliza en lugar de referirse al ``UUID``
+  de la placa base de un ordenador ya que el ``CID`` es mucho más corto y
+  por tanto más utíl a la hora de referirte a un equipo concreto. El ``CID`` aparece
+  por defecto en la etiqueta del ordenador que muestra el comando ``migasfree-label``.
+  Por ejemplo, un atributo ``CID-572`` se correspondería con el
+  ``UUID`` 5FD85780-9BC9-11E3-91B8-F0921CF3678D.
+
+* **MID**: Module Identificator. Los atributos de esta propiedad se definen
+  según la fórmula ``módulo 100 del CID`` y por tanto será un número entre 0 y 99.
+  Se emplea para liberar software según los calendarios predefinidos ``2 weeks (by MID)``
+  y ``4 weeks (by MID)``. Cada uno de los atributos ``MID`` se correspondería
+  aproximadamente a un 1% del total de ordenadores, puedes pensar de esta manera
+  a la hora de programar calendarios según el ``MID``. Si por ejemplo tenemos en
+  en el servidor un equipo con el atributo ``CID-572`` su atributo de
+  propiedad ``MID`` será ``MID-72``
+
+
 Tipos de Etiquetas
 ==================
 
