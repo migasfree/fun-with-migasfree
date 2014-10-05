@@ -288,6 +288,36 @@ Campos de Tipos de Etiqueta.
 * **Habilitado**: Si no está marcado, las etiquetas de este tipo no serán
   funcionales.
 
+* **Clase**: El funcionamiento es exactamente igual al campo de mismo nombre que
+  tienen las Propiedades.
+
+  Un valor muy útil que puede tomar este campo es el de ``agrega
+  por la derecha``. Imagina que quieres agrupar los ordenadores por ubicación para
+  liberar software por distintas zonas. Una forma de hacerlo es crear un ``Tipo de Etiqueta``
+  llamada p.e. ``UBICACIÓN`` definada de clase ``agrega por la derecha``. Después
+  puedes crear las ``Etiquetas`` de tipo ``UBICACION`` p.e.:
+
+    .. code-block:: none
+
+      UBI-PLANTA-1.SEDE_CENTRAL.MADRID
+
+  Cuando un equipo con esta etiqueta asignada se conecta al servidor, automáticamente
+  el servidor interpretará que tiene no una, sino tres etiquetas:
+
+
+    .. code-block:: none
+
+      UBI-MADRID
+      UBI-SEDE_CENTRAL.MADRID
+      UBI-PLANTA-1.SEDE_CENTRAL.MADRID
+
+  Con lo que finalmente podemos liberar software a todo ``MADRID``, a toda la
+  sede central de Madrid, o sólamente a la planta 1ª.
+
+
+  .. note::
+
+     Observa que el caracter de delimitación es el punto: ``.``
 
 Versiones
 =========
