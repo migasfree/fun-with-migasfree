@@ -16,9 +16,9 @@ manifestaron por unanimidad en pleno de gobierno municipal apoyar las
 políticas de uso de Software Libre y, en concreto, el fomento de los
 programas de SL en el entorno de escritorio del funcionario municipal.
 La Dirección General de Ciencia y Tecnología asume, inicia y potencia
-este importante reto. [#f1]_
+este importante reto. [#f5]_
 
-.. [#f1] Eduardo Romero Moreno, `Migración Escritorio Software Libre`__, 2011
+.. [#f5] Eduardo Romero Moreno, `Migración Escritorio Software Libre`__, 2011
 
 __ http://www.zaragoza.es/contenidos/azlinux/migracionescritoriosl.pdf
 

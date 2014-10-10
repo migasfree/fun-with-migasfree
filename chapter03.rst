@@ -182,7 +182,7 @@ Empaquetando la personalización
 En AZLinux usamos otro método: Empaquetamos siempre la personalización.
 
 Para el caso del cliente “QueHoraEs” crearíamos el paquete
-azl-quehoraes-client [#f1]_ con la siguiente información:
+azl-quehoraes-client [#f4]_ con la siguiente información:
 
 * Dependencias: quehoraes-client
 
@@ -193,7 +193,7 @@ azl-quehoraes-client [#f1]_ con la siguiente información:
     En el fichero de configuración del cliente QueHoraes, modificar el
     valor de la entrada “server=” por la IP del servidor QueHoraEs
 
-.. [#f1] En AZLinux empleamos como nombre de paquete el prefijo "azl-"
+.. [#f4] En AZLinux empleamos como nombre de paquete el prefijo "azl-"
          más el nombre del paquete que queremos personalizar.
 
 ¡Listo! Con esto queda garantizada la integridad frente al cambio de la
