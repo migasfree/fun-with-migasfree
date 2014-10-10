@@ -170,16 +170,8 @@ Acerca de mí
 De joven me atraía la programación. Estudié electrónica, y aquí me
 enseñaron a programar en código máquina el microcontrolador 8751.
 
-Trabajé como electrónico mis primeros años laborales y poco después, con
-el boom de la informática personal, empecé a desarrollar aplicaciones de
-todo tipo.
-
-Actualmente trabajo como técnico informático en el equipo de Software
-Libre del Ayuntamiento de Zaragoza desarrollando y manteniendo
-AZLinux, el escritorio libre que usamos los trabajadores municipales.
-
 Aún me gusta cacharrear con transistores, condensadores, circuitos
-integrados, leds... y enseñar lo poco que recuerdo de todo aquello Jesús.
+integrados, leds... y enseñar lo poco que recuerdo de todo aquello a Jesús.
 A los dos nos gusta jugar con arduino__ scratch__ y s4a__.
 
 __ http://www.arduino.cc/
@@ -188,11 +180,15 @@ __ http://seaside.citilab.eu/scratch?_s=uUPtRoAV9JudiOLQ&_k=kzuRwrWwE3SbPt4N
 
 __ http://seaside.citilab.eu/scratch?_s=uUPtRoAV9JudiOLQ&_k=js6Ukm-xH8NtlSiD
 
-Creo que el movimiento del software libre es, junto con otros, una
-esperanza para que el Conocimiento vuelva a ser producido
-por la sociedad y para la sociedad, en contraposición al Conocimiento creado,
-comercializado y controlado por organizaciones y que en ocasiones
-causa un perjuicio a la sociedad.
+Trabajé como electrónico mis primeros años laborales y poco después, con
+el boom de la informática personal, empecé a desarrollar aplicaciones de
+todo tipo.
+
+Actualmente trabajo como técnico informático en el equipo de Software
+Libre del Ayuntamiento de Zaragoza desarrollando y manteniendo
+AZLinux, el escritorio libre que usamos los trabajadores municipales.
+
+Parte de mi tiempo libre lo dedico a desarrollar migasfree. 
 
 Me encanta mirar el cielo en las noches de verano de Peñiscola, la cerveza,
 las migas, y los huevos rotos.
