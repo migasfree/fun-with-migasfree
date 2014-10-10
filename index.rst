@@ -24,29 +24,18 @@ Fun with migasfree
    \fancyhead[LE]{}
 
 
-.. epigraph::
-
-   El deber de un ciudadano no es creer en ninguna profecía del futuro,
-   sino actuar para realizar el mejor futuro posible.
-
-   -- Richard Stallman.
-
-
-.. raw:: latex
-
-
-   \newpage
-
-   \LARGE\hfill A Patricia.
-   \normalsize
-
 .. toctree::
    :maxdepth: 2
    :glob:
 
-   chapter*
-   bibliografia
-   glossary
-   license
+   dedication
+   epigraph
+   part01
+   part02
+   part03
+   part04
+   part05
+   part06
+   part07
 
 
