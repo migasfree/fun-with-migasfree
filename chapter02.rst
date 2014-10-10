@@ -13,9 +13,9 @@ aplicaciones: los sistemas se hacen obsoletos rápidamente, aparecen
 nuevas tecnologías, hay errores que son resueltos, surgen nuevas
 necesidades. Sin importar en qué momento del ciclo de vida del
 sistema nos encontremos, el sistema cambiará, y el deseo de cambiarlo
-persistirá a lo largo de todo el ciclo de vida. [#f1]_
+persistirá a lo largo de todo el ciclo de vida. [#f3]_
 
-.. [#f1] Primera ley de la Ingeniería de Sistemas, Software
+.. [#f3] Primera ley de la Ingeniería de Sistemas, Software
          Configuration Management, Bersoff, Henderson & Siegel,
          Prentice-Hall, 1980
 
