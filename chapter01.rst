@@ -198,6 +198,43 @@ reír con cualquier tontada.
 
 Amo a Patricia, y a Jesús nuestro hijo.
 
+Nota del autor
+==============
+
+Algunos han criticado a las personas que entregamos parte de nuestro
+tiempo en producir software libre. El argumento se basa en
+que nuestra aportación hace que se eliminen puestos de trabajo o que algunas 
+empresas no pueden hacer negocio por competencia desleal. Dicen estar 
+hartos de gente que "trabajamos gratis" y que les "quitamos" el sustento.
+
+No puedo estar de acuerdo. En primer lugar porque el `software libre`__ no 
+es un asunto económico sino que sencillamente lo que plantea es una 
+cuestión de **libertad**.
+
+__ https://www.gnu.org/philosophy/free-sw.es.html
+
+Pienso que los modelos de negocio obsoletos deben adaptarse y evolucionar hacia 
+nuevas formas de generar riqueza, creando nuevas relaciones entre 
+productor y consumidor. Los modelos de negocios basados en software libre 
+a menudo nos indican el camino a seguir, ya que están estableciendo 
+estas nuevas relaciones y obteniendo la confianza y el reconocimiento 
+del consumidor, y no precisamente por cuestiones económicas. ¿No desean 
+esto las empresas para sí?.
+
+En cuanto a que producir algo que otros obtienen gratis no genera 
+puestos de trabajo, pienso que es falso. Sólo hace falta fijarse en como las 
+tecnologías de interconexión, protocolos y servicios de accesibilidad
+de la red Internet ha generado, y seguirá generando, infinidad de 
+puestos de trabajo. Estoy convencido que Internet no sería ni siquiera 
+una sombra de lo que es si estas tecnologías se hubieran patentado, 
+cerrado y/o explotado económicamente.
+
+Creo que el movimiento del software libre es, junto con otros, una
+esperanza para que el Conocimiento vuelva a ser producido
+por la sociedad y para la sociedad, en contraposición al Conocimiento creado,
+comercializado y controlado por determinadas organizaciones y que en ocasiones
+causa un perjuicio a la sociedad.
+
 Enlaces
 =======
 
