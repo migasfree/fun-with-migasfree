@@ -68,48 +68,51 @@ quizás ya esté obsoleto, tenlo en cuenta.
 Estructura
 ==========
 
-Conociendo migasfree
---------------------
+:ref:`Introducción`
 
-En el segundo capítulo de este libro, repasaremos la Gestión de la
+En esta primera parte, repasaremos la Gestión de la
 Configuración del Software. Conocer los aspectos básicos de este proceso
 de la Ingeniería del Software te dará una visión de conjunto que
 considero esencial porque es precisamente aquí donde se integra
 migasfree.
 
-En el capítulo tercero te explicaré las dificultades a las que un
-administrador de escritorios va a encontrarse y cómo se pueden
-sortear de forma sencilla basándome en la experiencia adquirida en
-AZLinux.
+Te explicaré las dificultades a las que un administrador de escritorios 
+va a encontrarse y cómo se pueden sortear de forma sencilla basándome 
+en la experiencia adquirida en AZLinux.
 
 Podrás conocer la historia, características y componentes que utiliza
-migasfree en el cuarto capítulo.
+migasfree.
 
-En el capítulo quinto y sexto te explicaré como probar un servidor y
-cliente migasfree con la configuración mínima para que puedas verlos en
-funcionamiento cuanto antes.
+:ref:`Primeros pasos`
 
-Guía de Uso
------------
+Aqui te enseñaré a instalar y probar un servidor y cliente migasfree 
+con la configuración mínima para que puedas verlos en funcionamiento 
+cuanto antes.
 
-Del capítulo 7 al 11 irás conociendo tanto el cliente como el servidor migasfree
-más en detalle.
+:ref:`Guía de uso`
 
-Desplegando migasfree en producción
------------------------------------
-Comprende los capítulos 12 y 13 en donde tratarás los aspectos a tener
-en cuenta si quieres utilizar migasfree en un entorno de producción.
+Te permitirá conocer tanto el cliente como el servidor migasfree más en 
+detalle.
 
-Resolución de problemas y referencias
--------------------------------------
+:ref:`Puesta en producción`
 
-En los capítulos 14 y 15 se tratan las FAQs y la resolución de problemas.
+Se tratarán los aspectos a tener en cuenta si quieres utilizar migasfree
+en un entorno de producción, asi como las FAQs y la resolución de 
+problemas.
 
-En los capítulos 16 y 17 podrás consultar los ajustes necesarios para
-configurar correctamente tanto el servidor migasfree como los clientes.
+:ref:`Ajustes`
 
-El 18 detalla la API y en el 19 y 20 hay intrucciones para empaquetar
-migasfree en cualquier Distribución.
+Detalla los ajustes necesarios para configurar correctamente tanto 
+el servidor migasfree como los clientes.
+
+:ref:`Empaquetado`
+
+Contiene intrucciones para empaquetar migasfree en cualquier Distribución.
+
+:ref:`Anexos`
+
+Contiene la API de migasfree, la bibliografía, referencias y licencia de
+este libro.
 
 A quién va dirigido
 ===================
