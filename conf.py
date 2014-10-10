@@ -72,6 +72,7 @@ latex_elements = {
 """
 
 latex_logo = 'graphics/portada/migasfree.png'
+latex_use_parts = True
 
 """
 latex_elements = {
