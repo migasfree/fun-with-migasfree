@@ -18,8 +18,8 @@ generando a consecuencia del proceso de actualización.
 Alertas
 =======
 
-Muestra en lo debe actuar el administrador para tener un sistema lo más íntegro
-posible. Ya lo viste en apartado ``Comprobaciones`` del capítulo
+Muestra en lo que debe actuar el administrador para tener un sistema lo 
+más íntegro posible. Ya lo viste en apartado :ref:`Comprobaciones` del capítulo
 :ref:`La configuración del sistema migasfree`.
 
 Ordenadores
@@ -53,7 +53,7 @@ Campos de Ordenador
 
     * **Inventario de software**: Diferencia actual entre el conjunto de paquetes del
       ordenador de referencia y el ordenador en cuestión. Ver en
-      :ref:`La configuración del sistema migasfree` los campos de version:
+      :ref:`Versiones` los campos de version:
       ``Actual line computer`` y ``Actual line packages``
 
     * **Historial de software**: Registro de los paquetes instalados y
@@ -65,9 +65,8 @@ Campos de Ordenador
     * **Actualización hardware**: Fecha de la última actualización hardware.
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
-      Mira el campo ``Etiqueta`` de la ``Propiedad`` del capítulo
-      :ref:`La configuración del sistema migasfree` para una explicación del
-      funcionamiento de las etiquetas.
+      Para una explicación del funcionamiento de las etiquetas mira los 
+      :ref:`Tipos de Etiquetas`.
 
 
 Usuarios
@@ -135,7 +134,7 @@ Campos de error
 Fallas
 ======
 
-Ya viste el concepto de ``Falla`` y como se pueden programar en el capítulo
+Ya viste el concepto de :ref:`Fallas` y como se pueden programar en el capítulo
 :ref:`La configuración del sistema migasfree`, así que no me repitiré.
 
 Lo mismo que ocurre con los errores, conforme las fallas se vayan detectando en
@@ -176,7 +175,7 @@ Campos de Atributo
     * **Descripción**: Describe el atributo.
 
 Una explicación del funcionamiento de los atributos la puedes obtener en
-el apartado ``Propiedades`` de :ref:`La configuración del sistema migasfree`.
+el apartado :ref:`Propiedades` de :ref:`La configuración del sistema migasfree`.
 
 Etiquetas
 =========
@@ -184,8 +183,8 @@ Etiquetas
 Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
 liberar software en función de éstas.
 
-Una explicación del funcionamiento de las etiquetas la puedes obtener en
-el apartado ``Tipos de etiqueta`` de :ref:`La configuración del sistema migasfree`.
+El funcionamiento de las etiquetas ya lo hemos visto en los 
+:ref:`Tipos de Etiquetas`.
 
 Campos de Etiqueta
 ------------------
@@ -242,7 +241,7 @@ Aquí podrás ejecutar las ``Consultas`` disponibles.
 
 Puedes añadir nuevas consultas o modificar las predeterminadas accediendo a
 ``Configuración-Consultas``. Una pequeña explicación de cómo se programan
-la puedes encontrar en el apartado ``Consultas`` de
+la puedes encontrar en el apartado :ref:`Consultas` de
 :ref:`La configuración del sistema migasfree`.
 
 Estadísticas

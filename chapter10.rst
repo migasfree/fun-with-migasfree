@@ -62,7 +62,7 @@ Ahora creo que es buen momento de aprender que hace ``migasfree --update`` :
       y actualizar los paquetes.
 
     * Envía el inventario de software si es el equipo de referencia. Ver en
-      :ref:`La configuración del sistema migasfree` los campos de version:
+      :ref:`La configuración del sistema migasfree` los campos de las :ref:`Versiones`:
       ``Actual line computer`` y ``Actual line packages``
 
     * Envía el inventario de hardware periodicamente según ``MIGASFREE_HW_PERIOD``
@@ -141,7 +141,7 @@ El comando ``migasfree-tags``
 =============================
 
 Puedes ver una explicación de este comando y de su sintaxis en el campo
-``Etiqueta`` de la ``Propiedad`` en el capítulo
+``Etiqueta`` de las :ref:`Propiedades` en el capítulo
 :ref:`La configuración del sistema migasfree`.
 
 

@@ -20,6 +20,7 @@ amplios conocimientos de los sistemas operativos y de las aplicaciones.
 En éste y en los siguientes tres capítulos vas a aprender a adaptar y usar el
 servidor migasfree.
 
+.. _`Propiedades`:
 
 Propiedades
 ===========
@@ -186,6 +187,8 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
   propiedad ``MID`` será ``MID-72``
 
 
+.. _`Tipos de Etiquetas`:
+
 Tipos de Etiquetas
 ==================
 
@@ -318,6 +321,8 @@ Campos de Tipos de Etiqueta.
   .. note::
 
      Observa que el caracter de delimitación es el punto: ``.``
+
+.. _`Versiones`:
 
 Versiones
 =========
@@ -525,6 +530,8 @@ los repositorios de la versión que tiene asignada.
 Un usuario puede seleccionar su versíon mediante el desplegable que aparece a la
 izquierda de `Alertas``.
 
+.. _`Comprobaciones`:
+
 Comprobaciones
 ==============
 
@@ -657,6 +664,7 @@ El objetivo en todo momento debería ser mantener el sistema con 0 alertas. Esto
 indicaría que se han revisado los errores, se han comprobado las fallas,
 no hay paquetes huérfanos, etc.
 
+.. _`Fallas`:
 
 Fallas
 ======
@@ -710,6 +718,8 @@ Campos de Definición de Falla
       Poder ejecutar código en los clientes proporciona una gran potencia para
       realizar cualquier cosa. Usa esta capacidad con responsabilidad y sé
       meticuloso en las comprobaciones antes de activar cualquier falla.
+
+.. _`Consultas`:
 
 Consultas
 =========
