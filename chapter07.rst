@@ -228,18 +228,14 @@ Ahora observa los ficheros que contiene este paquete:
   de ``sudoers`` ejecutando ``man sudoers`` en un terminal.
 
 * ``etc/xdg/autostart/migasfree-launcher.desktop`` ejecutará el comando
-  ``/usr/bin/migasfree-launcher`` cuando el usuario inicia sesión gráfica.
-  Este comando llamará finalmente a ``migasfree -u``. Puedes aprender más
-  sobre la especificación de los ficheros .desktop en `freedesktop.org`__.
+  ``/usr/bin/migasfree-tray`` cuando el usuario inicia sesión gráfica.
+  ``migasfree-tray`` llamará a ``/usr/bin/migasfree-launcher`` y éste a 
+  su vez a ``migasfree --update``
+  
+  Puedes aprender más sobre la especificación de los ficheros .desktop 
+  en `freedesktop.org`__.
 
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
-
-* ``usr/share/applications/migasfree-launcher.desktop`` es un fichero
-  .desktop que pone disponible en el menú de ``Herramientas del Sistema``
-  al comando migasfree-launcher.
-
-* ``/usr/bin/migasfree-launcher`` comando para actualizar el sistema
-  a través de un servidor migasfree.
 
 Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
 ``migasfree-launcher`` en el servidor migasfree, crea un repositorio en el
