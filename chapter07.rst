@@ -18,20 +18,20 @@ para que se conecte contra la maquina virtual debian 7 en el que ya tienes un se
 migasfree instalado.
 
 Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual
-(ubuntu 12.04) que debes tener en la misma red en la que esté la maquina
+con Ubuntu instalado y que debes tener en la misma red en la que esté la maquina
 virtual del servidor.
 
 El objetivo de este capítulo es que conozcas un poco más el empaquetado.
 
-Instalando migasfree-client en Ubuntu 12.04
-===========================================
+Instalando migasfree-client en Ubuntu
+=====================================
 
-Para añadir el repositorio que contiene el cliente migasfree para ubuntu 12.04,
+Para añadir el repositorio que contiene el cliente migasfree para Ubuntu,
 crea el fichero /etc/apt/sources.list.d/migasfree.list con el siguiente contenido:
 
   .. code-block:: none
 
-    deb http://migasfree.org/repo ubuntu-12.04 PKGS
+    deb http://migasfree.org/repo ubuntu PKGS
 
 Ahora instala el cliente migasfree:
 
@@ -58,7 +58,7 @@ Al igual que hiciste con la configuración del servidor puedes bajarte
 el fuente del paquete que vamos a utilizar de plantilla para configurar el
 cliente de migasfree.
 
-En la nueva máquina virtual con ubuntu 12.04 ejecuta:
+En la nueva máquina virtual con ubuntu ejecuta:
 
   .. code-block:: none
 
@@ -229,10 +229,10 @@ Ahora observa los ficheros que contiene este paquete:
 
 * ``etc/xdg/autostart/migasfree-launcher.desktop`` ejecutará el comando
   ``/usr/bin/migasfree-tray`` cuando el usuario inicia sesión gráfica.
-  ``migasfree-tray`` llamará a ``/usr/bin/migasfree-launcher`` y éste a 
+  ``migasfree-tray`` llamará a ``/usr/bin/migasfree-launcher`` y éste a
   su vez a ``migasfree --update``
-  
-  Puedes aprender más sobre la especificación de los ficheros .desktop 
+
+  Puedes aprender más sobre la especificación de los ficheros .desktop
   en `freedesktop.org`__.
 
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
@@ -265,7 +265,7 @@ Despliegue
 ==========
 
 A partir de este momento vas a poder administrar fácilmente los escritorios
-ubuntu-12.04 de tu organización, de forma generalizada, instalando
+ubuntu de tu organización, de forma generalizada, instalando
 simplemente estos dos paquetes.
 
 Hay varias formas de realizar esta instalación:
