@@ -328,6 +328,40 @@ Distribuciones GNU/Linux.
 Pues bien, en una organización también debe realizarse el proceso de la
 GCS.
 
+.. only:: not latex
+
+   .. figure:: graphics/chapter03/scm_process.png
+      :scale: 40
+      :alt: Proceso GCS en tu organización con migasfree.
+
+      Proceso GCS en tu organización con migasfree.
+
+          1. Un usuario hace un **petición** de cambio.
+
+          2. Un desarrollador programa el **cambio** de la configuración software
+             dentro de un paquete y lo sube a un servidor migasfree.
+
+          3. La **liberación** es realizada por el servidor migasfree a los
+             ordenadores requeridos.
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter03/scm_process.png
+      :scale: 80
+      :alt: Proceso GCS en tu organización con migasfree.
+
+      Proceso GCS en tu organización con migasfree.
+
+          1. Un usuario hace un **petición** de cambio.
+
+          2. Un desarrollador programa el **cambio** de la configuración software
+             dentro de un paquete y lo sube a un servidor migasfree.
+
+          3. La **liberación** es realizada por el servidor migasfree a los
+             ordenadores requeridos.
+
+
 En AZLinux realizamos nuestra propia GCS y vemos cómo de nuevo se
 repiten las mismas actividades: petición de cambio, cambio y liberación.
 
@@ -354,14 +388,14 @@ Usamos dos tipos de peticiones de cambio:
   laboratorio, registrando cualquier información relevante en la petición de
   cambio. Finalmente, si todo es correcto, se liberan los paquetes
   a través de un repositorio migasfree, planificando su distribución
-  (ver A en figura 3.1)
+  (ver A en figura 3.2)
 
 * **Personalización de aplicaciones**. Se produce cuando llega p.e.,
   una petición de cambio para añadir un motor de búsqueda de sinónimos a
   Mozilla Firefox. Introducimos entonces en un paquete propio de AZLinux
   (azl-firefox), el código que instala dicho motor de búsqueda y
   liberamos dicho paquete en un repositorio de migasfree
-  planificando su distribución (ver B en figura 3.1).
+  planificando su distribución (ver B en figura 3.2).
 
 Las herramientas que usamos actualmente en cada actividad son:
 
