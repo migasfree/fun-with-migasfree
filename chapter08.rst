@@ -793,3 +793,32 @@ consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
      icono de información .
 
 __ https://docs.djangoproject.com/en/dev/ref/models/querysets/
+
+
+Errores autocomprobables
+========================
+
+Por defecto los errores producidos por el P.M.S. se añaden al sistema como no
+comprobados. Ahora bien, en ocasiones puede resultar tedioso tener que marcar como
+comprobados uno a uno ciertos errores que más que errores son "alertas".
+
+Para automatizar esta tarea puedes crear un ``error autocomprobable``. Simplemente añade
+un registro con el `patrón de búsqueda`__ deseado y los errores que coincidan son ese
+patrón se marcarán automáticamente como comprobados.
+
+__ https://docs.python.org/2/library/re.html#module-re
+
+Por ejemplo si quisieras que todos los errores que llegan del tipo:
+
+    .. code-block:: none
+
+      2014-10-03 10:44:47
+      Error: Generic error
+      Info: Curl error: Couldn't resolve host 'myserver'
+
+se autocomprobaran, podrías emplear el siguiente patrón:
+
+    .. code-block:: none
+
+      .*\sError: Generic error\sInfo: Curl error: Couldn't resolve host 'myserver'
+
