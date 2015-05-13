@@ -360,6 +360,11 @@ Campos de calendario
 
         * **Atributos**: Lista de atributos para una demora.
 
+        * **Duración**: Número de días en que se completará el despliegue a
+          los equipos asignados a la demora. O dicho de otra forma, si asignamos
+          el atributo ALL-SYSTEMS y una duración de 20 días, obtendríamos un
+          incremento diario aproximado del 5% del total de equipos.
+
 
 Repositorios internos vs externos
 =================================

@@ -177,15 +177,6 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
   Por ejemplo, un atributo ``CID-572`` se correspondería con el
   ``UUID`` 5FD85780-9BC9-11E3-91B8-F0921CF3678D.
 
-* **MID**: Module Identificator. Los atributos de esta propiedad se definen
-  según la fórmula ``módulo 100 del CID`` y por tanto será un número entre 0 y 99.
-  Se emplea para liberar software según los calendarios predefinidos ``2 weeks (by MID)``
-  y ``4 weeks (by MID)``. Cada uno de los atributos ``MID`` se correspondería
-  aproximadamente a un 1% del total de ordenadores, puedes pensar de esta manera
-  a la hora de programar calendarios según el ``MID``. Si por ejemplo tenemos en
-  en el servidor un equipo con el atributo ``CID-572`` su atributo de
-  propiedad ``MID`` será ``MID-72``
-
 
 .. _`Tipos de Etiquetas`:
 
