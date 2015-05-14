@@ -76,8 +76,8 @@ de la Ingeniería del Software te dará una visión de conjunto que
 considero esencial porque es precisamente aquí donde se integra
 migasfree.
 
-Te explicaré las dificultades a las que un administrador de escritorios 
-va a encontrarse y cómo se pueden sortear de forma sencilla basándome 
+Te explicaré las dificultades a las que un administrador de escritorios
+va a encontrarse y cómo se pueden sortear de forma sencilla basándome
 en la experiencia adquirida en AZLinux.
 
 Podrás conocer la historia, características y componentes que utiliza
@@ -85,24 +85,24 @@ migasfree.
 
 :ref:`Primeros pasos`
 
-Aqui te enseñaré a instalar y probar un servidor y cliente migasfree 
-con la configuración mínima para que puedas verlos en funcionamiento 
+Aqui te enseñaré a instalar y probar un servidor y cliente migasfree
+con la configuración mínima para que puedas verlos en funcionamiento
 cuanto antes.
 
 :ref:`Guía de uso`
 
-Te permitirá conocer tanto el cliente como el servidor migasfree más en 
+Te permitirá conocer tanto el cliente como el servidor migasfree más en
 detalle.
 
 :ref:`Puesta en producción`
 
 Se tratarán los aspectos a tener en cuenta si quieres utilizar migasfree
-en un entorno de producción, asi como las FAQs y la resolución de 
+en un entorno de producción, asi como las FAQs y la resolución de
 problemas.
 
 :ref:`Ajustes`
 
-Detalla los ajustes necesarios para configurar correctamente tanto 
+Detalla los ajustes necesarios para configurar correctamente tanto
 el servidor migasfree como los clientes.
 
 :ref:`Empaquetado`
@@ -188,7 +188,7 @@ Actualmente trabajo como técnico informático en el equipo de Software
 Libre del Ayuntamiento de Zaragoza desarrollando y manteniendo
 AZLinux, el escritorio libre que usamos los trabajadores municipales.
 
-Parte de mi tiempo libre lo dedico a desarrollar migasfree. 
+Parte de mi tiempo libre lo dedico a desarrollar migasfree.
 
 Me encanta mirar el cielo en las noches de verano de Peñiscola, la cerveza,
 las migas, y los huevos rotos.
@@ -203,30 +203,30 @@ Nota del autor
 
 Algunos han criticado a las personas que entregamos parte de nuestro
 tiempo en producir software libre. El argumento se basa en
-que nuestra aportación hace que se eliminen puestos de trabajo o que algunas 
-empresas no pueden hacer negocio por competencia desleal. Dicen estar 
+que nuestra aportación hace que se eliminen puestos de trabajo o que algunas
+empresas no pueden hacer negocio por competencia desleal. Dicen estar
 hartos de gente que "trabajamos gratis" y que les "quitamos" el sustento.
 
-No puedo estar de acuerdo. En primer lugar porque el `software libre`__ no 
-es un asunto económico sino que sencillamente lo que plantea es una 
+No puedo estar de acuerdo. En primer lugar porque el `software libre`__ no
+es un asunto económico sino que sencillamente lo que plantea es una
 cuestión de **libertad**.
 
 __ https://www.gnu.org/philosophy/free-sw.es.html
 
-Pienso que los modelos de negocio obsoletos deben adaptarse y evolucionar hacia 
-nuevas formas de generar riqueza, creando nuevas relaciones entre 
-productor y consumidor. Los modelos de negocios basados en software libre 
-a menudo nos indican el camino a seguir, ya que están estableciendo 
-estas nuevas relaciones y obteniendo la confianza y el reconocimiento 
-del consumidor, y no precisamente por cuestiones económicas. ¿No desean 
+Pienso que los modelos de negocio obsoletos deben adaptarse y evolucionar hacia
+nuevas formas de generar riqueza, creando nuevas relaciones entre
+productor y consumidor. Los modelos de negocios basados en software libre
+a menudo nos indican el camino a seguir, ya que están estableciendo
+estas nuevas relaciones y obteniendo la confianza y el reconocimiento
+del consumidor, y no precisamente por cuestiones económicas. ¿No desean
 esto las empresas para sí?.
 
-En cuanto a que producir algo que otros obtienen gratis no genera 
-puestos de trabajo, pienso que es falso. Sólo hace falta fijarse en como las 
+En cuanto a que producir algo que otros obtienen gratis no genera
+puestos de trabajo, pienso que es falso. Sólo hace falta fijarse en como las
 tecnologías de interconexión, protocolos y servicios de accesibilidad
-de la red Internet ha generado, y seguirá generando, infinidad de 
-puestos de trabajo. Estoy convencido que Internet no sería ni siquiera 
-una sombra de lo que es si estas tecnologías se hubieran patentado, 
+de la red Internet ha generado, y seguirá generando, infinidad de
+puestos de trabajo. Estoy convencido que Internet no sería ni siquiera
+una sombra de lo que es si estas tecnologías se hubieran patentado,
 cerrado y/o explotado económicamente.
 
 Creo que el movimiento del software libre es, junto con otros, una
@@ -238,11 +238,13 @@ causa un perjuicio a la sociedad.
 Enlaces
 =======
 
-Versión html: http://migasfree.org/repo/book/html/index.html
+Versión html: http://fun-with-migasfree.readthedocs.org/en/master/
 
-Versión pdf: http://migasfree.org/repo/book/pdf/fun-with-migasfree.pdf
+Versión pdf: https://media.readthedocs.org/pdf/fun-with-migasfree/master/fun-with-migasfree.pdf
 
-Codigo Fuente: http://github.com/migasfree/fun-with-migasfree.
+Codigo Fuente: http://github.com/migasfree/fun-with-migasfree
+
+Poyecto migasfree: http://migasfree.org
 
 Twitter: `@migasfree`__ `@albertogacias`__
 
