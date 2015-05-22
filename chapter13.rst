@@ -47,14 +47,14 @@ Se trata de usar los campos del ``Repositorio``:
 
     * ``default exclude packages``: Lista de paquetes a desinstalar.
 
-y asignar al ``Repositorio`` el ``Atributo`` ``ALL-SYSTEMS``
+y asignar al ``Repositorio`` el ``Atributo`` ``SET-ALL SYSTEMS``
 
 No tienes porque indicar todos los paquetes. Como vamos a partir de una
 Distribución generalista como Debian, Ubuntu, RedHat, etc. indicamos sólo los
 paquetes que queremos añadir o eliminar a la Distro.
 
 También puedes hacer una selección de los paquetes que compondrían unos "sabores",
-y en vez de usar el ``Atributo`` ``ALL-SYSTEMS``, crear una ``Etiqueta`` por sabor
+y en vez de usar el ``Atributo`` ``SET-ALL SYSTEMS``, crear una ``Etiqueta`` por sabor
 y asignarla en diferentes ``Repositorios``
 
 La creación de etiquetas la viste en :ref:`La configuración del sistema migasfree`

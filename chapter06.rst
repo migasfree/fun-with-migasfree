@@ -284,7 +284,7 @@ Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
   instalarán **obligatoriamente** en los clientes.
 
 * Despliega la sección ``Atributos``
-* Atributos = ``ALL-ALL SYSTEMS``
+* Atributos = ``SET-ALL SYSTEMS``
 
   De esta manera indicamos que todos los clientes tendrán acceso a este
   repositorio.

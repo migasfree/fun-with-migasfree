@@ -240,7 +240,7 @@ __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
 Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
 ``migasfree-launcher`` en el servidor migasfree, crea un repositorio en el
 servidor y pon estos paquetes en ``paquetes a instalar`` y asígnale el
-atributo ``ALL-SYSTEMS``.
+atributo ``SET-ALL SYSTEMS``.
 
   .. note::
 

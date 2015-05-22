@@ -162,11 +162,12 @@ Existen unas propiedades predefinidas que tienen unos objetivos muy concretos y
 que no pueden ser eliminadas del sistema. Lo más característico de ellas es que
 **no son ejecutadas en el cliente** sino en el servidor.
 
-* **ALL**: Esta propiedad tiene un único atributo llamado ``ALL SYSTEMS``. Todos
-  los ordenadoras tendrán éste atributo sin excepción. Sirve para cuando quieras
+* **SET**: Esta propiedad tiene un atributo llamado ``SET-ALL SYSTEMS``. Todos
+  los ordenadores tendrán éste atributo sin excepción. Sirve para cuando quieras
   referirte a **todos** los ordenadores. Por ejemplo, si en un repositorio
   asignas este atributo, todos los ordenadores tendrán acceso a él. Es habitual
-  usarlo también en la última demora de un calendario.
+  usarlo también en la última demora de un calendario. Esta propiedad además
+  se usa internamente para definir :ref:`Conjuntos de Atributos`.
 
 * **CID**: Computer Identificator. Esta propiedad generará un atributo que
   es igual al campo ``id`` de la tabla ``computer`` de la Base de datos de migasfree.
@@ -312,6 +313,58 @@ Campos de Tipos de Etiqueta.
   .. note::
 
      Observa que el caracter de delimitación es el punto: ``.``
+
+
+.. _`Conjuntos de Atributos`:
+
+Conjuntos de Atributos
+======================
+
+En ocasiones puedes necesitar agrupar ``Atributos``.
+
+Imagina que tienes muchos equipos a los que asignar una cierta ``Etiqueta`` y
+que te resulta pesado tener que hacerlo uno a uno. Puedes entonces crear un
+``Conjunto de Atributos``.
+
+Supón que tienes subredes con un buen ancho de banda y otras subredes que no,
+y que necesitas liberar software en función de esto. Podríamos crear dos
+``Conjuntos de Atributos``:
+
+    .. code-block:: none
+
+      Conjunto 1:
+            Nombre:                 RED LENTA
+            Atributos asignados:    NET-192.168.1.0/24
+                                    NET-192.168.8.0/24
+
+      Conjunto 2:
+            Nombre:                 RED RAPIDA
+            Atributos asignados:    SET-ALL SYSTEMS
+            Atributos excluidos:    SET-RED LENTA
+
+De esta manera, cualquier equipo de las subredes 192.168.1.0/24 ó 192.168.8.0/24
+al ejecutar ``migasfree -u`` se le asignará automáticamente un
+``Atributo: SET-RED LENTA``. Al resto de equipos se le asignará el
+``Atributo: SET-RED RAPIDA``.
+
+Ahora ya podríamos crear ``Repositorios`` y asignarles dichos ``Atributos``.
+
+Los ``Conjuntos de Atributos`` no ejecutan ningún código en el cliente, sino que
+son evaluados en el servidor. Si un ordenador pertenece a un conjunto se le asigna
+un ``Atributo`` con el mismo nombre que el ``Conjunto de Atributos``.
+
+
+Campos de Conjuntos de Atributos
+--------------------------------
+
+* **Nombre**: Denomina al conjunto.
+
+* **Activo**: Indica si el conjunto será evaluado.
+
+* **Atributos**: Lista de ``Atributos`` que formarán parte el conjunto.
+
+* **Excluidos**: Lista de ``Atributos`` a excluir de conjunto.
+
 
 .. _`Versiones`:
 

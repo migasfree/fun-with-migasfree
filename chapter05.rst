@@ -8,7 +8,7 @@ Probando migasfree
 
    -- Isaac Newton.
 
-Si bien puedes instalar el servidor migasfree en distintas 
+Si bien puedes instalar el servidor migasfree en distintas
 distribuciones, en este capítulo voy a explicarte como instalarlo sobre
 `Debian 7 Wheezy`__.
 
@@ -56,21 +56,21 @@ Actualiza las listas de paquetes e instala el paquete migasfree-server:
 
   .. note::
 
-      Al instalar el paquete del servidor migasfree se añade al sistema 
-      el fichero ``/etc/apache2/conf.d/migasfree.conf``. Este fichero 
-      contiene la configuración del servidor web. 
+      Al instalar el paquete del servidor migasfree se añade al sistema
+      el fichero ``/etc/apache2/conf.d/migasfree.conf``. Este fichero
+      contiene la configuración del servidor web.
 
-      
+
   .. note::
 
-      Al instalar el paquete del servidor migasfree se crea el usuario 
-      ``migasfree`` en Postgresql con password ``migasfree`` y se añade al 
-      fichero ``/etc/postgresql/9.1/main/pg_hba.conf`` la línea 
-      ``'local all migasfree password'`` para permitir al usuario migasfree 
+      Al instalar el paquete del servidor migasfree se crea el usuario
+      ``migasfree`` en Postgresql con password ``migasfree`` y se añade al
+      fichero ``/etc/postgresql/9.1/main/pg_hba.conf`` la línea
+      ``'local all migasfree password'`` para permitir al usuario migasfree
       autenticarse mediante password. Recuerda que para poner en producción
-      el servidor deberás cambiar la contraseña de éste usuario tal y 
+      el servidor deberás cambiar la contraseña de éste usuario tal y
       como se indica en :ref:`Migasfree en producción`.
-      
+
 
 
 Comprobando el servidor
@@ -177,7 +177,7 @@ te devolverá una salida parecida a esta:
     ************************** Evaluando atributos... **************************
     VER: debian-7.4
 
-    ALL: ALL SYSTEMS
+    SET: ALL SYSTEMS
 
     IP: 192.168.92.133
 

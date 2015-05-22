@@ -304,14 +304,14 @@ distintos servicios de nuestro ayuntamiento.
             a los 0 días:  GRP-EQUIPOS DE TEST.
             a los 5 días:  CTX-SERVICIO DE PERSONAL
             a los 10 días: CTX-GESTION TRIBUTARIA
-            a los 15 días: ALL-SYSTEMS
+            a los 15 días: SET-ALL SYSTEMS
 
         CALENDARIO MUY RAPIDO
             a los 0 días: CTX-SERVICIO DE PERSONAL, CTX-GESTION TRIBUTARIA
-            a los 2 dias: ALL-SYSTEMS
+            a los 2 dias: SET-ALL SYSTEMS
 
 Es conveniente que en la última demora asignes, si procede, el atributo
-``ALL-SYSTEMS``.
+``SET-ALL SYSTEMS``.
 
 Cuando asignas un calendario a un repositorio podrás ver la temporalización
 resultante en la columna ``línea temporal`` de ``Liberación-Repositorios``
@@ -362,7 +362,7 @@ Campos de calendario
 
         * **Duración**: Número de días en que se completará el despliegue a
           los equipos asignados a la demora. O dicho de otra forma, si asignamos
-          el atributo ALL-SYSTEMS y una duración de 20 días, obtendríamos un
+          el atributo ``SET-ALL SYSTEMS`` y una duración de 20 días, obtendríamos un
           incremento diario aproximado del 5% del total de equipos.
 
 
@@ -466,7 +466,7 @@ Las tareas que debe realizar un liberador son:
 
       En AZLinux mayoritariamente, y para no tener muchos repositorios activos,
       estos paquetes los asignamos a otro repositorio (ya existente para éste
-      fin) que tiene asignado sólo el atributo ``ALL-SYSTEMS``. Los repositorios
+      fin) que tiene asignado sólo el atributo ``SET-ALL SYSTEMS``. Los repositorios
       que nos han servido para liberar poco a poco los paquetes son
       desactivados (no los borramos) para mantener así la historia de lo que
       se ha ido haciendo.

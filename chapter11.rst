@@ -18,7 +18,7 @@ generando a consecuencia del proceso de actualización.
 Alertas
 =======
 
-Muestra en lo que debe actuar el administrador para tener un sistema lo 
+Muestra en lo que debe actuar el administrador para tener un sistema lo
 más íntegro posible. Ya lo viste en apartado :ref:`Comprobaciones` del capítulo
 :ref:`La configuración del sistema migasfree`.
 
@@ -65,7 +65,7 @@ Campos de Ordenador
     * **Actualización hardware**: Fecha de la última actualización hardware.
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
-      Para una explicación del funcionamiento de las etiquetas mira los 
+      Para una explicación del funcionamiento de las etiquetas mira los
       :ref:`Tipos de Etiquetas`.
 
 
@@ -158,6 +158,7 @@ Campos de falla
 
     * **Versión**: Es la versión que tenía el equipo cuando se produjo la falla.
 
+
 Atributos
 =========
 
@@ -183,7 +184,7 @@ Etiquetas
 Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
 liberar software en función de éstas.
 
-El funcionamiento de las etiquetas ya lo hemos visto en los 
+El funcionamiento de las etiquetas ya lo hemos visto en los
 :ref:`Tipos de Etiquetas`.
 
 Campos de Etiqueta
