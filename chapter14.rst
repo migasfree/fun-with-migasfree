@@ -215,13 +215,24 @@ en ``/etc/migasfree.conf``
 Solución
 ********
 
-Borra las claves del equipo cliente:
+Borra las claves del equipo cliente.
+
+Para la versión 4.6 ó inferior usa:
 
   .. code-block:: none
 
     # rm /root/.migasfree-keys/*
 
-Y si es necesario vuelve a registrar el cliente.
+Y si es necesario vuelve a registrar el cliente con migasfree --register.
+
+Para la versión 4.7 ó superior usa:
+
+  .. code-block:: none
+
+    # rm /var/migasfree-client/keys/*
+
+Y si es necesario vuelve a registrar el cliente con migasfree --register.
+
 
 Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found
 -------------------------------------------------------------
