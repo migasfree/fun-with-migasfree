@@ -217,21 +217,21 @@ Solución
 
 Borra las claves del equipo cliente.
 
-Para la versión 4.6 ó inferior usa:
+Para la versión de migasfree-client 4.6 ó inferior usa:
 
   .. code-block:: none
 
     # rm /root/.migasfree-keys/*
 
-Y si es necesario vuelve a registrar el cliente con migasfree --register.
-
-Para la versión 4.7 ó superior usa:
+Para la versión de migasfree-client 4.7 ó superior usa:
 
   .. code-block:: none
 
-    # rm /var/migasfree-client/keys/*
+    # rm -rf /var/migasfree-client/keys/[server]/*
 
-Y si es necesario vuelve a registrar el cliente con migasfree --register.
+   .. note::
+
+      Si es necesario vuelve a registrar el cliente ejecutando: migasfree --register.
 
 
 Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found
