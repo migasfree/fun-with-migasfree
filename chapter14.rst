@@ -229,9 +229,9 @@ Para la versión de migasfree-client 4.7 ó superior usa:
 
     # rm -rf /var/migasfree-client/keys/[server]/*
 
-   .. note::
+  .. note::
 
-      Si es necesario vuelve a registrar el cliente ejecutando: migasfree --register.
+     Si es necesario vuelve a registrar el cliente ejecutando: migasfree --register.
 
 
 Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found
