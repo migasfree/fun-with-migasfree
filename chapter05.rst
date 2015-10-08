@@ -46,11 +46,25 @@ debian 7, ejecutaremos la siguiente instrucción:
 
     # echo "deb http://migasfree.org/repo debian7 PKGS" > /etc/apt/sources.list.d/migasfree.list
 
-Actualiza las listas de paquetes e instala el paquete migasfree-server:
+Actualizamos las listas de paquetes:
 
   .. code-block:: none
 
     # apt-get update
+
+A continuación instalamos el paquete python-django con la versión 1.6.11-1 que es
+la última versión soportada por el servidor migasfree y lo retenemos a dicha versión.
+
+  .. code-block:: none
+
+    # apt-get install python-django=1.6.11-1
+    # apt-mark hold python-django
+
+
+Finalmente, instalaremos el paquete migasfree-server:
+
+  .. code-block:: none
+
     # apt-get install migasfree-server
 
 
