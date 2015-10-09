@@ -43,6 +43,14 @@ migasfree de Postgresql):
            }
         }
 
+Por motivos de seguridad dale permisos de sólo lectura al usuario www-data:
+
+  .. code-block:: none
+
+    # chmod 400 /etc/migasfree-server/settings.py
+    # chown www-data:www-data /etc/migasfree-server/settings.py
+
+
 Este es el fichero de configuración del servidor migasfree. Hay diversas
 variables que se pueden configurar aquí para modificar el comportamiento
 de migasfree.
