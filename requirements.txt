@@ -1,6 +1,1 @@
 sphinx
-#texlive-latex-recommended
-#texlive-latex-extra
-#texlive-fonts-recommended
-#texlive-lang-spanish
-#babel
