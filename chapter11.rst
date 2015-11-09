@@ -45,6 +45,25 @@ Campos de Ordenador
 
     * **Uuid**: Es el identificador único universal de la placa base del equipo.
 
+    * **Estado**: Los diferentes estados se clasifican en productivos e
+      improductivos.
+
+        * *Productivos*:
+            * **Asignado**. Es el estado por defecto e indica que el ordenador
+              está siendo usado para el propósito propio de tu organización.
+
+            * **Reservado**. Se utiliza para indicar que el ordenador se utiliza
+              para un uso especial, por ejemplo para pruebas.
+
+            * **Desconocido**. Cualquier otro uso productivo.
+
+        * *Improductivos*:
+            * **Disponible**. El ordenador está libre y listo para pasar a un
+              estado productivo.
+
+            * **Baja**. El ordenador no se va utilizar nunca más debido a
+              rotura, robo, venta o por cualquier otro motivo.
+
     * **Versión**: La versíon migasfree del ordenador.
 
     * **Fecha de alta**: Fecha de alta del ordenador en migasfree.
