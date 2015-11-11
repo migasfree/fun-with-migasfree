@@ -45,24 +45,55 @@ Campos de Ordenador
 
     * **Uuid**: Es el identificador único universal de la placa base del equipo.
 
-    * **Estado**: Los diferentes estados se clasifican en productivos e
-      improductivos.
+          .. note::
 
-        * *Productivos*:
-            * **Asignado**. Es el estado por defecto e indica que el ordenador
-              está siendo usado para el propósito propio de tu organización.
+            El cliente de migasfree es el encargado de proporcionar este UUID. En
+            caso de no poder obtenerlo porque el fabricante de la placa
+            base no lo ha asignado o por cualquier otro motivo, el cliente
+            proporciona un UUID basado en la MAC de la primera tarjeta de red
+            que encuentre.
 
-            * **Reservado**. Se utiliza para indicar que el ordenador se utiliza
-              para un uso especial, por ejemplo para pruebas.
+    * **Estado**: Un ordenador puede tener uno de estos seis estados: ``Asignado``,
+      ``Reservado``, ``Desconocido``, ``Disponible``, ``En reparación`` y finalmente
+      ``Baja``.
 
-            * **Desconocido**. Cualquier otro uso productivo.
 
-        * *Improductivos*:
-            * **Disponible**. El ordenador está libre y listo para pasar a un
-              estado productivo.
+        Estos estados los clasificamos de la siguiente manera.
 
-            * **Baja**. El ordenador no se va utilizar nunca más debido a
-              rotura, robo, venta o por cualquier otro motivo.
+        * **ALTA**: Son todos los ordenadores que no tienen el estado ``Baja`` y
+          los dividimos en productivos e improductivos.
+
+            * **PRODUCTIVOS**: Conjunto de ordenadores en uso. Los diferentes
+              estados dentro de esta categoría son:
+
+                * ``Asignado``. Es el estado por defecto e indica que el ordenador
+                  está siendo usado para el propósito propio de tu organización.
+
+                * ``Reservado``. Indica que el ordenador se utiliza para un uso
+                  especial, por ejemplo para pruebas.
+
+                * ``Desconocido``. Cualquier otro uso.
+
+            * **IMPRODUCTIVOS**: Ordenadores que no están siendo utilizados
+              y que podrán utilizarse en el futuro. Dentro de los improductivos
+              encontramos los siguientes estados:
+
+                * ``Disponible``. El ordenador está libre y listo para pasar a un
+                  estado productivo inmediatamente.
+
+                      .. note::
+
+                        Cuando un ordenador pasa a este estado se eliminan todas las
+                        etiquetas y todos los dispositivos lógicos que tuviera
+                        asignados. Esto evita configuraciones inapropiadas derivadas
+                        de los cambios de ordenador a usuarios.
+
+                * ``En reparación``. El ordenador está siendo reparado.
+
+        * **BAJA**: Tienen el estado ``Baja``. Se indica con este estado que el
+          ordenador no se va utilizar nunca más debido a rotura, robo, venta o
+          por cualquier otro motivo.
+
 
     * **Versión**: La versíon migasfree del ordenador.
 
