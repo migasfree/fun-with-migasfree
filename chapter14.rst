@@ -259,3 +259,27 @@ Accede a ``Configuracion - p.m.s. - apt-get`` y modifica el campo
     dpkg-scanpackages -m dists/%REPONAME%/PKGS /dev/null | gzip -9c > dists/%REPONAME%/PKGS/binary-i386/Packages.gz
     dpkg-scanpackages -m dists/%REPONAME%/PKGS /dev/null | gzip -9c > dists/%REPONAME%/PKGS/binary-amd64/Packages.gz
     dpkg-scansources dists/%REPONAME%/PKGS /dev/null | gzip -9c > dists/%REPONAME%/PKGS/sources/Sources.gz
+
+
+No se consige ejecutar el cliente de migasfree en un ``cron``.
+--------------------------------------------------------------
+
+Causa
+*****
+
+Las variables de entorno no están disponibles.
+
+Solución
+********
+
+En vez de programar el cron así:
+
+  .. code-block:: none
+
+    00 07 * * * root /usr/bin/migasfree --update
+
+debemos forzar el **entorno de usuario** de esta forma:
+
+  .. code-block:: none
+
+    00 07 * * * root su -c 'migasfree --update' --login

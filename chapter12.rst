@@ -15,7 +15,7 @@ las contraseñas a los usuarios que vienen por defecto, y preparar un
 backup de la base de datos y de la carpeta /var/migasfree.
 
 Obtención de los paquetes de migasfree
---------------------------------------
+======================================
 
 Si en http://migasfree.org/repo/dists no están los paquetes de migasfree
 para la Distribución que vas a emplear puedes generarlos tú mismo.
@@ -23,7 +23,7 @@ para la Distribución que vas a emplear puedes generarlos tú mismo.
 En :ref:`Empaquetando migasfree` tienes instrucciones de cómo obtenerlos.
 
 Configuración del servidor
---------------------------
+==========================
 
 Crea el fichero ``/etc/migasfree-server/settings.py`` con el siguiente
 contenido (no te olvides de sustituir la password por la del usuario
@@ -70,7 +70,7 @@ Si necesitas cambiar la password del usuario migasfree en postgresql haz esto:
 
 
 Cambiando las contraseñas
-=========================
+-------------------------
 
 * Accede a ``Configuracion-Usuarios`` y verás los perfiles de
   usuarios.
@@ -85,7 +85,7 @@ La explicación de los usuarios y sus grupos lo has visto ya en
 
 
 Servicio de caché de paquetes
------------------------------
+=============================
 
 Montar un caché de paquetes para disminuir el tráfico de internet es habitual.
 Su funcionamiento es muy sencillo. Cuando un equipo necesita descargar un
@@ -166,12 +166,12 @@ __ http://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
 
 
 Backups
--------
+=======
 
 A continuación te sugiero un manera de hacer los backups.
 
 Dump de la base de datos
-========================
+------------------------
 
 Para hacer el dump de la base de datos, crea el fichero
 ``/var/migasfree/dump/migasfree-dump.sh`` (deberás modificar
@@ -216,7 +216,7 @@ Finalmente ponemos permisos de ejecución a los scripts:
     chmod 700 /var/migasfree/dump/migasfree-restore.sh
 
 Tarea periódica
-===============
+---------------
 
 Para programar una tarea que se ejecute periódicamente realizando el
 dump de la base de datos y la copia de los ficheros de los
@@ -252,7 +252,7 @@ añadiendo la siguiente línea a crontab:
 
 
 Etiquetando los clientes
-------------------------
+========================
 
 Para facilitar la atención a los usuarios cuando tengan un problema, es
 conveniente imprimir y pegar físicamente la etiqueta que identifica
