@@ -339,3 +339,21 @@ las ``Alertas`` a 0. Él sistema te irá avisando que debes atender.
 
     * Comprueba periódicamente la existencia de ``Notificaciones``. Una vez leídas
       márcalas como comprobadas.
+
+
+Otros procesos
+==============
+
+Reemplazo de ordenadores
+------------------------
+
+Este proceso permite intercambiar el estado, etiquetas y dispositivos entre dos
+ordenadores.
+
+Imagina que un usuario te reporta un fallo de hardware y decides darle un equipo
+que tienes en estado ``disponible`` para que continúe su trabajo. En este caso
+ve al menú ``Datos - Reemplazo de ordenadores`` e introduce los dos ordenadores.
+Una vez pulses en el botón ``Reemplazar`` el ordenador que estaba ``disponible``
+tendrá ahora el estado, etiquetas e impresoras que tenía el ordenador estropeado.
+Finalmente puedes editar el ordenador que ha fallado y cambiarle el estado a
+``en reparación`` o a ``baja``.
