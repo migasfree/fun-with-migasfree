@@ -344,11 +344,13 @@ las ``Alertas`` a 0. Él sistema te irá avisando que debes atender.
 Otros procesos
 ==============
 
+.. _`Reemplazo de ordenadores`:
+
 Reemplazo de ordenadores
 ------------------------
 
-Este proceso permite intercambiar el estado, etiquetas y dispositivos entre dos
-ordenadores.
+Este proceso permite intercambiar el estado, etiquetas, dispositivos y
+atributos ``CID`` asignados en el sistema entre dos ordenadores.
 
 Imagina que un usuario te reporta un fallo de hardware y decides darle un equipo
 que tienes en estado ``disponible`` para que continúe su trabajo. En este caso

@@ -171,12 +171,18 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
 
 * **CID**: Computer Identificator. Esta propiedad generará un atributo que
   es igual al campo ``id`` de la tabla ``computer`` de la Base de datos de migasfree.
-  Es único por cada ordenador. Se utiliza en lugar de referirse al ``UUID``
-  de la placa base de un ordenador ya que el ``CID`` es mucho más corto y
-  por tanto más utíl a la hora de referirte a un equipo concreto. El ``CID`` aparece
-  por defecto en la etiqueta del ordenador que muestra el comando ``migasfree-label``.
+
+  Dicho atributo ``CID`` es único por cada ordenador y se utiliza en lugar de
+  referirse al ``UUID`` de la placa base de un ordenador siendo **el más
+  recomendado** para señalar a un ordenador en concreto (procesos como el
+  de :ref:`Reemplazo de ordenadores` tienen en cuenta este atributo y no el
+  resto de atributos).
+
   Por ejemplo, un atributo ``CID-572`` se correspondería con el
   ``UUID`` 5FD85780-9BC9-11E3-91B8-F0921CF3678D.
+
+  El ``CID`` aparece por defecto en la etiqueta del ordenador que muestra el
+  comando ``migasfree-label``.
 
 
 .. _`Tipos de Etiquetas`:
