@@ -22,6 +22,9 @@ Muestra en lo que debe actuar el administrador para tener un sistema lo
 más íntegro posible. Ya lo viste en apartado :ref:`Comprobaciones` del capítulo
 :ref:`La configuración del sistema migasfree`.
 
+
+.. _`Ordenadores`:
+
 Ordenadores
 ===========
 
@@ -35,7 +38,6 @@ Tambien puedes acceder a los datos que están relacionados con un equipo
 determinado midiante el desplegable que hay a la derecha del identificador del equipo.
 Así, fácilmente podrías ver los errores que ha habido en un equipo, su fallas,
 migraciones, actualizaciones, etc.
-
 
 Campos de Ordenador
 -------------------
@@ -83,10 +85,12 @@ Campos de Ordenador
 
                       .. note::
 
-                        Cuando un ordenador pasa a este estado se eliminan todas las
-                        etiquetas y todos los dispositivos lógicos que tuviera
-                        asignados. Esto evita configuraciones inapropiadas derivadas
-                        de los cambios de ordenador a usuarios.
+                        Cuando un ordenador pasa a estado ``Disponible``, se eliminan
+                        todas sus etiquetas, todos sus dispositivos lógicos, y
+                        todos sus ``CID``. Esto evita configuraciones inapropiadas
+                        derivadas de cambios de equipos (si no se hiciera
+                        de esta manera el uso antiguo que se le haya dado a un
+                        ordenador podría influir en su uso futuro).
 
                 * ``En reparación``. El ordenador está siendo reparado.
 
@@ -94,6 +98,13 @@ Campos de Ordenador
           ordenador no se va utilizar nunca más debido a rotura, robo, venta o
           por cualquier otro motivo.
 
+              .. note::
+
+                Cuando un ordenador pasa a estado ``Baja`` se eliminan todas sus
+                etiquetas, todos sus dispositivos lógicos, y todos sus
+                ``CID`` asignados.
+
+        Puedes consultar más información sobre los ``CID`` en las :ref:`Propiedades específicas`.
 
     * **Versión**: La versíon migasfree del ordenador.
 

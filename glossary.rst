@@ -10,6 +10,9 @@ Glosario de términos
 
 **Cambio**. Actividad que modifica un ECS, generando una nueva versión del ECS.
 
+**CID**. Computer Identificator. Número que identifica inequívocamente a una placa
+base y por tanto a un ordenador.
+
 **ECS**. Elemento de configuración software. Objeto software sometido a la GCS.
 
 **Falla**. Hecho negativo que se produce en un equipo cliente

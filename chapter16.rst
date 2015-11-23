@@ -53,6 +53,8 @@ Ejemplo:
     MIGASFREE_AUTOREGISTER = False
 
 
+.. _`MIGASFREE_COMPUTER_SEARCH_FIELDS`:
+
 MIGASFREE_COMPUTER_SEARCH_FIELDS
 --------------------------------
 
@@ -63,6 +65,9 @@ un ordenador. El primer campo es importante ya que será el que aparezca
 en la primera columna de  la lista de ordenadores. Si quieres ver el nombre
 del ordenador en vez del id en la lista de ordenadores asigna el campo
 ``name`` el primero de la lista.
+
+Se utiliza támbíen para las búsquedas de un ``CID`` por los campos especificados.
+Ver :ref:`Propiedades específicas`.
 
 Ejemplo:
 

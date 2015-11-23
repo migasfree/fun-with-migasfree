@@ -155,6 +155,8 @@ Observa cada uno de los campos de la Propiedad:
   ``Datos-Atributos``.
 
 
+.. _`Propiedades específicas`:
+
 Propiedades específicas
 -----------------------
 
@@ -170,20 +172,25 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
   se usa internamente para definir :ref:`Conjuntos de Atributos`.
 
 * **CID**: Computer Identificator. Esta propiedad generará un atributo que
-  es igual al campo ``id`` de la tabla ``computer`` de la Base de datos de migasfree.
+  es igual al campo ``id`` de la tabla ``computer`` de la Base de Datos de migasfree.
 
   Dicho atributo ``CID`` es único por cada ordenador y se utiliza en lugar de
   referirse al ``UUID`` de la placa base de un ordenador siendo **el más
   recomendado** para señalar a un ordenador en concreto (procesos como el
-  de :ref:`Reemplazo de ordenadores` tienen en cuenta este atributo y no el
-  resto de atributos).
+  :ref:`Reemplazo de ordenadores` tienen en cuenta este atributo).
 
   Por ejemplo, un atributo ``CID-572`` se correspondería con el
   ``UUID`` 5FD85780-9BC9-11E3-91B8-F0921CF3678D.
 
+  El ajuste :ref:`MIGASFREE_COMPUTER_SEARCH_FIELDS` del servidor, permite
+  configurar búsquedas por otros campos del ordenador a la hora de asignar un
+  determinado ``CID`` en el servidor migasfree.
+
+  Cuando un ordenador pasa a un estado ``Baja`` o a ``Disponible`` todos sus
+  ``CID`` asignados en el sistema son eliminados. Ver campo ``estado`` de :ref:`Ordenadores`.
+
   El ``CID`` aparece por defecto en la etiqueta del ordenador que muestra el
   comando ``migasfree-label``.
-
 
 .. _`Tipos de Etiquetas`:
 
