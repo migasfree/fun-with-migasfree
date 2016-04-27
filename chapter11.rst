@@ -42,19 +42,6 @@ migraciones, actualizaciones, etc.
 Campos de Ordenador
 -------------------
 
-    * **Nombre**: Es el nombre del equipo o el especificado en el
-      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`
-
-    * **Uuid**: Es el identificador único universal de la placa base del equipo.
-
-          .. note::
-
-            El cliente de migasfree es el encargado de proporcionar este UUID. En
-            caso de no poder obtenerlo porque el fabricante de la placa
-            base no lo ha asignado o por cualquier otro motivo, el cliente
-            proporciona un UUID basado en la MAC de la primera tarjeta de red
-            que encuentre.
-
     * **Estado**: Un ordenador puede tener uno de estos seis estados: ``Asignado``,
       ``Reservado``, ``Desconocido``, ``Disponible``, ``En reparación`` y finalmente
       ``Baja``.
@@ -106,11 +93,44 @@ Campos de Ordenador
 
         Puedes consultar más información sobre los ``CID`` en las :ref:`Propiedades específicas`.
 
+    * **Nombre**: Es el nombre del equipo o el especificado en el
+      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`
+
     * **Versión**: La versíon migasfree del ordenador.
 
     * **Fecha de alta**: Fecha de alta del ordenador en migasfree.
 
+    * **Última actualización**: Fecha en la que se finalizó por última vez la
+      actualización del cliente migasfree.
+
     * **IP**: La dirección ip del equipo en el momento de la actualización.
+
+    * **Actualización hardware**: Fecha de la última actualización hardware.
+
+    * **Product**: Nombre del ordenador incluido en la placa base.
+      Por ejemplo ``HP ProDesk 600 G1 SFF (C8T89AV)``
+
+    * **Uuid**: Es el identificador único universal de la placa base del equipo.
+
+          .. note::
+
+            El cliente de migasfree es el encargado de proporcionar este UUID. En
+            caso de no poder obtenerlo porque el fabricante de la placa
+            base no lo ha asignado o por cualquier otro motivo, el cliente
+            proporciona un UUID basado en la MAC de la primera tarjeta de red
+            que encuentre.
+
+    * **Machine**: Indica si es una maquina física o virtual.
+
+    * **CPU**: Nombre del microprocesador. Ejemplo:  ``Intel Core i5-4590 3.30GHz``
+
+    * **RAM**: Cantidad de memoria RAM.
+
+    * **Almacenamiento**: Cantidad de almacenamiento en disco.
+
+    * **Discos**: Numero de discos.
+
+    * **MAC address**: Direcciones MAC.
 
     * **Inventario de software**: Diferencia actual entre el conjunto de paquetes del
       ordenador de referencia y el ordenador en cuestión. Ver en
@@ -119,11 +139,6 @@ Campos de Ordenador
 
     * **Historial de software**: Registro de los paquetes instalados y
       desinstalados según se van produciendo en el tiempo.
-
-    * **Última actualización**: Fecha en la que se finalizó por última vez la
-      actualización del cliente migasfree.
-
-    * **Actualización hardware**: Fecha de la última actualización hardware.
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
       Para una explicación del funcionamiento de las etiquetas mira los
