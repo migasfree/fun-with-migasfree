@@ -10,7 +10,7 @@ Probando migasfree
 
 Si bien puedes instalar el servidor migasfree en distintas
 distribuciones, en este capítulo voy a explicarte como instalarlo sobre
-`Debian 7 Wheezy`__.
+`Debian 8 Jessie`__.
 
 __ http://www.debian.org/
 
@@ -19,18 +19,16 @@ y un cliente migasfree totalmente funcional, por eso no me voy a extender
 en explicaciones.
 
 Si decides usar otra Distribución GNU/linux de la recomendada tendrás que
-conseguir los paquetes apropiados. Accede a http://migasfree.org/repo/dists__
-para ver si tu Distribución se encuentra aquí. En caso negativo puedes
-generar los paquetes como se indica en :ref:`Empaquetando migasfree`. Ten en cuenta
-que las instrucciones de éste capitulo pueden variar segun la Distribución
-que elijas.
+conseguir los paquetes apropiados. Puedes generar los paquetes como se indica
+en :ref:`Empaquetando migasfree`. Ten en cuenta que las instrucciones de éste
+capitulo pueden variar segun la Distribución que elijas.
 
 __ http://migasfree.org/repo/dists
 
    .. note::
 
       Usa una máquina virtual de virtualbox__ realizando la instalación
-      mínima por red de Debian 7 para ver el funcionamiento de migasfree
+      mínima por red de Debian 8 para ver el funcionamiento de migasfree
       y familiarizarte con él antes de poner a :ref:`Migasfree en producción`
 
 
@@ -39,33 +37,11 @@ __ https://www.virtualbox.org/
 Instalando el servidor
 ======================
 
-Para añadir el repositorio que contiene los paquetes necesarios para
-debian 7, ejecutaremos la siguiente instrucción:
+Como root ejecuta en un terminal:
 
   .. code-block:: none
 
-    # echo "deb http://migasfree.org/repo debian7 PKGS" > /etc/apt/sources.list.d/migasfree.list
-
-Actualizamos las listas de paquetes:
-
-  .. code-block:: none
-
-    # apt-get update
-
-A continuación instalamos el paquete python-django con la versión 1.6.11-1 que es
-la última versión soportada por el servidor migasfree y lo retenemos a dicha versión.
-
-  .. code-block:: none
-
-    # apt-get install python-django=1.6.11-1
-    # apt-mark hold python-django
-
-
-Finalmente, instalaremos el paquete migasfree-server:
-
-  .. code-block:: none
-
-    # apt-get install migasfree-server
+    # wget -O - http://migasfree.org/pub/install-server | bash
 
 
   .. note::
@@ -145,8 +121,8 @@ instala el paquete migasfree-client:
 
   .. code-block:: none
 
-    # apt-get update
-    # apt-get install migasfree-client
+    # wget -O - http://migasfree.org/pub/install-client | bash
+
 
 
 Registrando el cliente
@@ -162,25 +138,28 @@ te devolverá una salida parecida a esta:
 
   .. code-block:: none
 
-    root@debian7:~# migasfree -u
+    root@debian8:~# migasfree -u
     Sesión gráfica no detectada
-    Versión de migasfree client: 3.1
+    Versión de migasfree client: 4.10
 
-    Opciones de ejecución:
-        Versión: debian-7.4
-        Servidor: 192.168.92.133
-        Proxy: None
-        Certificado SSL: None
-        Package Proxy Cache: None
-        Depuración: False
-        Nombre del ordenador: debian7
-        GUI detallado: True
-        Usuario gráfico: root
-        PMS: apt-get
+    Opciones de ejecución: /etc/migasfree.conf
+    	Versión: debian-8.4
+    	Servidor: localhost
+    	Actualizar paquetes automáticamente: True
+    	Proxy: None
+    	Certificado SSL: None
+    	Proxy caché de paquetes: None
+    	Depuración: False
+    	Nombre del ordenador: debian8
+    	GUI detallado: True
+    	PMS: apt-get
+
+    	Usuario gráfico: root
 
     Autoregistrando ordenador...
-    ¡Clave /root/.migasfree-keys/migasfree-client.pri creada!
-    ¡Clave /root/.migasfree-keys/migasfree-server.pub creada!
+    ¡Clave /var/migasfree-client/keys/localhost/debian-8.4.pri creada!
+    ¡Clave /var/migasfree-client/keys/localhost/server.pub creada!
+    ¡Clave /var/migasfree-client/keys/localhost/repositories.pub creada!
 
     ******************* Conectando al servidor migasfree... ********************
     ***************************** Correcto
@@ -189,19 +168,19 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************************** Evaluando atributos... **************************
-    VER: debian-7.4
-
     SET: ALL SYSTEMS
-
-    IP: 192.168.92.133
-
-    NET: 192.168.92.0/24
-
-    PCI: 8086:1237~Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] ...
 
     PLT: Linux
 
-    HST: debian7
+    VER: debian-8.4
+
+    HST: debian8
+
+    IP: 10.0.2.15
+
+    NET: 10.0.2.0/24
+
+    PCI: 8086:1237~Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] ...
 
     USR: root~root
 
@@ -220,13 +199,18 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************* Obteniendo los metadatos de los repositorios... **************
-    Des:1 http://ftp.es.debian.org wheezy Release.gpg [1.672 B]
-    Ign http://migasfree.org debian7 Release.gpg
-    Des:2 http://ftp.es.debian.org wheezy-updates Release.gpg [1.571 B]
-    Obj http://security.debian.org wheezy/updates Release.gpg
-    ...
-    Des:11 http://ftp.es.debian.org wheezy-updates/main Translation-en [14 B]
-    Descargados 16,3 MB en 15seg. (1.025 kB/s)
+    Ign http://ftp.es.debian.org jessie InRelease
+    Obj http://ftp.es.debian.org jessie-updates InRelease
+    Obj http://ftp.es.debian.org jessie Release.gpg
+    Obj http://ftp.es.debian.org jessie-updates/main Sources
+    Des:1 http://ftp.es.debian.org jessie-updates/main amd64 Packages/DiffIndex [2.980 B]
+    Obj http://ftp.es.debian.org jessie Release
+    Obj http://security.debian.org jessie/updates InRelease
+    Obj http://ftp.es.debian.org jessie/main Sources
+    Obj http://security.debian.org jessie/updates/main Sources
+    Obj http://ftp.es.debian.org jessie/main amd64 Packages
+    Obj http://security.debian.org jessie/updates/main amd64 Packages
+    Descargados 2.980 B en 1s (2.140 B/s)
     Leyendo lista de paquetes... Hecho
     ***************************** Correcto
 
@@ -237,19 +221,25 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************************* Actualizando paquetes... *************************
-    DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get --assume-yes --force-yes ...
+    DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get
     Leyendo lista de paquetes...
     Creando árbol de dependencias...
     Leyendo la información de estado...
-    0 actualizados, 0 se instalarán, 0 para eliminar y 0 no actualizados.
+
+    0 actualizados, 0 nuevos se instalarán, 0 para eliminar y 0 no actualizados.
 
     ***************************** Correcto
 
     ****************** Subiendo el inventario del software... ******************
     ***************************** Correcto
 
+    *************** Capturando información sobre el hardware... ***************
+    ***************************** Correcto
+
+    **************** Enviando información sobre el hardware... ****************
+    ***************************** Correcto
+
     ************************* Operaciones completadas **************************
-    root@debian7:~#
 
 Comprobando el estado del servidor
 ==================================
@@ -263,7 +253,7 @@ navegador web.
       plataforma ``Linux``
 
     * La segunda notificación te dice que el ordenador ``1`` ha añadido
-      la version ``debian-7.x``
+      la version ``debian-x.x``
 
     .. only:: not latex
 

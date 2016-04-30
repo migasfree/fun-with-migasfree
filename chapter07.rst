@@ -14,7 +14,7 @@ En el capítulo anterior nos hemos centrado en cómo se realiza el proceso
 de la GCS.
 
 En este capítulo vas a *configurar el cliente de migasfree* (mediante empaquetado)
-para que se conecte contra la maquina virtual debian 7 en el que ya tienes un servidor
+para que se conecte contra la maquina virtual debian 8 en el que ya tienes un servidor
 migasfree instalado.
 
 Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual
@@ -26,19 +26,11 @@ El objetivo de este capítulo es que conozcas un poco más el empaquetado.
 Instalando migasfree-client en Ubuntu
 =====================================
 
-Para añadir el repositorio que contiene el cliente migasfree para Ubuntu,
-crea el fichero /etc/apt/sources.list.d/migasfree.list con el siguiente contenido:
+Instala el cliente migasfree:
 
   .. code-block:: none
 
-    deb http://migasfree.org/repo ubuntu PKGS
-
-Ahora instala el cliente migasfree:
-
-  .. code-block:: none
-
-     # apt-get update
-     # apt-get install migasfree-client
+     # wget -O - http://migasfree.org/pub/install-client | bash
 
 Observa como en el fichero /etc/migasfree.conf que ha instalado el paquete
 ``migasfree-client`` no hay, lógicamente, ningún ajuste configurado.

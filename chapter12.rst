@@ -10,17 +10,24 @@ Migasfree en producción
 
    -- Albert Einstein
 
+
 Si te has decidido a instalar en producción el servidor migasfree debes cambiar
 las contraseñas a los usuarios que vienen por defecto, y preparar un
 backup de la base de datos y de la carpeta /var/migasfree.
 
-Obtención de los paquetes de migasfree
-======================================
+Recomendamos siempre instalar el servidor migasfree sobre un S.O. Debian, pero
+si eres un aventurero puedes atreverte a emplear otro. Eso sí, igual tienes que
+generar los paquetes tú mismo. En :ref:`Empaquetando migasfree` tienes
+instrucciones de cómo obtenerlos.
 
-Si en http://migasfree.org/repo/dists no están los paquetes de migasfree
-para la Distribución que vas a emplear puedes generarlos tú mismo.
 
-En :ref:`Empaquetando migasfree` tienes instrucciones de cómo obtenerlos.
+Instalación
+===========
+
+  .. code-block:: none
+
+    # wget -O - http://migasfree.org/pub/install-server | bash
+
 
 Configuración del servidor
 ==========================

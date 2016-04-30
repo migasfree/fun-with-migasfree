@@ -179,35 +179,9 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Contraseña: admin
 
-* Version: debian-7.4
+* Version: debian-x.x
 
 * Ubicacion: acme
-
-La salida que te devolverá el comando ``migasfree-upload`` será:
-
-  .. code-block:: none
-
-    root@debian7:~# migasfree-upload -f acme-migasfree-server_1.0-1_all.deb
-    Versión de migasfree upload: 3.1
-    Usuario para subir ficheros al servidor: admin
-    Contraseña del usuario:
-    Versión a la que subir en el servidor: debian-7.4
-    Ubicación a la que subir en el servidor: acme
-
-    Opciones de configuración:
-        Servidor: 192.168.92.133
-        Proxy: None
-        Depuración: False
-        Versión: debian-7.4
-        Ubicación: acme
-        Usuario: admin
-        Fichero: acme-migasfree-server_1.0-1_all.deb
-        Fichero normal: None
-        Crear repositorio: True
-
-    Obteniendo las claves de empaquetador...
-    ¡Clave /root/.migasfree-keys/migasfree-server.pub creada!
-    ¡Clave /root/.migasfree-keys/migasfree-packager.pri creada!
 
 Finalmente asigna la petición de cambio a un liberador (sí, otra vez
 vas a ser tú) y registra en la petición:
@@ -256,7 +230,7 @@ Accede mediante navegador web a tu servidor. Observa que en
       Observa tambien que a la izquierda de las ``Alertas`` aparece un desplegable
       con las versiones que existen en el servidor. Esto permitirá al usuario que se
       ha autenticado en el servidor migasfree ver los datos relativos a dicha versión.
-      Selecciona, por tanto, la version ``debian-7.x``
+      Selecciona, por tanto, la version ``debian-x.x``
 
 
 Liberando el cambio de configuración
@@ -268,7 +242,7 @@ Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
 
 * Nombre = ``PRINCIPAL``
 
-* Version = ``debian-7.4``
+* Version = ``debian-x.x``
 
 * Fecha = ``Hoy``
 
@@ -420,7 +394,7 @@ Observa que se ha generado el mismo paquete pero con la versión ``1.0-2``
 
   .. code-block:: none
 
-    # root@debian7:~# ls -la *.deb
+    # root@debian8:~# ls -la *.deb
     -rw-r--r-- 1 root root 2286 may 19 10:37 acme-migasfree-server_1.0-1_all.deb
     -rw-r--r-- 1 root root 2338 may 19 13:25 acme-migasfree-server_1.0-2_all.deb
 
@@ -436,7 +410,7 @@ Subiendo al servidor el cambio
 
 * Contraseña: admin
 
-* Version: debian-7.4
+* Version: debian-x.x
 
 * Ubicacion: acme
 
