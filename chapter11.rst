@@ -72,12 +72,14 @@ Campos de Ordenador
 
                       .. note::
 
-                        Cuando un ordenador pasa a estado ``Disponible``, se eliminan
-                        todas sus etiquetas, todos sus dispositivos lógicos, y
-                        todos sus ``CID``. Esto evita configuraciones inapropiadas
-                        derivadas de cambios de equipos (si no se hiciera
-                        de esta manera el uso antiguo que se le haya dado a un
-                        ordenador podría influir en su uso futuro).
+                        Cuando un ordenador pasa a estado ``Disponible``, se desasignan
+                        todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado 
+                        en algún Repositorio, Conjunto de Atributos, Dispositivo Lógico,
+                        Definición de Falla y/o Demora de Calendario también será desasignado 
+                        automáticamente. Esto evita configuraciones inapropiadas 
+                        derivadas de cambios de equipos (si no se hiciera de esta manera, 
+                        el uso antiguo que se le haya dado a un ordenador podría influir 
+                        en su uso futuro).
 
                 * ``En reparación``. El ordenador está siendo reparado.
 
@@ -87,10 +89,12 @@ Campos de Ordenador
 
               .. note::
 
-                Cuando un ordenador pasa a estado ``Baja`` se eliminan todas sus
-                etiquetas, todos sus dispositivos lógicos, y todos sus
-                ``CID`` asignados.
-
+                Cuando un ordenador pasa a estado ``Baja``, se desasignan
+                todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado 
+                en algún Repositorio, Conjunto de Atributos, Dispositivo Lógico,
+                Definición de Falla y/o Demora de Calendario también será desasignado 
+                automáticamente.
+                
         Puedes consultar más información sobre los ``CID`` en las :ref:`Propiedades específicas`.
 
     * **Nombre**: Es el nombre del equipo o el especificado en el
