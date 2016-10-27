@@ -53,6 +53,25 @@ Ejemplo:
     MIGASFREE_AUTOREGISTER = False
 
 
+.. _`MIGASFREE_DEFAULT_COMPUTER_STATUS`:
+
+MIGASFREE_DEFAULT_COMPUTER_STATUS
+---------------------------------
+Valor por defecto: 'intended'
+
+Establece el estado por defecto que tendrá el ordenador cuando es añadido en el
+sistema.
+
+Los valores que se pueden asignar son: 'intended', 'reserved', 'unknown',
+'in repair', 'available' o 'unsubscribed'
+
+Ejemplo:
+
+  .. code-block:: none
+
+    MIGASFREE_DEFAULT_COMPUTER_STATUS = 'available' # Estado disponible por defecto
+
+
 .. _`MIGASFREE_COMPUTER_SEARCH_FIELDS`:
 
 MIGASFREE_COMPUTER_SEARCH_FIELDS

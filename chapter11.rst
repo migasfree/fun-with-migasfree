@@ -73,12 +73,12 @@ Campos de Ordenador
                       .. note::
 
                         Cuando un ordenador pasa a estado ``Disponible``, se desasignan
-                        todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado 
+                        todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado
                         en algún Repositorio, Conjunto de Atributos, Dispositivo Lógico,
-                        Definición de Falla y/o Demora de Calendario también será desasignado 
-                        automáticamente. Esto evita configuraciones inapropiadas 
-                        derivadas de cambios de equipos (si no se hiciera de esta manera, 
-                        el uso antiguo que se le haya dado a un ordenador podría influir 
+                        Definición de Falla y/o Demora de Calendario también será desasignado
+                        automáticamente. Esto evita configuraciones inapropiadas
+                        derivadas de cambios de equipos (si no se hiciera de esta manera,
+                        el uso antiguo que se le haya dado a un ordenador podría influir
                         en su uso futuro).
 
                 * ``En reparación``. El ordenador está siendo reparado.
@@ -90,12 +90,15 @@ Campos de Ordenador
               .. note::
 
                 Cuando un ordenador pasa a estado ``Baja``, se desasignan
-                todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado 
+                todas sus etiquetas y además, si el ``CID`` del ordenador se ha asignado
                 en algún Repositorio, Conjunto de Atributos, Dispositivo Lógico,
-                Definición de Falla y/o Demora de Calendario también será desasignado 
+                Definición de Falla y/o Demora de Calendario también será desasignado
                 automáticamente.
-                
+
         Puedes consultar más información sobre los ``CID`` en las :ref:`Propiedades específicas`.
+
+        Puedes asignar un estado por defecto a los nuevos ordenadores con el
+        ajuste de servidor: :ref:`MIGASFREE_DEFAULT_COMPUTER_STATUS`
 
     * **Nombre**: Es el nombre del equipo o el especificado en el
       ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`
