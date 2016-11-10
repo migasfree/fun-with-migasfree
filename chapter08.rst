@@ -703,17 +703,6 @@ Campos de Comprobación
 
     * **Habilitado**. Activa o desactiva la comprobación.
 
-    * **Alerta**. Permite especificar si la comprobación es algo a lo que hay
-      que prestar especial atención o no.
-      Te pongo como ejemplo``Computer updating now``: Que un equipo esté
-      ejecutando el cliente migasfree no es en realidad algo por lo que alarmarse,
-      es más bien una comprobación de tipo informativo. En este caso no
-      marcarás el campo ``Alerta``.
-      En cambio que no se reciban más mensajes pasados 30 minutos desde el último
-      mensaje enviado por un cliente sí debes marcarlo como ``Alerta``
-      (``Computer delayed``)
-
-
 Las ``alertas`` proporcionan al usuario una vista general de la situación actual del
 sistema, dirigiendo su actuación a lo relevante.
 
