@@ -37,17 +37,17 @@ de ordenadores.
 Tambien puedes acceder a los **datos** que están **relacionados** con un equipo
 determinado mediante el desplegable que hay a la derecha del identificador del equipo.
 Así, fácilmente podrías ver la cantidad de errores que ha habido en un equipo, su fallas,
-migraciones, actualizaciones, etc. y acceder a ellos fácilmente. Además, en este 
+migraciones, actualizaciones, etc. y acceder a ellos fácilmente. Además, en este
 menú desplegable del ordenador te vas a encontrar con otras opciones interesantes:
 
 * **Sucesos**: Sobre un calendario, desde la fecha de entrada del equipo en el servidor,
-  se muestra la cantidad diaria de actualizaciones, errores, fallas, migraciones y 
-  registros de estado. A más cantidad diaria de sucesos el color es mas oscuro.
+  se muestra la cantidad diaria de actualizaciones, errores, fallas, migraciones y
+  registros de estado. A más cantidad diaria de sucesos el color es más oscuro.
 
-* **Simular sincronización**: Te  permite simular lo que entregaría el servidor 
-  al cliente cuando éste último ejecuta ``migasfree -u``. De esta manera, y basándonos 
-  en el último login del ordenador, puedes ver que repositorios se configurarían en el 
-  cliente, que paquetes se instalarían o eliminarían o que fallas se ejecutarían. 
+* **Simular sincronización**: Te  permite simular lo que entregaría el servidor
+  al cliente cuando éste último ejecuta ``migasfree -u``. De esta manera, y basándonos
+  en el último login del ordenador, puedes ver que repositorios se configurarían en el
+  cliente, que paquetes se instalarían o eliminarían o que fallas se ejecutarían.
 
 * **Hardware**: Nos da acceso al hardware del equipo.
 

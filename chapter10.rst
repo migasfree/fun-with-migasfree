@@ -75,6 +75,10 @@ Ahora creo que es buen momento de aprender que hace ``migasfree --update`` :
       recibe este mensaje añade un registro de ``Actualización`` en la base de
       datos que se emplean para hacer diferentes estadísticas.
 
+Puedes ver una simulación de ésta sincronización, accediendo al menú
+desplegable del identificador del ordenador en la aplicación web. Ver :ref:`Ordenadores`
+
+
 El comando ``migasfree``
 ========================
 
