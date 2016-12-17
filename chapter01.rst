@@ -242,6 +242,8 @@ Versión html: http://fun-with-migasfree.readthedocs.org/en/master/
 
 Versión pdf: https://media.readthedocs.org/pdf/fun-with-migasfree/master/fun-with-migasfree.pdf
 
+Ejemplos usados en el libro: https://github.com/migasfree/fun-with-migasfree-examples
+
 Codigo Fuente: http://github.com/migasfree/fun-with-migasfree
 
 Poyecto migasfree: http://migasfree.org
