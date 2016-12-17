@@ -59,6 +59,13 @@ Como root ejecuta en un terminal:
       el servidor deberás cambiar la contraseña de éste usuario tal y
       como se indica en :ref:`Migasfree en producción`.
 
+  .. note::
+
+      Otra forma alternativa de instalar un servidor migasfree, y que te recomiendo
+      encarecidamente que pruebes, es utilizando contenedores docker. Accede a
+      https://github.com/migasfree/migasfree-docker y sigue las instrucciones. En
+      AZLinux llevamos tiempo utilizando estos contenedores y estamos muy
+      satisfechos.
 
 
 Comprobando el servidor
