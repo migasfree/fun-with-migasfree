@@ -120,20 +120,20 @@ Empaquetado
 Cómo desarrollador tienes que crear el paquete de configuración
 ``acme-migasfree-server``. Si nunca has creado un paquete no te
 preocupes, para facilitarte las cosas y que puedas avanzar centrándote
-en el proceso GCS aqui tienes el fuente del paquete.
-
-En la máquina virtual ejecuta:
+en el proceso GCS descárgate el proyecto ``fun-with-migasfree-examples`` 
+donde se incluyen los ejemplos utilizados es este libro.
 
   .. code-block:: none
 
-    # wget http://www.migasfree.org/repo/book/acme-migasfree-server_1.0-1.tar.gz
-    # tar -xzvf acme-migasfree-server_1.0-1.tar.gz
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd fun-with-migasfree-examples-master
 
 Observa como modificamos el nombre de la organización
 
   .. code-block:: none
 
-    # less acme-migasfree-server/etc/migasfree-server/settings.py
+    $ less acme-migasfree-server/etc/migasfree-server/settings.py
 
   .. note::
 
@@ -141,13 +141,13 @@ Observa como modificamos el nombre de la organización
       conjunto de ajustes que se pueden emplear para adaptar el servidor
       a tus necesidades.
 
-Y observa tambien que en la postinstalación del paquete se ejecutará el
+Y observa también que en la postinstalación del paquete se ejecutará el
 comando ``service apache2 reload`` cuando se produzca la configuración
 del paquete:
 
   .. code-block:: none
 
-    # less acme-migasfree-server/debian/postinst
+    $ less acme-migasfree-server/debian/postinst
 
 Ya tienes el fuente del paquete. Ahora genera el paquete, pero para ello
 antes debes tener instalado el paquete devscripts:
@@ -160,9 +160,9 @@ Y ahora sí, genera el paquete:
 
   .. code-block:: none
 
-    # cd acme-migasfree-server
-    # /usr/bin/debuild --no-tgz-check -us -uc
-    # cd ..
+    $ cd acme-migasfree-server
+    $ /usr/bin/debuild --no-tgz-check -us -uc
+    $ cd ..
 
 Felicidades, el cambio está empaquetado en ``acme-migasfree-server_1.0-1_all.deb``
 
@@ -386,9 +386,9 @@ Ahora generamos el paquete:
 
   .. code-block:: none
 
-    # cd acme-migasfree-server
-    # /usr/bin/debuild --no-tgz-check -us -uc
-    # cd ..
+    $ cd acme-migasfree-server
+    $ /usr/bin/debuild --no-tgz-check -us -uc
+    $ cd ..
 
 Observa que se ha generado el mismo paquete pero con la versión ``1.0-2``
 
