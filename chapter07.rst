@@ -48,14 +48,16 @@ Obteniendo acme-migasfree-client
 
 Al igual que hiciste con la configuración del servidor puedes bajarte
 el fuente del paquete que vamos a utilizar de plantilla para configurar el
-cliente de migasfree.
+cliente de migasfree. 
 
-En la nueva máquina virtual con ubuntu ejecuta:
+En la nueva máquina virtual con ubuntu ejecuta el siguiente código si aún
+no te has descargado ``fun-with-migasfree-examples``:
 
   .. code-block:: none
 
-    $ wget http://www.migasfree.org/repo/book/acme-migasfree-client_1.0-1.tar.gz
-    $ tar -xzvf acme-migasfree-client_1.0-1.tar.gz
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd fun-with-migasfree-examples-master
 
 Adaptando acme-migasfree-client
 ===============================
