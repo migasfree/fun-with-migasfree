@@ -10,7 +10,35 @@ API
 
 El objetivo de este capítulo es describir la API de migasfree.
 
-Migasfree tiene 2 tipos de API:
+Desde sus inicios migasfree ha contado con una API propia pero desde la versión
+4.11 del servidor se está incorporado una nueva API `REST`__ al servidor migasfree
+con objeto de substituirla totalmente.
+
+__ https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional
+
+Para mantener la compatibilidad entre clientes antiguos y servidor, la versión 5
+del servidor mantendrá las dos APIs, la antigua y la nueva. Será ya en la
+versión 6 del servidor cuando únicamente se podrá utilizar la API REST.
+
+Puedes consultar la autodocumentación de la API REST de migasfree accediendo a
+http://<miservidor>/docs o haciendo click en el icono del espía que aparece
+situado abajo a la derecha en todas las páginas de la aplicación web del servidor.
+
+El proyecto ``fun-with-migasfree-examples`` incluye un directorio llamado
+``api-examples`` donde encontraŕas código de ejemplo para hacer uso de la REST API.
+
+Si aún no te has bajado los ejemplos ahora puede ser un buen momento para hacerlo
+y echarle un ojo al uso de la API REST.
+
+  .. code-block:: none
+
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd api-examples
+
+
+En cuanto a la API antigua (y que va a desaparecer en el futuro) podemos decir
+que tiene 2 tipos de API:
 
     * `Pública`__:
 
