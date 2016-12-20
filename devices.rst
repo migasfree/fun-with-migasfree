@@ -37,7 +37,7 @@ Pasos para la configuración de las impresoras:
 * Definir las diferentes **prestaciones** que vas a utilizar.
 * Añadir los **modelos** y creando un paquete por cada modelo de impresora.
 * Añadir cada **dispositivo** físico, especificando cómo está conectado y qué
-dispositivos lógicos deben instalarse a cada ``atributo``.
+  dispositivos lógicos deben instalarse a cada ``atributo``.
 
 
 Fabricantes
@@ -299,8 +299,8 @@ Ve a ``Dispositivos - Dispositivos`` y añade la primera impresora:
     * IP: 10.0.2.250
 
     * Pulsa ahora en ``Grabar y continuar editando`` y aparecerán los tres dispositivos
-    lógicos correspondientes. Deja el ``Nombre`` en blanco. Añade a cada uno de
-    los dispositivos lógicos el atributo CID-1 (o el atributo que quieras).
+      lógicos correspondientes. Deja el ``Nombre`` en blanco. Añade a cada uno de
+      los dispositivos lógicos el atributo CID-1 (o el atributo que quieras).
 
 
 Impresora Física 2 conectada por USB
@@ -315,8 +315,8 @@ Ve a ``Dispositivos - Dispositivos`` y añade la segunda impresora:
     * Conexion: Elije ahora USB.
 
     * Pulsa ahora en ``Grabar y continuar editando`` y aparecerán los tres dispositivos
-    lógicos correspondientes. Deja el ``Nombre en blanco``. Añade a cada uno de
-    los dispositivos lógicos el atributo CID-1 (o el atributo que quieras).
+      lógicos correspondientes. Deja el ``Nombre en blanco``. Añade a cada uno de
+      los dispositivos lógicos el atributo CID-1 (o el atributo que quieras).
 
 
 Y con esto, al hacer ``migasfree -u`` en cada ordenador se instalarán las
