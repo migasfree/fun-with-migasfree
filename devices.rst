@@ -35,7 +35,7 @@ Pasos para la configuración de las impresoras:
 
 * Añadir los **fabricantes**.
 * Definir las diferentes **prestaciones** que vas a utilizar.
-* Añadir los **modelos** y creando un paquete por cada modelo de impresora.
+* Añadir los **modelos** y crear un paquete por cada modelo de impresora.
 * Añadir cada **dispositivo** físico, especificando cómo está conectado y qué
   dispositivos lógicos deben instalarse a cada ``atributo``.
 
@@ -106,8 +106,6 @@ Campos del modelo de dispositivo
   disponibles para la impresora. Dicho archivo puede ser obtenido directamente
   del fabricante o en su defecto de `openprinting.org`__
 
-__ http://www.openprinting.org/printers
-
     * **Versión**: Version migasfree
 
     * **Prestación**: Prestación.
@@ -117,7 +115,9 @@ __ http://www.openprinting.org/printers
 
     * **Paquetes a instalar**: En este campo deberás poner el nombre del paquete
       que contiene el archivo ppd que vas a utilizar. Si es necesario algún otro
-      paquete más, puedes añadirlo separándolo con un espacio.
+      paquete, puedes añadirlo separándolo con un espacio.
+
+__ http://www.openprinting.org/printers
 
 
 Dispositivos
@@ -169,7 +169,7 @@ Ejemplo EPSON AL-M300
 =====================
 
 Para afianzar los conceptos vamos a crear el modelo ``EPSON AL-M300`` y a
-instalar una impresora con estas tres prestaciones:
+instalar dos impresoras físicas con estas tres prestaciones:
 
     * **BN**: Impresión en negro.
     * **MP**: Bandeja multipropósito.
@@ -197,20 +197,20 @@ prestaciones comentadas.
 
 Una manera simple de obtener estos archivos ppds es la siguiente:
 
-    1. Obten el ppd del propio fabricante de la impresora o en su defecto de
-    `openprinting.org`__
+    1) Obtén el ppd del propio fabricante de la impresora o en su defecto de
+       `openprinting.org`__
+
+    2) Instala una impresora en tu sistema con el archivo ppd obtenido.
+
+    3) **Modifica las propiedades** de la impresora desde el interface gráfico de
+       usuario de acuerdo a la prestación que va a proporcionarte (ejecuta p.e.
+      ``system-config-printer`` en un terminal)
+
+    4) En el directorio /etc/cups/ppd/ tendrás el ppd con las opciones que has
+       elegido para tu prestación, cópialo con un nombre relacionado con esa
+       prestación.
 
 __ http://www.openprinting.org/printers.
-
-    2. Instala una impresora en tu sistema con el archivo ppd obtenido.
-
-    3. **Modifica las propiedades** de la impresora desde el interface gráfico de
-    usuario de acuerdo a la prestación que va a proporcionarte (ejecuta p.e.
-    ``system-config-printer`` en un terminal)
-
-    3. En el directorio /etc/cups/ppd/ tendrás el ppd con las opciones que has
-    elegido para tu prestación, cópialo con un nombre relacionado con esa
-    prestación.
 
 Crea ahora el paquete.
 
