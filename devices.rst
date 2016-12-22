@@ -212,7 +212,8 @@ Una manera simple de obtener estos archivos ppds es la siguiente:
 
 __ http://www.openprinting.org/printers.
 
-Crea ahora el paquete.
+Crea ahora el paquete (debes tener el paquete ``devscripts`` y ``debhelper``
+previamente instalados).
 
   .. code-block:: none
 
