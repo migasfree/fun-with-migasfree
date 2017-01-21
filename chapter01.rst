@@ -62,8 +62,8 @@ y creo que es una buena solución para personalizar y administrar
 escritorios de forma eficaz.
 
 Este libro te introducirá en el uso de migasfree y lo escribo a medida
-que mejoramos el software, con lo que si te lo descargaste hace tiempo
-quizás ya esté obsoleto, tenlo en cuenta.
+que mejoramos el software, con lo que, si te lo descargaste hace tiempo,
+quizás ya esté obsoleto. Tenlo en cuenta.
 
 Estructura
 ==========
@@ -73,11 +73,11 @@ Estructura
 En esta primera parte, repasaremos la Gestión de la
 Configuración del Software. Conocer los aspectos básicos de este proceso
 de la Ingeniería del Software te dará una visión de conjunto que
-considero esencial porque es precisamente aquí donde se integra
+considero esencial porque es, precisamente aquí, donde se integra
 migasfree.
 
-Te explicaré las dificultades a las que un administrador de escritorios
-va a encontrarse y cómo se pueden sortear de forma sencilla basándome
+Te explicaré las dificultades que un administrador de escritorios
+va a encontrarse y cómo se pueden sortear de forma sencilla, basándome
 en la experiencia adquirida en AZLinux.
 
 Podrás conocer la historia, características y componentes que utiliza
@@ -85,7 +85,7 @@ migasfree.
 
 :ref:`Primeros pasos`
 
-Aqui te enseñaré a instalar y probar un servidor y cliente migasfree
+Aquí te enseñaré a instalar y probar un servidor y cliente migasfree
 con la configuración mínima para que puedas verlos en funcionamiento
 cuanto antes.
 
@@ -97,7 +97,7 @@ detalle.
 :ref:`Puesta en producción`
 
 Se tratarán los aspectos a tener en cuenta si quieres utilizar migasfree
-en un entorno de producción, asi como las FAQs y la resolución de
+en un entorno de producción, así como las FAQs y la resolución de
 problemas.
 
 :ref:`Ajustes`
@@ -118,7 +118,7 @@ A quién va dirigido
 ===================
 
 Este libro puede serte útil si eres administrador de escritorios (y/o servidores)
-y quieres personalizar y administrar de forma eficaz tus equipos
+y quieres personalizar y administrar de forma eficaz tus equipos,
 manteniendo la integridad de los sistemas.
 
 Agradecimientos
@@ -129,7 +129,7 @@ animando, corrigiendo, colaborando, apoyando...
 
 Deseo expresar en primer lugar mi gratitud a Eduardo Romero. Me dio
 el estímulo necesario para liberar la primera versión de migasfree,
-haciendo visible este proyecto en internet. También aportó la primera y
+haciendo visible este proyecto en Internet. También aportó la primera y
 única donación que ha recibido migasfree (aunque fuera por una apuesta
 perdida, no se lo tuve en cuenta y fue muy bien recibida).
 
@@ -167,7 +167,7 @@ y me hacen reír a diario.
 Acerca de mí
 ============
 
-De joven me atraía la programación. Estudié electrónica, y aquí me
+De joven me atraía la programación. Estudié electrónica, y allí me
 enseñaron a programar en código máquina el microcontrolador 8751.
 
 Aún me gusta cacharrear con transistores, condensadores, circuitos
@@ -180,7 +180,7 @@ __ http://seaside.citilab.eu/scratch?_s=uUPtRoAV9JudiOLQ&_k=kzuRwrWwE3SbPt4N
 
 __ http://seaside.citilab.eu/scratch?_s=uUPtRoAV9JudiOLQ&_k=js6Ukm-xH8NtlSiD
 
-Trabajé como electrónico mis primeros años laborales y poco después, con
+Trabajé como electrónico mis primeros años laborales y, poco después, con
 el boom de la informática personal, empecé a desarrollar aplicaciones de
 todo tipo.
 
@@ -191,7 +191,7 @@ AZLinux, el escritorio libre que usamos los trabajadores municipales.
 Parte de mi tiempo libre lo dedico a desarrollar migasfree.
 
 Me encanta mirar el cielo en las noches de verano de Peñiscola, la cerveza,
-las migas, y los huevos rotos.
+las migas y los huevos rotos.
 
 También me gusta escuchar música, el olor a tierra mojada y que me hagan
 reír con cualquier tontada.
@@ -208,7 +208,7 @@ empresas no pueden hacer negocio por competencia desleal. Dicen estar
 hartos de gente que "trabajamos gratis" y que les "quitamos" el sustento.
 
 No puedo estar de acuerdo. En primer lugar porque el `software libre`__ no
-es un asunto económico sino que sencillamente lo que plantea es una
+es un asunto económico sino que, sencillamente, lo que plantea es una
 cuestión de **libertad**.
 
 __ https://www.gnu.org/philosophy/free-sw.es.html
@@ -219,7 +219,7 @@ productor y consumidor. Los modelos de negocios basados en software libre
 a menudo nos indican el camino a seguir, ya que están estableciendo
 estas nuevas relaciones y obteniendo la confianza y el reconocimiento
 del consumidor, y no precisamente por cuestiones económicas. ¿No desean
-esto las empresas para sí?.
+esto las empresas para sí?
 
 En cuanto a que producir algo que otros obtienen gratis no genera
 puestos de trabajo, pienso que es falso. Sólo hace falta fijarse en como las
@@ -232,7 +232,7 @@ cerrado y/o explotado económicamente.
 Creo que el movimiento del software libre es, junto con otros, una
 esperanza para que el Conocimiento vuelva a ser producido
 por la sociedad y para la sociedad, en contraposición al Conocimiento creado,
-comercializado y controlado por determinadas organizaciones y que en ocasiones
+comercializado y controlado por determinadas organizaciones y que, en ocasiones,
 causa un perjuicio a la sociedad.
 
 Enlaces
@@ -246,7 +246,7 @@ Ejemplos usados en el libro: https://github.com/migasfree/fun-with-migasfree-exa
 
 Codigo Fuente: http://github.com/migasfree/fun-with-migasfree
 
-Poyecto migasfree: http://migasfree.org
+Poyecto migasfree: http://migasfree.org/
 
 Twitter: `@migasfree`__ `@albertogacias`__
 

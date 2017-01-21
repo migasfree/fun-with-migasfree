@@ -4,7 +4,7 @@ Administrando escritorios
 
  .. epigraph::
 
-   En todo lo que nos rodea y en todo lo que nos mueve debemos advertir
+   En todo lo que nos rodea y en todo lo que nos mueve, debemos advertir
    que interviene en algo la casualidad.
 
    -- Anatole France.
@@ -49,7 +49,7 @@ sigamos imaginando...
 Un día a mitad de migración recibes un correo y lees:
 
    Alberto: El servicio NTP dejará de dar servicio a partir del día 10.
-   En su lugar vamos a disponer de un nuevo servicio llamado QueHoraEs
+   En su lugar vamos a disponer de un nuevo servicio, llamado QueHoraEs,
    que es mucho mejor porque ...
 
 En este momento ya estarás pensando en los 400 equipos que tienes
@@ -65,8 +65,8 @@ este sistema de personalización no es adecuado.
 Gestores de Sistemas
 --------------------
 
-Afortunadamente, existen unas herramientas denominadas Gestores de
-Sistemas (`Systems Management Systems`__) que pueden ayudarnos en
+Afortunadamente, existen unas herramientas denominadas **Gestores de
+Sistemas** (`Systems Management Systems`__), que pueden ayudarnos en
 la administración de los escritorios.
 
 __ http://en.wikipedia.org/wiki/List_of_systems_management_systems
@@ -85,7 +85,7 @@ __ http://www.puppetlabs.com/
 __ http://cfengine.com/
 __ http://ansible.cc/
 
-Los Gestores de Sistemas están muy influenciados por las iniciativas realizadas
+Los Gestores de Sistemas están muy influidos por las iniciativas realizadas
 en los sistemas de gestión de redes de telecomunicaciones, pudiendo realizar
 una o un conjunto de las siguientes tareas:
 
@@ -95,19 +95,19 @@ una o un conjunto de las siguientes tareas:
 - Gestión de Antivirus y anti-malware.
 - Monitoreado de las actividades de los usuarios.
 - Monitoreado de la capacidad de los sistemas.
-- Gestíon de Seguridad.
+- Gestión de Seguridad.
 - Gestión de almacenamiento.
 - Monitoreado de la utilización y capacidades de la Red.
 
-Éstas tareas podemos clasificarlas de acuerdo a FCAPS,  un modelo y marco de
+Estas tareas podemos clasificarlas de acuerdo a **FCAPS**, un modelo y marco de
 trabajo de red de la gestión de telecomunicaciones de ISO para la gestión de
 redes. FCAPS es un acrónimo de Fault, Configuration, Accounting, Performance,
-Security (Falla, Configuración, Contabilidad, Desempeño, Seguridad) que son las
+Security (Falla, Configuración, Contabilidad, Desempeño, Seguridad), que son las
 categorías en las cuales el modelo ISO define las tareas de gestión de redes.
 
     **Fault** (Fallas): Es un evento que tiene un significado negativo. Su objetivo es
     reconocer, aislar , corregir y registrar fallos. Puede utilizar análisis de
-    tendencias  para predecir errores. Cuando se detecta un fallo o evento se envía
+    tendencias  para predecir errores. Cuando se detecta un fallo o evento, se envía
     una notificación.
 
     **Configuration** (Configuración): En el proceso de gestión de la configuración,
@@ -123,8 +123,7 @@ categorías en las cuales el modelo ISO define las tareas de gestión de redes.
     Los cambios de Hardware y Software son controlados por este proceso:
 
         * Actualización, Instalación y eliminación de programas.
-        * Actualización, Instalación y eliminación de equipamiento (impresoras, scaners,
-    memoria, etc.)
+        * Actualización, Instalación y eliminación de equipamiento (impresoras, scaners, memoria, etc.)
 
     Este proceso debe tener en cuenta:
 
@@ -137,17 +136,17 @@ categorías en las cuales el modelo ISO define las tareas de gestión de redes.
     **Accounting** (Contabilidad): Su objetivo es reunir las estadísticas de los
     usuarios.
 
-    **Performance** (Desempeño). Recolentando y analizando los datos de rendimiento
+    **Performance** (Desempeño). Recolentando y analizando los datos de rendimiento,
     el estado general de los sistemas pueden ser monitorizado. Las tendencias
     pueden avisar de fallos de capacidad o de cuestiones relacionadas con la
-    fiabilidad de los sistemas antes de que en estos ocurran. Umbrales de
-    rendimiento pueden ser establecidos para lanzar alarmas que serían controlada
+    fiabilidad de los sistemas, antes de que en estos ocurran. Umbrales de
+    rendimiento pueden ser establecidos para lanzar alarmas que serían controladas
     por la gestión de fallos habitual. Las alarmas se pueden clasificar atendiendo
     al grado de severidad.
 
-    **Security** (Seguridad).  Se encarga de controlar el acceso a recursos de red.
+    **Security** (Seguridad). Se encarga de controlar el acceso a recursos de red.
     La seguridad de los datos puede ser conseguida con la autenticación, cifrado y
-    permisos principalmente.
+    permisos, principalmente.
 
    .. note::
 
@@ -159,12 +158,11 @@ de *Configuration* usaría un lenguaje que especificaría a qué estado se quier
 llevar a los equipos, no cómo llegar a ese estado, en nuestro caso sería algo
 parecido a esto:
 
-* asegúrate de que el paquete ntp-client está desinstalado
+* asegúrate de que el paquete ntp-client está desinstalado,
 
-* asegúrate de que el paquete quehoraes-client está instalado
+* asegúrate de que el paquete quehoraes-client está instalado,
 
-* asegúrate de que el fichero de configuración de quehoraes-client es el
-mismo que el que está en el servidor.
+* asegúrate de que el fichero de configuración de quehoraes-client es el mismo que el que está en el servidor.
 
 Periódicamente, los clientes se conectarían al servidor para obtener
 este código que será ejecutado mediante el intérprete propio del Gestor
@@ -200,7 +198,7 @@ azl-quehoraes-client [#f4]_ con la siguiente información:
 personalización aprovechándonos de la integridad que nos proporciona el
 sistema de paquetería de nuestra Distribución GNU/Linux.
 
-Una vez empaquetada nuestra personalización se hace relativamente
+Una vez empaquetada nuestra personalización, se hace relativamente
 sencillo realizar cualquier cambio posterior en ella. Pero crear un
 paquete desde cero para personalizar una Distribucion GNU/Linux no es
 tan fácil, no tanto por la creación del paquete en sí, sino porque
@@ -220,12 +218,12 @@ Niveles de personalización
 
 Las aplicaciones suelen incorporar dos niveles de personalización:
 
-* La del usuario
+* La del usuario.
 
-* La del sistema (para todos los usuarios del sistema)
+* La del sistema (para todos los usuarios del sistema).
 
 La personalización del usuario es prioritaria a la del sistema siempre
-y cuando ésta última no sea obligatoria.
+y cuando esta última no sea obligatoria.
 
 Es conveniente conocer si la aplicación que vas a configurar incorpora
 la personalización a nivel de sistema, ya que ésta es la que se tendrá
@@ -242,37 +240,37 @@ La liberación
 
 Es el segundo problema importante con el que vas a tener que lidiar.
 
-Por un lado debes independizarte de los repositorios públicos de tu
+Por un lado, debes independizarte de los repositorios públicos de tu
 Distribución GNU/Linux por el simple motivo de que no puedes permitir que
 el control de los cambios que se instalarán en tus máquinas lo tenga
 tu Distribución GNU/Linux en vez de tu organización.
 
 ¿Imaginas que habría pasado en AZLinux cuando OpenSuSE sustituyó
-OpenOffice por LibreOffice?. Cuando los usuarios hubieran encendido las
+OpenOffice por LibreOffice? Cuando los usuarios hubieran encendido las
 máquinas a las 8:00 de la mañana, se iniciaría la actualización a
-LibreOffice automáticamente pudiéndose producir muchas incidencias,
-¿funcionaría todo? ¿No es mejor probar LibreOffice en tu organización
+LibreOffice automáticamente pudiéndose producir muchas incidencias.
+¿Funcionaría todo? ¿No es mejor probar LibreOffice en tu organización
 antes de que se instale en todos tus equipos?
 
 Tener la posibilidad de deshacer un cambio que se haya determinado como
 no deseado es importante.
 
-Tienes que decidir por tí mismo el software que deben tener tus
-usuarios y por tanto debes tener los gestores de paquetes configurados
+Tienes que decidir por ti mismo el software que deben tener tus
+usuarios y, por tanto, debes tener los gestores de paquetes configurados
 contra tus propios repositorios de paquetes y gestionarlos de
 alguna manera.
 
-Ademas, es conveniente que puedas planificar a quién y cuándo se deben
+Además, es conveniente que puedas planificar a quién y cuándo se deben
 liberar dichos cambios.
 
 Imagina nuevamente el ejemplo de la sustitución de OpenOffice por
-LibreOffice, estaríamos hablando de una actualización de cerca de 500 MB
-por equipo que multiplicado por todos los equipos de una organización
-podría resultar mucho tráfico de red.
+LibreOffice. Estaríamos hablando de una actualización de cerca de 500 MB
+por equipo que, multiplicado por todos los equipos de una organización,
+podría resultar en mucho tráfico de red.
 
 Una ventaja de planificar la liberación es que permite distribuir poco a
-poco los cambios, de tal manera, que si hay errores afectará
-inicialmente a muy pocos equipos permitiendo actuar de manera más
+poco los cambios, de tal manera que, si hay errores, afectará
+inicialmente a muy pocos equipos, permitiendo actuar de manera más
 relajada para corregir cualquier incidencia.
 
 Por todo esto, y como los repositorios estándar de las Distribuciones
@@ -284,7 +282,7 @@ dinámico y planificable.
 Repositorio Migasfree
 =====================
 
-Un repositorio de migasfree es simplemente un repositorio estándar
+Un repositorio de migasfree es, simplemente, un repositorio estándar
 más la capacidad de poder especificar, de forma centralizada, cuándo y
 quién accede a ese repositorio.
 
@@ -300,21 +298,21 @@ Veamos como actúa migasfree en lo relativo a los repositorios:
 
    3. El servidor migasfree crea un repositorio físico (idéntico al de
    cualquier Distribución GNU/Linux) con dichos paquetes, utilizando las
-   herramientas estándar de creación de repositorios (createrepo para
-   paquetería RPM o dpkg-scanpackages para paquetería Debian).
+   herramientas estándar de creación de repositorios (``createrepo`` para
+   paquetería RPM o ``dpkg-scanpackages`` para paquetería Debian).
 
    4. Cuando un cliente migasfree se conecta al servidor envía sus
    atributos al servidor.
 
-   5. El servidor consulta los Registros Lógicos para determinar, en
+   5. El servidor consulta los Repositorios Lógicos para determinar, en
    función de esos atributos enviados, la lista de los repositorios físicos
    que tiene el cliente a su disposición y se los envía al cliente.
 
    6. El cliente migasfree configura, la lista de los repositorios físicos
-   recibidos desde el servidor en el Gestor de Paquetes (Por esto decimos
-   que los repositorios migasfree son dinámicos)
+   recibidos desde el servidor en el Gestor de Paquetes (por esto decimos
+   que los repositorios migasfree son dinámicos).
 
-   7. A continuación el cliente migasfree da instrucciones al Gestor de
+   7. A continuación, el cliente migasfree da instrucciones al Gestor de
    Paquetes para que se produzca la eliminación, instalación y
    actualización de los paquetes desde los repositorios físicos.
 
@@ -362,7 +360,7 @@ GCS.
              ordenadores requeridos.
 
 
-En AZLinux realizamos nuestra propia GCS y vemos cómo de nuevo se
+En AZLinux realizamos nuestra propia GCS y vemos como, de nuevo, se
 repiten las mismas actividades: petición de cambio, cambio y liberación.
 
 Usamos dos tipos de peticiones de cambio:
