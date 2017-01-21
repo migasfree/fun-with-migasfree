@@ -26,9 +26,9 @@ Este proyecto se planificó en tres etapas:
 
 
 * Primera: Migrar a aplicaciones que presentaban un impacto bajo sobre
-  usuarios y técnicos en el SO actual.
+  usuarios y técnicos en el Sistema Operativo actual (por aquel entonces Microsoft Windows XP).
 
-* Segunda: Migrar la plataforma ofimática  Microsoft Office 97 por la
+* Segunda: Migrar la plataforma ofimática Microsoft Office 97 por la
   suite libre OpenOffice.
 
 * Tercera: Sustituir el SO Windows XP por un sistema operativo basado en
@@ -45,15 +45,15 @@ personalización en nuestros propios paquetes. La ventaja frente a la
 personalización manual era muy significativa.
 
 Con los primeras migraciones reales, nos surgió la necesidad de actualizar
-nuestros paquetes y despues de probar sin éxito Zenworks for Linux,
+nuestros paquetes y, después de probar sin éxito Zenworks for Linux,
 decidimos crear nuestros propios repositorios de paquetes. Quisimos
 emular lo que ya estabamos haciendo con los escritorios XP, esto es,
 distribuir software basándonos en el contexto al que pertenecía un
-usuario en nuestro LDAP. Con un poco de scripting bash en Mayo de 2009
+usuario en nuestro LDAP. Con un poco de scripting bash, en Mayo de 2009,
 implementamos lo que serían unos repositorios dinámicos que se
 configuraban en el cliente en función del contexto.
 
-Esto fue ,sin duda, una gran idea pero la gestión de estos repositorios
+Esto fue, sin duda, una gran idea, pero la gestión de estos repositorios
 dinámicos era manual y muy propensa a errores.
 
 La gestión de estos repositorios dinámicos recayó en mí, por lo que
@@ -76,24 +76,24 @@ __ http://ezix.org/project/wiki/HardwareLiSter
 Versiones
 =========
 
-El primer prototipo solo trabajaba con paquetería rpm y gestor de
-paquetes yum, y el código bash que se ejecutaba en el cliente se
+El primer prototipo sólo trabajaba con paquetería ``rpm`` y gestor de
+paquetes ``yum``, y el código bash que se ejecutaba en el cliente se
 generaba en el servidor.
 
-Despues de usar migasfree un tiempo en producción vimos que podría ser
+Después de usar migasfree un tiempo en producción, vimos que podría ser
 un buen sistema para otras organizaciones, y mis compañeros me dieron el
-impulso necesario para publicar el codígo, y así durante el verano de
+impulso necesario para publicar el código. Así, durante el verano de
 2009, reorganice los menús, limpié un poco el código, e
 hice que migasfree pudiera trabajar con distintas versiones de SO y de
 sistemas de paquetería. Fue publicado__ en github__ en abril de 2010 y
 bautizado como "migasfree with fried eggs", porque mis compañeros decían
-que el logotipo se parecía a un huevo frito, ¡Qué sabrán ellos de Arte!.
+que el logotipo se parecía a un huevo frito. ¡Qué sabrán ellos de Arte!
 
 __ https://github.com/migasfree/migasfree
 
 __ https://github.com/
 
-En Noviembre de 2011, Jose Antonio Chavarría desarrollador de AZLinux
+En Noviembre de 2011, Jose Antonio Chavarría, desarrollador de AZLinux,
 reescribe y publica el `cliente migasfree`__. Realizó tambien grandes
 cambios en la estructura del servidor. Tuvimos que definir la API con
 la que el cliente y el servidor debían comunicarse. Usamos claves
@@ -103,14 +103,14 @@ denominada "migasfree no trans" supongo que por incorporar un código más
 
 __ https://github.com/migasfree/migasfree-client
 
-Poco a poco fuímos dotando al sistema de nuevas funcionalidades, y para
+Poco a poco, fuimos dotando al sistema de nuevas funcionalidades, y para
 principios de 2013 Jose Antonio Chavarría cambió la navegación y aspecto
 del servidor. Esta nueva versión fue denominada "migasfree with
 chocolate".
 
-En febrero de 2014 liberamos la versión 4 del servidor (migasfree grape). Esta
+En febrero de 2014, liberamos la versión 4 del servidor (migasfree grape edition). Esta
 versión hace uso de bootstrap__ con el fin de dotar a la aplicación de un diseño
-web adaptable a distintos dispositivos. Además incorpora distintas mejoras
+web adaptable a distintos dispositivos. Además, incorpora distintas mejoras
 de todo tipo y utiliza la última versión estable de Django, la 1.6.2. Actualmente
 esta es la versíón que utilizamos en AZLinux.
 

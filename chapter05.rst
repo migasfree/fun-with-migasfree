@@ -1,6 +1,7 @@
 ==================
 Probando migasfree
 ==================
+
  .. epigraph::
 
    La unidad es la variedad, y la variedad en la unidad es la ley
@@ -18,7 +19,7 @@ El objetivo es que dispongas rápidamente de un servidor
 y un cliente migasfree totalmente funcional, por eso no me voy a extender
 en explicaciones.
 
-Si decides usar otra Distribución GNU/linux de la recomendada tendrás que
+Si decides usar otra Distribución GNU/linux de la recomendada, tendrás que
 conseguir los paquetes apropiados. Puedes generar los paquetes como se indica
 en :ref:`Empaquetando migasfree`. Ten en cuenta que las instrucciones de este
 capítulo pueden variar según la distribución que elijas.
@@ -35,7 +36,7 @@ __ https://www.virtualbox.org/
 Instalando el servidor
 ======================
 
-Como root ejecuta en un terminal:
+Como ``root``, ejecuta en un terminal:
 
   .. code-block:: none
 
@@ -56,13 +57,13 @@ Como root ejecuta en un terminal:
       fichero ``/etc/postgresql/9.1/main/pg_hba.conf`` la línea
       ``'local all migasfree password'`` para permitir al usuario migasfree
       autenticarse mediante password. Recuerda que para poner en producción
-      el servidor deberás cambiar la contraseña de éste usuario tal y
+      el servidor deberás cambiar la contraseña de este usuario tal y
       como se indica en :ref:`Migasfree en producción`.
 
   .. note::
 
       Otra forma alternativa de instalar un servidor migasfree, y que te recomiendo
-      encarecidamente que pruebes, es utilizando contenedores docker. Accede a
+      encarecidamente que pruebes, es utilizando **contenedores docker**. Accede a
       https://github.com/migasfree/migasfree-docker y sigue las instrucciones. En
       AZLinux llevamos tiempo utilizando estos contenedores y estamos muy
       satisfechos.
@@ -72,7 +73,7 @@ Comprobando el servidor
 =======================
 
 En un navegador web accede a la dirección del servidor. Si todo ha
-ido bien verás la figura 5.1.
+ido bien, verás la figura 5.1.
 
 .. only:: not latex
 
@@ -94,7 +95,7 @@ ido bien verás la figura 5.1.
 
 Haz login con el usuario "admin" y password "admin" y verás algo
 parecido a la figura 5.2. Observa como arriba a la derecha pone ``alertas 0``.
-Esto nos indica que todo esta bien.
+Esto nos indica que todo está bien.
 
 .. only:: not latex
 
@@ -120,8 +121,9 @@ Instalando el cliente
 
 Instalando el paquete migasfree-client
 --------------------------------------
+
 Ahora instala el cliente migasfree sobre la misma máquina donde has
-instalado el servidor. Para ello actualiza la lista de paquetes e
+instalado el servidor. Para ello, actualiza la lista de paquetes e
 instala el paquete migasfree-client:
 
   .. code-block:: none
@@ -148,18 +150,18 @@ te devolverá una salida parecida a esta:
     Versión de migasfree client: 4.10
 
     Opciones de ejecución: /etc/migasfree.conf
-    	Versión: debian-8.4
-    	Servidor: localhost
-    	Actualizar paquetes automáticamente: True
-    	Proxy: None
-    	Certificado SSL: None
-    	Proxy caché de paquetes: None
-    	Depuración: False
-    	Nombre del ordenador: debian8
-    	GUI detallado: True
-    	PMS: apt-get
+        Versión: debian-8.4
+        Servidor: localhost
+        Actualizar paquetes automáticamente: True
+        Proxy: None
+        Certificado SSL: None
+        Proxy caché de paquetes: None
+        Depuración: False
+        Nombre del ordenador: debian8
+        GUI detallado: True
+        PMS: apt-get
 
-    	Usuario gráfico: root
+        Usuario gráfico: root
 
     Autoregistrando ordenador...
     ¡Clave /var/migasfree-client/keys/localhost/debian-8.4.pri creada!
