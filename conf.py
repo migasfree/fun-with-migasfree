@@ -44,7 +44,7 @@ html_use_index = False          # FIXME once proper index directives are added.
 html_show_sourcelink = False
 html_show_sphinx = False
 html_title = "Fun with migasfree"
-html_add_permalinks = False     # FIXME once styles are fixed to get the hover back.
+html_add_permalinks = ''     # FIXME once styles are fixed to get the hover back.
 html_logo = 'graphics/portada/migasfree.png'
 
 # LATEX builder
