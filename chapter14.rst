@@ -28,9 +28,9 @@ Solución
 
 Comprueba la contraseña que tienes en ``/etc/migasfree-server/settings.py``
 es la misma que la del usuario ``migasfree`` en Postgresql. Si no existe
-este fichero la contraseña por defecto es ``migasfree``.
+este fichero, la contraseña por defecto es ``migasfree``.
 
-Si necesitas cambiarla haz esto:
+Si necesitas cambiarla, haz esto:
 
   .. code-block:: none
 
@@ -42,7 +42,7 @@ Si necesitas cambiarla haz esto:
 ¿Cómo hago una propiedad para obtener el contexto LDAP de un usuario?
 ---------------------------------------------------------------------
 
-Necesitas que los clientes tengan instalado el paquete python-ldap.
+Necesitas que los clientes tengan instalado el paquete ``python-ldap``.
 En el servidor tendrás que crear una nueva propiedad:
 
   Prefijo: ``CTX``
@@ -69,14 +69,11 @@ En el servidor tendrás que crear una nueva propiedad:
         global global_ldap_object
 
         try:
-            #print filter_str # DEBUG
-            #print base # DEBUG
             _result = global_ldap_object.search_s(base, scope, filter_str, [property_str])
         except ldap.LDAPError, e:
             print e
             sys.exit(errno.ENOMSG) # no result
 
-        #print 'DEBUG:', _result # DEBUG
         if _result == None or not _result:
             print 'No result in LDAP search'
             sys.exit(errno.ENOMSG) # no result
@@ -148,14 +145,11 @@ En el servidor tendrás que crear una nueva propiedad:
         global global_ldap_object
 
         try:
-            #print filter_str # DEBUG
-            #print base # DEBUG
             _result = global_ldap_object.search_s(base, scope, filter_str, [property_str])
         except ldap.LDAPError, e:
             print e
             sys.exit(errno.ENOMSG) # no result
 
-        #print 'DEBUG:', _result # DEBUG
         if _result == None or not _result:
             print 'No result in LDAP search'
             sys.exit(errno.ENOMSG) # no result
@@ -210,7 +204,7 @@ Causa
 *****
 
 Las claves almacenadas en el cliente no coinciden con la versión indicada
-en ``/etc/migasfree.conf``
+en ``/etc/migasfree.conf``.
 
 Solución
 ********
@@ -231,7 +225,7 @@ Para la versión de migasfree-client 4.7 ó superior usa:
 
   .. note::
 
-     Si es necesario vuelve a registrar el cliente ejecutando: migasfree --register.
+     Si es necesario, vuelve a registrar el cliente ejecutando: ``migasfree --register``.
 
 
 Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found

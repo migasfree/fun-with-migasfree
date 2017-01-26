@@ -13,11 +13,10 @@ para instalarse fácilmente.
 
 Existen `herramientas`__ que te permiten personalizar una Distribución Linux
 fácilmente sin grandes complicaciones, y también puedes crear tu
-`Linux desde cero`__, eso sí armándote de paciencia.
+`Linux desde cero`__, eso sí, armándote de paciencia.
 
 __ http://www.techradar.com/news/software/operating-systems/10-scripts-to-create-your-own-linux-distribution-665247
 __ http://www.linuxfromscratch.org/
-
 
 Pero como te decía, para crear tu Distribución personalizada debes:
 
@@ -32,10 +31,10 @@ La selección de paquetes
 ========================
 
 La idea principal al trabajar con migasfree es que todo debe ser empaquetado,
-incluida la personalización del software. Así que debes elegir que software
+incluida la personalización del software. Así que debes elegir qué software
 incluirá tu Distribución y crear los paquetes que la personalicen.
 
-El método que te expongo a continuación es muy versatil, y es el de utilizar
+El método que te expongo a continuación es muy versátil, y es el de utilizar
 migasfree para especificar esta selección de paquetes.
 
 Se trata de usar los campos del ``Repositorio``:
@@ -49,7 +48,7 @@ Se trata de usar los campos del ``Repositorio``:
 
 y asignar al ``Repositorio`` el ``Atributo`` ``SET-ALL SYSTEMS``
 
-No tienes porque indicar todos los paquetes. Como vamos a partir de una
+No tienes por qué indicar todos los paquetes. Como vamos a partir de una
 Distribución generalista como Debian, Ubuntu, RedHat, etc. indicamos sólo los
 paquetes que queremos añadir o eliminar a la Distro.
 
@@ -58,7 +57,6 @@ y en vez de usar el ``Atributo`` ``SET-ALL SYSTEMS``, crear una ``Etiqueta`` por
 y asignarla en diferentes ``Repositorios``
 
 La creación de etiquetas la viste en :ref:`La configuración del sistema migasfree`
-
 
 La instalación de tu Distribución
 =================================
@@ -96,7 +94,7 @@ el primer paso por el empleo de un Live/CD en un entorno "chroot".
 
     3. Ejecuta ``migasfree-tags --set`` dentro del entorno.
 
-    4. Finalmente genera una imagen iso del entorno
+    4. Finalmente genera una imagen ISO del entorno
 
 Puedes ver un ejemplo de cómo se hace en vitalinux con `vx-create-iso`__.
 
@@ -128,4 +126,3 @@ Una vez instalada tu Distro, en cualquier momento podrás cambiar de sabor
 ejecutando otra vez ``migasfree-tags --set``. Observa que has podido decidir
 cambiar la selección de paquetes en migasfree entre tanto, esto te permite ir
 probando tu Distro fácilmente mientras aún la estás definiendo.
-

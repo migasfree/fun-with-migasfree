@@ -11,12 +11,12 @@ Migasfree en producción
    -- Albert Einstein
 
 
-Si te has decidido a instalar en producción el servidor migasfree debes cambiar
+Si te has decidido a instalar en producción el servidor migasfree, debes cambiar
 las contraseñas a los usuarios que vienen por defecto, y preparar un
-backup de la base de datos y de la carpeta /var/migasfree.
+**backup** de la base de datos y de la carpeta ``/var/migasfree``.
 
 Recomendamos siempre instalar el servidor migasfree sobre un S.O. Debian, pero
-si eres un aventurero puedes atreverte a emplear otro. Eso sí, igual tienes que
+si eres un aventurero, puedes atreverte a emplear otro. Eso sí, igual tienes que
 generar los paquetes tú mismo. En :ref:`Empaquetando migasfree` tienes
 instrucciones de cómo obtenerlos.
 
@@ -33,24 +33,24 @@ Configuración del servidor
 ==========================
 
 Crea el fichero ``/etc/migasfree-server/settings.py`` con el siguiente
-contenido (no te olvides de sustituir la password por la del usuario
-migasfree de Postgresql):
+contenido (no te olvides de sustituir la **password** por la del usuario
+migasfree de **Postgresql**):
 
   .. code-block:: none
 
     MIGASFREE_ORGANIZATION="My Organization"
     DATABASES = {
-            "default": {
-                "ENGINE": "django.db.backends.postgresql_psycopg2",
-                "NAME": "migasfree",
-                "USER": "migasfree",
-                "PASSWORD": "mipassword",
-                "HOST": "",
-                "PORT": "",
-           }
-        }
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "migasfree",
+            "USER": "migasfree",
+            "PASSWORD": "mipassword",
+            "HOST": "",
+            "PORT": "",
+       }
+    }
 
-Por motivos de seguridad dale permisos de sólo lectura al usuario www-data:
+Por motivos de seguridad, dale permisos de sólo lectura al usuario ``www-data``:
 
   .. code-block:: none
 
@@ -62,7 +62,7 @@ Este es el fichero de configuración del servidor migasfree. Hay diversas
 variables que se pueden configurar aquí para modificar el comportamiento
 de migasfree.
 
-Si necesitas cambiar la password del usuario migasfree en postgresql haz esto:
+Si necesitas cambiar la password del usuario migasfree en postgresql, haz esto:
 
   .. code-block:: none
 
@@ -72,7 +72,7 @@ Si necesitas cambiar la password del usuario migasfree en postgresql haz esto:
 
 .. note::
 
-      Para una personalización más avanzada mira los
+      Para una personalización más avanzada, mira los
       :ref:`Ajustes del servidor migasfree`.
 
 
@@ -94,12 +94,12 @@ La explicación de los usuarios y sus grupos lo has visto ya en
 Servicio de caché de paquetes
 =============================
 
-Montar un caché de paquetes para disminuir el tráfico de internet es habitual.
+Montar un caché de paquetes para disminuir el tráfico de Internet es habitual.
 Su funcionamiento es muy sencillo. Cuando un equipo necesita descargar un
-paquete de internet lo solicita al caché. Si el servicio de caché no lo tiene
-ya almacenado lo descargará de internet, lo almacenará y se lo ofrecerá al
-equipo. Si otro equipo necesita ese mismo paquete, como ya está en el caché
-ya no se producirá tráfico internet sino que el servicio de caché lo ofrecerá
+paquete de Internet, lo solicita al caché. Si el servicio de caché no lo tiene
+ya almacenado, lo descargará de Internet, lo almacenará y se lo ofrecerá al
+equipo. Si otro equipo necesita ese mismo paquete, como ya está en la caché
+ya no se producirá tráfico Internet, sino que el servicio de caché lo ofrecerá
 directamente al equipo.
 
 .. only:: not latex
@@ -143,7 +143,7 @@ Reinicia el servicio.
 
     #service apt-cacher-ng restart
 
-Por defecto el puerto del servicio apt-cacher-ng es el 3142. Accede a la
+Por defecto el puerto del servicio ``apt-cacher-ng`` es el **3142**. Accede a la
 página http:<miservidor>:3142 para la administración del servicio de caché.
 
 Hasta aquí hemos instalado y configurado el caché en el servidor.
@@ -155,7 +155,7 @@ Para la configuración de los clientes, debes crear el fichero
 
     Acquire::http { Proxy "http://<miservidor>:3142"; };
 
-Para hacerlo correctamente  modifica el paquete acme-migasfree-client
+Para hacerlo correctamente, modifica el paquete ``acme-migasfree-client``
 añadiéndo este fichero al paquete.
 
 Otra manera de configurar los clientes es haciendo uso del ajuste
@@ -163,7 +163,7 @@ Otra manera de configurar los clientes es haciendo uso del ajuste
 diferencia entre éste método y el anterior es que el primero hará uso del
 servicio del caché de paquetes tanto cuando ejecutes el comando migasfree
 en los clientes, como cuando ejecutes el gestor de paquetes (apt-get).
-En cambio en el segundo método sólo usará el servicio de caché al ejecutar el
+En cambio, en el segundo método sólo usará el servicio de caché al ejecutar el
 comando migasfree.
 
 Puede consultar el `manual de apt-cacher-ng`__ para una configuración más
@@ -175,12 +175,12 @@ __ http://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
 Backups
 =======
 
-A continuación te sugiero un manera de hacer los backups.
+A continuación, te sugiero un manera de hacer los backups.
 
 Dump de la base de datos
 ------------------------
 
-Para hacer el dump de la base de datos, crea el fichero
+Para hacer el **dump** de la base de datos, crea el fichero
 ``/var/migasfree/dump/migasfree-dump.sh`` (deberás modificar
 "mipassword" por la del usuario migasfree en posgresql):
 
@@ -191,8 +191,8 @@ Para hacer el dump de la base de datos, crea el fichero
     pg_dump migasfree -U migasfree > /var/migasfree/dump/migasfree.sql
 
 
-Crea tambien el fichero ``/var/migasfree/dump/migasfree-restore.sh``
-para el caso que tengas que restaurar un dump de la Base:
+Crea también el fichero ``/var/migasfree/dump/migasfree-restore.sh``
+para el caso que tengas que restaurar un dump de la base de datos:
 
   .. code-block:: none
 
@@ -215,7 +215,7 @@ para el caso que tengas que restaurar un dump de la Base:
 
     /etc/init.d/apache2 start
 
-Finalmente ponemos permisos de ejecución a los scripts:
+Finalmente, ponemos permisos de ejecución a los scripts:
 
   .. code-block:: none
 
@@ -236,7 +236,7 @@ con el siguiente contenido:
     /var/migasfree/dump/migasfree-dump.sh
 
     # BACKUP FICHEROS
-    # (aqui se debe programar el backup de /var/migasfree con rsync p.e.)
+    # (aquí se debe programar el backup de /var/migasfree con rsync p.e.)
 
 Cámbiale los permisos:
 
@@ -263,7 +263,7 @@ Etiquetando los clientes
 
 Para facilitar la atención a los usuarios cuando tengan un problema, es
 conveniente imprimir y pegar físicamente la etiqueta que identifica
-inequívocamente a cada equipo ejecutando desde el cliente el comando:
+inequívocamente a cada equipo, ejecutando desde el cliente el comando:
 
   .. code-block:: none
 
@@ -273,7 +273,7 @@ Consulta el ajuste ``MIGASFREE_HELP_DESK`` de los :ref:`Ajustes del servidor mig
 
   .. note::
 
-    Tambien puedes imprimir la etiqueta desde otro equipo si conoces su UUID
+    También puedes imprimir la etiqueta desde otro equipo si conoces su UUID
     accediendo desde un explorador web a la siguiente dirección:
 
     http://<miservidormigasfree>/computer_label/?uuid=<UUID_DEL_ORDENADOR>

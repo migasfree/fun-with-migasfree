@@ -40,7 +40,7 @@ MIGASFREE_AUTOREGISTER
 Valor por defecto:  True
 
 Especifica si los ordenadores pueden autoregistrar la plataforma y
-la version migasfree.
+la versión migasfree.
 
 Si no quieres que ningún ordenador registre versiones y/o plataformas
 automáticamente, tienes que darlas de alta manualmente y asignar este ajuste a
@@ -82,10 +82,10 @@ Valor por defecto: ('id', 'name', )
 Establece los campos del modelo ``Computer`` por los que se podrá buscar
 un ordenador. El primer campo es importante ya que será el que aparezca
 en la primera columna de  la lista de ordenadores. Si quieres ver el nombre
-del ordenador en vez del id en la lista de ordenadores asigna el campo
+del ordenador en vez del ``id`` en la lista de ordenadores, asigna el campo
 ``name`` el primero de la lista.
 
-Se utiliza támbíen para las búsquedas de un ``CID`` por los campos especificados.
+Se utiliza también para las búsquedas de un ``CID`` por los campos especificados.
 Ver :ref:`Propiedades específicas`.
 
 Ejemplo:
@@ -113,7 +113,7 @@ MIGASFREE_REPO_DIR
 
 Valor por defecto: '/var/migasfree/repo'
 
-Directorio dónde se guardarán los paquetes y repositorios de cada una de las
+Directorio donde se guardarán los paquetes y repositorios de cada una de las
 versiones
 
 Ejemplo:
@@ -128,12 +128,12 @@ MIGASFREE_SECONDS_MESSAGE_ALERT
 
 Valor por defecto: 1800
 
-Si un ordenador tarda mas de los segundos especificados en este ajuste
+Si un ordenador tarda más de los segundos especificados en este ajuste
 en enviar un mensaje mientras se está actualizando, se considera que el
-ordenador va retrasado (Delayed). Normalmente esto ocurre cuando se ha perdido
+ordenador va retrasado (Delayed). Normalmente, esto ocurre cuando se ha perdido
 la conexión con el servidor por cualquier circunstancia, por ejemplo cuando el
 usuario ha apagado el equipo antes de que el cliente termine el proceso de
-actualización. De esta forma se queda registrado en el servidor como ``Delayed``.
+actualización. De esta forma, se queda registrado en el servidor como ``Delayed``.
 
 .. only:: not latex
 
@@ -164,7 +164,7 @@ MIGASFREE_HELP_DESK
 Valor por defecto: 'Put here how you want to be found'
 
 Texto que apacere al ejecutar el comando del cliente ``migasfree-label`` para
-indicar al usuario como ponerse en contacto con Asistencia Técnica.
+indicar al usuario cómo ponerse en contacto con Asistencia Técnica.
 
 El comando ``migasfree-label`` tiene la finalidad de identificar inequívocamente
 al cliente. Este comando ejecutado en un cliente con entorno gráfico abrirá el
@@ -203,7 +203,7 @@ Valor por defecto: ''
 
 Cuando se asigna un valor a este ajuste, apaceren nuevas acciones por cada
 ordenador. El objetivo es poder ejecutar algún código desde nuestro equipo hacia
-el equipo que se quiere administrar. Generalmente se usa para acceder por vnc ó ssh
+el equipo que se quiere administrar. Generalmente se usa para acceder por ``vnc`` o ``ssh``
 a los ordenadores, pero puede ser utilizado con cualquier otro fin.
 
 .. only:: not latex
@@ -248,16 +248,16 @@ Pueden usarse varios protocolos separados por un espacio en blanco:
 
     MIGASFREE_REMOTE_ADMIN_LINK = "vnc://{{computer.ip}} checkping://{{computer.ip}} ssh://root@{{computer.ip}}"
 
-Evidentemente el navegador con el que se accede a la web del servidor debe saber
-como interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres
-permitir el protocolo vnc debes acceder a la dirección ``about:config`` y añadir:
+Evidentemente, el navegador con el que se accede a la web del servidor debe saber
+cómo interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres
+permitir el protocolo ``vnc`` debes acceder a la dirección ``about:config`` y añadir:
 
   .. code-block:: none
 
     network.protocol-handler.expose.vnc false
 
 Luego crea un fichero ejecutable para asociarlo al protocolo vnc para que lanze
-``vinagre`` contra la ip del ordenador:
+``vinagre`` contra la IP del ordenador:
 
   .. code-block:: none
 
@@ -271,9 +271,9 @@ MIGASFREE_HW_PERIOD
 
 Valor por defecto: 30
 
-Periodo en días para el envío del hardware de los ordenadores al
-servidor. Si han pasado más días de los especificados se envia de nuevo
-toda la información del harware al servidor.
+Período en días para el envío del hardware de los ordenadores al
+servidor. Si han pasado más días de los especificados, se envía de nuevo
+toda la información del hardware al servidor.
 
 Ejemplo:
 
@@ -288,11 +288,12 @@ Valor por defecto =
 
   .. code-block:: none
 
-     ["03000200-0400-0500-0006-000700080008", # ASROCK
+     [
+        "03000200-0400-0500-0006-000700080008", # ASROCK
         "00000000-0000-0000-0000-000000000000",
         "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
-        "00000000-0000-0000-0000-FFFFFFFFFFFF"
-        ]
+        "00000000-0000-0000-0000-FFFFFFFFFFFF",
+     ]
 
 Es una lista con UUIDs inválidos.
 
@@ -325,7 +326,7 @@ MIGASFREE_NOTIFY_NEW_COMPUTER
 
 Valor por defecto = False
 
-Si se asigna a ``True`` el sistema añadirá una ``Notificación`` cuando un
+Si se asigna a ``True``, el sistema añadirá una ``Notificación`` cuando un
 cliente migasfree se registra en el servidor por primera vez.
 
 MIGASFREE_NOTIFY_CHANGE_UUID
@@ -345,7 +346,7 @@ MIGASFREE_NOTIFY_CHANGE_NAME
 
 Valor por defecto = False
 
-Si se establece a True se creará una ``Notificación`` cuando se detecta que un
+Si se establece a True, se creará una ``Notificación`` cuando se detecta que un
 ordenador ha cambiado de nombre.
 
 Este ajuste puede resultar útil para detectar UUIDs no únicos.
@@ -369,7 +370,7 @@ Este ajuste puede resultar útil para detectar UUIDs no únicos.
 Ajustes de Django
 =================
 
-Los `ajustes de Django`__ tambien pueden ser modificados para
+Los `ajustes de Django`__ también pueden ser modificados para
 adaptar el funcionamiento del servidor añadiendo el ajuste en el fichero
 ``/etc/migasfree-server/settings.py``.
 
@@ -394,8 +395,3 @@ Valor por defecto:
             'PORT': '',
         }
     }
-
-
-
-
-
