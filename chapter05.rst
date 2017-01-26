@@ -279,7 +279,6 @@ navegador web.
           Notificaciones.
 
 
-
 * Accede a ``Datos - Ordenadores`` y observa: (figura 5.4)
 
     * Los datos del ordenador ``1`` (pulsando en el número 1)

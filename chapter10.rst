@@ -1,5 +1,5 @@
 ================================
-La Actualización de los sistemas
+La actualización de los sistemas
 ================================
 
  .. epigraph::

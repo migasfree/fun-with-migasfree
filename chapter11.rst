@@ -9,11 +9,11 @@ La Auditoría
 
    -- Karl Raimund Popper
 
-Una vez que liberas los paquetes y que los equipos se van actualizando llega el
+Una vez que liberas los paquetes y que los equipos se van actualizando, llega el
 momento de que veas, de manera centralizada, toda la información que se ha ido
 generando a consecuencia del proceso de actualización.
 
-Ésto es lo que te vas a encontrar en este capítulo.
+Esto es lo que te vas a encontrar en este capítulo.
 
 Alertas
 =======
@@ -28,26 +28,26 @@ más íntegro posible. Ya lo viste en apartado :ref:`Comprobaciones` del capítu
 Ordenadores
 ===========
 
-Accediendo a ``Datos-Ordenadores`` verás la lista de ordenadores que
+Accediendo a ``Datos-Ordenadores``, verás la lista de ordenadores que
 se han registrado en el servidor.
 
 Puedes acceder al ``Hardware`` de un equipo desde la última columna de la lista
 de ordenadores.
 
-Tambien puedes acceder a los **datos** que están **relacionados** con un equipo
-determinado mediante el desplegable que hay a la derecha del identificador del equipo.
-Así, fácilmente podrías ver la cantidad de errores que ha habido en un equipo, su fallas,
-migraciones, actualizaciones, etc. y acceder a ellos fácilmente. Además, en este
-menú desplegable del ordenador te vas a encontrar con otras opciones interesantes:
+También puedes acceder a los **datos** que están **relacionados** con un equipo
+determinado, mediante el desplegable que hay a la derecha del identificador del equipo.
+Así, fácilmente podrías ver la cantidad de errores que ha habido en un equipo, sus fallas,
+migraciones, actualizaciones, ... Además, en este
+menú desplegable del ordenador, te vas a encontrar con otras opciones interesantes:
 
 * **Sucesos**: Sobre un calendario, desde la fecha de entrada del equipo en el servidor,
   se muestra la cantidad diaria de actualizaciones, errores, fallas, migraciones y
-  registros de estado. A más cantidad diaria de sucesos el color es más oscuro.
+  registros de estado. A más cantidad diaria de sucesos, el color es más oscuro.
 
 * **Simular sincronización**: Te  permite simular lo que entregaría el servidor
   al cliente cuando éste último ejecuta ``migasfree -u``. De esta manera, y basándonos
-  en el último login del ordenador, puedes ver que repositorios se configurarían en el
-  cliente, que paquetes se instalarían o eliminarían o que fallas se ejecutarían.
+  en el último ``login`` del ordenador, puedes ver qué repositorios se configurarían en el
+  cliente, qué paquetes se instalarían o eliminarían o qué fallas se ejecutarían.
 
 * **Hardware**: Nos da acceso al hardware del equipo.
 
@@ -59,8 +59,7 @@ Campos de Ordenador
       ``Reservado``, ``Desconocido``, ``Disponible``, ``En reparación`` y finalmente
       ``Baja``.
 
-
-        Estos estados los clasificamos de la siguiente manera.
+        Estos estados los clasificamos de la siguiente manera:
 
         * **ALTA**: Son todos los ordenadores que no tienen el estado ``Baja`` y
           los dividimos en productivos e improductivos.
@@ -126,7 +125,7 @@ Campos de Ordenador
     * **Última actualización**: Fecha en la que se finalizó por última vez la
       actualización del cliente migasfree.
 
-    * **IP**: La dirección ip del equipo en el momento de la actualización.
+    * **IP**: La dirección IP del equipo en el momento de la actualización.
 
     * **Actualización hardware**: Fecha de la última actualización hardware.
 
@@ -143,9 +142,9 @@ Campos de Ordenador
             proporciona un UUID basado en la MAC de la primera tarjeta de red
             que encuentre.
 
-    * **Machine**: Indica si es una maquina física o virtual.
+    * **Machine**: Indica si es una máquina física o virtual.
 
-    * **CPU**: Nombre del microprocesador. Ejemplo:  ``Intel Core i5-4590 3.30GHz``
+    * **CPU**: Nombre del microprocesador. Ejemplo: ``Intel Core i5-4590 3.30GHz``
 
     * **RAM**: Cantidad de memoria RAM.
 
@@ -167,15 +166,13 @@ Campos de Ordenador
       Para una explicación del funcionamiento de las etiquetas mira los
       :ref:`Tipos de Etiquetas`.
 
-
 Usuarios
 ========
 
-A medida que el cliente de migasfree va ejecutándose en los equipos el servidor
+A medida que el cliente de migasfree va ejecutándose en los equipos, el servidor
 va añadiendo los usuarios que se han autenticado en el entorno gráfico.
 
 Puedes ver la lista de usuarios en ``Datos-Usuarios``
-
 
 Campos de Usuario
 -----------------
@@ -205,14 +202,14 @@ Campos de Login
 
     * **Ordenador**: El equipo al que hace referencia el login.
 
-    * **Atributos** :Lista de ``Atributos`` que se han obtenido como resultado de
+    * **Atributos**: Lista de ``Atributos`` que se han obtenido como resultado de
       ejecutar la ``Propiedades`` en el ordenador cliente en el proceso de
       actualización.
 
 Errores
 =======
 
-Conforme se vayan produciendo errores en los clientes irán llegando al servidor
+Conforme se vayan produciendo errores en los clientes, irán llegando al servidor
 y serán mostrados en ``Alertas``.
 
 Campos de error
@@ -233,11 +230,11 @@ Campos de error
 Fallas
 ======
 
-Ya viste el concepto de :ref:`Fallas` y como se pueden programar en el capítulo
+Ya viste el concepto de :ref:`Fallas` y cómo se pueden programar en el capítulo
 :ref:`La configuración del sistema migasfree`, así que no me repitiré.
 
 Lo mismo que ocurre con los errores, conforme las fallas se vayan detectando en
-los clientes irán apareciendo en el ``Alertas``.
+los clientes, irán apareciendo en el ``Alertas``.
 
 Campos de falla
 ---------------
@@ -256,7 +253,6 @@ Campos de falla
       solucionado la falla.
 
     * **Versión**: Es la versión que tenía el equipo cuando se produjo la falla.
-
 
 Atributos
 =========
@@ -300,8 +296,8 @@ Campos de Etiqueta
 Migraciones
 ===========
 
-Como hemos visto al principio de este capítulo los ``Ordenadores`` se identifican
-inequívocamente por el UUID de la placa base y además mantienen un campo
+Como hemos visto al principio de este capítulo, los ``Ordenadores`` se identifican
+inequívocamente por el UUID de la placa base y, además, mantienen un campo
 ``Versión`` que se corresponde con el ajuste del mismo nombre de los
 :ref:`Ajustes del cliente migasfree`. Ahora bien, en el momento en que el
 servidor detecta que no corresponde la versión que tiene el ordenador en la
@@ -316,7 +312,7 @@ Campos de Migración
 
     * **Versión**: Version migasfree.
 
-    * **Fecha**: Fecha y hora en que se ha detectado el cambio de versión
+    * **Fecha**: Fecha y hora en que se ha detectado el cambio de versión.
 
 Notificaciones
 ==============
@@ -368,7 +364,7 @@ Es una lista con estadísticas predefinidas.
       ``Calendarios``.
 
     * **ordenadores/versión**: Gráfica de tarta donde se aprecia la cantidad de
-      ordenadores por version.
+      ordenadores por versión.
 
 El proceso de las comprobaciones
 ================================
@@ -378,7 +374,7 @@ el sistema en codiciones, continuamente te llegarán errores, fallas, etc. que
 debes comprobar y atender. Esta es la misión para un usuario ``checker``.
 
 ¿Qué tareas tienes que hacer como comprobador del sistema?. Sencillo. Mantén
-las ``Alertas`` a 0. Él sistema te irá avisando que debes atender.
+las ``Alertas`` a 0. El sistema te irá avisando qué debes atender.
 
     * Comprueba periódicamente la existencia de ``Errores``. Soluciónalos y márcalos
       como comprobados.
@@ -386,7 +382,7 @@ las ``Alertas`` a 0. Él sistema te irá avisando que debes atender.
     * Comprueba periódicamente la existencia de ``Fallas``. Soluciónalas y márcalas
       como comprobadas.
 
-    * Comprueba periódicamente la existencia de ``Notificaciones``. Una vez leídas
+    * Comprueba periódicamente la existencia de ``Notificaciones``. Una vez leídas,
       márcalas como comprobadas.
 
 

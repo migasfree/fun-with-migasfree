@@ -587,4 +587,3 @@ Utilizar migasfree para la realizar la *Liberación* te permitirá:
   * Inventario de los cambios.
 
   * y algunas cosas más, que te serán desveladas en los siguientes capítulos.
-
