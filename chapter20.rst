@@ -17,7 +17,7 @@ simplemente no están disponibles o bien porque la versión disponible no es
 suficientemente reciente como para ejecutar el servidor.
 
 En este capítulo vas a empaquetar ``django`` como ejemplo y el método que
-usarás es válido para la mayoría de proyectos escritos en python.
+usarás es válido para la mayoría de proyectos escritos en ``python``.
 
 
 Creación del paquete ``django`` en distros basadas en paquetería ``apt``

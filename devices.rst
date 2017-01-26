@@ -14,12 +14,12 @@ impresoras, ahorrándote un tiempo más que considerable respecto a una instalac
 manual en cada ordenador (aunque inicialmente se requiera introducir en el
 sistema los distintos modelos de impresoras que vayas a utilizar).
 
-Además, por ser un sistema centralizado te va a permitir conocer el parque de
+Además, por ser un sistema centralizado, te va a permitir conocer el parque de
 impresoras de tu organización.
 
 En migasfree las impresoras son asignadas a atributos, por lo que puedes especificar
-que una determinada impresora sea instalada en todos los ordenadores que tengan
-por ejemplo la etiqueta ``AUL-AULA_DE_FORMACION`` aunque obviamente lo más común
+que una determinada impresora sea instalada en todos los ordenadores que tengan,
+por ejemplo, la etiqueta ``AUL-AULA_DE_FORMACION`` aunque, obviamente, lo más común
 será asignarlas a un ordenador concreto utilizando su CID (Computer ID).
 
    .. note::
@@ -128,8 +128,8 @@ Representa a cada una de las distintas impresoras físicas.
 Campos del dispositivo
 ----------------------
 
-    * **Nombre**: Identificador único de la impresora física. (En AZLinux usamos el nº
-      de inventario que lleva impreso la etiqueta que pegamos en cada impresora)
+    * **Nombre**: Identificador único de la impresora física (en AZLinux usamos el nº
+      de inventario que lleva impreso la etiqueta que pegamos en cada impresora).
 
     * **Modelo**: Modelo de la impresora
 
@@ -147,7 +147,7 @@ Campos del dispositivo
 
       La forma más eficaz de añadir los dispositivos es asignar el nombre,
       modelo y conexión y entonces pulsar en ``grabar y continuar editando``.
-      De esta manera se añadirán automáticamente los dispositivos logicos
+      De esta manera se añadirán automáticamente los dispositivos lógicos
       asociados a ese modelo de impresora y podrán ser asignados entonces
       los atributos.
 
@@ -158,9 +158,9 @@ Reemplazo de dispositivos
 Imagina p.e. que tienes una impresora de red instalada en 30 ordenadores
 y que va a ser sustituida por otro modelo de impresora. En este caso, lo único
 que tendrás que hacer es un ``Reemplazo de dispositivos`` indicando el
-dispositivo antiguo y el nuevo, sólamente eso.
+dispositivo antiguo y el nuevo. Solamente eso.
 
-Si has leído y entendido bien éste último párrafo deberías ya comprender cómo
+Si has leído y entendido bien este último párrafo, deberías ya comprender cómo
 migasfree puede ahorrarte mucho tiempo en todo lo relacionado a la instalación
 de impresoras.
 
@@ -195,7 +195,7 @@ prestaciones comentadas.
      Epson_AL_M300-ps-es.ppd
 
 
-Una manera simple de obtener estos archivos ppds es la siguiente:
+Una manera simple de obtener estos archivos *ppd*, es la siguiente:
 
     1) Obtén el ppd del propio fabricante de la impresora o en su defecto de
        `openprinting.org`__

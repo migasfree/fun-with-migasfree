@@ -22,7 +22,7 @@ Server
 
 Valor por defecto: localhost
 
-Nombre del Servidor migasfree contra el que se van a realizar las
+Nombre del servidor migasfree contra el que se van a realizar las
 actualizaciones.
 
 Ejemplo:
@@ -54,7 +54,7 @@ Computer_Name
 Valor por defecto: Se obtiene de la función de python ``platform.node()``
 
 Nombre del ordenador que se mostrará en migasfree. Si por calquier circunstancia
-se necesita que el nombre del ordenador no sea el ``hostname`` puedes configurar
+se necesita que el nombre del ordenador no sea el ``hostname``, puedes configurar
 este ajuste para modificarlo.
 
 Ejemplo:
@@ -68,7 +68,7 @@ Debug
 
 Valor por defecto: False
 
-Si se establece a True, la salida de los comandos del cliente mostrará
+Si se establece a ``True``, la salida de los comandos del cliente mostrará
 información útil para la depuración.
 
 Ejemplo:
@@ -83,7 +83,7 @@ GUI_Verbose
 Valor por defecto: True
 
 Indica si aparecen más o menos mensajes en el Intefaz Gráfico de
-Usuario. Si se asigna a False, sólo se mostrarán el primer y último
+Usuario. Si se asigna a ``False``, sólo se mostrarán el primer y último
 mensaje.
 
 Ejemplo:
@@ -103,9 +103,9 @@ versiones de los paquetes ya instalados.
 
 Si se establece este ajuste a **False** las actualizaciones de paquetes no se
 producirán al ejecutar ``migasfree`` con objeto de que sea el usuario quien
-decida cuándo quiere realizarlas ( siguiendo p.e. la configuración de un gestor de
+decida cuándo quiere realizarlas (siguiendo p.e. la configuración de un gestor de
 actualizaciones tipo ``update-manager`` de Gnome figura 17.1 o ejecutando una
-actualización desde el front-end del sistema de paquetería).
+actualización desde el *front-end* del sistema de paquetería).
 
 Este ajuste no afectará en ningún caso a los paquetes a instalar y/o a los
 paquetes a desinstalar que hubiera definidos en los repositorios de migasfree.
@@ -143,7 +143,7 @@ Valor por defecto: No establecido.
 
 Ruta al fichero de certificado SSL de servidor en el cliente.
 
-Si este fichero de certificado no existe se utilizará igualmente https para la
+Si este fichero de certificado no existe se utilizará igualmente **https** para la
 privacidad, pero la autenticación entre extremos no estará garantizada. En este
 caso aparece en consola el siguiente mensaje:
 
@@ -176,7 +176,7 @@ Package_Proxy_Cache
 
 Valor por defecto: No establecido.
 
-Permite especificar la dirección de un sistema cache de repositorios
+Permite especificar la dirección de un sistema caché de repositorios
 como podría ser ``apt-cacher``.
 
 Ejemplo:
@@ -203,7 +203,7 @@ User
 Valor por defecto: No establecido.
 
 Usuario con permisos para subir paquetes al servidor migasfree. Por
-defecto la base de dato del servidor ``migasfree`` incluye el usuario
+defecto, la base de dato del servidor ``migasfree`` incluye el usuario
 ``packager`` con los permisos adecuados para almacenar paquetes en el
 servidor.
 
@@ -261,12 +261,12 @@ Ejemplo:
 Variables de entorno
 ====================
 
-Mediante el uso de variables de entorno podemos modificar tambien la
+Mediante el uso de variables de entorno podemos modificar también la
 configuración del cliente migasfree.
 
 ``MIGASFREE_CONF``
 
-Por defecto el fichero de configuración del cliente migasfree se encuentra en
+Por defecto, el fichero de configuración del cliente migasfree se encuentra en
 ``/etc/migasfree.conf`` pero mediante la variable de entorno ``MIGASFREE_CONF``
 podemos indicar al cliente que use otro fichero. Esto puede serte útil si
 tienes que subir paquetes mediante el comando``migasfree-upload`` a distintos
@@ -280,7 +280,7 @@ Ejemplo:
     migasfree-upload -f <mipaquete>
 
 Además, todos los ajustes del fichero de configuración del cliente migasfree también
-pueden ser asignados mediante variables de entorno, siendo éstas variables
+pueden ser asignados mediante variables de entorno, siendo estas variables
 prioritarias frente a los ajustes del fichero de configuración:
 
 ``MIGASFREE_CLIENT_SERVER``
@@ -309,13 +309,13 @@ prioritarias frente a los ajustes del fichero de configuración:
 ``MIGASFREE_PACKAGER_STORE``
 
 
-Como ejemplo de uso de las variables de entorno imagina un escenario en el cual
+Como ejemplo de uso de las variables de entorno, imagina un escenario en el cual
 tienes un servidor migasfree y muchos centros en los que en cada uno de ellos
-hay un servicio de caché de paquetes para minimizar el tráfico de internet.
-Para configurar cada equipo deberías tener un paquete de configuración del
+hay un servicio de caché de paquetes para minimizar el tráfico de Internet.
+Para configurar cada equipo, deberías tener un paquete de configuración del
 cliente migasfree por cada centro, pero si tienes muchos centros esto puede
 resultar costoso. Una solución podría ser tener un sólo paquete de configuración del
-cliente migasfree para todos los centros y en la postinstalación del paquete
+cliente migasfree para todos los centros y, en la postinstalación del paquete,
 crear las variables de entorno necesarias en función de la etiqueta del centro.
 
   .. code-block:: none

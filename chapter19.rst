@@ -7,11 +7,11 @@ Empaquetando migasfree
  .. epigraph::
 
    Nadie es como otro. Ni mejor ni peor. Es otro. Y si dos están de acuerdo, es
-   por un malentendido
+   por un malentendido.
 
    -- Jean-Paul Sartre
 
-El proceso consiste básicamente en bajarte el fuente del proyecto y
+El proceso consiste, básicamente, en bajarte el fuente del proyecto y
 ejecutar el comando ``bin/create-package``
 
    .. note::
@@ -21,36 +21,36 @@ ejecutar el comando ``bin/create-package``
 Creación del paquete migasfree-server (.deb)
 =====================================================
 
-Abre una terminal como root y baja el código fuente de migasfree:
+Abre una terminal como **root** y baja el código fuente de migasfree:
 
   .. code-block:: none
 
     wget https://github.com/migasfree/migasfree/archive/latest.zip
 
-Necesitaremos tener instalado unzip para descomprimir el fichero zip:
+Necesitaremos tener instalado ``unzip`` para descomprimir el fichero *zip*:
 
   .. code-block:: none
 
     apt-get install unzip
 
-Descomprimimos el fichero latest.zip:
+Descomprimimos el fichero ``latest.zip``:
 
   .. code-block:: none
 
     unzip latest.zip
     rm latest.zip
 
-Ahora tendrás una carpeta llamada migasfree-latest.
+Ahora tendrás una carpeta llamada ``migasfree-latest``.
 
-Creamos a continuacion el paquete migasfree-server. Para ello
-necesitamos tener instalado el paquete python-stdeb:
+Creamos a continuacion el paquete ``migasfree-server``. Para ello
+necesitamos tener instalado el paquete ``python-stdeb``:
 
   .. code-block:: none
 
     apt-get install python-stdeb
 
 Nos situamos en la carpeta bin del proyecto y ejecutamos el script
-create-package:
+``create-package``:
 
   .. code-block:: none
 
@@ -58,14 +58,14 @@ create-package:
     ./create-package
     cd ../..
 
-Ahora en la carpeta deb_dist tenemos el paquete deb que instalamos:
+Ahora en la carpeta ``deb_dist`` tenemos el paquete *deb* que instalamos:
 
   .. code-block:: none
 
     dpkg -i migasfree-latest/deb_dist/migasfree-server_*_all.deb
 
-Por problemas de dependencias seguramente se dejará sin configurar el
-servidor de migasfree. Para instalar las dependencias que faltan
+Por problemas de dependencias, seguramente se dejará sin configurar el
+servidor de migasfree. Para instalar las dependencias que faltan,
 haremos:
 
   .. code-block:: none
@@ -76,37 +76,37 @@ haremos:
 Creación del paquete migasfree-client (.deb)
 =====================================================
 
-Abre una terminal como root y baja el código fuente del cliente
+Abre una terminal como **root** y baja el código fuente del cliente
 migasfree:
 
   .. code-block:: none
 
     wget https://github.com/migasfree/migasfree-client/archive/latest.zip
 
-Necesitaremos tener instalado unzip para descomprimir el fichero zip:
+Necesitaremos tener instalado ``unzip`` para descomprimir el fichero *zip*:
 
   .. code-block:: none
 
     apt-get install unzip
 
-Descomprimimos el fichero latest.zip:
+Descomprimimos el fichero ``latest.zip``:
 
   .. code-block:: none
 
     unzip latest.zip
     rm latest.zip
 
-Ahora tendrás una carpeta llamada migasfree-client-latest.
+Ahora tendrás una carpeta llamada ``migasfree-client-latest``.
 
-Creamos a continuación el paquete migasfree-client. Para ello
-necesitamos tener instalado el paquete python-stdeb:
+Creamos a continuación el paquete ``migasfree-client``. Para ello
+necesitamos tener instalado el paquete ``python-stdeb``:
 
   .. code-block:: none
 
     apt-get install python-stdeb
 
 Nos situamos en la carpeta bin del proyecto y ejecutamos el script
-create-package:
+``create-package``:
 
   .. code-block:: none
 
@@ -114,14 +114,14 @@ create-package:
     ./create-package
     cd ../..
 
-Ahora en la carpeta deb_dist tenemos el paquete deb que instalamos:
+Ahora en la carpeta ``deb_dist`` tenemos el paquete *deb* que instalamos:
 
   .. code-block:: none
 
     dpkg -i migasfree-client-latest/deb_dist/migasfree-client_*_all.deb
 
-Por problemas de dependencias seguramente se dejará sin configurar el
-cliente de migasfree. Para instalar las dependencias que faltan
+Por problemas de dependencias, seguramente se dejará sin configurar el
+cliente de migasfree. Para instalar las dependencias que faltan,
 haremos:
 
   .. code-block:: none
@@ -151,13 +151,13 @@ directorio ``setup.cfg.d`` para paquetería rpm:
 
     touch ../setup.cfg.d/$_DISTRO #
 
-ó en el directorio ``stdeb.cfg.d`` para paquetería deb:
+o en el directorio ``stdeb.cfg.d`` para paquetería deb:
 
   .. code-block:: none
 
     touch ../stdeb.cfg.d/$_DISTRO
 
-Finalmente copia dentro de este fichero el contenido de otro fichero de
+Finalmente, copia dentro de este fichero el contenido de otro fichero de
 una Distribución similar y modifica las dependencias necesarias.
 
 Una vez realizado este proceso vuelve a ejecutar ``./create-package``
