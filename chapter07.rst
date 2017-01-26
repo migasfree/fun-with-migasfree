@@ -14,11 +14,11 @@ En el capítulo anterior nos hemos centrado en cómo se realiza el proceso
 de la GCS.
 
 En este capítulo vas a *configurar el cliente de migasfree* (mediante empaquetado)
-para que se conecte contra la maquina virtual debian 8 en el que ya tienes un servidor
+para que se conecte a la máquina virtual **Debian 8** en el que ya tienes un servidor
 migasfree instalado.
 
-Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual
-con Ubuntu instalado y que debes tener en la misma red en la que esté la maquina
+Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual,
+con Ubuntu instalado, y que debes tener en la misma red en la que esté la máquina
 virtual del servidor.
 
 El objetivo de este capítulo es que conozcas un poco más el empaquetado.
@@ -32,7 +32,7 @@ Instala el cliente migasfree:
 
      # wget -O - http://migasfree.org/pub/install-client | bash
 
-Observa como en el fichero /etc/migasfree.conf que ha instalado el paquete
+Observa como en el fichero ``/etc/migasfree.conf`` que ha instalado el paquete
 ``migasfree-client`` no hay, lógicamente, ningún ajuste configurado.
 
   .. code-block:: none
@@ -46,11 +46,11 @@ así que no lo hagas manualmente.
 Obteniendo acme-migasfree-client
 ================================
 
-Al igual que hiciste con la configuración del servidor puedes bajarte
+Al igual que hiciste con la configuración del servidor, puedes bajarte
 el fuente del paquete que vamos a utilizar de plantilla para configurar el
-cliente de migasfree. 
+cliente de migasfree.
 
-En la nueva máquina virtual con ubuntu ejecuta el siguiente código si aún
+En la nueva máquina virtual con Ubuntu, ejecuta el siguiente código si aún
 no te has descargado ``fun-with-migasfree-examples``:
 
   .. code-block:: none
@@ -92,24 +92,24 @@ __ http://www.debian.org/doc/debian-policy/ch-controlfields.html
 
 * El fichero ``changelog`` contiene información, en un formato especial,
   con las modificaciones que se han realizado en cada versión del paquete.
-  Cada vez que se modifica el paquete hay que añadir una entrada en este
-  fichero incrementando la versión y registrando lo que se ha modificado.
+  Cada vez que se modifica el paquete, hay que añadir una entrada en este
+  fichero, incrementando la versión y registrando lo que se ha modificado.
 
 * El fichero ``copyright`` contiene la información sobre los recursos,
   licencia y derechos de autoría de las fuentes originales del paquete.
 
-* El fichero ``rules``  contiene las reglas que se utilizan para generar
+* El fichero ``rules`` contiene las reglas que se utilizan para generar
   los paquetes a partir de sus fuentes.
 
 * El fichero ``install`` contiene una lista de ficheros que serán
-  instalados con el paquete
+  instalados con el paquete.
 
-Ahora que conoces el significado de estos ficheros modifícalos cambiando
+Ahora que conoces el significado de estos ficheros, modifícalos cambiando
 el nombre del paquete ``acme-migasfree-client`` por ``tuempresa-migasfree-client``
-y pon tu nombre y la fecha actual allí dónde se requiera.
+y pon tu nombre y la fecha actual allí donde se requiera.
 
-Modifica tambien el nombre del directorio raiz ``acme-migasfree-client``
-por ``tuempresa-migasfree-client``
+Modifica también el nombre del directorio raiz ``acme-migasfree-client``
+por ``tuempresa-migasfree-client``.
 
 Scripts
 -------
@@ -125,24 +125,24 @@ cuando serán ejecutados por el sistema de gestión de paquetes.
 Observa ahora el contenido de ``postinst`` y verás que aquí se hace
 una llamada al comando ``dpkg-divert``. Mediante este comando hacemos lo
 que se conoce como una desviación de fichero (divert). Mediante la
-desviación indicamos al sistema de gestión de paquetes que un fichero ya
+desviación, indicamos al sistema de gestión de paquetes que un fichero ya
 no pertenece a un determinado paquete sino al que nosotros establezcamos.
 
-Así el fichero de configuración ``/etc/migasfree.conf``, que pertenece en
+Así, el fichero de configuración ``/etc/migasfree.conf``, que pertenece en
 principio al paquete migasfree-client, hacemos que pertenezca al paquete
-``tuempresa-migasfree-client`` de tal manera que una posible
+``tuempresa-migasfree-client`` de tal manera que, una posible
 actualización de ``migasfree-client`` ya no nos afectará. Cada vez que
-queramos modificar un ajuste del cliente migasfree en ``/etc/migasfree.conf``
+queramos modificar un ajuste del cliente migasfree en ``/etc/migasfree.conf``,
 lo haremos a través del fichero ``usr/share/divert/etc/migasfree.conf``
 del paquete ``tuempresa-migasfree-client``.
 
-Fíjate tambien que en ``prerm`` deshacemos esta desviación, para que
-si desinstalamos el paquete quede todo como estaba.
+Fíjate también que en ``prerm`` deshacemos esta desviación, para que
+si desinstalamos el paquete, quede todo como estaba.
 
 Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf``. Tendŕas que
-poner el ajuste ``Server`` con el nombre, o la ip, del servidor migasfree que
+poner el ajuste ``Server`` con el nombre, o la IP, del servidor migasfree que
 hemos utilizado anteriormente, y el ajuste ``Version`` con el nombre de tu
-distribución, por ejemplo ``ACME-1``. El resto de ajustes modifícalos según tus
+distribución, por ejemplo ``ACME-1``. El resto de ajustes, modifícalos según tus
 intereses. Una vez hecho esto, y situado en el directorio
 ``tuempresa-migasfree-client``, genera el paquete (debes tener el
 paquete ``devscripts`` y ``debhelper`` previamente instalados).
@@ -152,13 +152,14 @@ paquete ``devscripts`` y ``debhelper`` previamente instalados).
     $ /usr/bin/debuild --no-tgz-check -us -uc
 
 Con esto tendrás un paquete que configura el cliente migasfree para tu
-organización. Ahora es momento de instalarlo
+organización. Ahora es momento de instalarlo:
+
   .. code-block:: none
 
     # dpkg -i tuempresa-migasfree-client_1.0-1_all.deb
 
-Observa que al instalar el paquete, dpkg te informa que se añade la desviación
-de /etc/migasfree.conf. Comprueba ahora que el ajuste ``Server`` y ``Version``
+Observa que al instalar el paquete, ``dpkg`` te informa que se añade la desviación
+de ``/etc/migasfree.conf``. Comprueba ahora que el ajuste ``Server`` y ``Version``
 son los correctos.
 
   .. code-block:: none
@@ -166,7 +167,7 @@ son los correctos.
     # less /etc/migasfree.conf
 
 
-Ahora ya estas preparado para registrar este ordenador en el servidor migasfree.
+Ahora ya estás preparado para registrar este ordenador en el servidor migasfree.
 
   .. code-block:: none
 
@@ -175,7 +176,7 @@ Ahora ya estas preparado para registrar este ordenador en el servidor migasfree.
 Comprueba que en el servidor se ha creado la version ``ACME-1`` y que
 existe un nuevo ordenador accediendo a la página web del servidor.
 
-Finalmente subimos el paquete a nuestro servidor migasfree con el fin de tenerlo
+Finalmente, subimos el paquete a nuestro servidor migasfree con el fin de tenerlo
 disponible para su liberación a otros escritorios ``ACME-1``.
 
   .. code-block:: none
@@ -194,10 +195,10 @@ disponible para su liberación a otros escritorios ``ACME-1``.
 Ejecución del cliente migasfree
 ===============================
 
-Hasta ahora siempre hemos ejecutado el cliente migasfree desde consola
+Hasta ahora, siempre hemos ejecutado el cliente migasfree desde consola
 mediante el comando ``migasfree -u`` como ``root``. Ahora vamos a hacer
 que se ejecute automáticamente cada vez que el usuario abra una sesión
-gráfica. Para este propósito existe el paquete ``migasfree-launcher``.
+gráfica. Para este propósito, existe el paquete ``migasfree-launcher``.
 
   .. code-block:: none
 
@@ -208,7 +209,7 @@ gráfica. Para este propósito existe el paquete ``migasfree-launcher``.
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
-Sube el fichero migasfree-launcher al servidor
+Sube el fichero migasfree-launcher al servidor:
 
   .. code-block:: none
 
@@ -217,16 +218,16 @@ Sube el fichero migasfree-launcher al servidor
 Ahora observa los ficheros que contiene este paquete:
 
 * ``etc/sudoers.d/migasfree-launcher`` establece los comandos que no
-  requieren password de root para que pueden ser ejecutados desde un
+  requieren **password de root** para que pueden ser ejecutados desde un
   usuario cualquiera. Puedes obtener más información sobre la configuración
   de ``sudoers`` ejecutando ``man sudoers`` en un terminal.
 
 * ``etc/xdg/autostart/migasfree-launcher.desktop`` ejecutará el comando
   ``/usr/bin/migasfree-tray`` cuando el usuario inicia sesión gráfica.
   ``migasfree-tray`` llamará a ``/usr/bin/migasfree-launcher`` y éste a
-  su vez a ``migasfree --update``
+  su vez a ``migasfree --update``.
 
-  Puedes aprender más sobre la especificación de los ficheros .desktop
+  Puedes aprender más sobre la especificación de los ficheros **.desktop**
   en `freedesktop.org`__.
 
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
@@ -238,7 +239,7 @@ atributo ``SET-ALL SYSTEMS``.
 
   .. note::
 
-      Para aprender mas sobre el empaquetado consulta la
+      Para aprender más sobre el empaquetado, consulta la
       `Guía del nuevo desarrollador de Debian`__
 
 __ http://www.debian.org/doc/manuals/maint-guide/index.es.html
@@ -246,9 +247,9 @@ __ http://www.debian.org/doc/manuals/maint-guide/index.es.html
 
   .. note::
 
-      Para paquetería rpm los metadatos del paquete se especifican en
+      Para paquetería ``rpm``, los metadatos del paquete se especifican en
       un único fichero llamado ``SPEC``.
-      Para aprender más sobre la creación de paquetes rpm puedes consultar
+      Para aprender más sobre la creación de paquetes **rpm**, puedes consultar
       `rpm.org`__ y la `wiki del proyecto fedora`__.
 
 __ http://www.rpm.org/
@@ -258,8 +259,8 @@ __ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
 Despliegue
 ==========
 
-A partir de este momento vas a poder administrar fácilmente los escritorios
-ubuntu de tu organización, de forma generalizada, instalando
+A partir de este momento, vas a poder administrar fácilmente los escritorios
+Ubuntu de tu organización, de forma generalizada, instalando
 simplemente estos dos paquetes.
 
 Hay varias formas de realizar esta instalación:
@@ -292,17 +293,17 @@ Hay varias formas de realizar esta instalación:
 
    y los paquetes se instalarán automáticamente
 
-* Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes
+* Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes,
   utilizando un sistema de clonado como `clonezilla`__. Este es el método
-  que usamos en AZLinux, y nos resulta muy cómodo y rápido ya que en
-  una memoria USB llevamos un clonezilla junto con la imagen clonada de nuestro
-  escritorio consiguiendo instalar un AZLinux en menos de 10 minutos.
+  que usamos en **AZLinux**, y nos resulta muy cómodo y rápido ya que en
+  una memoria USB llevamos un clonezilla, junto con la imagen clonada de nuestro
+  escritorio, consiguiendo instalar un AZLinux en menos de 10 minutos.
 
 __ http://clonezilla.org/
 
 * Puedes crear un DVD de tu escritorio tal y como se realiza en el proyecto
-  `vitalinux`__. En concreto tendrías que adaptar el paquete `vx-create-iso`__
-  a tus necesidades. En éste método son los usuarios quienes se
+  `vitalinux`__. En concreto, tendrías que adaptar el paquete `vx-create-iso`__
+  a tus necesidades. En este método son los usuarios quienes se
   bajan la iso del DVD y se instalan ellos mismos el sistema.
 
 __ http://vitalinux.org

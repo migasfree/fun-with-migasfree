@@ -7,17 +7,17 @@ La configuración del sistema migasfree
  .. epigraph::
 
    El hombre razonable se adapta al mundo; el irrazonable intenta adaptar el
-   mundo a si mismo. Así pues, el progreso depende del irrazonable.
+   mundo a sí mismo. Así pues, el progreso depende del irrazonable.
 
    -- George Bernard Shaw
 
 
 En los capítulos anteriores has aprendido a instalar el servidor y el cliente
 migasfree, así como a crear paquetes. La creación de paquetes no es una tarea
-trivial, no tanto por su construcción en sí sino por el hecho de que son necesarios
+trivial, no tanto por su construcción en sí, sino por el hecho de que son necesarios
 amplios conocimientos de los sistemas operativos y de las aplicaciones.
 
-En éste y en los siguientes tres capítulos vas a aprender a adaptar y usar el
+En éste y en los siguientes tres capítulos, vas a aprender a adaptar y usar el
 servidor migasfree.
 
 .. _`Propiedades`:
@@ -25,18 +25,18 @@ servidor migasfree.
 Propiedades
 ===========
 
-En migasfree una ``propiedad`` es una característica de los equipos o
+En migasfree, una ``propiedad`` es una característica de los equipos o
 de los usuarios, y que nos servirá para desplegar los paquetes.
 
-Como administrador de migasfree una de las primeras tareas que debes realizar es
+Como administrador de migasfree, una de las primeras tareas que debes realizar es
 definir estas propiedades. Debes preguntarte en función de qué características
 vas a realizar los despliegues. Por ejemplo, ¿te interesa desplegar los paquetes
-por el HOSTNAME de los equipos? ¿y por subred? ¿Que tal por el grupo al que
-pertenece el usuario en el LDAP? ¿Y por su contexto LDAP?.
+por el HOSTNAME de los equipos? ¿y por subred? ¿Qué tal por el grupo al que
+pertenece el usuario en el LDAP? ¿O por su contexto LDAP?
 
   .. note::
 
-      En AZLinux usamos principalmente el contexto LDAP al que pertenece el
+      En AZLinux, usamos principalmente el contexto LDAP al que pertenece el
       usuario para desplegar los cambios por los distintos servicios o
       departamentos de nuestro ayuntamiento, y en menor medida usamos también el
       HOSTNAME de los equipos.
@@ -53,7 +53,7 @@ los clientes migasfree y su valores de retorno serán devueltos al servidor como
 
 Veamos un ejemplo sencillo de todo esto con la propiedad HOSTNAME. Accede a
 la web de tu servidor migasfree y ve a ``Configuración-Propiedades-HST``.
-Verás en este registro el siguiente código escrito en python.
+Verás en este registro el siguiente código escrito en ``python``.
 
   .. code-block:: none
 
@@ -61,7 +61,7 @@ Verás en este registro el siguiente código escrito en python.
     print platform.node()
 
 Si ejectutas ``python`` en una consola y escribes estas dos líneas verás
-que python muestra por la salida estandard el nombre de tu equipo.
+que python muestra, por la salida estándar, el nombre de tu equipo.
 
   .. code-block:: none
 
@@ -76,18 +76,18 @@ que python muestra por la salida estandard el nombre de tu equipo.
 En mi caso me ha devuelto ``white``, que es el nombre de mi portátil. ¿A que
 no aciertas de qué color es?
 
-Esto es en definitiva lo que hace el cliente migasfree: obtiene del servidor la
+Esto es, en definitiva, lo que hace el cliente migasfree: obtiene del servidor la
 propiedad ``HST`` (su código), la ejecuta y devuelve al servidor el resultado
-como atributo ``HST-white``.
+como atributo (``HST-white``).
 
-Podrías haber escrito la propiedad tambien en código ``bash`` simplemente
+Podrías haber escrito la propiedad también en código ``bash`` simplemente
 llamando al comando de linux ``hostname`` o escribiendo ``echo $HOSTNAME`` (el
 resultado sería el mismo), pero utilizar código python nos permite, en este caso,
-usar la misma ``propiedad`` también para plataformas Windows ó MAC.
+usar la misma ``propiedad`` también para plataformas Windows o Mac OS.
 
 
-Campos de la Propiedad.
------------------------
+Campos de la Propiedad
+----------------------
 
 Observa cada uno de los campos de la Propiedad:
 
@@ -96,12 +96,12 @@ Observa cada uno de los campos de la Propiedad:
 
 * **Nombre**: Denomina a la propiedad.
 
-* **lenguaje de programación**: En el que está escrito el código de la
+* **Lenguaje de programación**: En el que está escrito el código de la
   propiedad.
 
 * **Código**: Instrucciones a ejecutar en los clientes para obtener ``atributos``.
 
-* **Habilitado**: Indica si está activa la propiedad. Si no está marcado la
+* **Habilitado**: Indica si está activa la propiedad. Si no está marcado, la
   propiedad no será ejecutada en los clientes.
 
 * **Clase**: Hay cuatro tipos de clases y que nos permiten tratar el valor devuelto
@@ -113,7 +113,7 @@ Observa cada uno de los campos de la Propiedad:
 
           <valor>~<Descripción>
 
-      ó simplemente como:
+      o, simplemente, como:
 
       .. code-block:: none
 
@@ -128,7 +128,7 @@ Observa cada uno de los campos de la Propiedad:
           <valor>~<Descripción>, ...
 
     * **Agrega por la Derecha**: Permite añadir atributos de la siguiente manera:
-      Si el valor devuelto por la propiedad es "CONTEXTO1.CONTEXTO2.MIEMPRESA" el
+      Si el valor devuelto por la propiedad es "CONTEXTO1.CONTEXTO2.MIEMPRESA", el
       servidor interpreta que el equipo tiene estos tres atributos:
 
       * MIEMPRESA
@@ -148,7 +148,7 @@ Observa cada uno de los campos de la Propiedad:
 
       * CONTEXTO1.CONTEXTO2.MIEMPRESA
 
-* **Automático**: Si este campo está marcado los nuevos atributos será añadidos
+* **Automático**: Si este campo está marcado, los nuevos atributos serán añadidos
   automáticamente a la base de datos de migasfree. En caso contrario es el
   administrador de migasfree el responsable de añadir manualmente los atributos
   para esta propiedad. Se pueden añadir atributos manualmente accediendo a
@@ -165,10 +165,9 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
 **no son ejecutadas en el cliente** sino en el servidor.
 
 * **SET**: Esta propiedad tiene un atributo llamado ``SET-ALL SYSTEMS``. Todos
-  los ordenadores tendrán éste atributo sin excepción. Sirve para cuando quieras
-  referirte a **todos** los ordenadores. Por ejemplo, si en un repositorio
+  los ordenadores tendrán este atributo sin excepción. Sirve para referirse a **todos** los ordenadores. Por ejemplo, si en un repositorio
   asignas este atributo, todos los ordenadores tendrán acceso a él. Es habitual
-  usarlo también en la última demora de un calendario. Esta propiedad además
+  usarlo también en la última demora de un calendario. Esta propiedad, además,
   se usa internamente para definir :ref:`Conjuntos de Atributos`.
 
 * **CID**: Computer Identificator. Esta propiedad generará un atributo que
@@ -197,24 +196,24 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
 Tipos de Etiquetas
 ==================
 
-  Hasta ahora has visto que una propiedad es un código que se
+  Hasta ahora, has visto que una propiedad es un código que se
   ejecuta en el cliente para obtener un atributo automáticamente. Ahora bien,
   pueden existir casos en que no se puede obtener automáticamente estos
   atributos. Imagina que quieres "etiquetar" ciertos equipos según la
   funcionalidad que van a realizar (Tratamiento gráfico, administración, aula,
-  etc). Esto no es algo que a priori se pueda programar.
+  etc.). Esto no es algo que, a priori, se pueda programar.
 
   En migasfree existe la posibilidad de crear estas etiquetas y asignarlas
   manualmente a los equipos tal y como harías con una etiqueta física que pegas
   a un ordenador.
 
   Una etiqueta no ejecutará ningún código en el cliente. Es el propio registro
-  del ordenador en el servidor de migasfree quien lleva asignada manualmente
-  estas etiquetas. A todos los efectos una etiqueta es un atributo más del
-  sistema y por tanto te permitirá hacer el despliegue tambien en función de
+  del ordenador en el servidor de migasfree quien lleva asignadas, manualmente,
+  estas etiquetas. A todos los efectos, una etiqueta es un atributo más del
+  sistema y, por tanto, te permitirá hacer el despliegue también en función de
   ellas.
 
-  Por cada ``Configuración-Tipos de etiqueta`` existirá un conjunto de
+  Por cada ``Configuración-Tipos de etiqueta``, existirá un conjunto de
   etiquetas que manualmente debes añadir en ``Datos-Etiquetas``. Una vez
   añadidas, puedes asignarlas a ``Datos-Ordenadores``. También puedes editar
   ``Datos-Etiquetas`` y asignarle un conjunto de ordenadores.
@@ -235,7 +234,7 @@ Tipos de Etiquetas
 
       migasfree-tags --set
 
-  Para asignar determinadas etiquetas a un equipo escribe las etiquetas separadas
+  Para asignar determinadas etiquetas a un equipo, escribe las etiquetas separadas
   por espacios:
 
     .. code-block:: none
@@ -249,7 +248,7 @@ Tipos de Etiquetas
 
       migasfree-tags --communicate <ETIQUETA1> <ETIQUETA2> ...
 
-  Para quitar todas las etiquetas de un equipo ejecuta:
+  Para quitar todas las etiquetas de un equipo, ejecuta:
 
     .. code-block:: none
 
@@ -267,12 +266,12 @@ Tipos de Etiquetas
   paquetes definidos en ``preinclude`` e ``include`` y se desinstalarán los
   paquetes definidos en el campo ``exclude``, siempre y cuando los atributos
   asignados al repositorio coincidan con los del equipo. Esto se utiliza para
-  crear la imagen iso de los escritorios.
+  crear la imagen ISO de los escritorios.
 
   .. note::
 
-     En AZlinux usamos ``migasfree-tags`` básicamente para, partiendo de una
-     imagen iso de Ubuntu 12.04, desintalar e instalar los paquetes que
+     En AZLinux, usamos ``migasfree-tags`` básicamente para, partiendo de una
+     imagen ISO de Ubuntu 12.04, desintalar e instalar los paquetes que
      componen nuestro escritorio y crear una imagen del disco para clonar.
 
   .. note::
@@ -282,11 +281,11 @@ Tipos de Etiquetas
      simplemente se eligen las etiquetas mediante el comando
      ``migasfree-tag --set``, produciéndose automáticamente la instalación y
      desinstalación de los paquetes correspondientes. Tambien se utiliza en la
-     creación del DVDs, permitiendo hacer una iso para cada sabor o conjunto de
+     creación del DVDs, permitiendo hacer una ISO para cada sabor o conjunto de
      sabores.
 
-Campos de Tipos de Etiqueta.
-----------------------------
+Campos de Tipos de Etiqueta
+---------------------------
 
 * **Prefijo**: Es una combinación de tres números o letras. Este prefijo se
   utiliza para agrupar e identificar las etiquetas.
@@ -302,7 +301,7 @@ Campos de Tipos de Etiqueta.
   Un valor muy útil que puede tomar este campo es el de ``agrega
   por la derecha``. Imagina que quieres agrupar los ordenadores por ubicación para
   liberar software por distintas zonas. Una forma de hacerlo es crear un ``Tipo de Etiqueta``
-  llamada p.e. ``UBICACIÓN`` definada de clase ``agrega por la derecha``. Después
+  llamada p.e. ``UBICACIÓN`` definada de clase ``agrega por la derecha``. Después,
   puedes crear las ``Etiquetas`` de tipo ``UBICACION`` p.e.:
 
     .. code-block:: none
@@ -312,7 +311,6 @@ Campos de Tipos de Etiqueta.
   Cuando un equipo con esta etiqueta asignada se conecta al servidor, automáticamente
   el servidor interpretará que tiene no una, sino tres etiquetas:
 
-
     .. code-block:: none
 
       UBI-MADRID
@@ -320,7 +318,7 @@ Campos de Tipos de Etiqueta.
       UBI-PLANTA-1.SEDE_CENTRAL.MADRID
 
   Con lo que finalmente podemos liberar software a todo ``MADRID``, a toda la
-  sede central de Madrid, o sólamente a la planta 1ª.
+  sede central de Madrid, o solamente a la planta 1ª.
 
 
   .. note::
@@ -355,15 +353,15 @@ y que necesitas liberar software en función de esto. Podríamos crear dos
             Atributos asignados:    SET-ALL SYSTEMS
             Atributos excluidos:    SET-RED LENTA
 
-De esta manera, cualquier equipo de las subredes 192.168.1.0/24 ó 192.168.8.0/24
-al ejecutar ``migasfree -u`` se le asignará automáticamente un
+De esta manera, cualquier equipo de las subredes 192.168.1.0/24 o 192.168.8.0/24,
+al ejecutar ``migasfree -u``, se le asignará automáticamente un
 ``Atributo: SET-RED LENTA``. Al resto de equipos se le asignará el
 ``Atributo: SET-RED RAPIDA``.
 
 Ahora ya podríamos crear ``Repositorios`` y asignarles dichos ``Atributos``.
 
 Los ``Conjuntos de Atributos`` no ejecutan ningún código en el cliente, sino que
-son evaluados en el servidor. Si un ordenador pertenece a un conjunto se le asigna
+son evaluados en el servidor. Si un ordenador pertenece a un conjunto, se le asigna
 un ``Atributo`` con el mismo nombre que el ``Conjunto de Atributos``.
 
 
@@ -384,8 +382,8 @@ Campos de Conjuntos de Atributos
 Versiones
 =========
 
-Migasfree puede trabajar con distintos Sistemas Operativos. Una ``version`` en
-migasfree representa a un conjunto de ordenadores que comparten un mismo S.O.
+Migasfree puede trabajar con distintos Sistemas Operativos. Una ``versión``, en
+migasfree, representa a un conjunto de ordenadores que comparten un mismo S.O.
 
 Por ejemplo, en AZLinux tenemos actualmente 5 versiones establecidas:
 
@@ -401,7 +399,7 @@ Por ejemplo, en AZLinux tenemos actualmente 5 versiones establecidas:
 
 Cada ordenador estará configurado en una única versión en un momento dado.
 Cambios de versión en un ordenador crean en el sistema un registro de
-``migración`` automáticamente. De esta manera es posible conocer las diferentes
+``migración`` automáticamente. De esta manera, es posible conocer las diferentes
 migraciones de S.O. que se han ido produciendo en los equipos y en qué momento se
 han hecho efectivas. Puedes consultar las migraciones accediendo a
 ``Datos-Migraciones``.
@@ -411,8 +409,8 @@ registrar automáticamente las versiones. Puedes consultarlo en
 :ref:`Ajustes del servidor migasfree`.
 
 
-Campos de la Versión.
----------------------
+Campos de la Versión
+--------------------
 
 * **Nombre**: Denomina a la versión.
 
@@ -421,7 +419,7 @@ Campos de la Versión.
 
 * **Actual line computer**: Es un equipo que sirve como referencia para comparar
   con el resto de equipos. Se debe elegir un equipo que represente la línea actual
-  de la versión y que sea lo más "estandar" posible.
+  de la versión y que sea lo más "estándar" posible.
 
 * **Actual line packages**: Lista ordenada de paquetes que componen la actual
   línea de la versión. Cuando se conecta al servidor el equipo asignado en el
@@ -429,10 +427,10 @@ Campos de la Versión.
 
   Este campo tiene relación con el campo ``Inventario de software`` de los
   ordenadores, ya que en este último sólo se mostrará la diferencia de paquetes
-  repecto al ``Actual line computer``. De esta manera se puede ver fácilmente
-  que cambios se han producido respecto al ordenador asignado como de referencia.
+  repecto al ``Actual line computer``. De esta manera, se puede ver fácilmente
+  que cambios se han producido respecto al ordenador asignado como referencia.
 
-* **Autoregistrado**: Si está marcado se permiten registrar ordenadores desde
+* **Autoregistrado**: Si está marcado, se permiten registrar ordenadores desde
   un cliente automáticamente. En este caso, sólo con que un equipo esté configurado
   con la versión será añadido automáticamente a la base datos.
 
@@ -446,7 +444,7 @@ Plataformas
 ===========
 
 Las versiones se clasifican por plataformas. Las plataformas vienen establecidas
-por la función python ``platform.system()`` y por tanto sus valores pueden ser:
+por la función python ``platform.system()`` y, por tanto, sus valores pueden ser:
 
     * Linux
 
@@ -477,7 +475,6 @@ Grupos de Usuarios
 
 En función de las tareas que los usuarios de administración de migasfree
 pueden realizar, se establecen los siguientes grupos de usuarios.
-
 
 
     * ``Configurator`` con permisos de lectura/escritura a:
@@ -565,7 +562,7 @@ servidor migasfree asignándoles los grupos de usuarios correspondientes.
   .. note::
 
      Es importante que en un entorno de producción se deshabiliten los usuarios
-     que no se vayan a utilizar o que al menos se les cambie la contraseña por
+     que no se vayan a utilizar o que, al menos, se les cambie la contraseña por
      motivos de seguridad.
 
 Cambio de contraseña
@@ -577,14 +574,14 @@ También puede ser modificada por otro usuario que tenga marcado el campo
 ``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
 directamente su campo ``Contaseña``.
 
-Version por defecto de un Usuario
+Versión por defecto de un Usuario
 ---------------------------------
 
-Los usuarios tienen un campo ``version`` que sirve para filtrar registros. De
-esta manera cuando un usuario consulta los Repositorios p.e., solo se muestran
+Los usuarios tienen un campo ``versión`` que sirve para filtrar registros. De
+esta manera, cuando un usuario consulta los Repositorios p.e., sólo se muestran
 los repositorios de la versión que tiene asignada.
 
-Un usuario puede seleccionar su versíon mediante el desplegable que aparece a la
+Un usuario puede seleccionar su versión mediante el desplegable que aparece a la
 izquierda de `Alertas``.
 
 .. _`Comprobaciones`:
@@ -624,9 +621,9 @@ comprobaciones predeterminadas:
       de ``acción`` seleccionar ``La comprobación es correcta``.
 
     * ``Faults to check``. Cuando en un cliente migasfree se produce una
-      falla ésta es enviada al servidor. Esta comprobación hace que se muestren
+      falla, ésta es enviada al servidor. Esta comprobación hace que se muestren
       las fallas pendientes. La manera de proceder con las fallas es similar a
-      la de los ``Errors to check``
+      la de los ``Errors to check``.
 
     * ``Notifications to check``. Son hechos que se han producido en el sistema y
       que son informados mediante esta comprobación. Un ejemplo de notificación
@@ -643,7 +640,7 @@ comprobaciones predeterminadas:
       Esta comprobación comprueba cuantos de estos mensajes se han recibido.
 
     * ``Computer delayed``. Si pasa un determinado tiempo desde que se recibió
-      el último mensaje del cliente, es muy posible  que algo ha ido mal en el
+      el último mensaje del cliente, es muy posible que algo ha ido mal en el
       cliente. Quizás perdió la conexión, o el usuario apagó el equipo en medio
       de la ejecución del cliente migasfree, o quizás ha habido algún error. Esta
       comprobación permite detectar estos casos. La cantidad de tiempo viene
@@ -656,9 +653,8 @@ comprobaciones predeterminadas:
     * ``Server Messages Delayed``. Similar a ``Computer delayed`` pero para los
       mensajes que se producen en el servidor.
 
-
 Campos de Comprobación
-......................
+----------------------
 
     * **Nombre**: Denomina la comprobación
 
@@ -684,7 +680,7 @@ Campos de Comprobación
           comprobación está relacionada con el equipo cliente o con el servidor.
           Se representa con el icono de un ordenador o con el de una nube.
 
-      Mira éste codigo de ejemplo, el de ``Errors to check``:
+      Mira este codigo de ejemplo, el de ``Errors to check``:
 
           .. code-block:: none
 
@@ -697,7 +693,7 @@ Campos de Comprobación
 
       Lo primero que hacemos en importar el modelo Error. Depués obtenemos el
       número de registros de errores que que no se han comprobado y lo asignamos
-      a la variable ``result``. A continuación vamos asignando los valores a cada
+      a la variable ``result``. A continuación, vamos asignando los valores a cada
       una de las variables.
 
 
@@ -724,12 +720,12 @@ objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
 muy proactivo.
 
 En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
-escribe algo por la salida estandar ésta será enviada al servidor como ``Falla``.
-El servidor entonces añadirá un registro de ``Falla`` apareciendo en las
+escribe algo por la salida estándar, ésta será enviada al servidor como ``Falla``.
+El servidor entonces añadirá un registro de ``Falla``, apareciendo en las
 ``Alertas`` de los usuarios de migasfree.
 
 Campos de Definición de Falla
-.............................
+-----------------------------
 
     * **Nombre**: Denomina a la falla.
 
@@ -737,27 +733,27 @@ Campos de Definición de Falla
 
     * **Habilitado**: Activa o desactiva la falla.
 
-    * **Lenguaje de programación**: Especifica en que lenguaje está escrito el
+    * **Lenguaje de programación**: Especifica en qué lenguaje está escrito el
       ``código``. Mi recomendación es que programes en la medida de lo posible
-      en python.
+      en **python**.
 
     * **Código**: Instrucciones que detectan alguna falla en los equipos y que
-      debe poner en la salida estandar un texto que indique la falla producida.
+      debe poner en la salida estándar un texto que indique la falla producida.
       Puede serte útil en algunos casos poner también el procedimiento a seguir.
 
-    * **Atributtes**: Permite asignar a que equipos cliente será efectiva
-      la falla. Por ejemplo si escribes el código en bash deberías asignar la
+    * **Attributes**: Permite asignar a que equipos cliente será efectiva
+      la falla. Por ejemplo si escribes el código en bash, deberías asignar la
       falla sólo a los equipos con plataforma Linux ``PLT-Linux``,
       ya que plataformas Windows no serán capaces de ejecutar bash.
-      Tambien te puede interesar programar una falla sólo para obtener
+      También te puede interesar programar una falla sólo para obtener
       información de un equipo o de un grupo de equipos.
 
     * **Users**: Sirve para asignar usuarios de migasfree a los que les
       aparecerán las fallas de este tipo cuando se accede desde las ``Alertas``
-       (Sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
+      (sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
 
-      Si una definición de falla no tiene asignado ningún usuario, las fallas
-      que se produzcan aparecerán a cualquier usuario autenticado.
+Si una definición de falla no tiene asignado ningún usuario, las fallas
+que se produzcan aparecerán a cualquier usuario autenticado.
 
   .. note::
 
@@ -818,7 +814,7 @@ consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
           return myForm
 
     **Código**: Programamos que si el parámetro ``id`` que ha introducido el usuario
-    es una cadena vacía, la variable query sea igual a todos los regitros de
+    es una cadena vacía, la variable ``query`` sea igual a todos los regitros de
     la tabla ``Consulta``.
     En caso de que el usuario introduzca un valor filtramos las ``Consultas``
     por ``parameters['id']``.
@@ -834,7 +830,7 @@ consultas: hay una que muestra todas las consultas, se llama ``QUERIES``:
   .. note::
 
      Para realizar consultas necesitarás conocer un poco los `QuerySet`__ de
-     Django y la ``Documentación del modelo de datos``. Está última la tienes
+     Django y la ``Documentación del modelo de datos``. Esta última la tienes
      disponible al final de todas las páginas del servidor pulsando sobre el
      icono de información .
 
@@ -844,7 +840,7 @@ __ https://docs.djangoproject.com/en/dev/ref/models/querysets/
 Errores autocomprobables
 ========================
 
-Por defecto los errores producidos por el P.M.S. se añaden al sistema como no
+Por defecto, los errores producidos por el P.M.S., se añaden al sistema como no
 comprobados. Ahora bien, en ocasiones puede resultar tedioso tener que marcar como
 comprobados uno a uno ciertos errores que más que errores son "alertas".
 
@@ -867,4 +863,3 @@ se autocomprobaran, podrías emplear el siguiente patrón:
     .. code-block:: none
 
       .*\sError: Generic error\sInfo: Curl error: Couldn't resolve host 'myserver'
-

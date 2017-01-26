@@ -8,8 +8,8 @@ La Actualización de los sistemas
 
    -- Eduardo Galeano
 
-En el capitulo anterior has aprendido a liberar paquetes desde un servidor
-migasfre. Pero para que se produzca el cambio de software no basta sólo con
+En el capitulo anterior, has aprendido a liberar paquetes desde un servidor
+migasfre. Pero, para que se produzca el cambio de software, no basta sólo con
 liberarlo. Los clientes deben poder acceder a los repositorios, bajarse los
 paquetes e instalarlos.
 
@@ -19,25 +19,25 @@ comandos que tienes a tu disposición.
 El proceso de actualización
 ===========================
 
-Ahora creo que es buen momento de aprender que hace ``migasfree --update`` :
+Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
 
     * Envía mensaje de inicio del proceso de actualización al servidor.
 
     * Envía errores de anteriores ejecuciones. Si los hay, el servidor creará
       un registro de ``Error``.
 
-    * Recibe las Propiedades definidas en el servidor.
+    * Recibe las ``Propiedades`` definidas en el servidor.
 
     * Ejecuta dichas Propiedades y los resultados son enviados como ``Atributos``.
       El servidor crea entonces un registro de ``Login`` donde se almacenarán
       estos ``Atributos``.
 
-    * Recibe el código de las ``Fallas`` y los ``Repositorios`` a configurar
-      basándose en los ``Atributos`` y fecha actual.  Además, la lista de
-      paquetes a desinstalar e instalar obligatoriamente tambien se reciben en
+    * Recibe el código de las ``Fallas`` y los ``Repositorios`` a configurar,
+      basándose en los ``Atributos`` y la fecha actual.  Además, la lista de
+      paquetes a desinstalar e instalar obligatoriamente, también se reciben en
       este momento del proceso.
 
-    * Ejecuta y envía el resultado de las ``Fallas``. Si estas se producen el
+    * Ejecuta y envía el resultado de las ``Fallas``. Si estas se producen, el
       servidor creará un registro de ``Falla`` por cada una de ellas.
 
     * Configura los ``Repositorios`` que el servidor ha dispuesto en función de
@@ -63,26 +63,26 @@ Ahora creo que es buen momento de aprender que hace ``migasfree --update`` :
 
     * Envía el inventario de software si es el equipo de referencia. Ver en
       :ref:`La configuración del sistema migasfree` los campos de las :ref:`Versiones`:
-      ``Actual line computer`` y ``Actual line packages``
+      ``Actual line computer`` y ``Actual line packages``.
 
     * Envía el inventario de hardware periodicamente según ``MIGASFREE_HW_PERIOD``
-      de los :ref:`Ajustes del servidor migasfree`
+      de los :ref:`Ajustes del servidor migasfree`,
 
     * Envía los errores de ejecución. Si los hay el servidor creará un registro
       de ``Error``.
 
-    * Por último envía un mensaje de proceso finalizado. Cuando el servidor
+    * Por último, envía un mensaje de proceso finalizado. Cuando el servidor
       recibe este mensaje añade un registro de ``Actualización`` en la base de
       datos que se emplean para hacer diferentes estadísticas.
 
-Puedes ver una simulación de ésta sincronización, accediendo al menú
+Puedes ver una simulación de esta sincronización, accediendo al menú
 desplegable del identificador del ordenador en la aplicación web. Ver :ref:`Ordenadores`
 
 
 El comando ``migasfree``
 ========================
 
-La opción del comando migasfree ``--update`` es sin lugar a dudas la más
+La opción del comando migasfree ``--update`` es, sin lugar a dudas, la más
 importante. Su sintaxis es:
 
       .. code-block:: none
@@ -90,7 +90,7 @@ importante. Su sintaxis es:
         migasfree -u
         migasfree --update
 
-migasfree -u puede usarse conjuntamente con opción ``--force-upgrade`` para forzar la
+``migasfree -u`` puede usarse conjuntamente con opción ``--force-upgrade`` para forzar la
 actualización de paquetes a pesar que en el ajuste ``Auto_Update_Packages``
 esté asignado a ``False``. Consulta el ajuste ``Auto_Update_Packages`` de los
 :ref:`Ajustes del cliente migasfree`
@@ -104,10 +104,10 @@ Existen otras opciones que pueden hacer más fácil el mantenimiento a los
 administradores.
 
 En las organizaciones que usan distintos S.O. con sistemas de paquetería diferentes,
-tanto para buscar, instalar ó desinstalar paquetes los administradores tienen
+tanto para buscar, instalar o desinstalar paquetes, los administradores tienen
 que utilizar los comandos propios del sistema de paquetería. Utilizar las
 opciones del comando migasfree para realizar estas tareas te permite abstraerte
-del P.M.S. (No tendrás que estar pensando si estás en un sistema basado en
+del P.M.S. (no tendrás que estar pensando si estás en un sistema basado en
 Debian o en un Redhat p.e.):
 
     * Para buscar un determinado paquete en los repositorios utiliza:
@@ -117,21 +117,21 @@ Debian o en un Redhat p.e.):
         migasfree -s <texto>
         migasfree --search <texto>
 
-    * Para instalar un determinado paquete usa:
+    * Para instalar un determinado paquete, usa:
 
       .. code-block:: none
 
         migasfree -ip <paquete>
         migasfree --install --package=<paquete>
 
-    * Para desinstalar un determinado paquete usa:
+    * Para desinstalar un determinado paquete, usa:
 
       .. code-block:: none
 
         migasfree -rp <paquete>
         migasfree --remove --package=<paquete>
 
-Por último tienes la opción que permite registrar el equipo cliente en
+Por último, tienes la opción que permite registrar el equipo cliente en
 el servidor migasfree en caso de que en el registro ``Version`` del servidor el
 campo ``Autoregistrado`` esté desmarcado.
 
@@ -150,7 +150,7 @@ Puedes ver una explicación de este comando y de su sintaxis en el campo
 
 
 El comando ``migasfree-label``
-=============================
+==============================
 
 Consulta el ajuste ``MIGASFREE_HELP_DESK`` de los :ref:`Ajustes del servidor migasfree`
 donde se describe este comando.

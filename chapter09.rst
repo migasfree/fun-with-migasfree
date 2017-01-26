@@ -10,22 +10,21 @@ La Liberación
 
 Este es el capítulo que mejor define a migasfree, ya que su principal funcionalidad
 es la de ofrecer unos determinados repositorios de paquetes que estarán
-disponibles para los cliente en función de sus atributos.
+disponibles para los clientes en función de sus atributos.
 
-En los proyectos de software libre la liberación tiene que ver con poner a
+En los proyectos de software libre, la liberación tiene que ver con poner a
 disposición de la comunidad un determinado software. Aspectos como la autoría o
 la licencia son esenciales, tanto o más como el propio software que se libera.
 
-Liberar software en migasfree implica además decidir a quién y a partir de en qué
-momento un cliente tendrá acceso a dicho software.
-
+Liberar software en migasfree implica, además, decidir a quién y a partir de qué
+momento, un cliente tendrá acceso a dicho software.
 
 Subiendo Paquetes al servidor
 =============================
 
 Antes de poder liberar el software obviamente tienes que subirlo al servidor.
 
-Como viste en los primeros capítulos la manera de hacerlo es utilizando el
+Como viste en los primeros capítulos, la manera de hacerlo es utilizando el
 comando de cliente:
 
   .. code-block:: none
@@ -54,7 +53,7 @@ Almacenes
 Un almacén es un ubicación o ruta del servidor donde se colocan los paquetes y/o
 conjuntos de paquetes subidos al servidor. No es más que un directorio colgando
 de la ruta /var/migasfree/repo/<VERSION>/STORES, y que se utiliza para tener
-organizados los paquetes. Tambien es accesible desde un explorador web accediendo
+organizados los paquetes. También es accesible desde un explorador web accediendo
 a la ruta:
 
   .. code-block:: none
@@ -69,8 +68,8 @@ Cuando se utiliza el comando ``migasfree-upload`` y se indica una ubicación
 inexistente, el servidor automáticamente creará el registro lógico en la base de
 datos y creará la carpeta en el sistema de archivos.
 
-Campos de Almacén:
-..................
+Campos de Almacén
+-----------------
 
     * ``Nombre``: Denomina al almacén. Corresponde al nombre de la carpeta en el
       sistema de archivos.
@@ -81,15 +80,14 @@ Campos de Almacén:
 Paquetes
 ========
 
-Cuando subes un paquete o un conjunto de paquetes al servidor además de
+Cuando subes un paquete o un conjunto de paquetes al servidor, además de
 copiarse en el almacén o ubicación indicada, se crea un registro lógico en la
 base de datos. Estos registros nos servirán para asignarlos posteriormente en los
 ``Repositorios`` que vayamos creando.
 
 
-
-Campos de Paquete:
-..................
+Campos de Paquete
+-----------------
 
     * ``Nombre``: Es el nombre del fichero del paquete.
 
@@ -97,8 +95,9 @@ Campos de Paquete:
 
     * ``Almacén``: Especifica la ubicación donde está situado el paquete.
 
-Acciones de Paquete:
-....................
+
+Acciones de Paquete
+-------------------
 
 A la derecha del nombre del paquete, en la lista de paquetes, hay un desplegable
 con las siguientes acciones:
@@ -112,20 +111,20 @@ elige ``Eliminar Paquetes/conjuntos seleccionados`` y después pulsa en el botó
 ``ir``.
 
     * ``Eliminar Paquetes/conjuntos seleccionados``. Permite borrar el registro
-      del Paquete. A medida que vayas haciendo cambios en el software
+      del Paquete. A medida que vayas haciendo cambios en el software,
       irás teniendo distintas versiones del mismo paquete. Generalmente te
       interesará trabajar sólo con la última versión. Si quieres que sólo te
-      aparezca ésta a la hora de asignarlo a los ``Repositorios`` puedes borrar
+      aparezca ésta a la hora de asignarlo a los ``Repositorios``, puedes borrar
       los registros de ``Paquetes`` antiguos. Borrar el registro no borrará el
       archivo del paquete en ningún caso y simplificarás la selección de paquetes.
 
 Paquetes huérfanos
-..................
+------------------
 
 Un paquete huérfano es un paquete que no está asignado a ningún Repositorio.
 Cuando un paquete es subido al servidor, o cuando lo quitas de un repositorio y
 no está en ningún otro repositorio se convierte en un paquete huérfano.
-Existe una comprobación de ``Alerta`` que te avisará de cuales son estos
+Existe una comprobación de ``Alerta`` que te avisará de cuáles son estos
 paquetes.
 
 
@@ -140,7 +139,7 @@ aparecen dos carpetas:
 
     * ``REPOSITORIES`` Muestra los Repositorios físicos (en el sistema de archivos)
       que se hayan creado, y que son los que en última instancia verán los
-      clientes. En realidad los paquetes que veas en ``REPOSITORIES`` no son
+      clientes. En realidad, los paquetes que veas en ``REPOSITORIES`` no son
       más que enlaces simbólicos a los paquetes ubicados en ``STORES``.
 
 Si quieres ver los metadatos de un determinado paquete simplemente haz click
@@ -150,7 +149,7 @@ Repositorios
 ============
 
 Me gusta la definición: **migasfree es simplemente un gestor de repositorios
-de paquetes**. En realidad es básicamente esto. De hecho así es como empezó este
+de paquetes**. En realidad es básicamente esto. De hecho, así es como empezó este
 proyecto, y a partir de aquí ha ido creciendo hasta convertirse en lo que es hoy
 en día, un gestor de sistemas.
 
@@ -161,14 +160,14 @@ estos repositorios y asignarlos a los equipos en función de sus atributos a
 partir de una fecha determinada.
 
 Campos de Repositorio
-.....................
+---------------------
 
     * **Nombre**: Denomina al repositorio.
 
       .. note::
 
         En AZLinux solemos incorporar en el nombre del repositorio el número de
-        tarea de redmine al hace referencia el cambio de software que queremos
+        tarea de redmine al que hace referencia el cambio de software que queremos
         liberar.
 
     * **Versión**: Especifica la versión en la que estará disponible el
@@ -242,7 +241,6 @@ Campos de Repositorio
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``
 
-
     * Default.
 
         * **Default preinclude packages**: Campo de texto que especifica una
@@ -253,9 +251,9 @@ Campos de Repositorio
 
           __ https://github.com/vitalinux/vx-repo-openshot
 
-          La razón de la existencia de este campo es que después de instalar el
-          repositorio externo es necesario obtener de nuevo los metadatos de
-          los repositorios (apt-get update) a fin de que el cliente tenga acceso
+          La razón de la existencia de este campo, es que después de instalar el
+          repositorio externo, es necesario obtener de nuevo los metadatos de
+          los repositorios (``apt-get update``), a fin de que el cliente tenga acceso
           inmediatamente a los paquetes contenidos en el repositorio externo.
 
           Estos paquetes serán instalados a los clientes que tengan acceso al
@@ -271,7 +269,7 @@ Campos de Repositorio
           desinstalados en los clientes que tengan acceso al repositorio al
           ejecutar el comando ``migasfree-tags --set``.
 
-    * Atributtes.
+    * Attributes.
 
         * **Atributos**: Aquellos clientes que tengan un atributo que
           coincida con los asignados en este campo tendrán accesible el
@@ -280,8 +278,9 @@ Campos de Repositorio
         * **Excludes**: Sirve para excluir Atributos de la lista de Atributos
           anterior.
 
-          Por ejemplo si quieres liberar un paquete a toda la subred
-          ``192.168.92.0`` menos al equipo ``PC13098`` puedes hacerlo asignando:
+          Por ejemplo, si quieres liberar un paquete a toda la subred
+          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
+
               * Atributos: ``NET-192.168.92.0/24``
               * Excludes:``HST-PC13098``
 
@@ -290,13 +289,13 @@ Calendarios
 ===========
 
 Los calendarios te permiten programar sistemáticamente liberaciones en el tiempo
-para unos determinados atributos previamente establecidos partiendo de la
+para unos determinados atributos previamente establecidos, partiendo de la
 fecha del Repositorio.
 
 Por ejemplo, en AZLinux usamos distintos calendarios (LENTO, NORMAL, RAPIDO,
-MUY RAPIDO) según la críticidad del cambio de software que se va a liberar
+MUY RAPIDO) según la criticidad del cambio de software que se va a liberar
 o de su urgencia. En estos calendarios asignamos días de demora para los
-distintos servicios de nuestro ayuntamiento.
+distintos servicios de nuestra organización.
 
       .. code-block:: none
 
@@ -313,9 +312,9 @@ distintos servicios de nuestro ayuntamiento.
 Es conveniente que en la última demora asignes, si procede, el atributo
 ``SET-ALL SYSTEMS``.
 
-Cuando asignas un calendario a un repositorio podrás ver la temporalización
+Cuando asignas un calendario a un repositorio, podrás ver la temporalización
 resultante en la columna ``línea temporal`` de ``Liberación-Repositorios``
-(Pulsa en el desplegable que contiene el nombre del calendario).
+(pulsa en el desplegable que contiene el nombre del calendario).
 
 Asignar un calendario a un repositorio no es obligatorio.
 
@@ -323,11 +322,11 @@ Esta programación de la liberación se utiliza fundamentalmente para conseguir:
 
     * No aplicar una liberación de golpe a muchos equipos, lo que puede provocar
       un consumo de tráfico de red intenso (imagina 1000 equipos actualizando
-      libreoffice a la vez)
+      libreoffice a la vez).
 
     * Liberar poco a poco los paquetes y así poder hacer comprobaciones más
       tranquilamente. Cualquier error en el empaquetado o bug en los fuentes
-      del paquete puede ser mas manejable si ha afectado a pocos equipos y no
+      del paquete, puede ser mas manejable si ha afectado a pocos equipos y no
       a la totalidad.
 
 Un determinado cliente tendrá acceso al repositorio si:
@@ -336,7 +335,7 @@ Un determinado cliente tendrá acceso al repositorio si:
       y ya se ha cumplido la fecha del repositorio.
 
     * O existe un atributo coincidente con el calendario cuya fecha de repositorio
-      mas demora se ha cumplido.
+      más demora se ha cumplido.
 
     * Siempre y cuando un atributo del cliente no coincida con  el campo ``Excludes``
       del repositorio.
@@ -346,7 +345,7 @@ calendario va haciendo efectivos los repositorios a lo largo de los días es
 acceder a ``Estadísticas-Ordenadores previstos/demora``.
 
 Campos de calendario
-....................
+--------------------
 
     * **Nombre**: Denomina al calendario.
 
@@ -365,7 +364,6 @@ Campos de calendario
           el atributo ``SET-ALL SYSTEMS`` y una duración de 20 días, obtendríamos un
           incremento diario aproximado del 5% del total de equipos.
 
-
 Repositorios internos vs externos
 =================================
 
@@ -378,11 +376,11 @@ en las Distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa`
 Si quieres tener un mayor control de tus sistemas, mi recomendación es que te
 bajes todos los paquetes de los repositorios de tu distribución a una fecha y
 luego los subas como ``conjunto de paquetes`` al servidor y crees un repositorio
-al efecto. A esto le denominamos ``congelar un repositorio``.
+al efecto. A esto, lo denominamos ``congelar un repositorio``.
 
-De esta manera tendrás congelados a una fecha los repositorios de tu Distribución,
+De esta manera, tendrás congelados a una fecha los repositorios de tu Distribución,
 y podrás actualizar sólo el software que te interese. Si te decides por este
-método obviamente tendrás que empaquetar un código que deshabilite los
+método, obviamente tendrás que empaquetar un código que deshabilite los
 repositorios externos en los clientes.
 
 +------------------------------+------------------------------+
@@ -459,13 +457,13 @@ Las tareas que debe realizar un liberador son:
     * Controlar que no haya paquetes huérfanos, borrando los paquetes antiguos
       y creando los repositorios adecuados para los nuevos paquetes.
 
-    * Decidir que calendario es conveniente aplicar a cada repositorio.
+    * Decidir qué calendario es conveniente aplicar a cada repositorio.
 
     * Decidir cuando un repositorio ha terminado de liberarse (se ha cumplido
-      toda la línea temporal) que debe hacerse con sus paquetes.
+      toda la línea temporal) qué debe hacerse con sus paquetes.
 
       En AZLinux mayoritariamente, y para no tener muchos repositorios activos,
-      estos paquetes los asignamos a otro repositorio (ya existente para éste
+      estos paquetes los asignamos a otro repositorio (ya existente para este
       fin) que tiene asignado sólo el atributo ``SET-ALL SYSTEMS``. Los repositorios
       que nos han servido para liberar poco a poco los paquetes son
       desactivados (no los borramos) para mantener así la historia de lo que

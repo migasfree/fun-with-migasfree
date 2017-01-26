@@ -203,8 +203,7 @@ Una manera simple de obtener estos archivos ppds es la siguiente:
     2) Instala una impresora en tu sistema con el archivo ppd obtenido.
 
     3) **Modifica las propiedades** de la impresora desde el interface gráfico de
-       usuario de acuerdo a la prestación que va a proporcionarte (ejecuta p.e.
-      ``system-config-printer`` en un terminal)
+       usuario de acuerdo a la prestación que va a proporcionarte (ejecuta p.e. ``system-config-printer`` en un terminal).
 
     4) En el directorio /etc/cups/ppd/ tendrás el ppd con las opciones que has
        elegido para tu prestación, cópialo con un nombre relacionado con esa

@@ -14,9 +14,9 @@ estilo migasfree.
 
 Quizás no sea el ejemplo más acertado porque vas a configurar sólo
 un servidor migasfree, pero imagina un escenario donde tienes X centros
-de trabajo y te interesa tener un servidor migasfree con la misma
-configuración en cada centro para dar servicio a sus clientes.
-Uno de estos servidores bien podría ser el que admistrara al resto de
+de trabajo y te interesa tener un servidor migasfree, con la misma
+configuración en cada centro, para dar servicio a sus clientes.
+Uno de estos servidores, bien podría ser el que admistrara al resto de
 servidores.
 
 El objetivo de este capítulo es que veas todo el proceso de la Gestión
@@ -38,9 +38,9 @@ variable:
     MIGASFREE_ORGANIZATION = "ACME"
 
 Decides acceder a cada uno de los equipos por ssh, crear el fichero,
-reiniciar el servidor apache y olvidarte del tema.
+reiniciar el servidor Apache y olvidarte del tema.
 
-Ahora bien, si estás de vacaciones ¿podría responder fácilmente a las
+Ahora bien, si estás de vacaciones, ¿podría responder fácilmente a las
 cuestiones siguientes tu compañero de trabajo?
 
 * ¿Qué cambios se han realizado en un determinado equipo desde el 1 de
@@ -51,16 +51,16 @@ cuestiones siguientes tu compañero de trabajo?
 Este método es sencillo y rápido, pero difícilmente tu compañero va a
 poder reponder estas cuestiones de manera eficaz, aunque hayas registrado
 muy bien tu trabajo. La integridad frente al cambio no está garantizada
-con éste método.
+con este método.
 
-A continuación te propongo otra forma de realizar los cambios de
+A continuación, te propongo otra forma de realizar los cambios de
 configuración. Se basa en utilizar el empaquetado para trasladar los
-cambios a los equipos conservando la integridad del sistema.
+cambios a los equipos, conservando la integridad del sistema.
 
-Asumo que tienes un gestor de proyectos como Redmine donde vas a
+Asumo que tienes un gestor de proyectos, como Redmine, donde vas a
 registrar las peticiones de cambio (o al menos que hagas como que lo
 tienes) y que has completado con éxito el capítulo anterior. Todos los
-comandos de este capítulo los vas a ejecutar como root en el equipo que
+comandos de este capítulo los vas a ejecutar como **root** en el equipo que
 hayas utilizado en el capítulo anterior.
 
 
@@ -68,13 +68,13 @@ hayas utilizado en el capítulo anterior.
 Tu primer cambio de configuración
 =================================
 
-El primer cambio sobre un Elemento de Configuración Software (ECS) es el
-que te llevará más trabajo porque exige la creación de un paquete.
+El primer cambio sobre un **Elemento de Configuración Software** (ECS) es el
+que te llevará más trabajo, porque exige la creación de un paquete.
 
 Petición
 --------
 
-Imagina que te llega la siguiente la petición de cambio que registras y
+Imagina que te llega la siguiente la petición de cambio, que registras y
 aceptas en el gestor de proyectos:
 
   .. admonition:: Gestor de proyectos:
@@ -103,7 +103,7 @@ aceptas en el gestor de proyectos:
 Lo primero que haces es identificar al ECS que afecta, es decir, cuál es
 el paquete que debe ser modificado. Como no existe todavía un paquete
 sobre el que actuar, asigna la petición de cambio a un desarrollador
-(Qué suerte, siempre te toca a tí) y registra en la petición de cambio:
+(¡qué suerte, siempre te toca a ti!) y registra en la petición de cambio:
 
   .. admonition:: Gestor de proyectos:
 
@@ -117,10 +117,10 @@ Cambio
 Empaquetado
 ***********
 
-Cómo desarrollador tienes que crear el paquete de configuración
-``acme-migasfree-server``. Si nunca has creado un paquete no te
-preocupes, para facilitarte las cosas y que puedas avanzar centrándote
-en el proceso GCS descárgate el proyecto ``fun-with-migasfree-examples`` 
+Como desarrollador, tienes que crear el paquete de configuración
+``acme-migasfree-server``. Si nunca has creado un paquete, no te
+preocupes, para facilitarte las cosas y que puedas avanzar, centrándote
+en el proceso GCS, descárgate el proyecto ``fun-with-migasfree-examples``
 donde se incluyen los ejemplos utilizados es este libro.
 
   .. code-block:: none
@@ -129,7 +129,7 @@ donde se incluyen los ejemplos utilizados es este libro.
     $ unzip master.zip
     $ cd fun-with-migasfree-examples-master
 
-Observa como modificamos el nombre de la organización
+Observa cómo modificamos el nombre de la organización:
 
   .. code-block:: none
 
@@ -141,7 +141,7 @@ Observa como modificamos el nombre de la organización
       conjunto de ajustes que se pueden emplear para adaptar el servidor
       a tus necesidades.
 
-Y observa también que en la postinstalación del paquete se ejecutará el
+Y observa también que, en la postinstalación del paquete, se ejecutará el
 comando ``service apache2 reload`` cuando se produzca la configuración
 del paquete:
 
@@ -149,14 +149,14 @@ del paquete:
 
     $ less acme-migasfree-server/debian/postinst
 
-Ya tienes el fuente del paquete. Ahora genera el paquete, pero para ello
-antes debes tener instalado el paquete devscripts:
+Ya tienes el fuente del paquete. Ahora genera el paquete. Para ello,
+antes debes tener instalado el paquete **devscripts**:
 
   .. code-block:: none
 
     # apt-get install devscripts
 
-Y ahora sí, genera el paquete:
+Y, ahora sí, genera el paquete:
 
   .. code-block:: none
 
@@ -164,9 +164,9 @@ Y ahora sí, genera el paquete:
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
-Felicidades, el cambio está empaquetado en ``acme-migasfree-server_1.0-1_all.deb``
+¡Felicidades, el cambio está empaquetado en ``acme-migasfree-server_1.0-1_all.deb``!
 
-Subiendo al servidor el cambio
+Subiendo el cambio al servidor
 ******************************
 
 Usa este comando para subir el paquete generado al servidor.
@@ -183,7 +183,7 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Ubicacion: acme
 
-Finalmente asigna la petición de cambio a un liberador (sí, otra vez
+Finalmente, asigna la petición de cambio a un liberador (sí, otra vez
 vas a ser tú) y registra en la petición:
 
   .. admonition:: Gestor de proyectos:
@@ -192,7 +192,7 @@ vas a ser tú) y registra en la petición:
 
      Asignado a: *liberador*
 
-Felicidades, has realizado un cambio de configuración y lo has
+¡Felicidades! Has realizado un cambio de configuración y lo has
 almacenado en el servidor migasfree.
 
 Liberación
@@ -200,8 +200,8 @@ Liberación
 
 Ahora vas a ver el punto de vista del encargado de liberar los cambios:
 
-Accede mediante navegador web a tu servidor. Observa que en
-``Alertas``  tienes ``1 paquete huérfano`` (Figura 6.2).
+Accede mediante un navegador web a tu servidor. Observa que en
+``Alertas`` tienes ``1 paquete huérfano`` (Figura 6.2).
 
 .. only:: not latex
 
@@ -227,7 +227,7 @@ Accede mediante navegador web a tu servidor. Observa que en
 
    .. note::
 
-      Observa tambien que a la izquierda de las ``Alertas`` aparece un desplegable
+      Observa también que, a la izquierda de las ``Alertas``, aparece un desplegable
       con las versiones que existen en el servidor. Esto permitirá al usuario que se
       ha autenticado en el servidor migasfree ver los datos relativos a dicha versión.
       Selecciona, por tanto, la version ``debian-x.x``
@@ -265,7 +265,7 @@ Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
 
 Guarda el repositorio.
 
-Observa que en ``Alertas`` ya no tienes ningún paquete huérfano.
+Observa que, en ``Alertas``, ya no tienes ningún paquete huérfano.
 
 Registra y cierra la petición de cambio:
 
@@ -278,7 +278,7 @@ Registra y cierra la petición de cambio:
 Aplicando el cambio
 *******************
 
-Para aplicar el cambio ejecuta el siguiente comando:
+Para aplicar el cambio, ejecuta el siguiente comando:
 
   .. code-block:: none
 
@@ -344,8 +344,9 @@ de cambio asignas al desarrollador y registras:
 
 Cambio
 ------
+
 Los cambios que se realizan sobre un paquete ya creado suelen ser más
-sencillos de realizar porque simplemente se modifica el paquete.
+sencillos de realizar porque, simplemente, se modifica el paquete.
 
 Empaquetado
 ***********
@@ -379,10 +380,10 @@ Presta atención a:
 
    .. note::
 
-      El formato que se utiliza en el changelog en paquetes debian es muy estricto.
+      El formato que se utiliza en el **changelog** en paquetes debian es muy estricto.
       Ten cuidado con los espacios, retornos de carro y fechas.
 
-Ahora generamos el paquete:
+Ahora, generamos el paquete:
 
   .. code-block:: none
 
@@ -390,7 +391,7 @@ Ahora generamos el paquete:
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
-Observa que se ha generado el mismo paquete pero con la versión ``1.0-2``
+Observa que se ha generado el mismo paquete, pero con la versión ``1.0-2``:
 
   .. code-block:: none
 
@@ -429,11 +430,11 @@ Liberando el cambio de configuracion
 ************************************
 
 Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
-corresponde a ``acme-migasfree-server_1.0-2_all.deb``
+corresponde a ``acme-migasfree-server_1.0-2_all.deb``.
 
 Accede a ``Liberación - Repositorios`` y edita el repositorio
 ``PRINCIPAL``. Añade a ``Paquetes/Conjuntos`` el paquete
-``acme-migasfree-server_1.0-2_all.deb``
+``acme-migasfree-server_1.0-2_all.deb``.
 
 Guarda el repositorio.
 
@@ -511,7 +512,7 @@ El signo (-) indica paquete desinstalado y el signo (+) paquete instalado.
 ------------------------------------------------------------------
 
 Esta información está en el paquete como metainformación. Para acceder
-a ella accede a ``Liberación - Paquetes``.  Despliega el menú de la derecha del
+a ella, accede a ``Liberación - Paquetes``.  Despliega el menú de la derecha del
 paquete ``acme-migasfree-server_1.0-2_all.deb`` y pulsa en
 ``Información del paquete``.
 
@@ -536,7 +537,7 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 ----------------------------------------------------------
 
 Ve a ``Consultas - Ordenadores con el paquete...``. Escribe en el campo
-Paquete  ``acme-migasfree-server-1.0-2`` y obtendrás el resultado.
+Paquete ``acme-migasfree-server-1.0-2`` y obtendrás el resultado.
 
 
 Conclusión
@@ -561,6 +562,7 @@ Beneficios de crear paquetes de configuración
 
 * Proporciona integridad frente a los cambios de la configuración.
 
+
 Desventajas del empaqueteado de la configuración.
 -------------------------------------------------
 
@@ -572,17 +574,17 @@ Beneficios de usar migasfree
 
 Utilizar migasfree para la realizar la *Liberación* te permitirá:
 
-* Controlar a quién y a partir de qué momento se deben aplicar los cambios
+* Controlar a quién y a partir de qué momento se deben aplicar los cambios.
 
 * Tener una auditoría centralizada:
 
-  * Inventario de Ordenadores
+  * Inventario de Ordenadores.
 
-    * Hardware
+    * Hardware.
 
-    * Software (actual e histórico)
+    * Software (actual e histórico).
 
   * Inventario de los cambios.
 
-  y algunas cosas más que te serán desveladas en los siguientes capítulos.
+  * y algunas cosas más, que te serán desveladas en los siguientes capítulos.
 
