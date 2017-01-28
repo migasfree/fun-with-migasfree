@@ -1,7 +1,3 @@
-========
-Epígrafe
-========
-
 .. epigraph::
 
    El deber de un ciudadano no es creer en ninguna profecía del futuro,
