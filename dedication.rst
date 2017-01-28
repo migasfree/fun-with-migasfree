@@ -1,7 +1,3 @@
-===========
-Dedicatoria
-===========
-
 .. raw:: latex
 
 
