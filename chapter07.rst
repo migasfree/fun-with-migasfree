@@ -206,7 +206,7 @@ gráfica. Para este propósito, existe el paquete ``migasfree-launcher``.
     $ unzip latest.zip
     $ rm latest.zip
     $ cd migasfree-launcher-latest
-    $ /usr/bin/debuild --no-tgz-check -us -uc
+    $ python setup.py --command-packages=stdeb.command bdist_deb
     $ cd ..
 
 Sube el fichero migasfree-launcher al servidor:
@@ -222,9 +222,9 @@ Ahora observa los ficheros que contiene este paquete:
   usuario cualquiera. Puedes obtener más información sobre la configuración
   de ``sudoers`` ejecutando ``man sudoers`` en un terminal.
 
-* ``etc/xdg/autostart/migasfree-launcher.desktop`` ejecutará el comando
-  ``/usr/bin/migasfree-tray`` cuando el usuario inicia sesión gráfica.
-  ``migasfree-tray`` llamará a ``/usr/bin/migasfree-launcher`` y éste a
+* ``etc/xdg/autostart/migasfree-indicator.desktop`` ejecutará el comando
+  ``/usr/bin/migasfree-indicator`` cuando el usuario inicia sesión gráfica.
+  ``migasfree-indicator`` llamará a ``/usr/bin/migasfree-launcher`` y éste a
   su vez a ``migasfree --update``.
 
   Puedes aprender más sobre la especificación de los ficheros **.desktop**
