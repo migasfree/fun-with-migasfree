@@ -172,6 +172,9 @@ navegador web mostrando una pequeña etiqueta que debe ser impresa y pegada en e
 ordenador con objeto de facilitar la asistencia técnica aún estando el ordenador
 apagado.
 
+También es posible imprimir la etiqueta de un ordenador desde el servidor
+desplegando el menú contextual del ordenador y pulsando en
+``Etiqueta [ordenador]``.
 
 .. only:: not latex
 
