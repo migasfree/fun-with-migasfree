@@ -125,6 +125,7 @@ donde se incluyen los ejemplos utilizados es este libro.
 
   .. code-block:: none
 
+    # apt-get install unzip
     $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
     $ unzip master.zip
     $ cd fun-with-migasfree-examples-master
@@ -150,11 +151,11 @@ del paquete:
     $ less acme-migasfree-server/debian/postinst
 
 Ya tienes el fuente del paquete. Ahora genera el paquete. Para ello,
-antes debes tener instalado el paquete **devscripts**:
+antes debes tener instalados algunos paquetes:
 
   .. code-block:: none
 
-    # apt-get install devscripts
+    # apt-get install devscripts gcc build-essential:native
 
 Y, ahora sí, genera el paquete:
 
@@ -179,7 +180,7 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Contraseña: admin
 
-* Version: debian-x.x
+* Version: debian-x.x (En mi caso la versión es debian-8.7)
 
 * Ubicacion: acme
 
@@ -225,26 +226,24 @@ Accede mediante un navegador web a tu servidor. Observa que en
       Todos los paquetes que se han subido al servidor y no están asignados en
       ningún repositorio se denominan ``huérfanos``.
 
-   .. note::
-
-      Observa también que, a la izquierda de las ``Alertas``, aparece un desplegable
-      con las versiones que existen en el servidor. Esto permitirá al usuario que se
-      ha autenticado en el servidor migasfree ver los datos relativos a dicha versión.
-      Selecciona, por tanto, la version ``debian-x.x``
-
 
 Liberando el cambio de configuración
 ************************************
 
-Ahora, vas a liberar el cambio creando un nuevo Repositorio. Para ello, ve a
+Ahora, vas a liberar el cambio creando un nuevo Repositorio.
+
+Antes de nada debes asegurarte que el usuario con el que te has autenticado tiene
+asignada una versión con la que trabajar por defecto. Esto es importante y sólo
+se requiere comprobar en nuevas instalaciones. Para ello pulsa sobre ``admin``
+y ``Preferencias``. Pulsa ``Grabar``.
+
+Ahora sí, ya estás listo para crear tu primer ``Repositorio migasfree``. Para ello, ve a
 ``Liberación`` (pulsando sobre el icono del camión) y accede a ``Repositorios``.
-Luego pulsa en ``Añadir nuevo repositorio`` e introduce estos datos:
+Luego pulsa en el botón ``+`` para ``añadir un nuevo repositorio`` e introduce estos datos:
 
 * Nombre = ``PRINCIPAL``
 
 * Version = ``debian-x.x``
-
-* Fecha = ``Hoy``
 
 * Ahora despliega la sección ``Paquetes``
 
@@ -289,7 +288,7 @@ Observa en la salida del comando:
   .. code-block:: none
 
     ****************** Subiendo el historial del software... *******************
-    Diferencia en el software: # 2013-05-19 10:42:33
+    Diferencia en el software: # 2017-02-03 18:21:17
     +acme-migasfree-server-1.0-1
     ***************************** Correcto
 
@@ -368,7 +367,7 @@ del fichero**:
 
       * Change organitation to Acme Corporation
 
-     -- Alberto Gacías <alberto@migasfree.org>  Sun, 19 May 2013 13:09:00 +0200
+     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
 
 Presta atención a:
 
@@ -396,8 +395,8 @@ Observa que se ha generado el mismo paquete, pero con la versión ``1.0-2``:
   .. code-block:: none
 
     # root@debian8:~# ls -la *.deb
-    -rw-r--r-- 1 root root 2286 may 19 10:37 acme-migasfree-server_1.0-1_all.deb
-    -rw-r--r-- 1 root root 2338 may 19 13:25 acme-migasfree-server_1.0-2_all.deb
+    -rw-r--r-- 1 root root 2338 feb  3 17:49 acme-migasfree-server_1.0-1_all.deb
+    -rw-r--r-- 1 root root 2398 feb  3 18:27 acme-migasfree-server_1.0-2_all.deb
 
 
 Subiendo al servidor el cambio
@@ -461,11 +460,10 @@ Observa en la salida de este comando el cambio de software:
   .. code-block:: none
 
     ****************** Subiendo el historial del software... *******************
-    Diferencia en el software: # 2013-05-19 21:51:28
+    Diferencia en el software: # 2017-02-03 18:30:21
     +acme-migasfree-server-1.0-2
     -acme-migasfree-server-1.0-1
     ***************************** Correcto
-
 
 Comprueba si el cambio se ha aplicado.
 
@@ -494,15 +492,15 @@ manera centralizada desde el servidor migasfree:
 ¿Qué cambios se han producido en el ordenador ``1`` y cuándo?
 -------------------------------------------------------------
 
-Accede a ``Datos - Ordenadores``, accede al equipo ``1``
+Accede a ``Datos - Ordenadores``, accede al equipo ``CID-1`` (CID=Computer ID)
 y mira el final del campo ``historial de software`` de la sección ``Software``:
 
   .. code-block:: none
 
-    # 2013-05-19 21:47:18
+    # 2017-02-03 18:21:17
     +acme-migasfree-server-1.0-1
 
-    # 2013-05-19 21:51:28
+    # 2017-02-03 18:30:21
     +acme-migasfree-server-1.0-2
     -acme-migasfree-server-1.0-1
 
@@ -520,12 +518,12 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 
   .. code-block:: none
 
-    ****CHANGELOG****
     acme-migasfree-server (1.0-2) unstable; urgency=low
 
       * Change organitation to Acme Corporation
 
-     -- Alberto Gacías <alberto@migasfree.org>  Sat, 19 May 2013 08:32:00 +0200
+     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
+
 
     acme-migasfree-server (1.0-1) unstable; urgency=low
 
@@ -536,7 +534,7 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 ¿Qué equipos tienen el cambio acme-migasfree-server-1.0-2?
 ----------------------------------------------------------
 
-Ve a ``Consultas - Ordenadores con el paquete...``. Escribe en el campo
+Ve a ``Consultas - Ordenadores en producción con el paquete...``. Escribe en el campo
 Paquete ``acme-migasfree-server-1.0-2`` y obtendrás el resultado.
 
 
