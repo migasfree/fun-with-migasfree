@@ -256,10 +256,10 @@ navegador web.
 * Fíjate ahora que tienes 2 ``Alertas`` (figura 5.3). Pulsa sobre ellas y luego
 sobre ``2 alertas por comprobar``:
 
-    * La primera te notifica que el ordenador ``1`` ha dado de alta la
+    * La primera te notifica que el ordenador ``CID-1`` ha dado de alta la
       plataforma ``Linux``
 
-    * La segunda notificación te dice que el ordenador ``1`` ha añadido
+    * La segunda notificación te dice que el ordenador ``CID-1`` ha añadido
       la version ``debian-x.x``
 
     .. only:: not latex
@@ -281,7 +281,7 @@ sobre ``2 alertas por comprobar``:
 
 * Accede a ``Datos - Ordenadores`` y observa: (figura 5.4)
 
-    * Los datos del ordenador ``1`` (pulsando en el número 1)
+    * Los datos del ordenador ``CID-1`` (pulsando sobre CID-1)
 
     * Su ``login``, para ver los atributos que ha enviado el cliente.
 
@@ -302,6 +302,18 @@ sobre ``2 alertas por comprobar``:
           :alt: Ordenadores.
 
           Ordenadores.
+
+  .. note::
+
+      CID es un acrónimo de ``Computer IDentificator``. Es un número que el
+      servidor asigna a cada ordenador para identificarlo. Es imposible tener dos
+      ordenadores con el mismo CID.
+
+  .. note::
+
+      El símbolo que aparece a la izquierda del CID (el corazón) indica el
+      ``estado`` en el que encuentra el ordenador.
+
 
 
 ¡Enhorabuena! Has instalado un servidor migasfree y has registrado en él
