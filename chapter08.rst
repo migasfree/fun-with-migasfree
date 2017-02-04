@@ -39,7 +39,7 @@ pertenece el usuario en el LDAP? ¿O por su contexto LDAP?
       En AZLinux, usamos principalmente el contexto LDAP al que pertenece el
       usuario para desplegar los cambios por los distintos servicios o
       departamentos de nuestro ayuntamiento, y en menor medida usamos también el
-      HOSTNAME de los equipos.
+      CID.
 
 Una ``propiedad`` es un código que se programa en un registro de la
 base de datos de migasfree. Estas propiedades serán ejecutadas en cada uno de
@@ -271,7 +271,7 @@ Tipos de Etiquetas
   .. note::
 
      En AZLinux, usamos ``migasfree-tags`` básicamente para, partiendo de una
-     imagen ISO de Ubuntu 12.04, desintalar e instalar los paquetes que
+     imagen ISO de Ubuntu, desintalar e instalar los paquetes que
      componen nuestro escritorio y crear una imagen del disco para clonar.
 
   .. note::
@@ -383,19 +383,27 @@ Versiones
 =========
 
 Migasfree puede trabajar con distintos Sistemas Operativos. Una ``versión``, en
-migasfree, representa a un conjunto de ordenadores que comparten un mismo S.O.
+migasfree, representa a un conjunto de ordenadores que comparten un mismo proyecto.
 
-Por ejemplo, en AZLinux tenemos actualmente 5 versiones establecidas:
+Por ejemplo, en el Ayto. de Zaragoza contamos con las siguientes ``versiones``:
 
-    * AZLinux-1 (SLED 10.2)
+    * AZLinux-1 (SLED 10.2) Se migró a AZLinux-2. (Ningún PC).
 
-    * AZLinux-2 (OpenSUSE 11.2)
+    * AZLinux-2 (OpenSUSE 11.2) Se migró a AZLinux-12 (Ningún PC).
 
-    * AZLinux-12 (Ubuntu 12.04)
+    * AZLinux-12 (Ubuntu 12.04) En producción (1200 PC). En fase de migración a AZLinux-14
 
-    * WIN-XP (Windows XP)
+    * AZLinux-14 (Ubuntu 14.04) En producción (200 PC).
 
-    * ZA (Ubuntu 10.04 para escritorios tipo kioskos)
+    * AZLinux-16 (Ubuntu 16.04). En desarrolo (Ningún PC).
+
+    * ZA (Ubuntu 10.04 para escritorios tipo kioskos). Obsoleto.
+
+    * WIN-XP (Windows XP). En producción (1800 PC).
+
+    * AZW-10 (Windows 10). En desarrollo (Ningún PC).
+
+
 
 Cada ordenador estará configurado en una única versión en un momento dado.
 Cambios de versión en un ordenador crean en el sistema un registro de
@@ -581,8 +589,8 @@ Los usuarios tienen un campo ``versión`` que sirve para filtrar registros. De
 esta manera, cuando un usuario consulta los Repositorios p.e., sólo se muestran
 los repositorios de la versión que tiene asignada.
 
-Un usuario puede seleccionar su versión mediante el desplegable que aparece a la
-izquierda de `Alertas``.
+Un usuario puede seleccionar su versión pulsando en su nombre de usuario y
+luego ``Preferencias``
 
 .. _`Comprobaciones`:
 
