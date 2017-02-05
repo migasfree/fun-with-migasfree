@@ -273,7 +273,5 @@ Consulta el ajuste ``MIGASFREE_HELP_DESK`` de los :ref:`Ajustes del servidor mig
 
   .. note::
 
-    También puedes imprimir la etiqueta desde otro equipo si conoces su UUID
-    accediendo desde un explorador web a la siguiente dirección:
-
-    http://<miservidormigasfree>/computer_label/?uuid=<UUID_DEL_ORDENADOR>
+    También puedes imprimir la ``Etiqueta`` desplegando el menú del ordenador
+    en el servidor.
