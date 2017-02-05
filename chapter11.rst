@@ -51,6 +51,9 @@ menú desplegable del ordenador, te vas a encontrar con otras opciones interesan
 
 * **Hardware**: Nos da acceso al hardware del equipo.
 
+* **Etiqueta**: Te muestra una etiqueta que puede ser impresa para pegarla en
+  el ordenador.
+
 
 Campos de Ordenador
 -------------------
@@ -115,8 +118,25 @@ Campos de Ordenador
         Puedes asignar un estado por defecto a los nuevos ordenadores con el
         ajuste de servidor: :ref:`MIGASFREE_DEFAULT_COMPUTER_STATUS`
 
+        .. only:: not latex
+
+           .. figure:: graphics/chapter11/status.png
+              :scale: 100
+              :alt: Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+
+              figura 11.1.  Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+
+
+        .. only:: latex
+
+           .. figure:: graphics/chapter11/status.png
+              :scale: 25
+              :alt: Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+
+              Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+
     * **Nombre**: Es el nombre del equipo o el especificado en el
-      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`
+      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`.
 
     * **Versión**: La versíon migasfree del ordenador.
 
@@ -129,7 +149,7 @@ Campos de Ordenador
 
     * **Actualización hardware**: Fecha de la última actualización hardware.
 
-    * **Product**: Nombre del ordenador incluido en la placa base.
+    * **Producto**: Nombre del ordenador incluido en la placa base.
       Por ejemplo ``HP ProDesk 600 G1 SFF (C8T89AV)``
 
     * **Uuid**: Es el identificador único universal de la placa base del equipo.
@@ -142,7 +162,7 @@ Campos de Ordenador
             proporciona un UUID basado en la MAC de la primera tarjeta de red
             que encuentre.
 
-    * **Machine**: Indica si es una máquina física o virtual.
+    * **Máquina**: Indica si es una máquina física o virtual.
 
     * **CPU**: Nombre del microprocesador. Ejemplo: ``Intel Core i5-4590 3.30GHz``
 
