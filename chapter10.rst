@@ -33,9 +33,9 @@ Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
       estos ``Atributos``.
 
     * Recibe el código de las ``Fallas`` y los ``Repositorios`` a configurar,
-      basándose en los ``Atributos`` y la fecha actual.  Además, la lista de
-      paquetes a desinstalar e instalar obligatoriamente, también se reciben en
-      este momento del proceso.
+      basándose en los ``Atributos`` y la fecha actual. Recibe las impresoras
+      que deben estar instaladas. Además, la lista de paquetes a desinstalar e
+      instalar obligatoriamente, también se reciben en este momento del proceso.
 
     * Ejecuta y envía el resultado de las ``Fallas``. Si estas se producen, el
       servidor creará un registro de ``Falla`` por cada una de ellas.
@@ -70,6 +70,8 @@ Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
 
     * Envía los errores de ejecución. Si los hay el servidor creará un registro
       de ``Error``.
+
+    * Se añaden y/o eliminan las impresoras.
 
     * Por último, envía un mensaje de proceso finalizado. Cuando el servidor
       recibe este mensaje añade un registro de ``Actualización`` en la base de
