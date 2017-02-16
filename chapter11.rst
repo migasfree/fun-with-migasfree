@@ -31,14 +31,14 @@ Ordenadores
 Accediendo a ``Datos-Ordenadores``, verás la lista de ordenadores que
 se han registrado en el servidor.
 
-Puedes acceder al ``Hardware`` de un equipo desde la última columna de la lista
-de ordenadores.
+Puedes acceder al hardware de un equipo desde la última columna ``Producto``
+de la lista de ordenadores.
 
 También puedes acceder a los **datos** que están **relacionados** con un equipo
 determinado, mediante el desplegable que hay a la derecha del identificador del equipo.
 Así, fácilmente podrías ver la cantidad de errores que ha habido en un equipo, sus fallas,
-migraciones, actualizaciones, ... Además, en este
-menú desplegable del ordenador, te vas a encontrar con otras opciones interesantes:
+migraciones, actualizaciones, ... Además, en este menú desplegable del ordenador,
+te vas a encontrar con otras opciones interesantes:
 
 * **Sucesos**: Sobre un calendario, desde la fecha de entrada del equipo en el servidor,
   se muestra la cantidad diaria de actualizaciones, errores, fallas, migraciones y
@@ -57,6 +57,15 @@ menú desplegable del ordenador, te vas a encontrar con otras opciones interesan
 
 Campos de Ordenador
 -------------------
+
+    * **Nombre**: Es el nombre del equipo o el especificado en el
+      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`.
+
+    * **Versión**: La versíon migasfree del ordenador.
+
+    * **Fecha de alta**: Fecha de alta del ordenador en migasfree.
+
+    * **IP**: La dirección IP del equipo en el momento de la actualización.
 
     * **Estado**: Un ordenador puede tener uno de estos seis estados: ``Asignado``,
       ``Reservado``, ``Desconocido``, ``Disponible``, ``En reparación`` y finalmente
@@ -122,9 +131,9 @@ Campos de Ordenador
 
            .. figure:: graphics/chapter11/status.png
               :scale: 100
-              :alt: Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+              :alt: Iconos de estado: asignado, reservado, desconocido, disponible, en reparación y baja.
 
-              figura 11.1.  Estado asignado, reservado, desconocido, disponible, en reparación y baja.
+              figura 11.1.  Iconos de estado: asignado, reservado, desconocido, disponible, en reparación y baja.
 
 
         .. only:: latex
@@ -135,19 +144,25 @@ Campos de Ordenador
 
               Estado asignado, reservado, desconocido, disponible, en reparación y baja.
 
-    * **Nombre**: Es el nombre del equipo o el especificado en el
-      ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`.
+    * **Login**: Información del login del usuario.
 
-    * **Versión**: La versíon migasfree del ordenador.
-
-    * **Fecha de alta**: Fecha de alta del ordenador en migasfree.
+    * **Usuario**: Último usuario.
 
     * **Última actualización**: Fecha en la que se finalizó por última vez la
       actualización del cliente migasfree.
 
-    * **IP**: La dirección IP del equipo en el momento de la actualización.
+    * **Tiempo de la última actualización**: Tiempo que ha tardado el cliente migasfree
+      en actualizarse.
 
-    * **Actualización hardware**: Fecha de la última actualización hardware.
+    * **Errores sin comprobar**: Muestra el número de errores pendientes de comprobar
+      del ordenador.
+
+
+    * **Fallas sin comprobar**: Muestra el número de fallas pendientes de comprobar
+      del ordenador.
+
+    * **Fecha última actualización hardware**: Fecha en que se envió por última vez
+      el hardware.
 
     * **Producto**: Nombre del ordenador incluido en la placa base.
       Por ejemplo ``HP ProDesk 600 G1 SFF (C8T89AV)``
@@ -164,7 +179,7 @@ Campos de Ordenador
 
     * **Máquina**: Indica si es una máquina física o virtual.
 
-    * **CPU**: Nombre del microprocesador. Ejemplo: ``Intel Core i5-4590 3.30GHz``
+    * **Procesador**: Nombre del microprocesador. Ejemplo: ``Intel Core i5-4590 3.30GHz``
 
     * **RAM**: Cantidad de memoria RAM.
 
@@ -172,7 +187,7 @@ Campos de Ordenador
 
     * **Discos**: Numero de discos.
 
-    * **MAC address**: Direcciones MAC.
+    * **Direccion MAC**: Direcciones MAC del ordenador.
 
     * **Inventario de software**: Diferencia actual entre el conjunto de paquetes del
       ordenador de referencia y el ordenador en cuestión. Ver en
@@ -181,6 +196,11 @@ Campos de Ordenador
 
     * **Historial de software**: Registro de los paquetes instalados y
       desinstalados según se van produciendo en el tiempo.
+
+    * **Dispositivos lógicos**: Impresoras logicas configuradas en el ordenador.
+
+    * **Dispositivo lógico por defecto**: Indica el dispositivo lóogico por defecto
+      en el sistema.
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
       Para una explicación del funcionamiento de las etiquetas mira los
