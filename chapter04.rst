@@ -111,8 +111,7 @@ chocolate".
 En febrero de 2014, liberamos la versión 4 del servidor (migasfree grape edition). Esta
 versión hace uso de bootstrap__ con el fin de dotar a la aplicación de un diseño
 web adaptable a distintos dispositivos. Además, incorpora distintas mejoras
-de todo tipo y utiliza la última versión estable de Django, la 1.6.2. Actualmente
-esta es la versíón que utilizamos en AZLinux.
+de todo tipo. Actualmente es la versíón que utilizamos en AZLinux.
 
 __ http://getbootstrap.com/
 
