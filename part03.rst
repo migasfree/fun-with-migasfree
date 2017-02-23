@@ -9,3 +9,4 @@ Guía de uso
 .. include:: chapter10.rst
 .. include:: chapter11.rst
 .. include:: devices.rst
+.. include:: examples.rst
