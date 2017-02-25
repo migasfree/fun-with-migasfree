@@ -187,7 +187,7 @@ Campos de Ordenador
 
     * **Discos**: Numero de discos.
 
-    * **Direccion MAC**: Direcciones MAC del ordenador.
+    * **Dirección MAC**: Direcciones MAC del ordenador.
 
     * **Inventario de software**: Diferencia actual entre el conjunto de paquetes del
       ordenador de referencia y el ordenador en cuestión. Ver en
@@ -197,9 +197,9 @@ Campos de Ordenador
     * **Historial de software**: Registro de los paquetes instalados y
       desinstalados según se van produciendo en el tiempo.
 
-    * **Dispositivos lógicos**: Impresoras logicas configuradas en el ordenador.
+    * **Dispositivos lógicos**: Impresoras lógicas configuradas en el ordenador.
 
-    * **Dispositivo lógico por defecto**: Indica el dispositivo lóogico por defecto
+    * **Dispositivo lógico por defecto**: Indica el dispositivo lógico por defecto
       en el sistema.
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.

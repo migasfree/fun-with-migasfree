@@ -8,19 +8,18 @@ Ejemplos prácticos
 
    -- Jean de la Fontaine
 
-A continuacion te voy a mostrar una selección representativa de peticiones e
-incidencias de la Gestión de Configuración Software junto con una solución, la que
+A continuación, te voy a mostrar una selección representativa de peticiones e
+incidencias de la Gestión de Configuración Software, junto con una solución, la que
 creo más acertada a día de hoy, porque es obvio que no existe una única solución
 a los problemas.
 
 El objetivo de estos ejemplos (basados en casos reales del proyecto AZLinux)
 es afianzar los conceptos que hemos ido viendo durante los capítulos
-anteriores. De esta manera podrás hacerte una mejor idea de toda la potencia de
-trabajar con la paquetería estandar de tu distibución linux junto con migasfree
+anteriores. De esta manera, podrás hacerte una mejor idea de toda la potencia de
+trabajar con la paquetería estándar de tu distibución Linux junto con migasfree,
 en el proceso de la GCS.
 
-
-El código fuente de los paquetes utilizados en este cápitulo está disponible en
+El código fuente de los paquetes utilizados en este capítulo está disponible en
 `http://github.com/migasfree/fun-with-migasfree-examples`__
 
 __ http://github.com/migasfree/fun-with-migasfree-examples
@@ -40,43 +39,43 @@ Deshabilitar montaje de unidades USB y CDROM
 a) Petición de cambio
 ------------------
 
-Todos los ordenadores de la ``NET-192.168.100.0/24`` excepto el ordenador ``CID-3245``
+Todos los ordenadores de la ``NET-192.168.100.0/24``, excepto el ordenador ``CID-3245``,
 no deberían montar unidades USB por motivos de seguridad. Tampoco deben montar
-unidades usb aquellos usuarios que pertenezcan al grupo de ldap ``GRP-NO-MEDIA`` ni
+unidades USB aquellos usuarios que pertenezcan al grupo de LDAP ``GRP-NO-MEDIA``, ni
 tampoco el ordenador ``CID-1291``.
 
 
-b) Aceptacion de la petición
+b) Aceptación de la petición
 -------------------------
 
 Realizaremos lo que denominamos una ``directiva de seguridad basada en un conjunto de atributos``,
-ya que es muy probable que con el tiempo esta medida de seguridad puede ir
+ya que es muy probable que, con el tiempo, esta medida de seguridad puede ir
 cambiando sus reglas asignándose o excluyéndose otros atributos.
 
 
 c) Cambio
 ---------
 
-Después de buscar en internet la forma de bloquear el montaje de dispositivos
+Después de buscar en Internet la forma de bloquear el montaje de dispositivos
 USB, y de varias pruebas, llegamos a la conclusión que realizar un cambio de
-permisos en el directorio /media es suficiente para alcanzar nuestro objetivo.
+permisos en el directorio ``/media`` es suficiente para alcanzar nuestro objetivo.
 
 
 ECS: acme-media-disable (nuevo)
 ...............................
 
 Decidimos crear el paquete ``acme-media-disable`` que bloqueará el montaje en
-/media cuando esté instalado este paquete.
+``/media`` cuando esté instalado este paquete.
 
 Observa como en la `post-instalación`__ del paquete se restringe los permisos a
-/media, y como en la `post-desintalación`__ dejamos los permisos por defecto.
+``/media``, y como en la `post-desintalación`__ dejamos los permisos por defecto.
 
 __ http://github.com/migasfree/fun-with-migasfree-examples/blob/master/acme-media-disable/debian/postinst#L23
 __ http://github.com/migasfree/fun-with-migasfree-examples/blob/master/acme-media-disable/debian/postrm#L24
 
 
 Crea el paquete ``acme-media-disable`` (debes tener previamente instalados el
-paquete devscripts y debhelper)
+paquete ``devscripts`` y ``debhelper``)
 
   .. code-block:: none
 
@@ -117,7 +116,7 @@ Creamos un repositorio ``MEDIA-DISABLE``:
     asignamos en atributos: ``SET-NO-MEDIA``
 
 
-Ahora es necesario crear otro repositorio ``MEDIA-ENABLE`` para forzar la desinstalación del
+Ahora es necesario crear otro repositorio, ``MEDIA-ENABLE``, para forzar la desinstalación del
 paquete cuando el ordenador ya no pertenezca al conjunto de atributos ``SET-NO-MEDIA``:
 
     Ponemos en paquetes a desinstalar: ``acme-media-disable``
@@ -127,24 +126,24 @@ paquete cuando el ordenador ya no pertenezca al conjunto de atributos ``SET-NO-M
     asignamos en excluidos: ``SET-NO-MEDIA``
 
 
-Para añadir o exluir atributos en el futuro simplemente bastará con
+Para añadir o exluir atributos en el futuro, simplemente bastará con
 modificar el conjunto de atributos ``SET-NO-MEDIA``.
 
    .. note::
 
-      Este es un ejemplo de como implementar una "directiva de seguridad"". En versiones
+      Este es un ejemplo de cómo implementar una "directiva de seguridad"". En versiones
       futuras de migasfree se incluirá un modelo de "directivas" para no tener
-      que añadir ese segundo repositorio que fuerza la desintalación de los
+      que añadir ese segundo repositorio que fuerza la desinstalación de los
       paquetes.
 
 
 Cierre de sesión gráfica en ordenadores HP ProDesk 600 G2 SFF
 =============================================================
 
-a) Peticion de cambio
+a) Petición de cambio
 ---------------------
 
-Aleatoriamente y de repente se cierra la sesión gráfica de usuario en los equipos
+Aleatoriamente y de repente, se cierra la sesión gráfica de usuario en los equipos
 ``HP ProDesk 600 G2 SFF``
 
 Frecuencia aproximada del error: de 0 a 3 cierres de sesión por día.
@@ -155,16 +154,15 @@ ordenador.
 b) Aceptación
 -------------
 
-Se comprueba, observando el fichero /var/log/syslog, que el error en estos equipos es
-povocado por la tarjeta gráfica ``intel-hd-graphics-530``  que se identifica como
-``PCI-8086:1912`` incluida en los ordenadores ``HP ProDesk 600 G2 SFF``
-
+Se comprueba, observando el fichero ``/var/log/syslog``, que el error en estos equipos es
+provocado por la tarjeta gráfica ``intel-hd-graphics-530``, que se identifica como
+``PCI-8086:1912`` incluida en los ordenadores ``HP ProDesk 600 G2 SFF``.
 
 c) Cambio
 ---------
-Después de buscar en internet información relativa a este error, y de probar
+Después de buscar en Internet información relativa a este error, y de probar
 distintas soluciones, llegamos a comprobar que modificando el método de
-aceleración de la tarjeta grafica, siguiendo un workaround__ propuesto en internet,
+aceleración de la tarjeta gráfica, siguiendo un workaround__ propuesto en Internet,
 el error ya no se reproduce.
 
 __ https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/1510970/comments/40
@@ -172,9 +170,9 @@ __ https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/15109
 ECS: acme-intel-hd-graphics-530 (nuevo)
 ...............................
 
-Creamos un paquete ``acme-intel-hd-graphics-530`` que simplemente modifica el
+Creamos un paquete ``acme-intel-hd-graphics-530`` que, simplemente, modifica el
 método de acelaración añadiendo en el sistema el fichero
-/usr/share/X11/xorg.conf.d/20-intel-hd-graphics-530.conf con el siguiente contenido:
+``/usr/share/X11/xorg.conf.d/20-intel-hd-graphics-530.conf`` con el siguiente contenido:
 
   .. code-block:: none
 
@@ -192,8 +190,8 @@ d) Liberación
 -------------
 
 Dado que tenemos en producción unos 120 equipos con la tarjeta gráfica ``PCI-8086:1912``
-desplegaremos este paquete poco a poco ( sólo a los ordenadores que tengan dicho atributo)
-ya que no sabemos a priori que otros efectos no deseados puede provocar el
+desplegaremos este paquete poco a poco (sólo a los ordenadores que tengan dicho atributo)
+ya que no sabemos, a priori, qué otros efectos no deseados puede provocar el
 cambio de acelaración gráfica.
 
 Creamos un calendario únicamente para este despliege:
@@ -250,11 +248,11 @@ Se rechaza la petición, debido a que ya disponemos del conjunto de atributos
 Instalación de software en ``AULA-3``
 =====================================
 
-a) Peticion de cambio
+a) Petición de cambio
 ---------------------
 
 Se va a proceder a impartir cursos sobre gimp__ en el AULA-3. Es neceserario
-que este software esté instalado esta misma tarde a las 16:00 h en todos los ordenadores
+que este software esté instalado esta misma tarde, a las 16:00 h, en todos los ordenadores
 de dicha aula.
 
 __ https://www.gimp.org/
@@ -263,7 +261,7 @@ b) Aceptación
 -------------
 
 Existe un repositorio ``per-aula-3`` para añadir software a los equipos
-de dicha aula. Como atributos asignados este repositorio tiene el conjunto de
+de dicha aula. Como atributos asignados, este repositorio tiene el conjunto de
 atributos ``SET-AULA-3``
 
     Conjunto de atributos ``SET-AULA-3``:
@@ -323,6 +321,6 @@ Editamos el repositorio ``per-aula-3``
 
       Cuando los equipos del AULA-3 inicien la próxima sesión gráfica,
       automáticamente se les instalará el software solicitado. Observa que no
-      es necesario desplazarnos al aula, acceder por control remoto ni tan siquiera
-      encender los equipos. El software se instalará cuando plácidamente esté
+      es necesario desplazarnos al aula, acceder por control remoto, ni tan siquiera
+      encender los equipos. El software se instalará cuando, plácidamente, esté
       echando mi siesta después de comer.
