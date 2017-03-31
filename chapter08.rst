@@ -221,7 +221,14 @@ Tipos de Etiquetas
   Existe en el cliente el comando ``migasfree-tags`` que permite consultar y
   asignar etiquetas desde el propio cliente.
 
-  Para consultar las etiquetas de un equipo ejecuta:
+  Para obtener el conjunto de etiquetas que pueden ser asignadas a un ordenador
+  ejecuta:
+
+    .. code-block:: none
+
+      migasfree-tags --available
+
+  Para consultar las etiquetas asignadas a un ordenador ejecuta:
 
     .. code-block:: none
 
