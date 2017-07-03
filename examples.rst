@@ -28,9 +28,9 @@ Descárgatelo si aún no lo has hecho:
 
   .. code-block:: none
 
-    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
-    $ unzip master.zip
-    $ cd fun-with-migasfree-examples-master
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/4.13.zip
+    $ unzip 4.13.zip
+    $ cd fun-with-migasfree-examples-4.13
 
 
 Deshabilitar montaje de unidades USB y CDROM

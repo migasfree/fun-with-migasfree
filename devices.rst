@@ -180,9 +180,9 @@ Para ello descárgate los ejemplos de este libro donde encontrarás una carpeta 
 
   .. code-block:: none
 
-     $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
-     $ unzip master.zip
-     $ cd fun-with-migasfree-examples-master/acme-epson-al-m300
+     $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/4.13.zip
+     $ unzip 4.13.zip
+     $ cd fun-with-migasfree-examples-4.13/acme-epson-al-m300
 
 Observa que en el paquete existen tres archivos ``.ppd`` que se corresponden con las
 prestaciones comentadas.
