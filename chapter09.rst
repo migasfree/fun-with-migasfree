@@ -19,10 +19,10 @@ la licencia son esenciales, tanto o más como el propio software que se libera.
 Liberar software en migasfree implica, además, decidir a quién y a partir de qué
 momento, un cliente tendrá acceso a dicho software.
 
-Subiendo Paquetes al servidor
+Subiendo paquetes al servidor
 =============================
 
-Antes de poder liberar el software obviamente tienes que subirlo al servidor.
+Antes de poder liberar el software, obviamente, tienes que subirlo al servidor.
 
 Como viste en los primeros capítulos, la manera de hacerlo es utilizando el
 comando de cliente:
@@ -50,15 +50,15 @@ los ajustes indicados en la sección [Packager] de
 Almacenes
 =========
 
-Un almacén es un ubicación o ruta del servidor donde se colocan los paquetes y/o
+Un almacén es una ubicación o ruta del servidor donde se colocan los paquetes y/o
 conjuntos de paquetes subidos al servidor. No es más que un directorio colgando
-de la ruta /var/migasfree/repo/<VERSION>/STORES, y que se utiliza para tener
+de la ruta /var/migasfree/repo/<PROJECT>/STORES, y que se utiliza para tener
 organizados los paquetes. También es accesible desde un explorador web accediendo
 a la ruta:
 
   .. code-block:: none
 
-    http://tuservidor/repo/<VERSION>/STORES.
+    http://tuservidor/public/<PROJECT>/STORES.
 
 Lo anterioriormente expuesto corresponde al lugar donde se almacenan los archivos
 del paquete, pero además hay una parte lógica que es necesaria llevar en la
@@ -74,7 +74,7 @@ Campos de Almacén
     * ``Nombre``: Denomina al almacén. Corresponde al nombre de la carpeta en el
       sistema de archivos.
 
-    * ``Versión``. Indica la versión migasfree a la que pertenece el almacén.
+    * ``Proyecto``. Indica el proyecto migasfree a la que pertenece el almacén.
 
 
 Paquetes
@@ -83,7 +83,7 @@ Paquetes
 Cuando subes un paquete o un conjunto de paquetes al servidor, además de
 copiarse en el almacén o ubicación indicada, se crea un registro lógico en la
 base de datos. Estos registros nos servirán para asignarlos posteriormente en los
-``Repositorios`` que vayamos creando.
+``Despliegues`` que vayamos creando.
 
 
 Campos de Paquete
@@ -91,7 +91,7 @@ Campos de Paquete
 
     * ``Nombre``: Es el nombre del fichero del paquete.
 
-    * ``Versión``: Indica la versión migasfree a la que pertenece el paquete.
+    * ``Proyecto``: Indica el proyecto migasfree a la que pertenece el paquete.
 
     * ``Almacén``: Especifica la ubicación donde está situado el paquete.
 
@@ -114,16 +114,16 @@ elige ``Eliminar Paquetes/conjuntos seleccionados`` y después pulsa en el botó
       del Paquete. A medida que vayas haciendo cambios en el software,
       irás teniendo distintas versiones del mismo paquete. Generalmente te
       interesará trabajar sólo con la última versión. Si quieres que sólo te
-      aparezca ésta a la hora de asignarlo a los ``Repositorios``, puedes borrar
+      aparezca ésta a la hora de asignarlo a los ``Despliegues``, puedes borrar
       los registros de ``Paquetes`` antiguos. Borrar el registro no borrará el
       archivo del paquete en ningún caso y simplificarás la selección de paquetes.
 
 Paquetes huérfanos
 ------------------
 
-Un paquete huérfano es un paquete que no está asignado a ningún Repositorio.
+Un paquete huérfano es un paquete que no está asignado a ningún despliegue.
 Cuando un paquete es subido al servidor, o cuando lo quitas de un repositorio y
-no está en ningún otro repositorio se convierte en un paquete huérfano.
+no está en ningún otro despliegue se convierte en un paquete huérfano.
 Existe una comprobación de ``Alerta`` que te avisará de cuáles son estos
 paquetes.
 
@@ -134,51 +134,49 @@ Información de los paquetes
 Si accedes a ``Liberación-Información de paquetes`` verás que te
 aparecen dos carpetas:
 
-    * ``STORES``. Muestra ésta carpeta, en donde podrás navegar hasta un
+    * ``STORES``. Muestra esta carpeta, en donde podrás navegar hasta un
       determinado paquete que hayas subido previamente.
 
-    * ``REPOSITORIES`` Muestra los Repositorios físicos (en el sistema de archivos)
-      que se hayan creado, y que son los que en última instancia verán los
+    * ``REPOSITORIES`` Muestra los repositorios físicos (en el sistema de archivos)
+      que se hayan creado, y que son los que, en última instancia, verán los
       clientes. En realidad, los paquetes que veas en ``REPOSITORIES`` no son
       más que enlaces simbólicos a los paquetes ubicados en ``STORES``.
 
-Si quieres ver los metadatos de un determinado paquete simplemente haz click
-en él.
+Si quieres ver los metadatos de un determinado paquete, simplemente, pulsa sobre él.
 
-Repositorios
-============
+Despliegues
+===========
 
-Me gusta la definición: **migasfree es simplemente un gestor de repositorios
+Me gusta la definición: **migasfree es simplemente un gestor de despliegues
 de paquetes**. En realidad es básicamente esto. De hecho, así es como empezó este
 proyecto, y a partir de aquí ha ido creciendo hasta convertirse en lo que es hoy
 en día, un gestor de sistemas.
 
-A todos los efectos, y desde el punto de vista del cliente, un repositorio
+A todos los efectos, y desde el punto de vista del cliente, un despliegue
 en migasfree es un repositorio de paquetes estándar como los que puedas
-encontrar en cualquier Distribución. Migasfree permite crear muy fácilmente
+encontrar en cualquier distribución. Migasfree permite crear muy fácilmente
 estos repositorios y asignarlos a los equipos en función de sus atributos a
 partir de una fecha determinada.
 
-Campos de Repositorio
----------------------
+Campos de despliegue
+--------------------
 
-    * **Nombre**: Denomina al repositorio.
+    * **Nombre**: Denomina al despliegue.
 
       .. note::
 
-        En AZLinux solemos incorporar en el nombre del repositorio el número de
+        En AZLinux solemos incorporar en el nombre del despliegue el número de
         tarea de redmine al que hace referencia el cambio de software que queremos
         liberar.
 
-    * **Versión**: Especifica la versión en la que estará disponible el
-      repositorio.
+    * **Proyecto**: Especifica el proyecto en la que estará disponible el
+      despliegue.
 
-    * **Habilitado**: Activa o desactiva el repositorio.
+    * **Habilitado**: Activa o desactiva el despliegue.
 
     * **Comentario**: Campo de texto que sirve para registrar aclaraciones sobre
-      el repositorio. Es muy conveniente que registres las modificaciones que
-      vayas haciendo a los repositorios en este campo, indicando quién, cuándo
-      y qué se ha modificado.
+      el despliegue. Es muy conveniente que registres las modificaciones que
+      vayas haciendo en este campo, indicando quién, cuándo y qué se ha modificado.
 
       Un ejemplo de como lo hacemos en AZLinux sería:
 
@@ -189,26 +187,20 @@ Campos de Repositorio
         [alberto@2013-04-10] Añadido paquete azl-firefox-12.0-4_all.deb
 
         [eduardo@2013-05-10] Detectado problemas en algunos clientes. Desactivo
-            el repositorio hasta diagnosticar y encontrar solución.
+            el despliegue hasta diagnosticar y encontrar solución.
 
-    * **Fecha**: A partir de la cual estará disponible el repositorio
-      en los clientes.
+    * Paquetes:
 
-    * **Calendario**: Especifica una programación del repositorio basada en
-      calendario. En el siguiente apartado tienes más información.
+        * **Paquetes disponibles**: En este campo se seleccionan los ``paquetes`` y/o
+          ``conjuntos de paquetes`` que se incluirán en el repositorio físico.
 
-    * Packages
-
-        * **Paquetes**: En este campo se seleccionan los ``paquetes`` y/o
-          ``conjuntos de paquetes`` que se incluirán en el repositorio.
-
-          Que un paquete esté incluido en un repositorio y el repositorio
+          Que un paquete esté incluido en un repositorio y el repositorio sea
           accesible desde el cliente, no implica que se instale el paquete.
           Los sistemas de paquetería sólo actualizan aquellos paquetes que ya
           estuvieran instalados en el sistema.
 
           Cada vez que hay una modificación de este campo y se pulsa el botón
-          ``Guardar`` se generarán los metadatos del repositorio. Dependiendo de
+          ``Grabar``, se generarán los metadatos del repositorio físico. Dependiendo de
           la cantidad de paquetes que se tengan que procesar, el tiempo
           para realizar este proceso puede ser largo. En los casos en los que se
           asigne un ``conjunto de paquetes`` donde se incluyan todos los paquetes
@@ -217,19 +209,19 @@ Campos de Repositorio
           .. note::
 
            Fíjate que aparecen sólo los ``paquetes`` (los subidos individualmente) más
-           los ``conjuntos de paquetes`` a la hora de seleccionarlos en los repositorios.
-           Los paquetes incluidos  dentro de los ``conjuntos de paquetes`` no pueden
+           los ``conjuntos de paquetes`` a la hora de seleccionarlos en los despliegues.
+           Los paquetes incluidos dentro de los ``conjuntos de paquetes`` no pueden
            asignarse individualmente. Esto es así para simplificar y hacer más sencilla
            la asignación de ``paquetes`` y no perdernos entre los miles que
-           componen una Distribución.
+           componen una distribución.
 
         * **Paquetes a instalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
           serán instalados **obligatoriamente** a los clientes que tengan acceso
-          al repositorio.
+          al despliegue.
 
           Se puede espeficar sólo el nombre del paquete, o el nombre de paquete
-          mas una versión.
+          más una versión.
 
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``
@@ -241,9 +233,9 @@ Campos de Repositorio
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``
 
-    * Default.
+    * Por defecto:
 
-        * **Default preinclude packages**: Campo de texto que especifica una
+        * **Paquetes pre-incluidos por defecto**: Campo de texto que especifica una
           lista de paquetes separados por espacios o por retornos de carro. Este
           campo sirve para instalar paquetes que configuran repositorios externos
           a migasfree. Un ejemplo de este tipo de paquetes lo tienes en el
@@ -257,32 +249,38 @@ Campos de Repositorio
           inmediatamente a los paquetes contenidos en el repositorio externo.
 
           Estos paquetes serán instalados a los clientes que tengan acceso al
-          repositorio al ejecutar el comando ``migasfree-tags --set``.
+          despliegue al ejecutar el comando ``migasfree-tags --set``.
 
-        * **Default include packages**: Campo de texto que especifica una lista de
+        * **Paquetes incluidos por defecto**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
-          serán instalados a los clientes que tengan acceso al repositorio al
+          serán instalados a los clientes que tengan acceso al despliegue al
           ejecutar el comando ``migasfree-tags --set``.
 
-        * **Default exclude packages**: Campo de texto que especifica una lista de
+        * **Paquetes excluidos por defecto**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro que serán
-          desinstalados en los clientes que tengan acceso al repositorio al
+          desinstalados en los clientes que tengan acceso al despliegue al
           ejecutar el comando ``migasfree-tags --set``.
 
-    * Attributes.
+    * Atributos:
 
-        * **Atributos**: Aquellos clientes que tengan un atributo que
+        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
           coincida con los asignados en este campo tendrán accesible el
-          repositorio (a menos que otro atributo lo excluya).
+          despliegue (a menos que otro atributo lo excluya).
 
-        * **Excludes**: Sirve para excluir Atributos de la lista de Atributos
-          anterior.
+        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
 
           Por ejemplo, si quieres liberar un paquete a toda la subred
           ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
 
-              * Atributos: ``NET-192.168.92.0/24``
-              * Excludes:``HST-PC13098``
+              * Atributos incluidos: ``NET-192.168.92.0/24``
+              * Atributos excluidos:``HST-PC13098``
+
+    * Calendario:
+        * **Fecha de inicio**: A partir de la cual estará disponible el despliegue
+          en los clientes.
+
+        * **Calendario**: Especifica una programación del despliegue basada en
+          calendario. En el siguiente apartado tienes más información.
 
 
 Calendarios
@@ -290,10 +288,10 @@ Calendarios
 
 Los calendarios te permiten programar sistemáticamente liberaciones en el tiempo
 para unos determinados atributos previamente establecidos, partiendo de la
-fecha del Repositorio.
+fecha de inicio del despliegue.
 
-Por ejemplo, en AZLinux usamos distintos calendarios (LENTO, NORMAL, RAPIDO,
-MUY RAPIDO) según la criticidad del cambio de software que se va a liberar
+Por ejemplo, en AZLinux usamos distintos calendarios (LENTO, NORMAL, RÁPIDO,
+MUY RÁPIDO) según la criticidad del cambio de software que se va a liberar
 o de su urgencia. En estos calendarios asignamos días de demora para los
 distintos servicios de nuestra organización.
 
@@ -305,44 +303,43 @@ distintos servicios de nuestra organización.
             a los 10 días: CTX-GESTION TRIBUTARIA
             a los 15 días: SET-ALL SYSTEMS
 
-        CALENDARIO MUY RAPIDO
+        CALENDARIO MUY RÁPIDO
             a los 0 días: CTX-SERVICIO DE PERSONAL, CTX-GESTION TRIBUTARIA
             a los 2 dias: SET-ALL SYSTEMS
 
 Es conveniente que en la última demora asignes, si procede, el atributo
 ``SET-ALL SYSTEMS``.
 
-Cuando asignas un calendario a un repositorio, podrás ver la temporalización
-resultante en la columna ``línea temporal`` de ``Liberación-Repositorios``
+Cuando asignas un calendario a un despliegue, podrás ver la temporalización
+resultante en la columna ``línea temporal`` de ``Liberación-Despliegues``
 (pulsa en el desplegable que contiene el nombre del calendario).
 
-Asignar un calendario a un repositorio no es obligatorio.
+Asignar un calendario a un despliegue no es obligatorio.
 
 Esta programación de la liberación se utiliza fundamentalmente para conseguir:
 
     * No aplicar una liberación de golpe a muchos equipos, lo que puede provocar
       un consumo de tráfico de red intenso (imagina 1000 equipos actualizando
-      libreoffice a la vez).
+      LibreOffice a la vez).
 
     * Liberar poco a poco los paquetes y así poder hacer comprobaciones más
-      tranquilamente. Cualquier error en el empaquetado o bug en los fuentes
-      del paquete, puede ser mas manejable si ha afectado a pocos equipos y no
+      tranquilamente. Cualquier error en el empaquetado o *bug* en los fuentes
+      del paquete, puede ser más manejable si ha afectado a pocos equipos y no
       a la totalidad.
 
-Un determinado cliente tendrá acceso al repositorio si:
+Un determinado cliente tendrá acceso al despliegue si:
 
-    * Tiene un atributo que coincide con alguno de los asignados en el repositorio
-      y ya se ha cumplido la fecha del repositorio.
+    * Tiene un atributo que coincide con alguno de los asignados en el despliegue
+      y ya se ha cumplido la fecha de inicio del despliegue.
 
-    * O existe un atributo coincidente con el calendario cuya fecha de repositorio
-      más demora se ha cumplido.
+    * O existe un atributo coincidente con el calendario cuya fecha de inicio del despliegue
+      más la demora se ha cumplido.
 
-    * Siempre y cuando un atributo del cliente no coincida con  el campo ``Excludes``
-      del repositorio.
+    * Siempre y cuando un atributo del cliente no coincida con  el campo ``atributos excluidos`` del despliegue.
 
 Una manera en que puedes ver una estimación de la cantidad de equipos que un
-calendario va haciendo efectivos los repositorios a lo largo de los días es
-acceder a ``Estadísticas-Ordenadores previstos/demora``.
+calendario va haciendo efectivos los despliegues a lo largo de los días es
+accediendo a la ``línea temporal`` en cada despliegue.
 
 Campos de calendario
 --------------------
@@ -371,14 +368,14 @@ LLamamos repositorio interno al repositorio que controla el servidor migasfree.
 
 Un repositorio externo es un repositorio configurado en los clientes y que no
 apunta al servidor migasfree, Los repositorios que vienen por defecto configurados
-en las Distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
+en las distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
 
 Si quieres tener un mayor control de tus sistemas, mi recomendación es que te
 bajes todos los paquetes de los repositorios de tu distribución a una fecha y
-luego los subas como ``conjunto de paquetes`` al servidor y crees un repositorio
+luego los subas como ``conjunto de paquetes`` al servidor y crees un despliegue
 al efecto. A esto, lo denominamos ``congelar un repositorio``.
 
-De esta manera, tendrás congelados a una fecha los repositorios de tu Distribución,
+De esta manera, tendrás congelados a una fecha los repositorios de tu distribución,
 y podrás actualizar sólo el software que te interese. Si te decides por este
 método, obviamente tendrás que empaquetar un código que deshabilite los
 repositorios externos en los clientes.
@@ -455,16 +452,16 @@ El proceso de la liberación
 Las tareas que debe realizar un liberador son:
 
     * Controlar que no haya paquetes huérfanos, borrando los paquetes antiguos
-      y creando los repositorios adecuados para los nuevos paquetes.
+      y creando los despliegues adecuados para los nuevos paquetes.
 
-    * Decidir qué calendario es conveniente aplicar a cada repositorio.
+    * Decidir qué calendario es conveniente aplicar a cada despliegue.
 
-    * Decidir cuando un repositorio ha terminado de liberarse (se ha cumplido
-      toda la línea temporal) qué debe hacerse con sus paquetes.
+    * Decidir cuándo un despliegue ha terminado de liberarse (se ha cumplido
+      toda la línea temporal) y qué debe hacerse con sus paquetes.
 
-      En AZLinux mayoritariamente, y para no tener muchos repositorios activos,
-      estos paquetes los asignamos a otro repositorio (ya existente para este
-      fin) que tiene asignado sólo el atributo ``SET-ALL SYSTEMS``. Los repositorios
+      En AZLinux mayoritariamente, y para no tener muchos despliegues activos,
+      estos paquetes los asignamos a otro despliegue (ya existente para este
+      fin) que tiene asignado sólo el atributo ``SET-ALL SYSTEMS``. Los despliegues
       que nos han servido para liberar poco a poco los paquetes son
       desactivados (no los borramos) para mantener así la historia de lo que
       se ha ido haciendo.

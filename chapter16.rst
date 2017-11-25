@@ -92,7 +92,7 @@ Ejemplo:
 
   .. code-block:: none
 
-    MIGASFREE_COMPUTER_SEARCH_FIELDS = ("name", "ip") # Búsquedas por nombre e ip
+    MIGASFREE_COMPUTER_SEARCH_FIELDS = ("name", "ip_address") # Búsquedas por nombre e IP
 
 MIGASFREE_TMP_DIR
 -----------------
@@ -108,19 +108,19 @@ Ejemplo:
 
     MIGASFREE_TMP_DIR = "/tmp/server"
 
-MIGASFREE_REPO_DIR
-------------------
+MIGASFREE_PUBLIC_DIR
+--------------------
 
 Valor por defecto: '/var/migasfree/repo'
 
-Directorio donde se guardarán los paquetes y repositorios de cada una de las
-versiones
+Directorio donde se guardarán los paquetes y repositorios de físicos cada uno de los
+proyectos.
 
 Ejemplo:
 
   .. code-block:: none
 
-    MIGASFREE_REPO_DIR = "/var/repositories"
+    MIGASFREE_PUBLIC_DIR = "/var/repositories"
 
 
 MIGASFREE_SECONDS_MESSAGE_ALERT
@@ -202,7 +202,7 @@ Ejemplo:
 MIGASFREE_REMOTE_ADMIN_LINK
 ---------------------------
 
-Valor por defecto: ''
+Valor por defecto: []
 
 Cuando se asigna un valor a este ajuste, apaceren nuevas acciones por cada
 ordenador. El objetivo es poder ejecutar algún código desde nuestro equipo hacia
@@ -237,19 +237,23 @@ Ejemplo vía ssh:
 
   .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = "ssh://root@{{computer.ip}}"
+    MIGASFREE_REMOTE_ADMIN_LINK = ["ssh://root@{{computer.ip_address}}"]
 
 Ejemplo vía https y puerto (este último definido como propiedad ``PRT``):
 
   .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = "https://myserver/?computer={{computer.name}}&port={{PRT}}"
+    MIGASFREE_REMOTE_ADMIN_LINK = ["https://myserver/?computer={{computer.name}}&port={{PRT}}"]
 
-Pueden usarse varios protocolos separados por un espacio en blanco:
+Pueden usarse varios protocolos:
 
   .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = "vnc://{{computer.ip}} checkping://{{computer.ip}} ssh://root@{{computer.ip}}"
+    MIGASFREE_REMOTE_ADMIN_LINK = [
+        "vnc://{{computer.ip_address}}",
+        "checkping://{{computer.ip_address}}",
+        "ssh://root@{{computer.ip_address}}",
+    ]
 
 Evidentemente, el navegador con el que se accede a la web del servidor debe saber
 cómo interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres

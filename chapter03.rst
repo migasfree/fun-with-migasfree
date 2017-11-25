@@ -15,7 +15,7 @@ para garantizar la integridad frente al cambio.
 
 Si tienes un equipo doméstico, todos los cambios producidos y liberados
 por los distintos proyectos y que hayan sido empaquetados y liberados
-por tu Distribución GNU/Linux, serán instalados convenientemente con el
+por tu distribución GNU/Linux, serán instalados convenientemente con el
 simple hecho de dar la orden al gestor de paquetes para que actualice
 tu sistema.
 
@@ -177,9 +177,9 @@ entredicho todo lo relativo a la integridad de los sistemas.
 Empaquetando la personalización
 -------------------------------
 
-En AZLinux usamos otro método: Empaquetamos siempre la personalización.
+En AZLinux usamos otro método: empaquetamos siempre la personalización.
 
-Para el caso del cliente “QueHoraEs” crearíamos el paquete
+Para el caso del cliente “QueHoraEs”, crearíamos el paquete
 azl-quehoraes-client [#f4]_ con la siguiente información:
 
 * Dependencias: quehoraes-client
@@ -273,16 +273,16 @@ poco los cambios, de tal manera que, si hay errores, afectará
 inicialmente a muy pocos equipos, permitiendo actuar de manera más
 relajada para corregir cualquier incidencia.
 
-Por todo esto, y como los repositorios estándar de las Distribuciones
+Por todo esto, y como los repositorios estándar de las distribuciones
 no tienen ningún mecanismo de planificación de la liberación, es por lo
 que decidimos desarrollar migasfree, extendiendo el concepto de
-repositorio de paquetes al concepto de repositorio de paquetes
+repositorio de paquetes al concepto de despliegue: repositorio de paquetes
 dinámico y planificable.
 
-Repositorio Migasfree
+Despliegue Migasfree
 =====================
 
-Un repositorio de migasfree es, simplemente, un repositorio estándar
+Un despliegue de migasfree es, simplemente, un repositorio estándar
 más la capacidad de poder especificar, de forma centralizada, cuándo y
 quién accede a ese repositorio.
 
@@ -291,26 +291,24 @@ Veamos como actúa migasfree en lo relativo a los repositorios:
    1. Los cambios que se quieren liberar son empaquetados y subidos a un
    servidor migasfree.
 
-   2. Se crea un repositorio lógico con los paquetes subidos y se establece
+   2. Se crea un despliegue con los paquetes subidos y se establece
    a quién (atributos de usuario + equipo) y en qué momento se deben aplicar
-   dichos cambios. Esto no es más que un registro en la tabla de
-   repositorios de la base de datos de migasfree.
+   dichos cambios.
 
    3. El servidor migasfree crea un repositorio físico (idéntico al de
-   cualquier Distribución GNU/Linux) con dichos paquetes, utilizando las
+   cualquier distribución GNU/Linux) con dichos paquetes, utilizando las
    herramientas estándar de creación de repositorios (``createrepo`` para
    paquetería RPM o ``dpkg-scanpackages`` para paquetería Debian).
 
    4. Cuando un cliente migasfree se conecta al servidor envía sus
    atributos al servidor.
 
-   5. El servidor consulta los Repositorios Lógicos para determinar, en
+   5. El servidor consulta los despliegues para determinar, en
    función de esos atributos enviados, la lista de los repositorios físicos
    que tiene el cliente a su disposición y se los envía al cliente.
 
-   6. El cliente migasfree configura, la lista de los repositorios físicos
-   recibidos desde el servidor en el Gestor de Paquetes (por esto decimos
-   que los repositorios migasfree son dinámicos).
+   6. El cliente migasfree configura la lista de los repositorios físicos
+   recibidos desde el servidor en el Gestor de Paquetes.
 
    7. A continuación, el cliente migasfree da instrucciones al Gestor de
    Paquetes para que se produzca la eliminación, instalación y
@@ -321,7 +319,7 @@ La GCS en tu organización
 
 En el capítulo anterior, hemos visto el proceso de la GCS en
 los distintos proyectos de software libre y también en las
-Distribuciones GNU/Linux.
+distribuciones GNU/Linux.
 
 Pues bien, en una organización también debe realizarse el proceso de la
 GCS.
@@ -382,17 +380,17 @@ Usamos dos tipos de peticiones de cambio:
 
 * **Actualización de aplicaciones**. Si recibimos una petición para
   actualizar, por ejemplo, Mozilla Firefox, descargamos desde los
-  repositorios de la Distribución la versión deseada, la probamos en
+  repositorios de la distribución la versión deseada, la probamos en
   laboratorio, registrando cualquier información relevante en la petición de
   cambio. Finalmente, si todo es correcto, se liberan los paquetes
-  a través de un repositorio migasfree, planificando su distribución
+  a través de un despliegue migasfree, planificando su distribución
   (ver A en figura 3.2)
 
 * **Personalización de aplicaciones**. Se produce cuando llega p.e.,
   una petición de cambio para añadir un motor de búsqueda de sinónimos a
   Mozilla Firefox. Introducimos entonces en un paquete propio de AZLinux
   (azl-firefox), el código que instala dicho motor de búsqueda y
-  liberamos dicho paquete en un repositorio de migasfree
+  liberamos dicho paquete en un despliegue de migasfree
   planificando su distribución (ver B en figura 3.2).
 
 Las herramientas que usamos actualmente en cada actividad son:

@@ -35,8 +35,8 @@ Este proyecto se planificó en tres etapas:
   Linux. Esta etapa se inició en 2008 y todavía sigue abierta.
 
 Para iniciar la tercera etapa se tuvieron que realizar los primeros
-prototipos de lo que llegaría a ser la primera version de AZLinux.
-En estos prototipos la personalización se realizaba manualmente en un
+prototipos de lo que llegaría a ser la primera versión de AZLinux.
+En estos prototipos, la personalización se realizaba manualmente, en un
 equipo cuya imagen del disco duro nos servía para clonarla en otros
 equipos y hacer las pertinentes pruebas.
 
@@ -45,11 +45,11 @@ personalización en nuestros propios paquetes. La ventaja frente a la
 personalización manual era muy significativa.
 
 Con los primeras migraciones reales, nos surgió la necesidad de actualizar
-nuestros paquetes y, después de probar sin éxito Zenworks for Linux,
+nuestros paquetes y, después de probar sin éxito *Zenworks for Linux*,
 decidimos crear nuestros propios repositorios de paquetes. Quisimos
 emular lo que ya estabamos haciendo con los escritorios XP, esto es,
 distribuir software basándonos en el contexto al que pertenecía un
-usuario en nuestro LDAP. Con un poco de scripting bash, en Mayo de 2009,
+usuario en nuestro LDAP. Con un poco de *Bash scripting*, en Mayo de 2009,
 implementamos lo que serían unos repositorios dinámicos que se
 configuraban en el cliente en función del contexto.
 
@@ -108,7 +108,7 @@ principios de 2013 Jose Antonio Chavarría cambió la navegación y aspecto
 del servidor. Esta nueva versión fue denominada "migasfree with
 chocolate".
 
-En febrero de 2014, liberamos la versión 4 del servidor (migasfree grape edition). Esta
+En febrero de 2014, liberamos la versión 4 del servidor (*migasfree grape edition*). Esta
 versión hace uso de bootstrap__ con el fin de dotar a la aplicación de un diseño
 web adaptable a distintos dispositivos. Además, incorpora distintas mejoras
 de todo tipo. Actualmente es la versíón que utilizamos en AZLinux.
@@ -125,13 +125,13 @@ Características
 
 * Está basado en la arquitectura cliente / servidor.
 
-* Es Seguro. Las comunicaciones entre cliente y servidor están firmadas con
+* Es seguro. Las comunicaciones entre cliente y servidor están firmadas con
   claves asimétricas.
 
 * Es adaptable. Puedes programar las propiedades para adaptarlas a tus
   necesidades.
 
-* Es Software Libre licenciado bajo la GNU Public License.
+* Es Software Libre licenciado bajo la **GNU Public License**.
 
 * Captura de datos. Almacena tanto el inventario software y hardware de
   los equipos, permitiendo hacer consultas sobre ellos. Almacena también
@@ -142,7 +142,7 @@ Características
   migasfree.
 
 * Gestión de errores. Los errores que se producen en los equipos son
-  enviados al servidor y almacenados permitiendo hacer su seguimiento.
+  enviados al servidor y almacenados, permitiendo hacer su seguimiento.
 
 * Gestión de fallas. Puedes programar código que será ejecutado en los
   clientes con el fin de obtener información de los equipos.
@@ -188,7 +188,3 @@ __ http://ezix.org/project/wiki/HardwareLiSter
 * Bootstrap__ un framework para desarrollo web.
 
 __ http://getbootstrap.com/
-
-* Flot__ una librería gráfica.
-
-__ http://www.flotcharts.org/

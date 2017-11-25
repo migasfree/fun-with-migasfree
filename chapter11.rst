@@ -9,9 +9,9 @@ La Auditoría
 
    -- Karl Raimund Popper
 
-Una vez que liberas los paquetes y que los equipos se van actualizando, llega el
+Una vez que liberas los paquetes y que los equipos se van sincronizando, llega el
 momento de que veas, de manera centralizada, toda la información que se ha ido
-generando a consecuencia del proceso de actualización.
+generando a consecuencia del proceso de sincronización.
 
 Esto es lo que te vas a encontrar en este capítulo.
 
@@ -41,12 +41,12 @@ migraciones, actualizaciones, ... Además, en este menú desplegable del ordenad
 te vas a encontrar con otras opciones interesantes:
 
 * **Sucesos**: Sobre un calendario, desde la fecha de entrada del equipo en el servidor,
-  se muestra la cantidad diaria de actualizaciones, errores, fallas, migraciones y
+  se muestra la cantidad diaria de sincronizaciones, errores, fallas, migraciones y
   registros de estado. A más cantidad diaria de sucesos, el color es más oscuro.
 
-* **Simular sincronización**: Te  permite simular lo que entregaría el servidor
+* **Simular sincronización**: Te permite simular lo que entregaría el servidor
   al cliente cuando éste último ejecuta ``migasfree -u``. De esta manera, y basándonos
-  en el último ``login`` del ordenador, puedes ver qué repositorios se configurarían en el
+  en los actuales atributos del ordenador, puedes ver qué despliegues se configurarían en el
   cliente, qué paquetes se instalarían o eliminarían o qué fallas se ejecutarían.
 
 * **Hardware**: Nos da acceso al hardware del equipo.
@@ -61,11 +61,15 @@ Campos de Ordenador
     * **Nombre**: Es el nombre del equipo o el especificado en el
       ajuste ``Computer_Name`` de los :ref:`Ajustes del cliente migasfree`.
 
-    * **Versión**: La versíon migasfree del ordenador.
+    * **Proyecto**: El proyecto migasfree del ordenador.
 
     * **Fecha de alta**: Fecha de alta del ordenador en migasfree.
 
-    * **IP**: La dirección IP del equipo en el momento de la actualización.
+    * **Dirección IP**: La dirección IP del equipo en el momento de la sincronización.
+
+    * **Dirección IP reenviada**: Útil si el equipo es virtual y queremos saber la IP del ordenador anfitrión.
+
+    * **Comentario**.
 
     * **Estado**: Un ordenador puede tener uno de estos seis estados: ``Asignado``,
       ``Reservado``, ``Desconocido``, ``Disponible``, ``En reparación`` y finalmente
@@ -144,12 +148,25 @@ Campos de Ordenador
 
               Estado asignado, reservado, desconocido, disponible, en reparación y baja.
 
-    * **Login**: Información del login del usuario.
+    * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
+      Para una explicación del funcionamiento de las etiquetas mira los
+      :ref:`Tipos de Etiquetas`.
 
-    * **Usuario**: Último usuario.
+    * **Dispositivos lógicos**: Impresoras lógicas configuradas en el ordenador.
 
-    * **Última actualización**: Fecha en la que se finalizó por última vez la
-      actualización del cliente migasfree.
+    * **Dispositivo lógico por defecto**: Indica el dispositivo lógico por defecto
+      en el sistema.
+
+    * **Usuario**: Último usuario que ha iniciado sesión en el ordenador.
+
+    * **Atributos de la sincronización**: Lista de ``Atributos`` que se han obtenido
+      como resultado de ejecutar la ``Fórmulas`` en el ordenador cliente en el proceso de
+      sincronización.
+
+    * **Fecha de inicio de la sincronización**: Fecha en la que comenzó la última sincronización del cliente migasfree.
+
+    * **Fecha de fin de la sincronización**: Fecha en la que se finalizó por última vez la
+      sincronización del cliente migasfree.
 
     * **Tiempo de la última actualización**: Tiempo que ha tardado el cliente migasfree
       en actualizarse.
@@ -157,11 +174,15 @@ Campos de Ordenador
     * **Errores sin comprobar**: Muestra el número de errores pendientes de comprobar
       del ordenador.
 
-
     * **Fallas sin comprobar**: Muestra el número de fallas pendientes de comprobar
       del ordenador.
 
-    * **Fecha última actualización hardware**: Fecha en que se envió por última vez
+    * **Inventario de software**: Paquetes actuales instalados en el ordenador.
+
+    * **Historial de software**: Registro de los paquetes instalados y
+      desinstalados según se van produciendo en el tiempo.
+
+    * **Fecha de la última actualización del hardware**: Fecha en que se envió por última vez
       el hardware.
 
     * **Producto**: Nombre del ordenador incluido en la placa base.
@@ -185,26 +206,9 @@ Campos de Ordenador
 
     * **Almacenamiento**: Cantidad de almacenamiento en disco.
 
-    * **Discos**: Numero de discos.
+    * **Discos**: Número de discos.
 
     * **Dirección MAC**: Direcciones MAC del ordenador.
-
-    * **Inventario de software**: Diferencia actual entre el conjunto de paquetes del
-      ordenador de referencia y el ordenador en cuestión. Ver en
-      :ref:`Versiones` los campos de version:
-      ``Actual line computer`` y ``Actual line packages``
-
-    * **Historial de software**: Registro de los paquetes instalados y
-      desinstalados según se van produciendo en el tiempo.
-
-    * **Dispositivos lógicos**: Impresoras lógicas configuradas en el ordenador.
-
-    * **Dispositivo lógico por defecto**: Indica el dispositivo lógico por defecto
-      en el sistema.
-
-    * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
-      Para una explicación del funcionamiento de las etiquetas mira los
-      :ref:`Tipos de Etiquetas`.
 
 Usuarios
 ========
@@ -221,30 +225,44 @@ Campos de Usuario
 
     * **Nombre Completo**: Nombre y apellidos del usuario.
 
-Logins
-======
+Atributos
+=========
 
-Cuando se ejecuta ``migasfree --update`` se crea un registro de ``Login`` en
-el servidor.
+A medida que se vayan actualizando los equipos, el servidor migasfree irá
+añadiendo los atributos enviados por los clientes con objeto de que puedas
+liberar paquetes en función de estos atributos.
 
-  .. note::
+Campos de Atributo
+------------------
 
-    Migasfree sólo lleva por cada equipo el **último login**.
+    * **Propiedad**: Propiedad a la que hace referencia el atributo.
 
-Campos de Login
----------------
+    * **Valor**: Identifica el atributo.
 
-    * **Fecha**: Fecha y hora de la ejecución de ``migasfree --update`` en el
-      equipo
+    * **Descripción**: Describe el atributo.
 
-    * **Usuario**: Usuario en el entorno gráfico cuando se ejecutó el cliente
-      migasfree.
+Una explicación del funcionamiento de los atributos la puedes obtener en
+el apartado :ref:`Propiedades` de :ref:`La configuración del sistema migasfree`.
 
-    * **Ordenador**: El equipo al que hace referencia el login.
+Etiquetas
+=========
 
-    * **Atributos**: Lista de ``Atributos`` que se han obtenido como resultado de
-      ejecutar la ``Propiedades`` en el ordenador cliente en el proceso de
-      actualización.
+Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
+liberar software en función de estas.
+
+El funcionamiento de las etiquetas ya lo hemos visto en los
+:ref:`Tipos de Etiquetas`.
+
+Campos de Etiqueta
+------------------
+
+    * **Categoría de etiqueta**: Hace referencia al tipo de etiqueta.
+
+    * **Valor**: Identifica a la etiqueta.
+
+    * **Descripción**: Describe la etiqueta.
+
+    * **Ordenadores**: Permite asignar ordenadores a la etiqueta.
 
 Errores
 =======
@@ -255,17 +273,17 @@ y serán mostrados en ``Alertas``.
 Campos de error
 ---------------
 
-    * **Ordenador**: Equipo en el que se ha producido el error.
-
-    * **Fecha**: Fecha y hora en que se produjo el error.
-
-    * **Error**: Mensaje que describe el error. Generalmente corresponde a
-      la salida de error del front-end del P.M.S.
-
     * **Comprobado**: Campo que se marcará manualmente cuando se ha comprobado y
       solucionado el error.
 
-    * **Versión**: Es la versión que tenía el equipo cuando se produjo el error.
+    * **Ordenador**: Equipo en el que se ha producido el error.
+
+    * **Proyecto**: Es el proyecto que tenía el equipo cuando se produjo el error.
+
+    * **Fecha**: Fecha y hora en que se produjo el error.
+
+    * **Descripción**: Mensaje que describe el error. Generalmente corresponde a
+      la salida de error del *front-end* del P.M.S.
 
 Fallas
 ======
@@ -279,80 +297,41 @@ los clientes, irán apareciendo en el ``Alertas``.
 Campos de falla
 ---------------
 
+    * **Comprobado**: Campo que se marcará manualmente cuando se ha comprobado y
+      solucionado la falla.
+
     * **Ordenador**: Equipo en el que se ha producido.
+
+    * **Proyecto**: Es el proyecto que tenía el equipo cuando se produjo la falla.
 
     * **Definición de falla:**: Tipo de Falla. Hace referencia al código que
       ha generado la falla.
 
     * **Fecha**: Fecha y hora en que se produjo la falla.
 
-    * **Texto**: Mensaje que describe la falla. Corresponde a
-      la salida standard del codigo de la ``Definición de la falla``.
-
-    * **Comprobado**: Campo que se marcará manualmente cuando se ha comprobado y
-      solucionado la falla.
-
-    * **Versión**: Es la versión que tenía el equipo cuando se produjo la falla.
-
-Atributos
-=========
-
-A medida que se vayan actualizando los equipos, el servidor migasfree irá
-añadiendo los atributos enviados por los clientes con objeto de que puedas
-liberar paquetes en función de estos atributos.
-
-Campos de Atributo
-------------------
-
-    * **Propiedad de atributo**: Propiedad a la que hace referencia el atributo.
-
-    * **Valor**: Identifica el atributo.
-
-    * **Descripción**: Describe el atributo.
-
-Una explicación del funcionamiento de los atributos la puedes obtener en
-el apartado :ref:`Propiedades` de :ref:`La configuración del sistema migasfree`.
-
-Etiquetas
-=========
-
-Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
-liberar software en función de éstas.
-
-El funcionamiento de las etiquetas ya lo hemos visto en los
-:ref:`Tipos de Etiquetas`.
-
-Campos de Etiqueta
-------------------
-
-    * **Propiedad**: Hace referencia al tipo de etiqueta.
-
-    * **Valor**: Identifica a la etiqueta.
-
-    * **Descripción**: Describe la etiqueta.
-
-    * **Ordenadores**: Permite asignar ordenadores a la etiqueta.
+    * **Resultado**: Mensaje que describe la falla. Corresponde a
+      la salida estándar del código de la ``Definición de la falla``.
 
 Migraciones
 ===========
 
 Como hemos visto al principio de este capítulo, los ``Ordenadores`` se identifican
 inequívocamente por el UUID de la placa base y, además, mantienen un campo
-``Versión`` que se corresponde con el ajuste del mismo nombre de los
+``Proyecto`` que se corresponde con el ajuste del mismo nombre de los
 :ref:`Ajustes del cliente migasfree`. Ahora bien, en el momento en que el
-servidor detecta que no corresponde la versión que tiene el ordenador en la
-base de datos del servidor con la que recibe del equipo, el servidor actualiza
+servidor detecta que no corresponde el proyecto que tiene el ordenador en la
+base de datos del servidor con el que recibe del equipo, el servidor actualiza
 el registro ``Ordenador`` y además añade un registro de ``Migración``. De esta
 manera se consigue llevar un histórico de migraciones.
 
 Campos de Migración
 -------------------
 
-    * **Ordenador**: Equipo que se ha migrado de versión migasfree.
+    * **Ordenador**: Equipo que se ha migrado de proyecto migasfree.
 
-    * **Versión**: Version migasfree.
+    * **Proyecto**: Proyecto migasfree.
 
-    * **Fecha**: Fecha y hora en que se ha detectado el cambio de versión.
+    * **Fecha**: Fecha y hora en que se ha detectado el cambio de proyecto.
 
 Notificaciones
 ==============
@@ -386,6 +365,8 @@ Estadísticas
 Es una lista con estadísticas predefinidas.
 
 
+    * **cuadro de mando**: Resumen de las estadísticas más importantes sobre el parque de ordenadores gestionado por el servidor migasfree.
+
     * **ordenadores actualizados/hora**: Gráfica de barras que indica la cantidad
       (única) de equipos que han completado la actualización de migasfree
       por hora.
@@ -398,14 +379,6 @@ Es una lista con estadísticas predefinidas.
       (única) de equipos que han completado la actualización de migasfree
       por mes.
 
-    * **ordenadores previstos/demora**: Gráfica de líneas que representa una
-      previsión, basada en los ``Atributos`` del último ``Login`` de cada ordenador,
-      de los equipos que accederían a un repositorio hipotético según
-      ``Calendarios``.
-
-    * **ordenadores/versión**: Gráfica de tarta donde se aprecia la cantidad de
-      ordenadores por versión.
-
 El proceso de las comprobaciones
 ================================
 
@@ -413,7 +386,7 @@ Al igual que como liberador debes realizar un conjunto de tareas para mantener
 el sistema en codiciones, continuamente te llegarán errores, fallas, etc. que
 debes comprobar y atender. Esta es la misión para un usuario ``checker``.
 
-¿Qué tareas tienes que hacer como comprobador del sistema?. Sencillo. Mantén
+¿Qué tareas tienes que hacer como comprobador del sistema? Sencillo. Mantén
 las ``Alertas`` a 0. El sistema te irá avisando qué debes atender.
 
     * Comprueba periódicamente la existencia de ``Errores``. Soluciónalos y márcalos

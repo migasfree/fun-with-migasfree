@@ -141,7 +141,7 @@ si desinstalamos el paquete, quede todo como estaba.
 
 Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf``. Tendŕas que
 poner el ajuste ``Server`` con el nombre, o la IP, del servidor migasfree que
-hemos utilizado anteriormente, y el ajuste ``Version`` con el nombre de tu
+hemos utilizado anteriormente, y el ajuste ``Project`` con el nombre de tu
 distribución, por ejemplo ``ACME-1``. El resto de ajustes, modifícalos según tus
 intereses. Una vez hecho esto, y situado en el directorio
 ``tuempresa-migasfree-client``, genera el paquete (debes tener el
@@ -159,7 +159,7 @@ organización. Ahora es momento de instalarlo:
     # dpkg -i tuempresa-migasfree-client_1.0-1_all.deb
 
 Observa que al instalar el paquete, ``dpkg`` te informa que se añade la desviación
-de ``/etc/migasfree.conf``. Comprueba ahora que el ajuste ``Server`` y ``Version``
+de ``/etc/migasfree.conf``. Comprueba ahora que el ajuste ``Server`` y ``Project``
 son los correctos.
 
   .. code-block:: none
@@ -187,9 +187,9 @@ disponible para su liberación a otros escritorios ``ACME-1``.
 
 * Contraseña: admin
 
-* Version: ACME-1
+* Proyecto: ACME-1
 
-* Ubicacion: acme
+* Almacén: acme
 
 
 Ejecución del cliente migasfree
@@ -233,7 +233,7 @@ Ahora observa los ficheros que contiene este paquete:
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
 
 Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
-``migasfree-launcher`` en el servidor migasfree, crea un repositorio en el
+``migasfree-launcher`` en el servidor migasfree, crea un despliegue en el
 servidor y pon estos paquetes en ``paquetes a instalar`` y asígnale el
 atributo ``SET-ALL SYSTEMS``.
 
@@ -273,13 +273,13 @@ Hay varias formas de realizar esta instalación:
 
   .. code-block:: none
 
-    deb http://<myserver>/repo/<version>/REPOSITORIES <store> PKGS
+    deb http://<myserver>/public/<project>/REPOSITORIES <store> PKGS
 
   donde sustituirás:
 
   * ``<myserver>`` por tu servidor.
 
-  * ``<version>`` por la versión que pusiste en /etc/migasfree.conf
+  * ``<project>`` por el proyecto que pusiste en /etc/migasfree.conf
 
   * y ``<store>`` por la ubicación que pusiste al subir el paquete al servidor migasfree
     con migasfree-upload.
@@ -291,7 +291,7 @@ Hay varias formas de realizar esta instalación:
       # apt-get update
       # migasfree -u
 
-   y los paquetes se instalarán automáticamente
+   y los paquetes se instalarán automáticamente.
 
 * Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes,
   utilizando un sistema de clonado como `clonezilla`__. Este es el método

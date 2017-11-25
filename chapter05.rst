@@ -19,7 +19,7 @@ El objetivo es que dispongas rápidamente de un servidor
 y un cliente migasfree totalmente funcional, por eso no me voy a extender
 en explicaciones.
 
-Si decides usar otra Distribución GNU/linux de la recomendada, tendrás que
+Si decides usar otra distribución GNU/linux de la recomendada, tendrás que
 conseguir los paquetes apropiados. Puedes generar los paquetes como se indica
 en :ref:`Empaquetando migasfree`. Ten en cuenta que las instrucciones de este
 capítulo pueden variar según la distribución que elijas.
@@ -147,21 +147,21 @@ te devolverá una salida parecida a esta:
 
     root@debian:/home/tux# migasfree -u
     Sesión gráfica no detectada
-    Versión de migasfree client: 4.13
+    Versión de migasfree client: 4.14
 
     Opciones de ejecución: /etc/migasfree.conf
-    	Versión: debian-8.7
-    	Servidor: localhost
-    	Actualizar paquetes automáticamente: True
-    	Proxy: None
-    	Certificado SSL: None
-    	Proxy caché de paquetes: None
-    	Depuración: False
-    	Nombre del ordenador: debian
-    	GUI detallado: True
-    	PMS: apt-get
+        Versión: debian-8.7
+        Servidor: localhost
+        Actualizar paquetes automáticamente: True
+        Proxy: None
+        Certificado SSL: None
+        Proxy caché de paquetes: None
+        Depuración: False
+        Nombre del ordenador: debian
+        GUI detallado: True
+        PMS: apt-get
 
-    	Usuario gráfico: root
+        Usuario gráfico: root
 
     Autoregistrando ordenador...
     ¡Clave /var/migasfree-client/keys/localhost/debian-8.7.pri creada!

@@ -135,11 +135,11 @@ perdida, no se lo tuve en cuenta y fue muy bien recibida).
 
 A Jose Antonio Chavarría, compañero de fatigas (y alegrías), también
 me siento agradecido. Ha sido y es piedra angular en migasfree. Ha
-mejorado sustancialmente el proyecto reescribiendo el código spaguetti a
+mejorado sustancialmente el proyecto reescribiendo el código *spaguetti* a
 buen código [#f2]_, aportando ideas y soluciones. Me tranquiliza cuando
 quiero correr en exceso, y es el guardián de la simplicidad de migasfree.
 
-.. [#f2] Proceso conocido muy localmente como chavarrización.
+.. [#f2] Proceso conocido muy localmente como *chavarrización*.
 
 A Jesús González por su empeño en crear equipos de trabajo donde las
 personas nos sentimos a gusto trabajando.

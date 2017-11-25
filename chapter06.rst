@@ -37,7 +37,7 @@ variable:
 
     MIGASFREE_ORGANIZATION = "ACME"
 
-Decides acceder a cada uno de los equipos por ssh, crear el fichero,
+Decides acceder a cada uno de los equipos por *ssh*, crear el fichero,
 reiniciar el servidor Apache y olvidarte del tema.
 
 Ahora bien, si estás de vacaciones, ¿podría responder fácilmente a las
@@ -57,7 +57,7 @@ A continuación, te propongo otra forma de realizar los cambios de
 configuración. Se basa en utilizar el empaquetado para trasladar los
 cambios a los equipos, conservando la integridad del sistema.
 
-Asumo que tienes un gestor de proyectos, como Redmine, donde vas a
+Asumo que tienes un gestor de proyectos, como *Redmine*, donde vas a
 registrar las peticiones de cambio (o al menos que hagas como que lo
 tienes) y que has completado con éxito el capítulo anterior. Todos los
 comandos de este capítulo los vas a ejecutar como **root** en el equipo que
@@ -180,9 +180,9 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Contraseña: admin
 
-* Version: debian-x.x (En mi caso la versión es debian-8.7)
+* Proyecto: debian-x.x (En mi caso la versión es debian-8.7)
 
-* Ubicacion: acme
+* Almacén: acme
 
 Finalmente, asigna la petición de cambio a un liberador (sí, otra vez
 vas a ser tú) y registra en la petición:
@@ -224,45 +224,45 @@ Accede mediante un navegador web a tu servidor. Observa que en
    .. note::
 
       Todos los paquetes que se han subido al servidor y no están asignados en
-      ningún repositorio se denominan ``huérfanos``.
+      ningún despliegue se denominan ``huérfanos``.
 
 
 Liberando el cambio de configuración
 ************************************
 
-Ahora, vas a liberar el cambio creando un nuevo Repositorio.
+Ahora, vas a liberar el cambio creando un nuevo *despliegue*.
 
-Antes de nada debes asegurarte que el usuario con el que te has autenticado tiene
-asignada una versión con la que trabajar por defecto. Esto es importante y sólo
+Antes de nada, debes asegurarte que el usuario con el que te has autenticado tiene
+asignada un proyecto con la que trabajar por defecto. Esto es importante y sólo
 se requiere comprobar en nuevas instalaciones. Para ello pulsa sobre ``admin``
 y ``Preferencias``. Pulsa ``Grabar``.
 
-Ahora sí, ya estás listo para crear tu primer ``Repositorio migasfree``. Para ello, ve a
-``Liberación`` (pulsando sobre el icono del camión) y accede a ``Repositorios``.
-Luego pulsa en el botón ``+`` para ``añadir un nuevo repositorio`` e introduce estos datos:
+Ahora sí, ya estás listo para crear tu primer ``Despliegue migasfree``. Para ello, ve a
+``Liberación`` (pulsando sobre el icono del camión) y accede a ``Despliegues``.
+Luego pulsa en el botón ``+`` para ``añadir un nuevo despliegue`` e introduce estos datos:
 
 * Nombre = ``PRINCIPAL``
 
-* Version = ``debian-x.x``
+* Proyecto = ``debian-x.x``
 
-* Ahora despliega la sección ``Paquetes``
+* Ahora abre la sección ``Paquetes``
 
 * Paquetes/Conjuntos = ``acme-migasfree-server_1.0-1_all.deb``
 
-  En este campo se asignan los paquetes que contendrá este repositorio.
+  En este campo se asignan los paquetes que contendrá el repositorio físico asociado al despliegue.
 
 * Paquetes a instalar = ``acme-migasfree-server``
 
   En este campo se escriben los nombres de los paquetes que se
   instalarán **obligatoriamente** en los clientes.
 
-* Despliega la sección ``Atributos``
+* Abre la sección ``Atributos``
 * Atributos = ``SET-ALL SYSTEMS``
 
   De esta manera indicamos que todos los clientes tendrán acceso a este
-  repositorio.
+  despliegue.
 
-Guarda el repositorio.
+Guarda el despliegue.
 
 Observa que, en ``Alertas``, ya no tienes ningún paquete huérfano.
 
@@ -330,9 +330,9 @@ Te llega la segunda petición de cambio:
 
 __ http://en.wikipedia.org/wiki/Acme_Corporation
 
-Como siemrpre, identificas primero el ECS al que afecta el cambio: En
+Como siempre, identificas primero el ECS al que afecta el cambio: En
 este caso es a ``acme-migasfree-server``. En la petición
-de cambio asignas al desarrollador y registras:
+de cambio, asignas al desarrollador y registras:
 
   .. admonition:: Gestor de proyectos:
 
@@ -410,9 +410,9 @@ Subiendo al servidor el cambio
 
 * Contraseña: admin
 
-* Version: debian-x.x
+* Proyecto: debian-x.x
 
-* Ubicacion: acme
+* Almacén: acme
 
 
   .. admonition:: Gestor de proyectos:
@@ -431,7 +431,7 @@ Liberando el cambio de configuracion
 Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
 corresponde a ``acme-migasfree-server_1.0-2_all.deb``.
 
-Accede a ``Liberación - Repositorios`` y edita el repositorio
+Accede a ``Liberación - Despliegues`` y edita el despliegue
 ``PRINCIPAL``. Añade a ``Paquetes/Conjuntos`` el paquete
 ``acme-migasfree-server_1.0-2_all.deb``.
 

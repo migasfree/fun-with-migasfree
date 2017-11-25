@@ -39,11 +39,11 @@ Si necesitas cambiarla, haz esto:
     # ALTER USER migasfree WITH PASSWORD 'mipassword';
 
 
-¿Cómo hago una propiedad para obtener el contexto LDAP de un usuario?
+¿Cómo hago una fórmula para obtener el contexto LDAP de un usuario?
 ---------------------------------------------------------------------
 
 Necesitas que los clientes tengan instalado el paquete ``python-ldap``.
-En el servidor tendrás que crear una nueva propiedad:
+En el servidor tendrás que crear una nueva fórmula:
 
   Prefijo: ``CTX``
 
@@ -51,7 +51,7 @@ En el servidor tendrás que crear una nueva propiedad:
 
   Lenguaje: ``python``
 
-  Clase: ``Agrega por la derecha``
+  Clase: ``Añadir por la derecha``
 
   Código:
 
@@ -116,11 +116,11 @@ En el servidor tendrás que crear una nueva propiedad:
         run()
 
 
-¿Cómo hago una propiedad para obtener los grupos LDAP de un usuario?
+¿Cómo hago una fórmula para obtener los grupos LDAP de un usuario?
 --------------------------------------------------------------------
 
 Necesitas que los clientes tengan instalado el paquete python-ldap.
-En el servidor tendrás que crear una nueva propiedad:
+En el servidor tendrás que crear una nueva fórmula:
 
   Prefijo: ``GRP``
 
@@ -203,7 +203,7 @@ El cliente migasfree devuelve el mensaje: "firma no válida"
 Causa
 *****
 
-Las claves almacenadas en el cliente no coinciden con la versión indicada
+Las claves almacenadas en el cliente no coinciden con el proyecto indicado
 en ``/etc/migasfree.conf``.
 
 Solución
@@ -234,13 +234,13 @@ Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found
 Causa
 *****
 
-Por defecto los repositorios en el servidor se generan para la
+Por defecto los repositorios físicos en el servidor se generan para la
 arquitectura i386.
 
 Solución
 ********
 
-Accede a ``Configuracion - p.m.s. - apt-get`` y modifica el campo
+Accede a ``Configuracion - Sistemas de gestión de paquetes - apt-get`` y modifica el campo
 ``crear repositorio`` de esta manera:
 
   .. code-block:: none

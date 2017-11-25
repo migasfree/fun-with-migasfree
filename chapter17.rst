@@ -31,14 +31,14 @@ Ejemplo:
 
     Server = 192.168.1.10
 
-Version
+Project
 -------
 
 Valor por defecto: Se basa en la función de python ``platform.linux_distribution()``
 
-Nombre de la versión migasfree. Sería el equivalente al nombre que le quieras
-dar a tu Distribución personalizada. Es muy *recomendable* que configures este
-ajuste, ya que para algunas Distribuciones la función
+Nombre del proyecto migasfree. Sería el equivalente al nombre que le quieras
+dar a tu *distribución personalizada*. Es muy *recomendable* que configures este
+ajuste, ya que para algunas distribuciones la función
 ``platform.linux_distribution()`` puede producir versiones diferentes
 al aumentar de release (CentOS sería un ejemplo de esto).
 
@@ -46,7 +46,7 @@ Ejemplo:
 
   .. code-block:: none
 
-    Version = MiDistro-1
+    Project = MiDistro-1
 
 Computer_Name
 -------------
@@ -226,19 +226,18 @@ Ejemplo:
 
     Password = packager
 
-Version
+Project
 -------
 
 Valor por defecto: No establecido.
 
-Indica el nombre de la versión migasfree a la que se van a subir los
-paquetes.
+Indica el nombre del proyecto migasfree al que se van a subir los paquetes.
 
 Ejemplo:
 
   .. code-block:: none
 
-    Version = AZLinux-12
+    Project = AZLinux-12
 
 Store
 -----
@@ -247,7 +246,7 @@ Valor por defecto: No establecido.
 
 Almacén en el servidor migasfree donde se guardarán los paquetes. Corresponde al
 nombre de una carpeta en el servidor donde se situará el Paquete o Conjunto de Paquetes.
-Puedes ver la lista de Almacenes disponibles accediendo a ``Liberación - Almacenes``
+Puedes ver la lista de almacenes disponibles accediendo a ``Liberación - Almacenes``
 en la web del servidor migasfree. Si asignas un Almacén que no existe se creará
 automáticamente al subir el primer paquete.
 
@@ -255,7 +254,7 @@ Ejemplo:
 
   .. code-block:: none
 
-    Store = Acme # Sitúa en /var/migasfree/repo/<Version>/STORES/Acme los paquetes.
+    Store = Acme # Sitúa en /var/migasfree/repo/<Project>/STORES/Acme los paquetes.
 
 
 Variables de entorno
@@ -285,7 +284,7 @@ prioritarias frente a los ajustes del fichero de configuración:
 
 ``MIGASFREE_CLIENT_SERVER``
 
-``MIGASFREE_CLIENT_VERSION``
+``MIGASFREE_CLIENT_PROJECT``
 
 ``MIGASFREE_CLIENT_COMPUTER_NAME``
 
@@ -304,7 +303,7 @@ prioritarias frente a los ajustes del fichero de configuración:
 
 ``MIGASFREE_PACKAGER_PASSWORD``
 
-``MIGASFREE_PACKAGER_VERSION``
+``MIGASFREE_PACKAGER_PROJECT``
 
 ``MIGASFREE_PACKAGER_STORE``
 
