@@ -24,7 +24,7 @@ será asignarlas a un ordenador concreto utilizando su CID (Computer ID).
 
    .. note::
 
-      La instalación de las impresoras se producirá cuando un cliente haga``migasfree -u``
+      La instalación de las impresoras se producirá cuando un cliente haga ``migasfree -u``
       ya que el servidor indica en ese momento al cliente qué impresoras debe
       tener instaladas. El cliente es el que con esa información instala, desinstala
       o actualiza las impresoras.
@@ -93,7 +93,7 @@ Campos del modelo de dispositivo
 
 * **Fabricante**: Asigna el Fabricante del modelo de impresora.
 
-* **Tipo**: Actualmente sólo se utiliza 'PRINTER'
+* **Tipo**: Actualmente sólo se utiliza 'PRINTER'.
 
 * **Conexiones**: Especifica las distintas maneras en las que puedes conectar
   físicamente la impresora.
@@ -106,7 +106,7 @@ Campos del modelo de dispositivo
   disponibles para la impresora. Dicho archivo puede ser obtenido directamente
   del fabricante o en su defecto de `openprinting.org`__
 
-    * **Versión**: Version migasfree
+    * **Proyecto**: Proyecto migasfree.
 
     * **Prestación**: Prestación.
 
@@ -133,7 +133,7 @@ Campos del dispositivo
 
     * **Modelo**: Modelo de la impresora
 
-    * **Conexion**: Como se conecta físicamente la impresora.
+    * **Conexión**: Como se conecta físicamente la impresora.
 
     * **Dispositivos lógicos**:
 
@@ -250,9 +250,9 @@ Ahora añade los controladores:
 
     * Controlador 1:
 
-        * Version: debian-8.6. (u otra)
+        * Proyecto: debian-8.6. (u otra)
 
-        * Prestacion: BN
+        * Prestación: BN
 
         * Nombre: /usr/share/ppd/acme/Epson_AL_M300-ps-es.ppd
 
@@ -260,9 +260,9 @@ Ahora añade los controladores:
 
     * Controlador 2:
 
-        * Version: debian-8.6. (u otra)
+        * Proyecto: debian-8.6. (u otra)
 
-        * Prestacion: MP
+        * Prestación: MP
 
         * Nombre: /usr/share/ppd/acme/Epson_AL_M300-MP-ps-es.ppd
 
@@ -271,9 +271,9 @@ Ahora añade los controladores:
 
     * Controlador 3:
 
-        * Version: debian-8.6. (u otra)
+        * Proyecto: debian-8.6. (u otra)
 
-        * Prestacion: DUPLEX
+        * Prestación: DUPLEX
 
         * Nombre: /usr/share/ppd/acme/Epson_AL_M300-duplex-ps-es.ppd
 
@@ -294,7 +294,7 @@ Ve a ``Dispositivos - Dispositivos`` y añade la primera impresora:
 
     * Modelo: AL-M300
 
-    * Conexion: Elije TCP
+    * Conexión: Elije TCP
 
     * IP: 10.0.2.250
 
@@ -312,12 +312,11 @@ Ve a ``Dispositivos - Dispositivos`` y añade la segunda impresora:
 
     * Modelo: AL-M300
 
-    * Conexion: Elije ahora USB.
+    * Conexión: Elije ahora USB.
 
     * Pulsa ahora en ``Grabar y continuar editando`` y aparecerán los tres dispositivos
       lógicos correspondientes. Deja el ``Nombre en blanco``. Añade a cada uno de
       los dispositivos lógicos el atributo CID-1 (o el atributo que quieras).
-
 
 Y con esto, al hacer ``migasfree -u`` en cada ordenador se instalarán las
 impresoras lógicas según hemos especificado.

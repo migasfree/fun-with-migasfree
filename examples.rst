@@ -107,23 +107,23 @@ Creamos el conjunto de atributos ``SET-NO-MEDIA``:
         ``CID-3245``
 
 
-Creamos un repositorio ``MEDIA-DISABLE``:
+Creamos un despliegue ``MEDIA-DISABLE``:
 
     Asignamos el paquete: ``acme-media-disable_1.0-1_all.deb``
 
     Ponemos en paquetes a instalar: ``acme-media-disable``
 
-    asignamos en atributos: ``SET-NO-MEDIA``
+    asignamos en atributos incluidos: ``SET-NO-MEDIA``
 
 
-Ahora es necesario crear otro repositorio, ``MEDIA-ENABLE``, para forzar la desinstalación del
+Ahora es necesario crear otro despliegue, ``MEDIA-ENABLE``, para forzar la desinstalación del
 paquete cuando el ordenador ya no pertenezca al conjunto de atributos ``SET-NO-MEDIA``:
 
     Ponemos en paquetes a desinstalar: ``acme-media-disable``
 
-    asignamos en atributos: ``ALL-SYSTEMS``
+    asignamos en atributos incluidos: ``ALL-SYSTEMS``
 
-    asignamos en excluidos: ``SET-NO-MEDIA``
+    asignamos en atributos excluidos: ``SET-NO-MEDIA``
 
 
 Para añadir o exluir atributos en el futuro, simplemente bastará con
@@ -133,7 +133,7 @@ modificar el conjunto de atributos ``SET-NO-MEDIA``.
 
       Este es un ejemplo de cómo implementar una "directiva de seguridad"". En versiones
       futuras de migasfree se incluirá un modelo de "directivas" para no tener
-      que añadir ese segundo repositorio que fuerza la desinstalación de los
+      que añadir ese segundo despliegue que fuerza la desinstalación de los
       paquetes.
 
 
@@ -160,6 +160,7 @@ provocado por la tarjeta gráfica ``intel-hd-graphics-530``, que se identifica c
 
 c) Cambio
 ---------
+
 Después de buscar en Internet información relativa a este error, y de probar
 distintas soluciones, llegamos a comprobar que modificando el método de
 aceleración de la tarjeta gráfica, siguiendo un workaround__ propuesto en Internet,
@@ -205,7 +206,7 @@ Calendario ``intel-hd-graphics-530``
     Duración: ``20 días``
 
 
-Creamos el repositorio ``intel-hd-graphics-530``
+Creamos el despliegue ``intel-hd-graphics-530``
 
     Ponemos en paquetes a instalar: ``acme-intel-hd-graphics-530``
 
@@ -260,8 +261,8 @@ __ https://www.gimp.org/
 b) Aceptación
 -------------
 
-Existe un repositorio ``per-aula-3`` para añadir software a los equipos
-de dicha aula. Como atributos asignados, este repositorio tiene el conjunto de
+Existe un despliegue ``per-aula-3`` para añadir software a los equipos
+de dicha aula. Como atributos incluidos, este despliegue tiene el conjunto de
 atributos ``SET-AULA-3``
 
     Conjunto de atributos ``SET-AULA-3``:
@@ -282,7 +283,7 @@ atributos ``SET-AULA-3``
 
         ``CID-3585``
 
-    Repositorio ``per-aula-3``:
+    Despliegue ``per-aula-3``:
 
         paquetes a instalar:
 
@@ -294,7 +295,7 @@ atributos ``SET-AULA-3``
 
             virtualbox__
 
-        atributos: ``SET-AULA-3``
+        atributos incluidos: ``SET-AULA-3``
 
 __ https://inkscape.org
 
@@ -313,7 +314,7 @@ En este caso no hay implicado ningún ECS que tenga que ser modificado.
 d) Liberación
 -------------
 
-Editamos el repositorio ``per-aula-3``
+Editamos el despliegue ``per-aula-3``
 
     añadimos a los paquetes a instalar : ``gimp``
 

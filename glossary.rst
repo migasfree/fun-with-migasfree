@@ -6,16 +6,16 @@ Glosario de términos
 
 **Alerta**. Aviso para que el usuario preste su atención a una determinada situación.
 
-**Atributo**. Valor concreto que toma una propiedad al ser ejecutada en un equipo.
+**Atributo**. Valor concreto que toma una fórmula al ser ejecutada en un equipo.
 
 **Cambio**. Actividad que modifica un ECS, generando una nueva versión del ECS.
 
-**CID**. Computer Identificator. Número que identifica inequívocamente a una placa
-base y por tanto a un ordenador.
+**CID**. *Computer Identificator*. Número que identifica inequívocamente a una placa
+base y, por tanto, a un ordenador.
 
 **ECS**. Elemento de configuración software. Objeto software sometido a la GCS.
 
-**Falla**. Hecho negativo que se produce en un equipo cliente
+**Falla**. Hecho negativo que se produce en un equipo cliente.
 
 **GCS**. Gestión de la configuración software. Proceso de la Ingeniería del
 Software que identifica, hace seguimiento y controla cada uno de los
@@ -29,17 +29,17 @@ para que los clientes del ECS puedan acceder a él e instalarlo.
 **Paquete**. Contenedor que encapsula un conjunto de ECS liberados junto a sus
 metadatos.
 
-**Paquete huérfano**. Paquete que no está en ningún repositorio.
+**Paquete huérfano**. Paquete que no está en ningún despliegue.
 
 **PMS**. Package Management System - Gestor de paquetes.  Programa que permite
-aplicar en un equipo, los cambios que han sido liberados en los repositorios.
+aplicar en un equipo, los cambios que han sido liberados en los despliegues.
 
-**Propiedad**. Código que devolverá una determinada característica de los equipos
+**Fórmula**. Código que devolverá una determinada característica de los equipos
 o de los usuarios.
 
 **Repositorio**. Almacén de ECS.
 
-**Repositorio migasfree**. Añade a un repositorio la capacidad de establecer
+**Despliegue migasfree**. Añade a un repositorio la capacidad de establecer
 cuándo y quién tiene acceso al repositorio.
 
 **Systems Management System**. Gestor de sistemas. Software que permite

@@ -88,12 +88,12 @@ __ https://github.com/migasfree/migasfree/blob/latest/migasfree/server/views/cli
 
   \newpage
 
-get_versions
+get_projects
 ============
 
 Pertenece a la API pública.
 
-Devuelve  una lista de diccionarios de las plataformas con sus ``versiones``
+Devuelve una lista de diccionarios de las plataformas con sus ``proyectos``
 correspondientes.
 
 Parámetros de entrada
@@ -108,22 +108,22 @@ Salida
 
         * **plafform**: Nombre de la plataforma.
 
-        * **versions**: Lista de diccionarios de versiones:
+        * **projects**: Lista de diccionarios de proyectos:
 
-            * **name**: Nombre de la version.
+            * **name**: Nombre del proyecto.
 
 
 Veamos un ejemplo. Si en un navegador web accedemos a la siguiente dirección:
 
   .. code-block:: none
 
-    http://miservidor/get_versions
+    http://miservidor/get_projects
 
 Obtendremos una cadena de texto en formato json parecida a esta:
 
   .. code-block:: none
 
-    [{"platform": "Linux", "versions": [{"name": "ACME-1"}, {"name": "debian-7.0"}]}]
+    [{"platform": "Linux", "projects": [{"name": "ACME-1"}, {"name": "debian-7.0"}]}]
 
 
 
@@ -249,19 +249,19 @@ register_computer
 Pertenece a la API Privada.
 
 Necesita usuario y contraseña con permisos de lectura/escritura en
-``Ordenadores``, y en ``Plataformas`` y ``Versiones`` si
+``Ordenadores``, y en ``Plataformas`` y ``Proyectos`` si
 ``MIGASFREE_AUTOREGISTER`` está activo. Ver :ref:`Ajustes del servidor migasfree`
 
 Esta función realiza lo siguiente:
 
     * Registra el ``Ordenador`` en el servidor.
 
-    * Añade la ``Plataforma`` y/o ``Version`` del ordenador si no existen,
+    * Añade la ``Plataforma`` y/o ``Proyecto`` del ordenador si no existen,
       siempre y cuando ``MIGASFREE_AUTOREGISTER`` esté activo.
 
     * Añade las correspondientes ``Notificaciones``
 
-    * Como resultado se obtendrán las KEYS de la ``Version`` que usarán las
+    * Como resultado se obtendrán las KEYS del ``Proyecto`` que usarán las
       funciones de la API pública que las requieren.
 
 API Private Data Input
@@ -273,18 +273,18 @@ API Private Data Input
 
     * **platform**: Plataforma del ordenador.
 
-    * **version**: Version del ordenador.
+    * **project**: Proyecto del ordenador.
 
-    * **pms**: Sistema de paqeuetería.
+    * **pms**: Sistema de paquetería.
 
-    * **ip**: Dirección ip.
+    * **ip**: Dirección IP.
 
 API Private Data Output
 -----------------------
 
     * **migasfree-server.pub**: KEY pública del servidor,
 
-    * **migasfree-client.pri**: KEY privada de la versión.
+    * **migasfree-client.pri**: KEY privada del proyecto.
 
     * **errmfs**: Diccionario con el posible error devuelto.
 
@@ -321,7 +321,7 @@ API Private Data Output
 
     * **migasfree-server.pub**: KEY pública del servidor,
 
-    * **migasfree-packager.pri**: KEY privada del Empaquetador.
+    * **migasfree-packager.pri**: KEY privada del empaquetador.
 
     * **errmfs**: Diccionario con el posible error devuelto.
 
@@ -339,7 +339,7 @@ upload_server_package
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Empaquetador.
+Necesita firmar con KEY de empaquetador.
 
 Sube un paquete al servidor.
 
@@ -348,12 +348,12 @@ El fichero del paquete debe enviarse en ``HttpRequest.FILES["package"]``
 API Private Data Input
 ----------------------
 
-    * **version**: Versión.
+    * **project**: Proyecto.
 
-    * **store**: Ubicación donde se almacena el paquete.
+    * **store**: Almacén donde se almacena el paquete.
 
-    * **source**: Valor booleano que indica si el paquete es el binario ó
-      el fuente .
+    * **source**: Valor booleano que indica si el paquete es el binario o
+      el fuente.
 
 API Private Data Output
 -----------------------
@@ -384,9 +384,9 @@ El fichero del paquete debe enviarse en ``HttpRequest.FILES["package"]``
 API Private Data Input
 ----------------------
 
-    * **version**: Versión.
+    * **project**: Proyecto.
 
-    * **store**: Ubicación donde se almacena el paquete.
+    * **store**: Almacén donde se almacena el paquete.
 
     * **packageset**: ``Conjunto de Paquetes`` en el que está incluido el
       paquete.
@@ -416,7 +416,7 @@ Pertenece a la API Privada.
 
 Necesita firmar con KEY de Empaquetador.
 
-Se utiliza para forzar la creación de los metadatos de los ``Repositorios`` en
+Se utiliza para forzar la creación de los metadatos de los ``Despliegues`` en
 donde está asignado el ``Conjunto de Paquetes`` especificado.
 
 Se usa despues de subir todos los paquetes de un ``Conjunto de Paquetes``.
@@ -426,7 +426,7 @@ API Private Data Input
 
     * **packageset**: El nombre del ``Conjunto de Paquetes``.
 
-    * **version**: La ``Version`` del ``Conjunto de Paquetes``.
+    * **project**: El ``Proyecto`` del ``Conjunto de Paquetes``.
 
 API Private Data Output
 -----------------------
@@ -447,7 +447,7 @@ upload_computer_message
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Envia un mensaje de texto al servidor informando que proceso esta realizando el
 cliente. Es utilizado por ``migasfree --update``
@@ -477,7 +477,7 @@ get_properties
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Obtiene las Propiedades activas en el servidor migasfree.
 
@@ -529,7 +529,7 @@ API Private Data Input
 
         * **platform**: Plataforma.
 
-        * **version**: Nombre de la Version.
+        * **project**: Nombre del proyecto.
 
         * **user**: Cuenta del usuario que esta logueado en la sesión gráfica.
 
@@ -564,8 +564,6 @@ API Private Data Output
 
         * **remove**: Lista de cadenas de texto con los paquetes a desinstalar.
 
-        * **base**: ``True`` si es el ordenador de referencia.
-
         * **hardware_capture**: ``True`` si el ordenador tiene que enviar
           el hardware.
 
@@ -588,7 +586,7 @@ upload_computer_faults
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Sube el resultado de las ``Fallas``.
 
@@ -619,14 +617,14 @@ upload_computer_hardware
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Sube el hardware del ``Ordenador``.
 
 API Private Data Input
 ----------------------
 
-Salida en formato json del comando ``lshw``.
+Salida en formato *json* del comando ``lshw``.
 
 API Private Data Output
 -----------------------
@@ -647,7 +645,7 @@ upload_computer_software_base_diff
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Sube la diferencia respecto al ordenador base
 
@@ -676,10 +674,10 @@ upload_computer_software_base
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Lo utiliza el ``Ordenador`` de referencia para informar de los paquetes que
-tiene instalados
+tiene instalados.
 
 
 API Private Data Input
@@ -707,7 +705,7 @@ upload_computer_software_history
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Informa de cambio en el software.
 
@@ -745,7 +743,7 @@ get_computer_software
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Obtiene el conjunto de paquetes del ``Ordenador`` de referencia.
 
@@ -777,7 +775,7 @@ upload_computer_errors
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Sube los errores producidos en el cliente.
 
@@ -806,7 +804,7 @@ get_computer_tags
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Obtiene las etiquetas del ``Ordenador`` y las disponibles en el sistema.
 
@@ -820,7 +818,7 @@ API Private Data Output
 
     * **selected**: Lista de textos con las ``Etiquetas`` asignadas al ordenador.
 
-    * **available**: Diccionario de Propiedades
+    * **available**: Diccionario de etiquetas.
 
         * **<PROPERTY>**: Lista de textos con las ``Etiquetas`` disponibles
           por cada ``Propiedad` de tipo ``tag``
@@ -841,7 +839,7 @@ set_computer_tags
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Asigna las etiquetas al ordenador y como resultado se obtiene los paquetes que
 deben instalarse y desinstalarse en función de las etiquetas que anteriormente
@@ -851,7 +849,7 @@ tuviera asignadas el equipo.
 API Private Data Input
 ----------------------
 
-    * **tags**: Lista de Etiquetas a asignar al ``Ordenador``
+    * **tags**: Lista de etiquetas a asignar al ``Ordenador``
 
 API Private Data Output
 -----------------------
@@ -899,4 +897,3 @@ remove_device
 =============
 
 Pendiente de implementar.
-
