@@ -126,7 +126,7 @@ Campos de Ordenador
                 de Calendario también será eliminada dicha asignación
                 automáticamente.
 
-        Puedes consultar más información sobre los ``CID`` en las :ref:`Propiedades específicas`.
+        Puedes consultar más información sobre los ``CID`` en las :ref:`Fórmulas específicas`.
 
         Puedes asignar un estado por defecto a los nuevos ordenadores con el
         ajuste de servidor: :ref:`MIGASFREE_DEFAULT_COMPUTER_STATUS`
@@ -150,7 +150,7 @@ Campos de Ordenador
 
     * **Etiquetas**: Lista de Etiquetas asignadas actualmente al ordenador.
       Para una explicación del funcionamiento de las etiquetas mira los
-      :ref:`Tipos de Etiquetas`.
+      :ref:`Categorías de etiquetas`.
 
     * **Dispositivos lógicos**: Impresoras lógicas configuradas en el ordenador.
 
@@ -235,14 +235,14 @@ liberar paquetes en función de estos atributos.
 Campos de Atributo
 ------------------
 
-    * **Propiedad**: Propiedad a la que hace referencia el atributo.
+    * **Fórmula**: Fórmula a la que hace referencia el atributo.
 
     * **Valor**: Identifica el atributo.
 
     * **Descripción**: Describe el atributo.
 
 Una explicación del funcionamiento de los atributos la puedes obtener en
-el apartado :ref:`Propiedades` de :ref:`La configuración del sistema migasfree`.
+el apartado :ref:`Fórmulas` de :ref:`La configuración del sistema migasfree`.
 
 Etiquetas
 =========
@@ -251,7 +251,7 @@ Manualmente podrás añadir etiquetas y asignarlas a ordenadores para
 liberar software en función de estas.
 
 El funcionamiento de las etiquetas ya lo hemos visto en los
-:ref:`Tipos de Etiquetas`.
+:ref:`Categorías de etiquetas`.
 
 Campos de Etiqueta
 ------------------

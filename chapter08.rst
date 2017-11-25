@@ -20,7 +20,7 @@ amplios conocimientos de los sistemas operativos y de las aplicaciones.
 En este y en los siguientes tres capítulos, vas a aprender a adaptar y usar el
 servidor migasfree.
 
-.. _`Propiedades`:
+.. _`Fórmulas`:
 
 Fórmulas
 ========
@@ -77,13 +77,13 @@ En mi caso me ha devuelto ``white``, que es el nombre de mi portátil. ¿A que
 no aciertas de qué color es?
 
 Esto es, en definitiva, lo que hace el cliente migasfree: obtiene del servidor la
-propiedad ``MACHINE NAME`` (su código), la ejecuta y devuelve al servidor el resultado
+fórmula ``MACHINE NAME`` (su código), la ejecuta y devuelve al servidor el resultado
 como atributo (``HST-white``).
 
-Podrías haber escrito la propiedad también en código ``bash`` simplemente
+Podrías haber escrito la fórmula también en código ``bash`` simplemente
 llamando al comando de linux ``hostname`` o escribiendo ``echo $HOSTNAME`` (el
 resultado sería el mismo), pero utilizar código python nos permite, en este caso,
-usar la misma ``propiedad`` también para plataformas Windows o Mac OS.
+usar la misma ``fórmula`` también para plataformas Windows o Mac OS.
 
 
 Campos de la Fórmula
@@ -261,24 +261,24 @@ Categorías de etiquetas
 
       migasfree-tags --set ""
 
-  Las etiquetas están relacionadas con los campos de los repositorios:
+  Las etiquetas están relacionadas con los campos de los despliegues:
 
-      * default preinclude packages
+      * Paquetes pre-incluidos por defecto
 
-      * default include packages
+      * Paquetes incluidos por defecto
 
-      * default exclude packages
+      * Paquetes excluidos por defecto
 
   ya que al ejecutar el comando ``migasfre-tags --set`` se instalarán los
-  paquetes definidos en ``preinclude`` e ``include`` y se desinstalarán los
-  paquetes definidos en el campo ``exclude``, siempre y cuando los atributos
+  paquetes definidos en los ``pre-incluidos`` e ``incluidos`` y se desinstalarán los
+  paquetes definidos en el campo ``excluidos``, siempre y cuando los atributos
   asignados al repositorio coincidan con los del equipo. Esto se utiliza para
   crear la imagen ISO de los escritorios.
 
   .. note::
 
      En AZLinux, usamos ``migasfree-tags`` básicamente para, partiendo de una
-     imagen ISO de Ubuntu, desintalar e instalar los paquetes que
+     imagen ISO de Ubuntu, desinstalar e instalar los paquetes que
      componen nuestro escritorio y crear una imagen del disco para clonar.
 
   .. note::
@@ -481,7 +481,7 @@ pueden realizar, se establecen los siguientes grupos de usuarios.
 
     * ``Configurator`` con permisos de lectura/escritura a:
 
-        * Propiedades
+        * Fórmulas
 
         * Proyectos
 

@@ -257,7 +257,7 @@ Luego pulsa en el botón ``+`` para ``añadir un nuevo despliegue`` e introduce 
   instalarán **obligatoriamente** en los clientes.
 
 * Abre la sección ``Atributos``
-* Atributos = ``SET-ALL SYSTEMS``
+* Atributos incluidos = ``SET-ALL SYSTEMS``
 
   De esta manera indicamos que todos los clientes tendrán acceso a este
   despliegue.
@@ -270,7 +270,7 @@ Registra y cierra la petición de cambio:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Liberado en Repositorio **PRINCIPAL**.
+     Registro: Liberado en Despliegue **PRINCIPAL**.
 
      Petición: *cerrada*.
 
@@ -435,19 +435,19 @@ Accede a ``Liberación - Despliegues`` y edita el despliegue
 ``PRINCIPAL``. Añade a ``Paquetes/Conjuntos`` el paquete
 ``acme-migasfree-server_1.0-2_all.deb``.
 
-Guarda el repositorio.
+Guarda el despliegue.
 
 Registra y cierra la petición de cambio:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Liberado en Repositorio **PRINCIPAL**.
+     Registro: Liberado en Despliegue **PRINCIPAL**.
 
      Petición: *cerrada*.
 
 
 Aplicando el cambio
-********************
+*******************
 
 Ejecuta de nuevo:
 
@@ -507,7 +507,7 @@ y mira el final del campo ``historial de software`` de la sección ``Software``:
 El signo (-) indica paquete desinstalado y el signo (+) paquete instalado.
 
 ¿Qué se cambió, quién y cuándo lo hizo?
-------------------------------------------------------------------
+---------------------------------------
 
 Esta información está en el paquete como metainformación. Para acceder
 a ella, accede a ``Liberación - Paquetes``.  Despliega el menú de la derecha del

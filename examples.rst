@@ -37,7 +37,7 @@ Deshabilitar montaje de unidades USB y CDROM
 ============================================
 
 a) Petición de cambio
-------------------
+---------------------
 
 Todos los ordenadores de la ``NET-192.168.100.0/24``, excepto el ordenador ``CID-3245``,
 no deberían montar unidades USB por motivos de seguridad. Tampoco deben montar
@@ -46,7 +46,7 @@ tampoco el ordenador ``CID-1291``.
 
 
 b) Aceptación de la petición
--------------------------
+----------------------------
 
 Realizaremos lo que denominamos una ``directiva de seguridad basada en un conjunto de atributos``,
 ya que es muy probable que, con el tiempo, esta medida de seguridad puede ir
@@ -169,7 +169,7 @@ el error ya no se reproduce.
 __ https://bugs.launchpad.net/ubuntu/+source/xserver-xorg-video-intel/+bug/1510970/comments/40
 
 ECS: acme-intel-hd-graphics-530 (nuevo)
-...............................
+.......................................
 
 Creamos un paquete ``acme-intel-hd-graphics-530`` que, simplemente, modifica el
 método de acelaración añadiendo en el sistema el fichero
