@@ -36,7 +36,7 @@ master_doc = 'index'
 
 
 # HTML options
-html_theme = 'sphinxdoc'
+html_theme = 'default'
 html_theme_path = ['themes']
 html_static_path = ['_static']
 pygments_style = 'sphinx'
