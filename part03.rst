@@ -4,6 +4,8 @@
 Guía de uso
 ###########
 
+La reacción al cacahuete.
+
 .. include:: chapter08.rst
 .. include:: chapter09.rst
 .. include:: chapter10.rst
