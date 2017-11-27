@@ -21,7 +21,7 @@ base y, por tanto, a un ordenador.
 Software que identifica, hace seguimiento y controla cada uno de los
 cambios que se producen en los sistemas.
 
-**Liberación**. Actividad de situar una versión del ECS en un repositorio
+**Liberación**. Actividad de situar una versión del ECS en un despliegue
 para que los clientes del ECS puedan acceder a él e instalarlo.
 
 **Metadatos**. Información sobre los datos.
