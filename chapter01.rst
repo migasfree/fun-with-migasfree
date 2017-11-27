@@ -238,17 +238,27 @@ causa un perjuicio a la sociedad.
 Enlaces
 =======
 
-Versión html: http://fun-with-migasfree.readthedocs.org/en/master/
+`Versión en HTML`__.
 
-Versión pdf: https://media.readthedocs.org/pdf/fun-with-migasfree/master/fun-with-migasfree.pdf
+__ http://fun-with-migasfree.readthedocs.org/
 
-Ejemplos usados en el libro: https://github.com/migasfree/fun-with-migasfree-examples
+`Versión en PDF`__.
 
-Codigo Fuente: http://github.com/migasfree/fun-with-migasfree
+__ https://media.readthedocs.org/pdf/fun-with-migasfree/master/fun-with-migasfree.pdf
 
-Poyecto migasfree: http://migasfree.org/
+`Ejemplos usados en el libro`__.
 
-Twitter: `@migasfree`__ `@albertogacias`__
+__ https://github.com/migasfree/fun-with-migasfree-examples/
+
+`Código fuente`__.
+
+__ https://github.com/migasfree/fun-with-migasfree/
+
+`Proyecto migasfree`__.
+
+__ http://migasfree.org/
+
+Twitter: `@migasfree`__, `@albertogacias`__.
 
 __ https://twitter.com/migasfree
 __ https://twitter.com/albertogacias
