@@ -60,7 +60,7 @@ __ https://github.com/migasfree/migasfree/blob/latest/migasfree/server/views/pub
           entrada de las funciones.
 
         * En la mayoría de los casos este ``API Private Data`` es
-          firmado usando la KEY de la ``Version`` ó del ``Empaquetador``
+          firmado usando la KEY del ``Proyecto`` o del ``Empaquetador``
           añadiendo esta firma al final del fichero:
 
           .. code-block:: none
@@ -513,7 +513,7 @@ upload_computer_info
 
 Pertenece a la API Privada.
 
-Necesita firmar con KEY de Version.
+Necesita firmar con KEY de Proyecto.
 
 Dados los datos del ordenador Obtiene del servidor diferente información con
 lo que el cliente debe hacer para realizar una actuliazación.
@@ -568,6 +568,8 @@ API Private Data Output
           el hardware.
 
         * **devices**: #TODO
+
+    * **logical**: Diccionario de dispositivos a instalar o desinstalar.
 
     * **errmfs**: Diccionario con el posible error devuelto.
 
@@ -871,29 +873,3 @@ API Private Data Output
           error.
 
         * **info**: Texto desciptivo del error.
-
-
-
-.. raw:: latex
-
-  \newpage
-
-get_device
-==========
-
-Pendiente de implementar.
-
-get_assist_devices
-==================
-
-Pendiente de implementar.
-
-install_device
-==============
-
-Pendiente de implementar.
-
-remove_device
-=============
-
-Pendiente de implementar.
