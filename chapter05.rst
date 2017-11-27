@@ -281,9 +281,7 @@ sobre ``2 alertas por comprobar``:
 
 * Accede a ``Datos - Ordenadores`` y observa: (figura 5.4)
 
-    * Los datos del ordenador ``CID-1`` (pulsando sobre CID-1)
-
-    * Su ``login``, para ver los atributos que ha enviado el cliente.
+    * Los datos del ordenador ``CID-1`` (pulsando sobre CID-1).
 
     * Su ``hardware``.
 
@@ -313,8 +311,6 @@ sobre ``2 alertas por comprobar``:
 
       El símbolo que aparece a la izquierda del CID (el corazón) indica el
       ``estado`` en el que encuentra el ordenador.
-
-
 
 ¡Enhorabuena! Has instalado un servidor migasfree y has registrado en él
 tu primer ordenador.
