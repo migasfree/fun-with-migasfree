@@ -364,7 +364,7 @@ Campos de calendario
 Repositorios internos vs externos
 =================================
 
-LLamamos repositorio interno al repositorio que controla el servidor migasfree.
+Llamamos repositorio interno al repositorio que controla el servidor migasfree.
 
 Un repositorio externo es un repositorio configurado en los clientes y que no
 apunta al servidor migasfree, Los repositorios que vienen por defecto configurados
