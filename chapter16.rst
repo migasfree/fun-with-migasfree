@@ -86,7 +86,7 @@ del ordenador en vez del ``id`` en la lista de ordenadores, asigna el campo
 ``name`` el primero de la lista.
 
 Se utiliza también para las búsquedas de un ``CID`` por los campos especificados.
-Ver :ref:`Propiedades específicas`.
+Ver :ref:`Fórmulas específicas`.
 
 Ejemplo:
 
