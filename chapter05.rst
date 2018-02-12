@@ -9,70 +9,74 @@ Probando migasfree
 
    -- Isaac Newton.
 
-Si bien puedes instalar el servidor migasfree en distintas
-distribuciones, en este capítulo voy a explicarte como instalarlo sobre
-`Debian 8 Jessie`__.
-
-__ http://www.debian.org/
-
-El objetivo es que dispongas rápidamente de un servidor
+El objetivo de este capítulo es que dispongas rápidamente de un servidor
 y un cliente migasfree totalmente funcional, por eso no me voy a extender
 en explicaciones.
-
-Si decides usar otra distribución GNU/linux de la recomendada, tendrás que
-conseguir los paquetes apropiados. Puedes generar los paquetes como se indica
-en :ref:`Empaquetando migasfree`. Ten en cuenta que las instrucciones de este
-capítulo pueden variar según la distribución que elijas.
 
    .. note::
 
       Usa una máquina virtual de virtualbox__ realizando la instalación
-      mínima por red de Debian 8 para ver el funcionamiento de migasfree
+      mínima por red de Debian__ 8 64 bits para ver el funcionamiento de migasfree
       y familiarizarte con él antes de poner a :ref:`Migasfree en producción`
 
 
 __ https://www.virtualbox.org/
 
+__ http://www.debian.org/
+
+
 Instalando el servidor
 ======================
 
-Como ``root``, ejecuta en un terminal:
+Si ahora no quieres preocuparte de cómo se realiza ésta instalación, nunca has
+usado docker__ o simplemente quieres avanzar más rápido te proporcionamos este
+`Open Virtual Appliance (OVA)`__ para que lo ejecutes con virtualbox. Contiene
+un servidor migasfree ya instalado.
+
+__ https://www.docker.com/
+__ https://drive.google.com/file/d/1brRxXDCCMQmEEu5yMBsHPKsigLjwyeFF
+
+
+Con virtualbox instalado, y una vez descargado el fichero OVA haz doble click en él y a
+continuación observa las siguientes reglas de reenvío de puertos accediendo al
+menú de virtualbox: configuración-red-avanzadas-reenvío de puertos:
 
   .. code-block:: none
 
-    # wget -O - http://migasfree.org/pub/install-server | bash
+    Nombre1  Protocolo    IP anfitrión  Puerto  IP invitado  Puerto invitado
+    =======  =========    ============  ======  == ========  ===============
+    Rule 1   TCP          127.0.0.1     2222    10.0.2.15    22
+    Rule 2   TCP          127.0.0.1     8080    10.0.2.15    80
+
+Los usuario/contraseña de esta máquina virtual son: tux/tux y root/root.
+
+Para acceder por ssh a esta máquina virtual usa:
+
+  .. code-block:: none
+
+    ssh -p 2222 tux@127.0.0.1
+
+Una vez dentro puedes loguearte como root de la siguiente manera:
+
+  .. code-block:: none
+
+    tux@migasfree:~$ su root
+
+Para acceder al servidor web instalado en esta máquina virtual usa la URL
+http://127.0.0.1:8080 desde el equipo anfitrión.
 
 
-  .. note::
+Ahora bien, si quieres hacer la instalación tú mismo, accede a la
+máquina debian 64 bits sobre la que vas a instalar el servidor y sigue los
+pasos indicados en migasfree-docker__
 
-      Al instalar el paquete del servidor migasfree se añade al sistema
-      el fichero ``/etc/apache2/conf.d/migasfree.conf``. Este fichero
-      contiene la configuración del servidor web.
-
-
-  .. note::
-
-      Al instalar el paquete del servidor migasfree se crea el usuario
-      ``migasfree`` en Postgresql con password ``migasfree`` y se añade al
-      fichero ``/etc/postgresql/9.1/main/pg_hba.conf`` la línea
-      ``'local all migasfree password'`` para permitir al usuario migasfree
-      autenticarse mediante password. Recuerda que para poner en producción
-      el servidor deberás cambiar la contraseña de este usuario tal y
-      como se indica en :ref:`Migasfree en producción`.
-
-  .. note::
-
-      Otra forma alternativa de instalar un servidor migasfree, y que te recomiendo
-      encarecidamente que pruebes, es utilizando **contenedores docker**. Accede a
-      https://github.com/migasfree/migasfree-docker y sigue las instrucciones. En
-      AZLinux llevamos tiempo utilizando estos contenedores y estamos muy
-      satisfechos.
+__ https://github.com/migasfree/migasfree-docker
 
 
 Comprobando el servidor
 =======================
 
-En un navegador web accede a la dirección del servidor. Si todo ha
+En un navegador web accede a la URL del servidor. Si todo ha
 ido bien, verás la figura 5.1.
 
 .. only:: not latex
@@ -130,6 +134,20 @@ instala el paquete migasfree-client:
 
     # wget -O - http://migasfree.org/pub/install-client | bash
 
+
+También puedes instalar el cliente en cualquier otra máquina y editar el fichero
+/etc/migasfree.conf manualmente para configurarlo. Descomenta la línea
+``# Server = localhost`` y asígnale la dirección del servidor web. Te hago notar que
+esta **no es la manera** en que debemos hacerlo, pero por ahora puede servirnos.
+La manera correcta sería empaquetar dicha modificación, cosa que veremos más
+adelante en :ref:`Configurando migasfree-client`
+
+
+   .. note::
+
+      Cualquier cambio en la configuración de las aplicaciones o del S.O se
+      podrán realizar de manera centralizada con suma facilidad, manteniendo
+      además la integridad, sólo si dicha configuración ha sido empaquetada.
 
 
 Registrando el cliente
@@ -314,6 +332,59 @@ sobre ``2 alertas por comprobar``:
 
 ¡Enhorabuena! Has instalado un servidor migasfree y has registrado en él
 tu primer ordenador.
+
+
+Desplegando software
+====================
+
+Y ahora, para ir abriendo boca, vamos a instalar y eliminar aplicaciones
+de manera centralizada usando el servidor migasfree.
+
+Supón que quieres instalar ``vlc`` en todos los equipos y que no quieres que en
+ningún caso esté instalado ``totem``.
+
+Accede a ``Liberación - Despliegues`` y pulsa en en símbolo ``+`` para añadir un
+despliegue.
+
+Introduce los siguientes datos:
+
+    * ``Nombre``: prueba
+
+    * ``proyecto``: (el que corresponda)
+
+    * ``paquetes a instalar``: vlc
+
+    * ``paquetes a desinstalar``: totem
+
+Guarda el despliegue.
+
+En el equipo cliente ejecuta ``migasfree -u``. Comprobarás que el cliente migasfree
+configura el repositorio ``prueba`` y que se ha asegurado
+de que esté instalado el paquete ``vlc`` y desinstalado ``totem``.
+
+  .. note::
+
+      En el despliegue que acabamos de hacer sólo hemos dado la orden de
+      instalar y desintalar paquetes, pero además se ha creado un repositorio de
+      paquetes vacío. En los siguientes capítulos aprenderás a subir tus propios
+      paquetes al servidor e introducirlos en los despliegues, pero vayamos
+      despacito, suave, suavecito.
+
+Al poner el atributo ``SET-ALL SYSTEMS`` estamos indicando que se
+aplique este despliegue a todos los ordenadores. Podríamos haber incluído otros
+atributos como ``CID-1``, ``NET-10.0.2.0/24``, o una lista de ellos. Sólo se
+aplicará este despliegue a los ordenadores que tengan algún atributo coincidente
+con los atributos incluidos en el despliegue.
+
+Observa que también puedes excluir ordenadores. El servidor sigue la siguiente
+lógica: primero comprueba los ordenadores incluidos y después excluye los
+ordenadores que tenga algún atributo que coincida con los atributos excluidos del
+despliegue.
+
+Aprenderás más sobre los despliegues en el capítulo dedicado a
+:ref:`La Liberación`, pero por ahora creo que es suficiente.
+
+¡Enhorabuena de nuevo! Ya sabes desplegar software de manera centralizada.
 
 En el siguiente capítulo vas a aprender a hacer el cambio de
 configuración software al estilo migasfree.

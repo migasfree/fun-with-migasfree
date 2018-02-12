@@ -1,3 +1,5 @@
+.. _`La Liberación`:
+
 =============
 La Liberación
 =============

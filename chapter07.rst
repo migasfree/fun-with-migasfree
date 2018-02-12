@@ -1,3 +1,5 @@
+.. _`Configurando migasfree-client`:
+
 =============================
 Configurando migasfree-client
 =============================

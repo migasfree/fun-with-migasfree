@@ -115,6 +115,21 @@ de todo tipo. Actualmente es la versíón que utilizamos en AZLinux.
 
 __ http://getbootstrap.com/
 
+En 2015 nos sumamos a una ola disrruptora: docker__. Esto nos ha liberado de
+tener que pelearnos con las dependencias de los componentes que utilizamos en
+el servidor y de tener que publicar los paquetes que generabamos para distintas
+Distribuciones linux (utilizamos versiones de componentes que aún no han sido liberados
+y esto nos creaba auténticos quebraderos de cabeza)
+
+__https://es.wikipedia.org/wiki/Docker_(software)
+
+Con docker hemos conseguido colocar el servidor y sus dependencias en un
+contenedor virtual (un debian) que puede ejecutarse en cualquier servidor Linux.
+Esto nos ha proporcionado una flexibilidad y portabilidad para ejecutar el servidor de una
+forma muy simple tanto en un equipo físico como en la nube.
+
+
+
 Características
 ===============
 
@@ -159,15 +174,19 @@ Principales componentes empleados
 
 __ https://www.djangoproject.com/
 
-* Servidor web Apache__. Puedes emplear otro si quieres.
+* Servidor web Nginx__.
 
-__ http://www.apache.org/
+__ https://nginx.org/en/
+
+* Chaussette__ como servidor WSGI
+
+__ https://chaussette.readthedocs.io/en/1.3.0/
 
 * Lenguaje de programación Python__.
 
 __ http://www.python.org/
 
-* Base de datos Posgresql__. Puedes usar otras.
+* Base de datos Posgresql__.
 
 __ http://www.postgresql.org/
 
