@@ -9,53 +9,57 @@ Configurando software al estilo migasfree
 
    -- Alan Cohen.
 
-En este capítulo vas a aprender a configurar el servidor migasfree al
-estilo migasfree.
+El objetivo de este capítulo es que veas todo el proceso de la **Gestión
+de la Configuración Software en conjunto**, y lo vamos a hacer desplegando un
+paquete que simplemente instalará unos ficheros de ejemplo (png, gif, mp4, etc.)
+que pueden servir al personal del Centro de Asistencia Usuarios (CAU) para
+comprobar las asociaciones de archivos y aplicaciones.
 
-Quizás no sea el ejemplo más acertado porque vas a configurar sólo
-un servidor migasfree, pero imagina un escenario donde tienes X centros
-de trabajo y te interesa tener un servidor migasfree, con la misma
-configuración en cada centro, para dar servicio a sus clientes.
-Uno de estos servidores, bien podría ser el que admistrara al resto de
-servidores.
-
-El objetivo de este capítulo es que veas todo el proceso de la Gestión
-de la Configuración Software en conjunto.
 
 Al estilo tradicional
 =====================
 
-Imagina que te llega una petición de cambio para modificar, en todos los
-centros, el nombre de la organización de los servidores migasfree con el
-nombre de tu empresa.
+Imagina que te llega una petición de cambio para añadir en todos los
+ordenadores de escritorio de tu organización unos determinados ficheros de test
+para facilitar el trabajo de los compañeros del CAU.
 
-Miras la documentación de migasfree y concluyes que tienes que crear el
-fichero ``/etc/migasfree-server/settings.py`` y añadir la siguiente
-variable:
+Como aún no has pensado como desplegar software en los escritorios linux, decides
+acceder uno a uno a los equipos por ssh y copiarlos manualmente. Tardas unos
+días pero al final realizas el trabajo justo antes de cogerte las
+vacaciones de verano, a excepción de algunos equipos que estaban apagados y que
+no has podido acceder remotamente.
 
-  .. code-block:: none
-
-    MIGASFREE_ORGANIZATION = "ACME"
-
-Decides acceder a cada uno de los equipos por *ssh*, crear el fichero,
-reiniciar el servidor Apache y olvidarte del tema.
-
-Ahora bien, si estás de vacaciones, ¿podría responder fácilmente a las
+Ahora bien, mientras estás de vaciones ¿podría responder fácilmente a las
 cuestiones siguientes tu compañero de trabajo?
 
-* ¿Qué cambios se han realizado en un determinado equipo desde el 1 de
-  enero? ¿Quién los hizo? ¿Y cúando se realizaron todos esos cambios?
+* ¿Qué cambios se han realizado en un determinado equipo desde el 1 de Marzo?
 
-* ¿Qué equipos tienen el cambio propuesto?
+* ¿Quién realizó el cambio?
 
-Este método es sencillo y rápido, pero difícilmente tu compañero va a
-poder reponder estas cuestiones de manera eficaz, aunque hayas registrado
-muy bien tu trabajo. La integridad frente al cambio no está garantizada
-con este método.
+* ¿Cúando se desplegaron todos esos cambios en los equipos?
+
+* ¿Qué equipos tienen un cambio determinado?
+
+Difícilmente tu compañero va a poder reponder estas cuestiones de manera eficaz,
+aunque hayas registrado muy bien tu trabajo.
+
+Podrías haberte ahorrado mucho trabajo usando herramientas como cengine,
+puppet, chef, etc. para el despliegue de estos ficheros, pero aún así no podrías
+contestar fácilmente a dichas preguntas.
+
+La integridad frente al cambio no está garantizada con este método.
 
 A continuación, te propongo otra forma de realizar los cambios de
 configuración. Se basa en utilizar el empaquetado para trasladar los
-cambios a los equipos, conservando la integridad del sistema.
+cambios a los equipos.
+
+   .. note::
+
+      Usa la rueda, no la reinventes. Usando el sistema de paquetería para
+      desplegar el software y su configuración nos proporciona integridad
+      frente a los cambios. Cualquier distribución linux tiene un gesto de
+      paquetes y hace muy bien su trabajo.
+
 
 Asumo que tienes un gestor de proyectos, como *Redmine*, donde vas a
 registrar las peticiones de cambio (o al menos que hagas como que lo
@@ -79,25 +83,8 @@ aceptas en el gestor de proyectos:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Sustituir el nombre de la organización ``My organization``
-     de los servidores migasfree por el de ``ACME``
-
-.. only:: not latex
-
-   .. figure:: graphics/chapter06/myorganization.png
-      :scale: 100
-      :alt: Nombre de la organización.
-
-      figura 6.1. Nombre de la organización.
-
-
-.. only:: latex
-
-   .. figure:: graphics/chapter06/myorganization.png
-      :scale: 50
-      :alt: Nombre de la organización.
-
-      Nombre de la organización.
+     Registro: Copiar distintos ficheros de ejemplos: png, gif, jpg, etc. en
+     todos los ordenadores para uso y disfrute de los compañeros del CAU.
 
 
 Lo primero que haces es identificar al ECS que afecta, es decir, cuál es
@@ -107,7 +94,7 @@ sobre el que actuar, asigna la petición de cambio a un desarrollador
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Crear el paquete **acme-migasfree-server**
+     Registro: Crear el paquete **acme-test-files**
 
      Asignado a: *desarrollador*.
 
@@ -118,7 +105,7 @@ Empaquetado
 ***********
 
 Como desarrollador, tienes que crear el paquete de configuración
-``acme-migasfree-server``. Si nunca has creado un paquete, no te
+``acme-test-files``. Si nunca has creado un paquete, no te
 preocupes, para facilitarte las cosas y que puedas avanzar, centrándote
 en el proceso GCS, descárgate el proyecto ``fun-with-migasfree-examples``
 donde se incluyen los ejemplos utilizados es este libro.
@@ -126,32 +113,18 @@ donde se incluyen los ejemplos utilizados es este libro.
   .. code-block:: none
 
     # apt-get install unzip
-    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/4.13.zip
-    $ unzip 4.13.zip
-    $ cd fun-with-migasfree-examples-4.13
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd fun-with-migasfree-examples-master
 
-Observa cómo modificamos el nombre de la organización:
-
-  .. code-block:: none
-
-    $ less acme-migasfree-server/etc/migasfree-server/settings.py
-
-  .. note::
-
-      En los :ref:`Ajustes del servidor migasfree` puedes ver el
-      conjunto de ajustes que se pueden emplear para adaptar el servidor
-      a tus necesidades.
-
-Y observa también que, en la postinstalación del paquete, se ejecutará el
-comando ``service apache2 reload`` cuando se produzca la configuración
-del paquete:
+Observa los ficheros que incluimos en el paquete ``acme-test-files``:
 
   .. code-block:: none
 
-    $ less acme-migasfree-server/debian/postinst
+    $ ll acme-test-files/usr/share/acme-test-files/
 
 Ya tienes el fuente del paquete. Ahora genera el paquete. Para ello,
-antes debes tener instalados algunos paquetes:
+debes tener instalados algunos paquetes:
 
   .. code-block:: none
 
@@ -161,11 +134,11 @@ Y, ahora sí, genera el paquete:
 
   .. code-block:: none
 
-    $ cd acme-migasfree-server
+    $ cd acme-test-files
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
-¡Felicidades, el cambio está empaquetado en ``acme-migasfree-server_1.0-1_all.deb``!
+¡Felicidades, el cambio está empaquetado en ``acme-test-files_1.0-1_all.deb``!
 
 Subiendo el cambio al servidor
 ******************************
@@ -174,7 +147,7 @@ Usa este comando para subir el paquete generado al servidor.
 
   .. code-block:: none
 
-    # migasfree-upload -f acme-migasfree-server_1.0-1_all.deb
+    # migasfree-upload -f acme-test-files_1.0-1_all.deb
 
 * Introduce usuario: admin
 
@@ -189,7 +162,7 @@ vas a ser tú) y registra en la petición:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Creado paquete **acme-migasfree-server_1.0-1_all.deb**
+     Registro: Creado paquete **acme-test-files_1.0-1_all.deb**
 
      Asignado a: *liberador*
 
@@ -232,29 +205,30 @@ Liberando el cambio de configuración
 
 Ahora, vas a liberar el cambio creando un nuevo *despliegue*.
 
-Antes de nada, debes asegurarte que el usuario con el que te has autenticado tiene
-asignada un proyecto con la que trabajar por defecto. Esto es importante y sólo
-se requiere comprobar en nuevas instalaciones. Para ello pulsa sobre ``admin``
-y ``Preferencias``. Pulsa ``Grabar``.
-
-Ahora sí, ya estás listo para crear tu primer ``Despliegue migasfree``. Para ello, ve a
-``Liberación`` (pulsando sobre el icono del camión) y accede a ``Despliegues``.
+Para ello, ve a ``Liberación`` (pulsando sobre el icono del camión) y accede a ``Despliegues``.
 Luego pulsa en el botón ``+`` para ``añadir un nuevo despliegue`` e introduce estos datos:
 
-* Nombre = ``PRINCIPAL``
+   .. note::
+
+      Coloca el cursor sobre los iconos para familializarte con el nombre de los campos
+      del formulario.
+
+
+* Nombre = ``ficheros de ejemplo #24543`` (Una buena idea es hacer aquí una referencia al
+nº de petición del Gestor de proyectos)
 
 * Proyecto = ``debian-x.x``
 
 * Ahora abre la sección ``Paquetes``
 
-* Paquetes/Conjuntos = ``acme-migasfree-server_1.0-1_all.deb``
+* Paquetes/Conjuntos = ``acme-test-files_1.0-1_all.deb``
 
   En este campo se asignan los paquetes que contendrá el repositorio físico asociado al despliegue.
 
-* Paquetes a instalar = ``acme-migasfree-server``
+* Paquetes a instalar = ``acme-test-files``
 
-  En este campo se escriben los nombres de los paquetes que se
-  instalarán **obligatoriamente** en los clientes.
+  En este campo se escriben los **nombres** de los paquetes que se   instalarán
+  **obligatoriamente** en los clientes.
 
 * Abre la sección ``Atributos``
 * Atributos incluidos = ``SET-ALL SYSTEMS``
@@ -277,7 +251,7 @@ Registra y cierra la petición de cambio:
 Aplicando el cambio
 *******************
 
-Para aplicar el cambio, ejecuta el siguiente comando:
+Para aplicar el cambio a un equipo, ejecuta el siguiente comando:
 
   .. code-block:: none
 
@@ -289,29 +263,16 @@ Observa en la salida del comando:
 
     ****************** Subiendo el historial del software... *******************
     Diferencia en el software: # 2017-02-03 18:21:17
-    +acme-migasfree-server-1.0-1
+    +acme-test-files-1.0-1
     ***************************** Correcto
 
+Puedes comprobar que en /usr/share/acme-test-files tienes los ficheros de ejemplos
+incluidos en el paquete.
 
-Abre el navegador y fíjate que el nombre de la organización ha cambiado
-(Figura 6.3).
+  .. code-block:: none
 
-.. only:: not latex
+    $ ls -la /usr/share/acme-test-files
 
-   .. figure:: graphics/chapter06/acme.png
-      :scale: 100
-      :alt: Cambio nombre organización a ACME.
-
-      figura 6.3. Cambio nombre organización a ACME.
-
-
-.. only:: latex
-
-   .. figure:: graphics/chapter06/acme.png
-      :scale: 50
-      :alt: Cambio nombre organización a ACME.
-
-      Cambio nombre organización a ACME.
 
 Tu segundo cambio de configuración
 ==================================
@@ -319,24 +280,23 @@ Tu segundo cambio de configuración
 Petición
 --------
 
-Te llega la segunda petición de cambio:
+Te llega una segunda petición de cambio, ya que a tus compañeros del CAU les
+ha venido bien estos ficheros de ejemplos pero echan de menos un .svg:
 
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Sustituir de nuevo el nombre de la organización  en los
-     servidores migasfree ya que el nombre correcto es
-     `Acme Corporation.`__
+     Registro: Añadir un fichero svg de prueba para el CAU.
 
-__ http://en.wikipedia.org/wiki/Acme_Corporation
 
 Como siempre, identificas primero el ECS al que afecta el cambio: En
-este caso es a ``acme-migasfree-server``. En la petición
+este caso es a ``acme-test-files``. En la petición
 de cambio, asignas al desarrollador y registras:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Modificar el paquete **acme-migasfree-server-1-0.1**
+     Registro: Modificar el paquete **acme-test-file** añadiendo el
+     svg de ejemplo: https://commons.wikimedia.org/wiki/File:Tux.svg
 
      Asignado a : *desarrollador*.
 
@@ -350,22 +310,18 @@ sencillos de realizar porque, simplemente, se modifica el paquete.
 Empaquetado
 ***********
 
-Edita el fichero del paquete ``acme-migasfree-server/etc/migasfree-server/settings.py``
-y modifica la variable ``MIGASFREE_ORGANIZATION``:
+Descarga el fichero svg de https://commons.wikimedia.org/wiki/File:Tux.svg y
+cópialo en ``acme-test-files/usr/share/acme-test-files``
 
-  .. code-block:: none
-
-    MIGASFREE_ORGANIZATION = "Acme Corporation"
-
-Edita el fichero del paquete``acme-migasfree-server/debian/changelog`` para registrar el
+Edita el fichero del paquete``acme-test-files/debian/changelog`` para registrar el
 cambio realizado. Tendrás que **añadir** estas líneas **al principio
 del fichero**:
 
   .. code-block:: none
 
-    acme-migasfree-server (1.0-2) unstable; urgency=low
+    acme-test-files (1.0-2) unstable; urgency=low
 
-      * Change organitation to Acme Corporation
+      * Added file tux.svg
 
      -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
 
@@ -382,11 +338,22 @@ Presta atención a:
       El formato que se utiliza en el **changelog** en paquetes debian es muy estricto.
       Ten cuidado con los espacios, retornos de carro y fechas.
 
+
+Un aspecto que no hay que descuidar es el tema del copyright y licencia. Edita el fichero
+``acme-test-files/debian/copyright`` y añade el copyright y licencia del fichero tux.svg
+
+  .. code-block:: none
+
+    Files: tux.svg
+    Copyright: lewing@isc.tamu.edu Larry Ewing and The GIMP
+    License: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+
 Ahora, generamos el paquete:
 
   .. code-block:: none
 
-    $ cd acme-migasfree-server
+    $ cd acme-test-files
     $ /usr/bin/debuild --no-tgz-check -us -uc
     $ cd ..
 
@@ -395,8 +362,8 @@ Observa que se ha generado el mismo paquete, pero con la versión ``1.0-2``:
   .. code-block:: none
 
     # root@debian8:~# ls -la *.deb
-    -rw-r--r-- 1 root root 2338 feb  3 17:49 acme-migasfree-server_1.0-1_all.deb
-    -rw-r--r-- 1 root root 2398 feb  3 18:27 acme-migasfree-server_1.0-2_all.deb
+    -rw-r--r-- 1 root root 2338 feb  3 17:49 acme-test-files_1.0-1_all.deb
+    -rw-r--r-- 1 root root 2398 feb  3 18:27 acme-test-files_1.0-2_all.deb
 
 
 Subiendo al servidor el cambio
@@ -404,7 +371,7 @@ Subiendo al servidor el cambio
 
   .. code-block:: none
 
-    # migasfree-upload -f acme-migasfree-server_1.0-2_all.deb
+    # migasfree-upload -f acme-test-files_1.0-2_all.deb
 
 * Introduce usuario: admin
 
@@ -417,7 +384,7 @@ Subiendo al servidor el cambio
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Creado paquete **acme-migasfree-server_1.0-2_all.deb**
+     Registro: Creado paquete **acme-test-files_1.0-2_all.deb**
 
      Asignado a: *liberador*
 
@@ -429,11 +396,11 @@ Liberando el cambio de configuracion
 ************************************
 
 Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
-corresponde a ``acme-migasfree-server_1.0-2_all.deb``.
+corresponde a ``acme-test-files_1.0-2_all.deb``.
 
 Accede a ``Liberación - Despliegues`` y edita el despliegue
-``PRINCIPAL``. Añade a ``Paquetes/Conjuntos`` el paquete
-``acme-migasfree-server_1.0-2_all.deb``.
+``ficheros de ejemplo #24543``. Añade a ``Paquetes/Conjuntos`` el paquete
+``acme-test-files_1.0-2_all.deb``.
 
 Guarda el despliegue.
 
@@ -461,33 +428,24 @@ Observa en la salida de este comando el cambio de software:
 
     ****************** Subiendo el historial del software... *******************
     Diferencia en el software: # 2017-02-03 18:30:21
-    +acme-migasfree-server-1.0-2
-    -acme-migasfree-server-1.0-1
+    +acme-test-files-1.0-2
+    -acme-test-files-1.0-1
     ***************************** Correcto
 
 Comprueba si el cambio se ha aplicado.
 
-.. only:: not latex
+  .. code-block:: none
 
-   .. figure:: graphics/chapter06/acmecorporation.png
-      :scale: 100
-      :alt: Nombre de la organización.
+    $ ls -la /usr/share/acme-test-files
 
-      figura 6.4. Cambio nombre organización a Acme Corporation.
 
-.. only:: latex
-
-   .. figure:: graphics/chapter06/acmecorporation.png
-      :scale: 50
-      :alt: Cambio nombre organización a Acme Corporation.
-
-      Cambio nombre organización a Acme Corporation.
 
 Auditoría
 =========
 
-Ahora sí que vas a responder las siguientes cuestiones de
-manera centralizada desde el servidor migasfree:
+Ahora tu compañero sí que podría responder las siguientes cuestiones de
+manera centralizada desde el servidor migasfree aunque todos los equipos estén
+apagados y tú de vacaciones:
 
 ¿Qué cambios se han producido en el ordenador ``1`` y cuándo?
 -------------------------------------------------------------
@@ -498,34 +456,34 @@ y mira el final del campo ``historial de software`` de la sección ``Software``:
   .. code-block:: none
 
     # 2017-02-03 18:21:17
-    +acme-migasfree-server-1.0-1
+    +acme-test-files-1.0-1
 
     # 2017-02-03 18:30:21
-    +acme-migasfree-server-1.0-2
-    -acme-migasfree-server-1.0-1
+    +acme-test-files-1.0-2
+    -acme-test-files-1.0-1
 
 El signo (-) indica paquete desinstalado y el signo (+) paquete instalado.
 
-¿Qué se cambió, quién y cuándo lo hizo?
----------------------------------------
+¿Qué se cambió, quién y cuándo hizo el cambio?
+----------------------------------------------
 
 Esta información está en el paquete como metainformación. Para acceder
 a ella, accede a ``Liberación - Paquetes``.  Despliega el menú de la derecha del
-paquete ``acme-migasfree-server_1.0-2_all.deb`` y pulsa en
+paquete ``acme-test-files_1.0-2_all.deb`` y pulsa en
 ``Información del paquete``.
 
 Aquí podrás ver el registro de los cambios (entre otra información):
 
   .. code-block:: none
 
-    acme-migasfree-server (1.0-2) unstable; urgency=low
+    acme-test-files (1.0-2) unstable; urgency=low
 
-      * Change organitation to Acme Corporation
+      * Added file svg
 
      -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
 
 
-    acme-migasfree-server (1.0-1) unstable; urgency=low
+    acme-test-files (1.0-1) unstable; urgency=low
 
       * Change organitation to ACME
 
@@ -535,17 +493,16 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 ----------------------------------------------------------
 
 Ve a ``Consultas - Ordenadores en producción con el paquete...``. Escribe en el campo
-Paquete ``acme-migasfree-server-1.0-2`` y obtendrás el resultado.
+Paquete ``acme-test-files-1.0-2`` y obtendrás el resultado.
 
 
 Conclusión
 ==========
 
-Aunque requiera de un esfuerzo inicial *empaquetar la configuración de
-las aplicaciones*, los beneficios que obtendrás justifican sobradamente
-el uso de este método, ya que dispondrás de sistemas más estables, te
-permitirá hacer el seguimento y control de los cambios y mejorarás la
-resolución de incidencias.
+Aunque requiera un esfuerzo inicial el **empaquetado de los ECS* los
+beneficios que obtendrás justifican sobradamente el uso de este método,
+ya que dispondrás de sistemas más estables, te permitirá hacer el seguimento
+y control de los cambios y mejorarás la resolución de incidencias.
 
 Beneficios de crear paquetes de configuración
 ---------------------------------------------

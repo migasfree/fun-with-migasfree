@@ -28,9 +28,9 @@ y echarle un ojo al uso de la API REST.
 
   .. code-block:: none
 
-    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/4.13.zip
-    $ unzip 4.13.zip
-    $ cd fun-with-migasfree-examples-4.13/api-examples
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd fun-with-migasfree-examples-master/api-examples
 
 
 En cuanto a la API antigua (y que va a desaparecer en el futuro) podemos decir

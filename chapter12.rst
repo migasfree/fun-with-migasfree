@@ -10,70 +10,35 @@ Migasfree en producción
 
    -- Albert Einstein
 
+Si te has decidido a instalar en producción el servidor migasfree, asegúrate
+de cambiar las contraseñas a los usuarios que vienen por defecto.
 
-Si te has decidido a instalar en producción el servidor migasfree, debes cambiar
-las contraseñas a los usuarios que vienen por defecto, y preparar un
-**backup** de la base de datos y de la carpeta ``/var/migasfree``.
+Desde la versión 4.14 del servidor migasfree usamos contenedores docker__.
 
-Recomendamos siempre instalar el servidor migasfree sobre un S.O. Debian, pero
-si eres un aventurero, puedes atreverte a emplear otro. Eso sí, igual tienes que
-generar los paquetes tú mismo. En :ref:`Empaquetando migasfree` tienes
-instrucciones de cómo obtenerlos.
+Deberás disponer de una máquina con un S.O. linux de 64 bits sobre
+la que vas a instalar docker y poder ejecutar los 2 contenedores necesarios,
+uno es para la BD y el otro para la aplicación.
+
+__ https://www.docker.com/
 
 
-Instalación
-===========
+Instalación y configuracion del servidor
+========================================
 
-  .. code-block:: none
+Sigue los pasos indicados en migasfree-docker__
 
-    # wget -O - http://migasfree.org/pub/install-server | bash
+__ https://github.com/migasfree/migasfree-docker
 
 
 Configuración del servidor
 ==========================
 
-Crea el fichero ``/etc/migasfree-server/settings.py`` con el siguiente
-contenido (no te olvides de sustituir la **password** por la del usuario
-migasfree de **Postgresql**):
+Una vez en funcionamiento el servidor puedes configurar el servidor mediante
+el fichero /var/lib/migasfree/FQDN/conf/settings.py
 
-  .. code-block:: none
-
-    MIGASFREE_ORGANIZATION="My Organization"
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "migasfree",
-            "USER": "migasfree",
-            "PASSWORD": "mipassword",
-            "HOST": "",
-            "PORT": "",
-       }
-    }
-
-Por motivos de seguridad, dale permisos de sólo lectura al usuario ``www-data``:
-
-  .. code-block:: none
-
-    # chmod 400 /etc/migasfree-server/settings.py
-    # chown www-data:www-data /etc/migasfree-server/settings.py
-
-
-Este es el fichero de configuración del servidor migasfree. Hay diversas
-variables que se pueden configurar aquí para modificar el comportamiento
-de migasfree.
-
-Si necesitas cambiar la password del usuario migasfree en postgresql, haz esto:
-
-  .. code-block:: none
-
-    # su postgres
-    $ psql -c "ALTER USER migasfree WITH PASSWORD 'mipassword';"
-    $ exit
-
-.. note::
-
-      Para una personalización más avanzada, mira los
-      :ref:`Ajustes del servidor migasfree`.
+Hay diversas variables que se pueden configurar aquí para modificar el
+comportamiento de migasfree. Para una personalización más avanzada, mira los
+:ref:`Ajustes del servidor migasfree`.
 
 
 Cambiando las contraseñas
@@ -170,92 +135,6 @@ Puede consultar el `manual de apt-cacher-ng`__ para una configuración más
 avanzada del servicio de caché.
 
 __ http://www.unix-ag.uni-kl.de/~bloch/acng/html/index.html
-
-
-Backups
-=======
-
-A continuación, te sugiero un manera de hacer los backups.
-
-Dump de la base de datos
-------------------------
-
-Para hacer el **dump** de la base de datos, crea el fichero
-``/var/migasfree/dump/migasfree-dump.sh`` (deberás modificar
-"mipassword" por la del usuario migasfree en posgresql):
-
-  .. code-block:: none
-
-    #!/bin/bash
-    export PGPASSWORD=mipassword
-    pg_dump migasfree -U migasfree > /var/migasfree/dump/migasfree.sql
-
-
-Crea también el fichero ``/var/migasfree/dump/migasfree-restore.sh``
-para el caso que tengas que restaurar un dump de la base de datos:
-
-  .. code-block:: none
-
-    #!/bin/bash
-
-    if [ ! "$UID" = "0" ] ; then
-      echo "debes ejecutar como root"
-    fi
-
-    /etc/init.d/apache2 stop
-
-    echo "borrando BD..."
-    echo "DROP DATABASE migasfree;" | su postgres -c psql -
-
-    echo "creando BD migasfree..."
-    su postgres -c "createdb -W -E utf8 -O migasfree migasfree" -
-
-    echo "restore dump..."
-    su postgres -c "psql -U migasfree -f /var/migasfree/dump/migasfree.sql" -
-
-    /etc/init.d/apache2 start
-
-Finalmente, ponemos permisos de ejecución a los scripts:
-
-  .. code-block:: none
-
-    chmod 700 /var/migasfree/dump/migasfree-dump.sh
-    chmod 700 /var/migasfree/dump/migasfree-restore.sh
-
-Tarea periódica
----------------
-
-Para programar una tarea que se ejecute periódicamente realizando el
-dump de la base de datos y la copia de los ficheros de los
-repositorios, crea el fichero ``/var/migasfree/dump/migasfree-backup.sh``
-con el siguiente contenido:
-
-  .. code-block:: none
-
-    # DUMP de la BD postgresql de migasfree
-    /var/migasfree/dump/migasfree-dump.sh
-
-    # BACKUP FICHEROS
-    # (aquí se debe programar el backup de /var/migasfree con rsync p.e.)
-
-Cámbiale los permisos:
-
-  .. code-block:: none
-
-    chmod 700 /var/migasfree/dump/migasfree-backup.sh
-
-Edita como root crontab:
-
-  .. code-block:: none
-
-    crontab -e
-
-y programa la tarea para que se ejecute diariamente a las 23:30 p.e.
-añadiendo la siguiente línea a crontab:
-
-  .. code-block:: none
-
-    30 23 * * * /var/migasfree/dump/migasfree-backup.sh
 
 
 Etiquetando los clientes
