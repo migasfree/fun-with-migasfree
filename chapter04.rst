@@ -121,7 +121,7 @@ el servidor y de tener que publicar los paquetes que generabamos para distintas
 Distribuciones linux (utilizamos versiones de componentes que aún no han sido liberados
 y esto nos creaba auténticos quebraderos de cabeza)
 
-__https://es.wikipedia.org/wiki/Docker_(software)
+__ https://es.wikipedia.org/wiki/Docker_(software)
 
 Con docker hemos conseguido colocar el servidor y sus dependencias en un
 contenedor virtual (un debian) que puede ejecutarse en cualquier servidor Linux.
