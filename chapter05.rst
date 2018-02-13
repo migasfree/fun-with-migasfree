@@ -340,15 +340,22 @@ Desplegando software
 Y ahora, para ir abriendo boca, vamos a instalar y eliminar aplicaciones
 de manera centralizada usando el servidor migasfree.
 
-Supón que quieres instalar ``vlc`` en todos los equipos y que no quieres que en
-ningún caso esté instalado ``totem``.
+Supón que quieres sustituir ``totem`` por ``vlc`` en todos los equipos de tu
+organización.
 
 Accede a ``Liberación - Despliegues`` y pulsa en en símbolo ``+`` para añadir un
 despliegue.
 
+
+  .. note::
+
+      Sitúa el cursor sobre los iconos del formulario de despliegue para
+      identificar cada campo.
+
+
 Introduce los siguientes datos:
 
-    * ``Nombre``: prueba
+    * ``Nombre``: sustituir totem por vlc
 
     * ``proyecto``: (el que corresponda)
 
@@ -358,15 +365,21 @@ Introduce los siguientes datos:
 
 Guarda el despliegue.
 
-En el equipo cliente ejecuta ``migasfree -u``. Comprobarás que el cliente migasfree
-configura el repositorio ``prueba`` y que se ha asegurado
-de que esté instalado el paquete ``vlc`` y desinstalado ``totem``.
+En el equipo cliente ejecuta:
+
+  .. code-block:: none
+
+    # migasfree -u
+
+Puedes comprobar en la salida estándar del cliente migasfree que se ha
+configurado el repositorio ``sustituir_totem_por_vlc`` y que se ha instalado el
+paquete ``vlc`` y desinstalado ``totem``.
 
   .. note::
 
       En el despliegue que acabamos de hacer sólo hemos dado la orden de
       instalar y desintalar paquetes, pero además se ha creado un repositorio de
-      paquetes vacío. En los siguientes capítulos aprenderás a subir tus propios
+      paquetes ``vacío``. En los siguientes capítulos aprenderás a subir tus propios
       paquetes al servidor e introducirlos en los despliegues, pero vayamos
       despacito, suave, suavecito.
 
@@ -384,7 +397,9 @@ despliegue.
 Aprenderás más sobre los despliegues en el capítulo dedicado a
 :ref:`La Liberación`, pero por ahora creo que es suficiente.
 
-¡Enhorabuena de nuevo! Ya sabes desplegar software de manera centralizada.
+¡Enhorabuena de nuevo! Ya sabes como instalar/desinstalar software de manera
+centralizada a un conjunto de ordenadores. No está nada mal para empezar,
+¿no crees?.
 
 En el siguiente capítulo vas a aprender a hacer el cambio de
 configuración software al estilo migasfree.
