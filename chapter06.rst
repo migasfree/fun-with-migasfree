@@ -57,7 +57,7 @@ cambios a los equipos.
 
       Usa la rueda, no la reinventes. Usando el sistema de paquetería para
       desplegar el software y su configuración nos proporciona integridad
-      frente a los cambios. Cualquier distribución linux tiene un gesto de
+      frente a los cambios. Cualquier distribución linux tiene un gestor de
       paquetes y hace muy bien su trabajo.
 
 
@@ -215,13 +215,11 @@ Luego pulsa en el botón ``+`` para ``añadir un nuevo despliegue`` e introduce 
 
 
 * Nombre = ``ficheros de ejemplo #24543`` (Una buena idea es hacer aquí una referencia al
-nº de petición del Gestor de proyectos)
+  nº de petición del Gestor de proyectos)
 
 * Proyecto = ``debian-x.x``
 
-* Ahora abre la sección ``Paquetes``
-
-* Paquetes/Conjuntos = ``acme-test-files_1.0-1_all.deb``
+* Paquetes disponibles = ``acme-test-files_1.0-1_all.deb``
 
   En este campo se asignan los paquetes que contendrá el repositorio físico asociado al despliegue.
 
@@ -230,7 +228,6 @@ nº de petición del Gestor de proyectos)
   En este campo se escriben los **nombres** de los paquetes que se   instalarán
   **obligatoriamente** en los clientes.
 
-* Abre la sección ``Atributos``
 * Atributos incluidos = ``SET-ALL SYSTEMS``
 
   De esta manera indicamos que todos los clientes tendrán acceso a este
@@ -244,7 +241,7 @@ Registra y cierra la petición de cambio:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Liberado en Despliegue **PRINCIPAL**.
+     Registro: Liberado en Despliegue **ficheros de ejemplo #24543**.
 
      Petición: *cerrada*.
 
@@ -399,8 +396,9 @@ Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
 corresponde a ``acme-test-files_1.0-2_all.deb``.
 
 Accede a ``Liberación - Despliegues`` y edita el despliegue
-``ficheros de ejemplo #24543``. Añade a ``Paquetes/Conjuntos`` el paquete
-``acme-test-files_1.0-2_all.deb``.
+``ficheros de ejemplo #24543``.
+
+Añade a ``Paquetes disponibles`` el paquete ``acme-test-files_1.0-2_all.deb``.
 
 Guarda el despliegue.
 
@@ -408,7 +406,8 @@ Registra y cierra la petición de cambio:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Liberado en Despliegue **PRINCIPAL**.
+     Registro: Liberado **acme-test-files_1.0-2_all.deb** en Despliegue
+     **ficheros de ejemplo #24543**.
 
      Petición: *cerrada*.
 
