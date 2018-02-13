@@ -165,24 +165,24 @@ te devolverá una salida parecida a esta:
 
     root@debian:/home/tux# migasfree -u
     Sesión gráfica no detectada
-    Versión de migasfree client: 4.14
+    Versión de migasfree client: 4.15
 
     Opciones de ejecución: /etc/migasfree.conf
-        Versión: debian-8.7
+        Proyecto: debian-8.10
         Servidor: localhost
         Actualizar paquetes automáticamente: True
         Proxy: None
         Certificado SSL: None
         Proxy caché de paquetes: None
         Depuración: False
-        Nombre del ordenador: debian
+        Nombre del ordenador: migasfree
         GUI detallado: True
         PMS: apt-get
 
         Usuario gráfico: root
 
     Autoregistrando ordenador...
-    ¡Clave /var/migasfree-client/keys/localhost/debian-8.7.pri creada!
+    ¡Clave /var/migasfree-client/keys/localhost/debian-8.10.pri creada!
     ¡Clave /var/migasfree-client/keys/localhost/server.pub creada!
     ¡Clave /var/migasfree-client/keys/localhost/repositories.pub creada!
 
@@ -193,21 +193,11 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************************** Evaluando atributos... **************************
-    SET: ALL SYSTEMS
+    PCI: 8086:1237~Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02) ,8086:7000~ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II] ,8086:7111~IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) ,80ee:beef~VGA compatible controller: InnoTek Systemberatung GmbH VirtualBox Graphics Adapter ,8086:100e~Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02) ,80ee:cafe~System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service ,8086:2415~Multimedia audio controller: Intel Corporation 82801AA AC'97 Audio Controller (rev 01) ,106b:003f~USB controller: Apple Inc. KeyLargo/Intrepid USB ,8086:7113~Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08) ,8086:265c~USB controller: Intel Corporation 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller ,8086:2829~SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02) ,
 
-    PCI: 8086:1237~Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02) ,8086:7000~ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II] ,8086:7111~IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01) ,80ee:beef~VGA compatible controller: InnoTek Systemberatung GmbH VirtualBox Graphics Adapter ,8086:100e~Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02) ,80ee:cafe~System peripheral: InnoTek Systemberatung GmbH VirtualBox Guest Service ,106b:003f~USB controller: Apple Inc. KeyLargo/Intrepid USB ,8086:7113~Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08) ,8086:265c~USB controller: Intel Corporation 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller ,8086:2829~SATA controller: Intel Corporation 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode] (rev 02) ,
-
-    IP: 10.0.2.15
-
-    HST: debian
+    HST: migasfree
 
     NET: 10.0.2.0/24
-
-    PLT: Linux
-
-    USR: root~root
-
-    VER: debian-8.7
 
 
     ************************** Subiendo atributos... ***************************
@@ -225,17 +215,19 @@ te devolverá una salida parecida a esta:
 
     ************* Obteniendo los metadatos de los repositorios... **************
     Ign http://ftp.es.debian.org jessie InRelease
-    Obj http://ftp.es.debian.org jessie-updates InRelease
     Obj http://security.debian.org jessie/updates InRelease
-    Obj http://ftp.es.debian.org jessie Release.gpg
-    Obj http://ftp.es.debian.org jessie-updates/main Sources
+    Obj http://ftp.es.debian.org jessie-updates InRelease
+    Obj https://download.docker.com jessie InRelease
     Obj http://security.debian.org jessie/updates/main Sources
-    Des:1 http://ftp.es.debian.org jessie-updates/main amd64 Packages/DiffIndex [6.916 B]
-    Obj http://ftp.es.debian.org jessie Release
+    Obj http://ftp.es.debian.org jessie Release.gpg
+    Obj https://download.docker.com jessie/stable amd64 Packages
     Obj http://security.debian.org jessie/updates/main amd64 Packages
+    Obj http://ftp.es.debian.org jessie-updates/main Sources
+    Des:1 http://ftp.es.debian.org jessie-updates/main amd64 Packages/DiffIndex [10,9 kB]
+    Obj http://ftp.es.debian.org jessie Release
     Obj http://ftp.es.debian.org jessie/main Sources
     Obj http://ftp.es.debian.org jessie/main amd64 Packages
-    Descargados 6.916 B en 1s (5.169 B/s)
+    Descargados 10,9 kB en 1s (6.461 B/s)
     Leyendo lista de paquetes... Hecho
     ***************************** Correcto
 
@@ -246,7 +238,7 @@ te devolverá una salida parecida a esta:
     ***************************** Correcto
 
     ************************* Actualizando paquetes... *************************
-    DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -o APT::Get::Purge=true -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold -o Debug::pkgProblemResolver=1 --assume-yes --force-yes --auto-remove dist-upgrade
+    DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get -o APT::Get::Purge=true -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold -o Debug::pkgProblemResolver=1 --assume-yes --force-yes --allow-unauthenticated --auto-remove dist-upgrade
     Leyendo lista de paquetes...
     Creando árbol de dependencias...
     Leyendo la información de estado...
@@ -257,13 +249,9 @@ te devolverá una salida parecida a esta:
     ****************** Subiendo el inventario del software... ******************
     ***************************** Correcto
 
-    *************** Capturando información sobre el hardware... ***************
-    ***************************** Correcto
-
-    **************** Enviando información sobre el hardware... ****************
-    ***************************** Correcto
-
     ************************* Operaciones completadas **************************
+
+
 
 Comprobando el estado del servidor
 ==================================
