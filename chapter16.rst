@@ -12,7 +12,7 @@ Ajustes del servidor migasfree
 
 
 Los ajustes de configuración del servidor migasfree se asignan en el
-fichero ``/etc/migasfree-server/settings.py``.
+fichero ``/var/lib/migasfree/FQDN/conf/settings.py``.
 
    .. note::
       Este es un fichero ``python``, por lo que hay que llevar cuidado con
@@ -313,7 +313,7 @@ Para evitarlo, es preciso añadir estos UUIDs en este ajuste.
 Cuando un ordenador tiene un UUID inválido, el servidor toma y asigna el ``nombre
 del ordenador`` como UUID.
 
-Puedes hacer UUIDs inválidos añadiendo en ``/etc/migasfree-server/settings.py``
+Puedes hacer UUIDs inválidos añadiendo en ``/var/lib/migasfree/FQDN/conf/settings.py``
 la siguiente instrucción:
 
   .. code-block:: none
@@ -379,7 +379,7 @@ Ajustes de Django
 
 Los `ajustes de Django`__ también pueden ser modificados para
 adaptar el funcionamiento del servidor añadiendo el ajuste en el fichero
-``/etc/migasfree-server/settings.py``.
+``/var/lib/migasfree/FQDN/conf/settings.py``.
 
 __ https://docs.djangoproject.com/en/dev/ref/settings/
 

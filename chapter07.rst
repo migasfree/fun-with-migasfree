@@ -16,8 +16,7 @@ En el capítulo anterior nos hemos centrado en cómo se realiza el proceso
 de la GCS.
 
 En este capítulo vas a *configurar el cliente de migasfree* (mediante empaquetado)
-para que se conecte a la máquina virtual **Debian 8** en el que ya tienes un servidor
-migasfree instalado.
+para que se conecte al servidor migasfree que ya debes tener funcionando.
 
 Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual,
 con Ubuntu instalado, y que debes tener en la misma red en la que esté la máquina
@@ -48,7 +47,7 @@ así que no lo hagas manualmente.
 Obteniendo acme-migasfree-client
 ================================
 
-Al igual que hiciste con la configuración del servidor, puedes bajarte
+Al igual que hiciste con ``acme-test-files``, puedes bajarte
 el fuente del paquete que vamos a utilizar de plantilla para configurar el
 cliente de migasfree.
 

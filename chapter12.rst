@@ -22,8 +22,8 @@ uno es para la BD y el otro para la aplicación.
 __ https://www.docker.com/
 
 
-Instalación y configuracion del servidor
-========================================
+Instalación
+===========
 
 Sigue los pasos indicados en migasfree-docker__
 

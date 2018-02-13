@@ -26,7 +26,7 @@ misma que la que está configurada en el servidor.
 Solución
 ********
 
-Comprueba la contraseña que tienes en ``/etc/migasfree-server/settings.py``
+Comprueba la contraseña que tienes en ``/var/lib/migasfree/FQDN/conf/settings.py``
 es la misma que la del usuario ``migasfree`` en Postgresql. Si no existe
 este fichero, la contraseña por defecto es ``migasfree``.
 

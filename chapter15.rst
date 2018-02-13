@@ -31,7 +31,7 @@ Servidor en modo DEBUG
 
 Al estar el servidor realizado con Django, puedes usar el ajuste `DEBUG`__ a
 ``True``. Este ajuste del servidor debes ponerlo en el fichero
-``/etc/migasfree-server/settings.py`` y después reiniciar el servidor web.
+``/var/lib/migasfree/FQDN/conf/settings.py`` y después reiniciar el servidor web.
 
 __ https://docs.djangoproject.com/en/dev/ref/settings/#debug
 
@@ -41,7 +41,7 @@ información muy extensa y que te permitirá ver qué está ocurriendo.
 
   .. note::
 
-    Nunca dejes el modo DEBUG en un entorno de producción por seguridad.
+    Nunca dejes el modo DEBUG en un entorno de producción por motivos de seguridad.
 
 Activar el sistema de logging en el servidor
 ============================================
@@ -51,7 +51,7 @@ El servidor utiliza el módulo de `logging`__ de Python.
 __ https://docs.djangoproject.com/en/dev/topics/logging/
 
 Para activar el sistema de logging en el servidor de migasfree añade el
-ajuste `LOGGING`__ en /etc/migasfree-server/settings.py:
+ajuste `LOGGING`__ en /var/lib/migasfree/FQDN/conf/settings.py:
 
 __ https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-LOGGING
 
