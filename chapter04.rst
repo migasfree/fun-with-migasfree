@@ -143,8 +143,8 @@ Características
 * Es seguro. Las comunicaciones entre cliente y servidor están firmadas con
   claves asimétricas.
 
-* Es adaptable. Puedes programar las propiedades para adaptarlas a tus
-  necesidades.
+* Es adaptable. Puedes programar tus propias ``fórmulas`` para obtener
+  los ``atributos`` de los ordenadores y usuarios según tus intereses.
 
 * Es Software Libre licenciado bajo la **GNU Public License**.
 
