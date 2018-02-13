@@ -45,25 +45,54 @@ de la migasfreelogía.* [#f1]_
 
    \newpage
 
-`Migasfree`__ es una de las herramientas que estamos utilizando con éxito
+¿Qué es migasfree en cuatro palabras?
+-------------------------------------
+
+**Un gestor de despliegues**.
+
+Me atrevo incluso con sólo una palabra: **Desplegador**.
+
+`Migasfree`__ se ocupa principalmente del proceso de la liberación de software y
+de la posterior auditoría de los cambios producidos en los equipos como
+consecuencia de esa liberación.
+
+__ http://migasfree.org
+
+Es una de las herramientas que estamos utilizando con éxito
 en `AZLinux`__, el proyecto de migración a escritorio libre del `Ayuntamiento
 de Zaragoza`__.
 
-__ http://migasfree.org
 __ http://zaragozaciudad.net/azlinux/
 __ http://zaragoza.es
-
-Se ocupa principalmente del proceso de la liberación de software y
-de la posterior auditoría de los cambios producidos en los equipos como
-consecuencia de esa liberación.
 
 Este software se ha hecho indispensable en nuestro día a día,
 y creo que es una buena solución para personalizar y administrar
 escritorios de forma eficaz.
 
+
+¿Para qué sirve migasfree?
+--------------------------
+
+* Para administrar ordenadores de forma centralizada.
+
+* Desplegar actualizaciones según calendarios y características de ordenadores
+  y usuarios.
+
+* Controlar y personalizar cada ordenador, manteniendo íntegros tus sistemas.
+
+* Auditar hardware y software.
+
+
 Este libro te introducirá en el uso de migasfree y lo escribo a medida
 que mejoramos el software, con lo que, si te lo descargaste hace tiempo,
 quizás ya esté obsoleto. Tenlo en cuenta.
+
+A quién va dirigido
+===================
+
+Este libro puede serte útil si eres administrador de escritorios (y/o servidores)
+y quieres personalizar y administrar de forma eficaz tus equipos,
+manteniendo la integridad de los sistemas.
 
 Estructura
 ==========
@@ -114,24 +143,6 @@ Contiene intrucciones para empaquetar migasfree en cualquier Distribución.
 Contiene la API de migasfree, la bibliografía, referencias y licencia de
 este libro.
 
-¿Para qué sirve migasfree?
-==========================
-
-* Para administrar tus ordenadores.
-
-* Desplegar actualizaciones según calendarios y características de
-ordenadores y usuarios.
-
-* Controlar y personalizar cada ordenador, manteniendo íntegros tus sistemas.
-
-* Auditar hardware y software.
-
-A quién va dirigido
-===================
-
-Este libro puede serte útil si eres administrador de escritorios (y/o servidores)
-y quieres personalizar y administrar de forma eficaz tus equipos,
-manteniendo la integridad de los sistemas.
 
 Agradecimientos
 ===============
