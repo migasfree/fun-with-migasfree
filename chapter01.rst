@@ -114,6 +114,18 @@ Contiene intrucciones para empaquetar migasfree en cualquier Distribución.
 Contiene la API de migasfree, la bibliografía, referencias y licencia de
 este libro.
 
+¿Para qué sirve migasfree?
+==========================
+
+* Para administrar tus ordenadores.
+
+* Desplegar actualizaciones según calendarios y características de
+ordenadores y usuarios.
+
+* Controlar y personalizar cada ordenador, manteniendo íntegros tus sistemas.
+
+* Auditar hardware y software.
+
 A quién va dirigido
 ===================
 
