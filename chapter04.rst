@@ -170,40 +170,26 @@ Características
 Principales componentes empleados
 =================================
 
+* Lenguaje de programación Python__.
+
+__ http://www.python.org/
+
 * Django__ un framework de desarrollo web.
 
 __ https://www.djangoproject.com/
 
 * Servidor web Nginx__.
 
-__ https://nginx.org/en/
+__ https://nginx.org/
 
 * Chaussette__ como servidor WSGI
 
-__ https://chaussette.readthedocs.io/en/1.3.0/
-
-* Lenguaje de programación Python__.
-
-__ http://www.python.org/
+__ https://chaussette.readthedocs.io/
 
 * Base de datos Posgresql__.
 
 __ http://www.postgresql.org/
 
-* Intérprete de comandos Bash__.
-
-__ http://www.gnu.org/software/bash/manual/bashref.html
-
-* Sistemas de paquetería como APT__ ó RPM__.
-
-__ https://launchpad.net/apt-project
-
-__ http://www.rpm.org/
-
 * Información Hardware: Lshw__.
 
 __ http://ezix.org/project/wiki/HardwareLiSter
-
-* Bootstrap__ un framework para desarrollo web.
-
-__ http://getbootstrap.com/
