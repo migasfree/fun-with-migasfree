@@ -274,7 +274,7 @@ Hay varias formas de realizar esta instalación:
 
   .. code-block:: none
 
-    deb http://<myserver>/public/<project>/REPOSITORIES <store> PKGS
+    deb http://<myserver>/public/<project>/REPOSITORIES <deployment> PKGS
 
   donde sustituirás:
 
@@ -282,15 +282,16 @@ Hay varias formas de realizar esta instalación:
 
   * ``<project>`` por el proyecto que pusiste en /etc/migasfree.conf
 
-  * y ``<store>`` por la ubicación que pusiste al subir el paquete al servidor migasfree
-    con migasfree-upload.
+  * y ``<deployment>`` por el nombre de un despliegue que tenga como
+  paquetes disponibles: ``acme-migasfree-client`` y ``migasfree-client``, y
+  como paquetes a instalar: ``acme-migasfree-client``
 
   Una vez creado este fichero ejecuta:
 
     .. code-block:: none
 
       # apt-get update
-      # migasfree -u
+      # apt-get install acme-migasfree-client
 
    y los paquetes se instalarán automáticamente.
 

@@ -498,7 +498,7 @@ Paquete ``acme-test-files-1.0-2`` y obtendrás el resultado.
 Conclusión
 ==========
 
-Aunque requiera un esfuerzo inicial el **empaquetado de los ECS* los
+Aunque requiera un esfuerzo inicial el **empaquetado de los ECS** los
 beneficios que obtendrás justifican sobradamente el uso de este método,
 ya que dispondrás de sistemas más estables, te permitirá hacer el seguimento
 y control de los cambios y mejorarás la resolución de incidencias.
