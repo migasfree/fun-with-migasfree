@@ -283,17 +283,19 @@ Hay varias formas de realizar esta instalación:
   * ``<project>`` por el proyecto que pusiste en /etc/migasfree.conf
 
   * y ``<deployment>`` por el nombre de un despliegue que tenga como
-  paquetes disponibles: ``acme-migasfree-client`` y ``migasfree-client``, y
-  como paquetes a instalar: ``acme-migasfree-client``
+  paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client`` y
+  ``migasfree-launcher``. Como paquetes a instalar puedes poner:
+  ``tuempresa-migasfree-client`` y ``migasfree-launcher``
 
   Una vez creado este fichero ejecuta:
 
     .. code-block:: none
 
       # apt-get update
-      # apt-get install acme-migasfree-client
+      # apt-get install tuempresa-migasfree-client
+      # migasfree -u
 
-   y los paquetes se instalarán automáticamente.
+  y tendrás instalados los 3 paquetes.
 
 * Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes,
   utilizando un sistema de clonado como `clonezilla`__. Este es el método
