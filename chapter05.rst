@@ -351,17 +351,36 @@ Introduce los siguientes datos:
 
     * ``paquetes a desinstalar``: totem
 
+    * ``atributos incluidos``: ALL SYSTEMS
+
 Guarda el despliegue.
 
-En el equipo cliente ejecuta:
+Ahora ``sincroniza`` el equipo cliente con el servidor migasfree:
 
   .. code-block:: none
 
     # migasfree -u
 
 Puedes comprobar en la salida estándar del cliente migasfree que se ha
-configurado el repositorio ``sustituir_totem_por_vlc`` y que se ha instalado el
+configurado el repositorio ``sustituir-totem-por-vlc`` y que se ha instalado el
 paquete ``vlc`` y desinstalado ``totem``.
+
+  .. code-block:: none
+
+    ************* Obteniendo los metadatos de los repositorios... **************
+    Obj http://localhost sustituir-totem-por-vlc InRelease
+    Des:1 http://localhost sustituir-totem-por-vlc/PKGS amd64 Packages [29 B]
+
+    ...
+    ************************ Desinstalando paquetes... *************************
+    Los siguientes paquetes se ELIMINARÁN:
+      totem*
+    ***************************** Correcto
+
+    ******************* Instalando paquetes obligatorios... ********************
+    Se instalarán los siguientes paquetes NUEVOS:
+      vlc
+    ***************************** Correcto
 
   .. note::
 
@@ -381,6 +400,12 @@ Observa que también puedes excluir ordenadores. El servidor sigue la siguiente
 lógica: primero comprueba los ordenadores incluidos y después excluye los
 ordenadores que tenga algún atributo que coincida con los atributos excluidos del
 despliegue.
+
+  .. note::
+
+      Ahora cada vez que un ordenador se sincroniza con el servidor
+      (y se le aplica este despliegue), se instala vlc y desinstala totem
+      si es necesario.
 
 Aprenderás más sobre los despliegues en el capítulo dedicado a
 :ref:`La Liberación`, pero por ahora creo que es suficiente.
