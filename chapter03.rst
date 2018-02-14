@@ -405,17 +405,17 @@ __ http://www.redmine.org/
 
     - Editor de textos: Geany__
 
-    - IDE: Ninja-ide__
+    - IDE: PyCharm__
 
-    - Sistema de control de versiones: Git__
+    - Sistema de control de versiones: GitLab__
 
     - Gestor de proyectos: Redmine__
 
 __ http://www.geany.org/
 
-__ http://www.ninja-ide.org/
+__ https://www.jetbrains.com/pycharm/
 
-__ http://git-scm.com/
+__ https://github.com/gitlabhq/gitlabhq
 
 __ http://www.redmine.org/
 
