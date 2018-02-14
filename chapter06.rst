@@ -484,11 +484,11 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 
     acme-test-files (1.0-1) unstable; urgency=low
 
-      * Change organitation to ACME
+      * Ficheros de ejemplos
 
      -- Alberto Gacías <alberto@migasfree.org>  Sat, 18 May 2013 08:32:00 +0200
 
-¿Qué equipos tienen el cambio acme-migasfree-server-1.0-2?
+¿Qué equipos tienen el cambio acme-test-files-1.0-2?
 ----------------------------------------------------------
 
 Ve a ``Consultas - Ordenadores en producción con el paquete...``. Escribe en el campo
