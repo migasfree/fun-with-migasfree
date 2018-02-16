@@ -38,15 +38,16 @@ para que puedas empezar a manejarte con docker.
 
 * ``docker images``  # muestra las imágenes.
 
-* ``docker ps -a``  # muestra los contenedores:
+* ``docker ps -a``  # muestra los contenedores.
 
-* ``docker rmi -f <imagen>``  # borra una imagen
+* ``docker rmi -f <imagen>``  # borra una imagen.
 
-* ``docker rm -f <contenedor>``  # borra un contenedor
+* ``docker rm -f <contenedor>``  # borra un contenedor.
 
-* ``docker restart <contenedor>``  # reinicia un contenedor
+* ``docker restart <contenedor>``  # reinicia un contenedor.
 
-* ``docker exec -ti <contenedor> bash`` # ejecuta un bash interactivo dentro de un contenedor
+* ``docker exec -ti <contenedor> bash`` # ejecuta un bash interactivo
+  dentro de un contenedor.
 
 
 Actualización del servidor migasfree
@@ -71,7 +72,7 @@ Configuración del servidor
 ==========================
 
 Una vez en funcionamiento el servidor puedes configurar el servidor mediante
-el fichero /var/lib/migasfree/FQDN/conf/settings.py
+el fichero ``/var/lib/migasfree/FQDN/conf/settings.py``
 
 Hay diversas variables que se pueden configurar aquí para modificar el
 comportamiento de migasfree. Para una personalización más avanzada, mira los
