@@ -30,6 +30,43 @@ Sigue los pasos indicados en migasfree-docker__
 __ https://github.com/migasfree/migasfree-docker
 
 
+Mantenimiento de contenedores
+=============================
+
+Si nunca has usado docker te describo las instrucciones más básicas
+para que puedas empezar a manejarte con docker.
+
+* ``docker images``  # muestra las imágenes.
+
+* ``docker ps -a``  # muestra los contenedores:
+
+* ``docker rmi -f <imagen>``  # borra una imagen
+
+* ``docker rm -f <contenedor>``  # borra un contenedor
+
+* ``docker restart <contenedor>``  # reinicia un contenedor
+
+* ``docker exec -ti <contenedor> bash`` # ejecuta un bash interactivo dentro de un contenedor
+
+
+Actualización del servidor migasfree
+====================================
+
+Puedes actualizar el servidor modificando la variable ``MIGASFREE_VERSION``
+del fichero ``variables`` y ejecutando de nuevo:
+
+  .. code-block:: none
+
+    # . variables
+    # docker-compose up -d
+
+  .. note::
+
+    Puedes ver las distintas versiones disponibles en el `repositorio de docker`__
+
+__ https://hub.docker.com/r/migasfree/server/tags/
+
+
 Configuración del servidor
 ==========================
 
@@ -39,6 +76,9 @@ el fichero /var/lib/migasfree/FQDN/conf/settings.py
 Hay diversas variables que se pueden configurar aquí para modificar el
 comportamiento de migasfree. Para una personalización más avanzada, mira los
 :ref:`Ajustes del servidor migasfree`.
+
+
+No olvides reiniciar el contenedor si modificas alguno de estos ajustes.
 
 
 Cambiando las contraseñas
