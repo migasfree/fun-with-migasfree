@@ -10,16 +10,24 @@ Migasfree en producción
 
    -- Albert Einstein
 
-Si te has decidido a instalar en producción el servidor migasfree, asegúrate
-de cambiar las contraseñas a los usuarios que vienen por defecto.
-
-Desde la versión 4.14 del servidor migasfree usamos contenedores docker__.
 
 Deberás disponer de una máquina con un S.O. linux de 64 bits sobre
 la que vas a instalar docker y poder ejecutar los 2 contenedores necesarios,
 uno es para la BD y el otro para la aplicación.
 
+  .. note::
+
+    Desde la versión 4.14 del servidor migasfree sólo proveemos contenedores docker__
+    para ejecutarlo. Esto nos ha liberado de la tediosa tarea de tener que
+    construir los paquetes necesarios para su ejecución, a la vez
+    que nos aprovechamos de las beneficios de usar contenedores.
+
 __ https://www.docker.com/
+
+  .. note::
+
+    Importante: Asegúrate de cambiar las contraseñas a los usuarios que vienen
+    por defecto.
 
 
 Instalación
