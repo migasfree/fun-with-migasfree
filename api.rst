@@ -32,6 +32,16 @@ y echarle un ojo al uso de la API REST.
     $ unzip master.zip
     $ cd fun-with-migasfree-examples-master/api-examples
 
+Es necesario para usar estos ejemplos que tengas instalado el migasfree-sdk.
+
+__ https://github.com/migasfree/migasfree-sdk
+
+Puedes ejecutar este comando para instalarlo:
+
+  .. code-block:: none
+
+    # wget -O - http://migasfree.org/pub/install-sdk | bash
+
 
 En cuanto a la API antigua (y que va a desaparecer en el futuro) podemos decir
 que tiene 2 tipos de API:
