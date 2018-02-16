@@ -32,11 +32,11 @@ y echarle un ojo al uso de la API REST.
     $ unzip master.zip
     $ cd fun-with-migasfree-examples-master/api-examples
 
-Es necesario para usar estos ejemplos que tengas instalado el migasfree-sdk.
+Es necesario, para usar estos ejemplos, que tengas instalado el `migasfree-sdk`__.
 
 __ https://github.com/migasfree/migasfree-sdk
 
-Puedes ejecutar este comando para instalarlo:
+Puedes ejecutar esta instrucción para instalarlo:
 
   .. code-block:: none
 
