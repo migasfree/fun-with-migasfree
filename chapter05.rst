@@ -16,7 +16,7 @@ en explicaciones.
    .. note::
 
       Usa una máquina virtual de virtualbox__ realizando la instalación
-      mínima por red de Debian__ 8 64 bits para ver el funcionamiento de migasfree
+      mínima por red de Debian__ 64 bits para ver el funcionamiento de migasfree
       y familiarizarte con él antes de poner a :ref:`Migasfree en producción`
 
 
@@ -34,7 +34,7 @@ usado docker__ o simplemente quieres avanzar más rápido te proporcionamos este
 un servidor migasfree ya instalado.
 
 __ https://www.docker.com/
-__ https://drive.google.com/file/d/1brRxXDCCMQmEEu5yMBsHPKsigLjwyeFF
+__ https://drive.google.com/open?id=1I6zgUeRhURJamHuYkDfGr8iNAHpD2REy
 
 
 Con virtualbox instalado, y una vez descargado el fichero OVA haz doble click en él y a
@@ -43,7 +43,7 @@ menú de virtualbox: configuración-red-avanzadas-reenvío de puertos:
 
   .. code-block:: none
 
-    Nombre1  Protocolo    IP anfitrión  Puerto  IP invitado  Puerto invitado
+    Nombre   Protocolo    IP anfitrión  Puerto  IP invitado  Puerto invitado
     =======  =========    ============  ======  == ========  ===============
     Rule 1   TCP          127.0.0.1     2222    10.0.2.15    22
     Rule 2   TCP          127.0.0.1     8080    10.0.2.15    80
@@ -60,7 +60,7 @@ Una vez dentro puedes loguearte como root de la siguiente manera:
 
   .. code-block:: none
 
-    tux@migasfree:~$ su root
+    tux@migasfree:~$ su
 
 Para acceder al servidor web instalado en esta máquina virtual usa la URL
 http://127.0.0.1:8080 desde el equipo anfitrión.
