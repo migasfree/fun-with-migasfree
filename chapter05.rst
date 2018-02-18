@@ -328,7 +328,7 @@ Desplegando software
 Y ahora, para ir abriendo boca, vamos a instalar y eliminar aplicaciones
 de manera centralizada usando el servidor migasfree.
 
-Supón que quieres sustituir ``totem`` por ``vlc`` en todos los equipos de tu
+Supón que quieres sustituir ``nano`` por ``vim`` en todos los equipos de tu
 organización.
 
 Accede a ``Liberación - Despliegues`` y pulsa en en símbolo ``+`` para añadir un
@@ -343,13 +343,13 @@ despliegue.
 
 Introduce los siguientes datos:
 
-    * ``Nombre``: sustituir totem por vlc
+    * ``Nombre``: sustituir nano por vim
 
     * ``proyecto``: (el que corresponda)
 
-    * ``paquetes a instalar``: vlc
+    * ``paquetes a instalar``: vim
 
-    * ``paquetes a desinstalar``: totem
+    * ``paquetes a desinstalar``: nano
 
     * ``atributos incluidos``: ALL SYSTEMS
 
@@ -362,24 +362,24 @@ Ahora ``sincroniza`` el equipo cliente con el servidor migasfree:
     # migasfree -u
 
 Puedes comprobar en la salida estándar del cliente migasfree que se ha
-configurado el repositorio ``sustituir-totem-por-vlc`` y que se ha instalado el
-paquete ``vlc`` y desinstalado ``totem``.
+configurado el repositorio ``sustituir-nano-por-vim`` y que se ha instalado el
+paquete ``vim`` y desinstalado ``nano``.
 
   .. code-block:: none
 
     ************* Obteniendo los metadatos de los repositorios... **************
-    Obj http://localhost sustituir-totem-por-vlc InRelease
-    Des:1 http://localhost sustituir-totem-por-vlc/PKGS amd64 Packages [29 B]
+    Obj http://localhost sustituir-nano-por-vim InRelease
+    Des:1 http://localhost sustituir-nano-por-vim/PKGS amd64 Packages [29 B]
 
     ...
     ************************ Desinstalando paquetes... *************************
     Los siguientes paquetes se ELIMINARÁN:
-      totem*
+      nano*
     ***************************** Correcto
 
     ******************* Instalando paquetes obligatorios... ********************
     Se instalarán los siguientes paquetes NUEVOS:
-      vlc
+      vim
     ***************************** Correcto
 
   .. note::
@@ -404,11 +404,22 @@ despliegue.
   .. note::
 
       Ahora cada vez que un ordenador se sincroniza con el servidor
-      (y se le aplica este despliegue), se instala vlc y desinstala totem
+      (y se le aplica este despliegue), se instala ``vim`` y desinstala ``nano``
       si es necesario.
 
+  .. note::
+
+Si ahora queremos instalar ``vim`` y ``nano`` en todos los ordenadores, pon sus
+nombres en ``paquetes a instalar`` y deja en blanco ``paquetes a desinstalar``:
+
+    * ``paquetes a instalar``: vim nano
+
+    * ``paquetes a desinstalar``:
+
+Conforme los equipos se vayan sincronizando se producirán los cambios.
+
 Aprenderás más sobre los despliegues en el capítulo dedicado a
-:ref:`La Liberación`, pero por ahora creo que es suficiente.
+:ref:`La Liberación`.
 
 ¡Enhorabuena de nuevo! Ya sabes como instalar/desinstalar software de manera
 centralizada a un conjunto de ordenadores. No está nada mal para empezar,
