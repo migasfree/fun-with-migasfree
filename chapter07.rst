@@ -15,7 +15,7 @@ Configurando migasfree-client
 En el capítulo anterior nos hemos centrado en cómo se realiza el proceso
 de la GCS.
 
-En este capítulo vas a *configurar el cliente de migasfree* (mediante empaquetado)
+En este capítulo, vas a *configurar el cliente de migasfree* (mediante empaquetado)
 para que se conecte al servidor migasfree que ya debes tener funcionando.
 
 Todos los comandos de este capítulo los vas a ejecutar en otra máquina virtual,
@@ -27,7 +27,7 @@ El objetivo de este capítulo es que conozcas un poco más el empaquetado.
 Instalando migasfree-client en Ubuntu
 =====================================
 
-Instala el cliente migasfree:
+Instala el cliente *migasfree*:
 
   .. code-block:: none
 
@@ -109,7 +109,7 @@ Ahora que conoces el significado de estos ficheros, modifícalos cambiando
 el nombre del paquete ``acme-migasfree-client`` por ``tuempresa-migasfree-client``
 y pon tu nombre y la fecha actual allí donde se requiera.
 
-Modifica también el nombre del directorio raiz ``acme-migasfree-client``
+Modifica también el nombre del directorio raíz ``acme-migasfree-client``
 por ``tuempresa-migasfree-client``.
 
 Scripts
@@ -130,7 +130,7 @@ desviación, indicamos al sistema de gestión de paquetes que un fichero ya
 no pertenece a un determinado paquete sino al que nosotros establezcamos.
 
 Así, el fichero de configuración ``/etc/migasfree.conf``, que pertenece en
-principio al paquete migasfree-client, hacemos que pertenezca al paquete
+principio al paquete ``migasfree-client``, hacemos que pertenezca al paquete
 ``tuempresa-migasfree-client`` de tal manera que, una posible
 actualización de ``migasfree-client`` ya no nos afectará. Cada vez que
 queramos modificar un ajuste del cliente migasfree en ``/etc/migasfree.conf``,
@@ -140,7 +140,7 @@ del paquete ``tuempresa-migasfree-client``.
 Fíjate también que en ``prerm`` deshacemos esta desviación, para que
 si desinstalamos el paquete, quede todo como estaba.
 
-Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf``. Tendŕas que
+Modifica ahora el fichero ``usr/share/divert/etc/migasfree.conf``. Tendrás que
 poner el ajuste ``Server`` con el nombre, o la IP, del servidor migasfree que
 hemos utilizado anteriormente, y el ajuste ``Project`` con el nombre de tu
 distribución, por ejemplo ``ACME-1``. El resto de ajustes, modifícalos según tus
@@ -153,7 +153,7 @@ paquete ``devscripts`` y ``debhelper`` previamente instalados).
     $ /usr/bin/debuild --no-tgz-check -us -uc
 
 Con esto tendrás un paquete que configura el cliente migasfree para tu
-organización. Ahora es momento de instalarlo:
+organización. Ahora, es momento de instalarlo:
 
   .. code-block:: none
 
@@ -168,7 +168,7 @@ son los correctos.
     # less /etc/migasfree.conf
 
 
-Ahora ya estás preparado para registrar este ordenador en el servidor migasfree.
+Ahora ya estás preparado para registrar este ordenador en el servidor *migasfree*.
 
   .. code-block:: none
 
@@ -196,7 +196,7 @@ disponible para su liberación a otros escritorios ``ACME-1``.
 Ejecución del cliente migasfree
 ===============================
 
-Hasta ahora, siempre hemos ejecutado el cliente migasfree desde consola
+Hasta ahora, siempre hemos ejecutado el cliente *migasfree* desde consola
 mediante el comando ``migasfree -u`` como ``root``. Ahora vamos a hacer
 que se ejecute automáticamente cada vez que el usuario abra una sesión
 gráfica. Para este propósito, existe el paquete ``migasfree-launcher``.
@@ -216,7 +216,7 @@ Sube el fichero migasfree-launcher al servidor:
 
     # migasfree-upload -f migasfree-launcher_1.0-1_all.deb
 
-Ahora observa los ficheros que contiene este paquete:
+Ahora, observa los ficheros que contiene este paquete:
 
 * ``etc/sudoers.d/migasfree-launcher`` establece los comandos que no
   requieren **password de root** para que pueden ser ejecutados desde un
@@ -225,8 +225,8 @@ Ahora observa los ficheros que contiene este paquete:
 
 * ``etc/xdg/autostart/migasfree-indicator.desktop`` ejecutará el comando
   ``/usr/bin/migasfree-indicator`` cuando el usuario inicia sesión gráfica.
-  ``migasfree-indicator`` llamará a ``/usr/bin/migasfree-launcher`` y éste a
-  su vez a ``migasfree --update``.
+  ``migasfree-indicator`` llamará a ``/usr/bin/migasfree-launcher`` y éste, a
+  su vez, a ``migasfree --update``.
 
   Puedes aprender más sobre la especificación de los ficheros **.desktop**
   en `freedesktop.org`__.
@@ -234,7 +234,7 @@ Ahora observa los ficheros que contiene este paquete:
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
 
 Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
-``migasfree-launcher`` en el servidor migasfree, crea un despliegue en el
+``migasfree-launcher`` en el servidor *migasfree*, crea un despliegue en el
 servidor y pon estos paquetes en ``paquetes a instalar`` y asígnale el
 atributo ``SET-ALL SYSTEMS``.
 
@@ -283,11 +283,11 @@ Hay varias formas de realizar esta instalación:
   * ``<project>`` por el proyecto que pusiste en /etc/migasfree.conf
 
   * y ``<deployment>`` por el nombre de un despliegue que tenga como
-  paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client`` y
-  ``migasfree-launcher``. Como paquetes a instalar puedes poner:
-  ``tuempresa-migasfree-client`` y ``migasfree-launcher``
+    paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client`` y
+    ``migasfree-launcher``. Como paquetes a instalar puedes poner:
+    ``tuempresa-migasfree-client`` y ``migasfree-launcher``
 
-  Una vez creado este fichero ejecuta:
+  Una vez creado este fichero, ejecuta:
 
     .. code-block:: none
 
@@ -300,7 +300,7 @@ Hay varias formas de realizar esta instalación:
 * Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes,
   utilizando un sistema de clonado como `clonezilla`__. Este es el método
   que usamos en **AZLinux**, y nos resulta muy cómodo y rápido ya que en
-  una memoria USB llevamos un clonezilla, junto con la imagen clonada de nuestro
+  una memoria USB llevamos un *clonezilla*, junto con la imagen clonada de nuestro
   escritorio, consiguiendo instalar un AZLinux en menos de 10 minutos.
 
 __ http://clonezilla.org/
@@ -308,7 +308,7 @@ __ http://clonezilla.org/
 * Puedes crear un DVD de tu escritorio tal y como se realiza en el proyecto
   `vitalinux`__. En concreto, tendrías que adaptar el paquete `vx-create-iso`__
   a tus necesidades. En este método son los usuarios quienes se
-  bajan la iso del DVD y se instalan ellos mismos el sistema.
+  bajan la ISO del DVD y se instalan ellos mismos el sistema.
 
-__ http://vitalinux.org
+__ http://wiki.vitalinux.educa.aragon.es/
 __ https://github.com/vitalinux/vx-create-iso

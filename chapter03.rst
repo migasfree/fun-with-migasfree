@@ -9,8 +9,8 @@ Administrando escritorios
 
    -- Anatole France.
 
-En el capítulo anterior hemos hablado de la GCS y de cómo las
-Distribuciones GNU/linux utilizan el sistema de paquetería
+En el capítulo anterior, hemos hablado de la GCS y de cómo las
+distribuciones GNU/Linux utilizan el sistema de paquetería
 para garantizar la integridad frente al cambio.
 
 Si tienes un equipo doméstico, todos los cambios producidos y liberados
@@ -26,7 +26,7 @@ La personalización
 ==================
 
 La primera dificultad importante a la que se va a enfrentar un
-administrador va a ser el de la personalización.
+administrador, va a ser la de la personalización.
 
 Imagina que tienes que migrar y administrar 1000 equipos a GNU/Linux y
 que tienes en tu red un servicio NTP, requiriéndose que todos tus
@@ -35,30 +35,30 @@ escritorios estén con la hora sincronizada con este servicio.
 Vas a tener que personalizar el cliente NTP en todos tus escritorios.
 
 Una manera que se suele utilizar es instalar en un equipo una
-Distribucion GNU/Linux desde un DVD, editar el fichero de configuración
-del cliente NTP y configurar la IP del servidor donde se encuentra el
-servcio NTP. Después, puedes crear una imagen del disco duro con un
-sistema de clonado como pueda ser Clonezilla__ y clonar uno a uno los
+distribución GNU/Linux desde un DVD, editar el fichero de configuración
+del cliente NTP y configurar la IP (o el nombre DNS) del servidor donde
+se encuentra el servcio NTP. Después, puedes crear una imagen del disco duro
+con un sistema de clonado como pueda ser Clonezilla__ y clonar uno a uno los
 equipos usando dicha imagen.
 
 __ http://clonezilla.org/
 
-Con este método la personalización inicial reside en dicha imagen, pero
+Con este método, la personalización inicial reside en dicha imagen, pero
 sigamos imaginando...
 
-Un día a mitad de migración recibes un correo y lees:
+Un día, a mitad de migración, recibes un correo y lees:
 
    Alberto: El servicio NTP dejará de dar servicio a partir del día 10.
    En su lugar vamos a disponer de un nuevo servicio, llamado QueHoraEs,
-   que es mucho mejor porque ...
+   que es mucho mejor porque...
 
-En este momento ya estarás pensando en los 400 equipos que tienes
+En este momento, ya estarás pensando en los 400 equipos que tienes
 migrados y te echarás las manos a la cabeza porque es evidente que
 este sistema de personalización no es adecuado.
 
    .. note::
 
-      La personalización inicial es muy sencilla de realizar pero un cambio
+      La personalización inicial es muy sencilla de realizar, pero un cambio
       en la personalización puede darse en cualquier momento, y tienes que
       estar preparado para poder realizarlo.
 
@@ -89,15 +89,15 @@ Los Gestores de Sistemas están muy influidos por las iniciativas realizadas
 en los sistemas de gestión de redes de telecomunicaciones, pudiendo realizar
 una o un conjunto de las siguientes tareas:
 
-- Inventario Hardware.
-- Monitoreado de disponibilidad de Servidores y mediciones.
-- Inventario Software e instalación de Software.
-- Gestión de Antivirus y anti-malware.
+- Inventario hardware.
+- Monitoreado de disponibilidad de servidores y mediciones.
+- Inventario e instalación de software.
+- Gestión de antivirus y anti-malware.
 - Monitoreado de las actividades de los usuarios.
 - Monitoreado de la capacidad de los sistemas.
-- Gestión de Seguridad.
+- Gestión de seguridad.
 - Gestión de almacenamiento.
-- Monitoreado de la utilización y capacidades de la Red.
+- Monitoreado de la utilización y capacidades de la red.
 
 Estas tareas podemos clasificarlas de acuerdo a **FCAPS**, un modelo y marco de
 trabajo de red de la gestión de telecomunicaciones de ISO para la gestión de
@@ -105,27 +105,27 @@ redes. FCAPS es un acrónimo de Fault, Configuration, Accounting, Performance,
 Security (Falla, Configuración, Contabilidad, Desempeño, Seguridad), que son las
 categorías en las cuales el modelo ISO define las tareas de gestión de redes.
 
-    **Fault** (Fallas): Es un evento que tiene un significado negativo. Su objetivo es
-    reconocer, aislar , corregir y registrar fallos. Puede utilizar análisis de
-    tendencias  para predecir errores. Cuando se detecta un fallo o evento, se envía
-    una notificación.
+    * **Fault** (Fallas): Es un evento que tiene un significado negativo. Su objetivo es
+      reconocer, aislar , corregir y registrar fallos. Puede utilizar análisis de
+      tendencias para predecir errores. Cuando se detecta un fallo o evento, se envía
+      una notificación.
 
-    **Configuration** (Configuración): En el proceso de gestión de la configuración,
-    las operaciones diarias son monitoreadas y controladas.
+    * **Configuration** (Configuración): En el proceso de gestión de la configuración,
+      las operaciones diarias son monitoreadas y controladas.
 
-    Los objetivos de la gestión de la configuración son:
+      Los objetivos de la gestión de la configuración son:
 
         * Recolectar información.
         * Modificar la configuración.
         * Generación de reportes
         * Gestión de cambios.
 
-    Los cambios de Hardware y Software son controlados por este proceso:
+      Los cambios de Hardware y Software son controlados por este proceso:
 
         * Actualización, Instalación y eliminación de programas.
         * Actualización, Instalación y eliminación de equipamiento (impresoras, scaners, memoria, etc.)
 
-    Este proceso debe tener en cuenta:
+      Este proceso debe tener en cuenta:
 
         * Permitir acceso rápido a la información de la configuración.
         * Facilitar la configuración remota de los dispositivos.
@@ -133,29 +133,29 @@ categorías en las cuales el modelo ISO define las tareas de gestión de redes.
         * Simplificación de la configuración de dispositivos.
         * El seguimiento de cambios a la configuración.
 
-    **Accounting** (Contabilidad): Su objetivo es reunir las estadísticas de los
-    usuarios.
+    * **Accounting** (Contabilidad): Su objetivo es reunir las estadísticas de los
+      usuarios.
 
-    **Performance** (Desempeño). Recolentando y analizando los datos de rendimiento,
-    el estado general de los sistemas pueden ser monitorizado. Las tendencias
-    pueden avisar de fallos de capacidad o de cuestiones relacionadas con la
-    fiabilidad de los sistemas, antes de que en estos ocurran. Umbrales de
-    rendimiento pueden ser establecidos para lanzar alarmas que serían controladas
-    por la gestión de fallos habitual. Las alarmas se pueden clasificar atendiendo
-    al grado de severidad.
+    * **Performance** (Desempeño). Recolentando y analizando los datos de rendimiento,
+      el estado general de los sistemas pueden ser monitorizado. Las tendencias
+      pueden avisar de fallos de capacidad o de cuestiones relacionadas con la
+      fiabilidad de los sistemas, antes de que en estos ocurran. Umbrales de
+      rendimiento pueden ser establecidos para lanzar alarmas que serían controladas
+      por la gestión de fallos habitual. Las alarmas se pueden clasificar atendiendo
+      al grado de severidad.
 
-    **Security** (Seguridad). Se encarga de controlar el acceso a recursos de red.
-    La seguridad de los datos puede ser conseguida con la autenticación, cifrado y
-    permisos, principalmente.
+    * **Security** (Seguridad). Se encarga de controlar el acceso a recursos de red.
+      La seguridad de los datos puede ser conseguida con la autenticación, cifrado y
+      permisos, principalmente.
 
    .. note::
 
-      Migasfreee atendiendo a FCAPS tiene capacidades de Faults, Configuration
+      Migasfreee atendiendo a FCAPS, tiene capacidades de Faults, Configuration
       y Accounting.
 
 Un ejemplo de funcionamiento típico de un Gestor de Sistemas que incorpore tareas
 de *Configuration* usaría un lenguaje que especificaría a qué estado se quiere
-llevar a los equipos, no cómo llegar a ese estado, en nuestro caso sería algo
+llevar a los equipos, no cómo llegar a ese estado. En nuestro caso, sería algo
 parecido a esto:
 
 * asegúrate de que el paquete ntp-client está desinstalado,
@@ -195,12 +195,12 @@ azl-quehoraes-client [#f4]_ con la siguiente información:
          más el nombre del paquete que queremos personalizar.
 
 ¡Listo! Con esto queda garantizada la integridad frente al cambio de la
-personalización aprovechándonos de la integridad que nos proporciona el
-sistema de paquetería de nuestra Distribución GNU/Linux.
+personalización, aprovechándonos de la integridad que nos proporciona el
+sistema de paquetería de nuestra distribución GNU/Linux.
 
 Una vez empaquetada nuestra personalización, se hace relativamente
 sencillo realizar cualquier cambio posterior en ella. Pero crear un
-paquete desde cero para personalizar una Distribucion GNU/Linux no es
+paquete desde cero para personalizar una distribución GNU/Linux no es
 tan fácil, no tanto por la creación del paquete en sí, sino porque
 la personalización requiere de los conocimientos suficientes sobre el
 sistema GNU/Linux y sobre la propia aplicación que se personaliza.
@@ -211,7 +211,7 @@ sistema GNU/Linux y sobre la propia aplicación que se personaliza.
 
       Date cuenta que no es necesario ningún Gestor de Sistemas para instalar
       dicha personalización. Sólo necesitas el Gestor de Paquetes, y éste
-      siempre lo tienes disponible en cualquier Distribución GNU/linux.
+      siempre lo tienes disponible en cualquier distribución GNU/Linux.
 
 Niveles de personalización
 --------------------------
@@ -222,7 +222,7 @@ Las aplicaciones suelen incorporar dos niveles de personalización:
 
 * La del sistema (para todos los usuarios del sistema).
 
-La personalización del usuario es prioritaria a la del sistema siempre
+La personalización del usuario es prioritaria a la del sistema, siempre
 y cuando esta última no sea obligatoria.
 
 Es conveniente conocer si la aplicación que vas a configurar incorpora
@@ -241,9 +241,9 @@ La liberación
 Es el segundo problema importante con el que vas a tener que lidiar.
 
 Por un lado, debes independizarte de los repositorios públicos de tu
-Distribución GNU/Linux por el simple motivo de que no puedes permitir que
-el control de los cambios que se instalarán en tus máquinas lo tenga
-tu Distribución GNU/Linux en vez de tu organización.
+distribución GNU/Linux, por el simple motivo de que no puedes permitir que
+el control de los cambios que se instalarán en tus máquinas, lo tenga
+tu distribución GNU/Linux en vez de tu organización.
 
 ¿Imaginas que habría pasado en AZLinux cuando OpenSuSE sustituyó
 OpenOffice por LibreOffice? Cuando los usuarios hubieran encendido las
@@ -340,7 +340,6 @@ GCS.
           3. La **liberación** es realizada por el servidor migasfree a los
              ordenadores requeridos.
 
-
 .. only:: latex
 
    .. figure:: graphics/chapter03/scm_process.png
@@ -357,7 +356,6 @@ GCS.
           3. La **liberación** es realizada por el servidor migasfree a los
              ordenadores requeridos.
 
-
 En AZLinux realizamos nuestra propia GCS y vemos como, de nuevo, se
 repiten las mismas actividades: petición de cambio, cambio y liberación.
 
@@ -369,7 +367,6 @@ Usamos dos tipos de peticiones de cambio:
       :scale: 40
       :alt: Procesos de la Gestión de la Configuración Software.
 
-
 .. only:: latex
 
    .. figure:: graphics/chapter03/diagrama1.png
@@ -380,7 +377,7 @@ Usamos dos tipos de peticiones de cambio:
 
 * **Actualización de aplicaciones**. Si recibimos una petición para
   actualizar, por ejemplo, Mozilla Firefox, descargamos desde los
-  repositorios de la distribución la versión deseada, la probamos en
+  repositorios de la distribución la versión deseada. La probamos en
   laboratorio, registrando cualquier información relevante en la petición de
   cambio. Finalmente, si todo es correcto, se liberan los paquetes
   a través de un despliegue migasfree, planificando su distribución
@@ -431,7 +428,7 @@ __ http://www.redmine.org/
 
    .. note::
 
-      Migasfree nos proporciona de manera centralizada conocer el
+      Migasfree nos proporciona, de manera centralizada, conocer el
       estado, no sólo del servidor migasfree, sino de cada uno de los equipos
       registrados en el servidor, convertiéndose en una herramienta ideal para
       hacer una auditoría tanto de software como de hardware.

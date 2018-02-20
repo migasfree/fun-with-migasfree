@@ -110,7 +110,7 @@ generada, en un repositorio o almacén para que posteriormente los
 clientes del ECS puedan acceder a él e instalarlo.
 
 
-Elemento de Configuracion Software
+Elemento de Configuración Software
 ==================================
 
 Si observamos como los diferentes proyectos de Software Libre realizan
@@ -118,12 +118,12 @@ la GCS, vemos que realizan las actividades mencionadas liberando
 finalmente el código fuente del proyecto en Internet.
 
 Estos proyectos trabajan con distintos tipos de ECS (.png, .txt, .py,
-.c, .bin, etc.) usando los **Sistemas de Control de Versiones** junto con
+.c, .bin, etc.) usando los **Sistemas de Control de Versiones**, junto con
 las plataformas de desarrollo colaborativo como sourceforge.net,
 github.com, etc.
 
 Este código fuente será posteriormente compilado por los mantenedores de
-las Distribuciones GNU/Linux (Fedora, Red Hat, Debian, Ubuntu, etc.),
+las distribuciones GNU/Linux (Fedora, Red Hat, Debian, Ubuntu, etc.),
 realizando su propia GCS. Pero a diferencia de los primeros, las
 Distribuciones GNU/Linux sólo trabajan sobre un único tipo de ECS:
 **el paquete**, donde introducirán el programa ya compilado.
@@ -138,7 +138,7 @@ Un paquete es un contenedor que encapsula un conjunto de ECS liberados
 por un determinado proyecto, junto a su metainformación.
 
 Contendrá, por tanto, el programa compilado para una determinada
-Distribución y arquitectura, más un amplio conjunto de información, como
+distribución y arquitectura, más un amplio conjunto de información, como
 puede ser:
 
 * El autor del programa.
@@ -204,7 +204,7 @@ actualización.
 de datos del backend.
 
 Decía Ian Murdock, fundador de Debian, que el gran aporte del software
-libre a la industria ha sido precisamente la invención del sistema de
+libre a la industria, ha sido precisamente la invención del sistema de
 paquetería (paquete, repositorio, gestor de paquetes).
 
 Y no es para menos, ya que este sistema nos proporciona los dos
@@ -221,9 +221,9 @@ requisitos necesarios que garantizan la integridad frente a los cambios:
       rompiendo la integridad frente a los cambios, ya que la base de datos
       del backend no es actualizada con este procedimiento. Todo lo que
       no sea instalar programas mediante el gestor de paquetes o el
-      backend rompe la integridad.
+      backend, rompe la integridad.
 
-A continuación se muestra una tabla con las operaciones más comunes que puedes
+A continuación, se muestra una tabla con las operaciones más comunes que puedes
 emplear sobre algunos de los gestores de paquetes más conocidos:
 
 +------------------------------------------+-------------------------+------------------------+----------------------------+
@@ -243,7 +243,7 @@ emplear sobre algunos de los gestores de paquetes más conocidos:
 +------------------------------------------+-------------------------+------------------------+----------------------------+
 
 Veamos ahora las operaciones más comunes que puedes emplear sobre los backends
-dpkg y rpm:
+``dpkg`` y ``rpm``:
 
 +--------------------------------------+---------------------+----------------------+
 | Operaciones Backends                 | dpkg                | rpm                  |

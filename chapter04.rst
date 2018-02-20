@@ -11,10 +11,10 @@ Características de migasfree
 El nacimiento de migasfree
 ==========================
 
-En el año 2005 todos grupos políticos del Ayuntamiento de Zaragoza
-manifestaron por unanimidad en pleno de gobierno municipal apoyar las
+En el año 2005, todos grupos políticos del Ayuntamiento de Zaragoza
+manifestaron por unanimidad, en pleno de gobierno municipal, apoyar las
 políticas de uso de Software Libre y, en concreto, el fomento de los
-programas de SL en el entorno de escritorio del funcionario municipal.
+programas de SL en el entorno de escritorio del empleado municipal.
 La Dirección General de Ciencia y Tecnología asume, inicia y potencia
 este importante reto. [#f5]_
 
@@ -24,9 +24,9 @@ __ http://www.zaragoza.es/contenidos/azlinux/migracionescritoriosl.pdf
 
 Este proyecto se planificó en tres etapas:
 
-
 * Primera: Migrar a aplicaciones que presentaban un impacto bajo sobre
-  usuarios y técnicos en el Sistema Operativo actual (por aquel entonces Microsoft Windows XP).
+  usuarios y técnicos en el Sistema Operativo actual (por aquel entonces,
+  Microsoft Windows XP).
 
 * Segunda: Migrar la plataforma ofimática Microsoft Office 97 por la
   suite libre OpenOffice.
@@ -34,13 +34,13 @@ Este proyecto se planificó en tres etapas:
 * Tercera: Sustituir el SO Windows XP por un sistema operativo basado en
   Linux. Esta etapa se inició en 2008 y todavía sigue abierta.
 
-Para iniciar la tercera etapa se tuvieron que realizar los primeros
+Para iniciar la tercera etapa, se tuvieron que realizar los primeros
 prototipos de lo que llegaría a ser la primera versión de AZLinux.
 En estos prototipos, la personalización se realizaba manualmente, en un
 equipo cuya imagen del disco duro nos servía para clonarla en otros
 equipos y hacer las pertinentes pruebas.
 
-En aquel tiempo aprendimos a empaquetar y empezamos a introducir nuestra
+En aquel tiempo, aprendimos a empaquetar y empezamos a introducir nuestra
 personalización en nuestros propios paquetes. La ventaja frente a la
 personalización manual era muy significativa.
 
@@ -58,7 +58,7 @@ dinámicos era manual y muy propensa a errores.
 
 La gestión de estos repositorios dinámicos recayó en mí, por lo que
 decidí simplificarla inmediatamente y crear el primer prototipo de
-migasfree. Dos semanas de programación, en horas no laborales,
+*migasfree*. Dos semanas de programación, en horas no laborales,
 fueron suficientes para presentar a mis compañeros de trabajo un
 prototipo, que fue puesto en producción en Junio de 2009.
 
@@ -80,7 +80,7 @@ El primer prototipo sólo trabajaba con paquetería ``rpm`` y gestor de
 paquetes ``yum``, y el código bash que se ejecutaba en el cliente se
 generaba en el servidor.
 
-Después de usar migasfree un tiempo en producción, vimos que podría ser
+Después de usar *migasfree* un tiempo en producción, vimos que podría ser
 un buen sistema para otras organizaciones, y mis compañeros me dieron el
 impulso necesario para publicar el código. Así, durante el verano de
 2009, reorganice los menús, limpié un poco el código, e
@@ -94,7 +94,7 @@ __ https://github.com/migasfree/migasfree
 __ https://github.com/
 
 En Noviembre de 2011, Jose Antonio Chavarría, desarrollador de AZLinux,
-reescribe y publica el `cliente migasfree`__. Realizó tambien grandes
+reescribe y publica el `cliente migasfree`__. Realizó también grandes
 cambios en la estructura del servidor. Tuvimos que definir la API con
 la que el cliente y el servidor debían comunicarse. Usamos claves
 asimétricas para dotar de seguridad al sistema. Esta nueva versión fue
@@ -104,7 +104,7 @@ denominada "migasfree no trans" supongo que por incorporar un código más
 __ https://github.com/migasfree/migasfree-client
 
 Poco a poco, fuimos dotando al sistema de nuevas funcionalidades, y para
-principios de 2013 Jose Antonio Chavarría cambió la navegación y aspecto
+principios de 2013, Jose Antonio Chavarría cambió la navegación y aspecto
 del servidor. Esta nueva versión fue denominada "migasfree with
 chocolate".
 
@@ -115,19 +115,18 @@ de todo tipo. Actualmente es la versíón que utilizamos en AZLinux.
 
 __ http://getbootstrap.com/
 
-En 2015 nos sumamos a una ola disrruptora: docker__. Esto nos ha liberado de
+En 2015 nos sumamos a una ola disruptora: docker__. Esto nos ha liberado de
 tener que pelearnos con las dependencias de los componentes que utilizamos en
 el servidor y de tener que publicar los paquetes que generabamos para distintas
-Distribuciones linux (utilizamos versiones de componentes que aún no han sido liberados
-y esto nos creaba auténticos quebraderos de cabeza)
+distribuciones GNU/Linux (utilizamos versiones de componentes que aún no han sido liberados
+y esto nos creaba auténticos quebraderos de cabeza).
 
 __ https://es.wikipedia.org/wiki/Docker_(software)
 
-Con docker hemos conseguido colocar el servidor y sus dependencias en un
-contenedor virtual (un debian) que puede ejecutarse en cualquier servidor Linux.
+Con *docker* hemos conseguido colocar el servidor y sus dependencias en un
+contenedor virtual (un debian) que puede ejecutarse en cualquier servidor GNU/Linux.
 Esto nos ha proporcionado una flexibilidad y portabilidad para ejecutar el servidor de una
 forma muy simple tanto en un equipo físico como en la nube.
-
 
 
 Características
@@ -138,7 +137,7 @@ Características
   añadir nuevas entradas en migasfree no requiera ninguna tarea
   administrativa.
 
-* Está basado en la arquitectura cliente / servidor.
+* Está basado en la arquitectura cliente/servidor.
 
 * Es seguro. Las comunicaciones entre cliente y servidor están firmadas con
   claves asimétricas.
@@ -148,9 +147,9 @@ Características
 
 * Es Software Libre licenciado bajo la **GNU Public License**.
 
-* Captura de datos. Almacena tanto el inventario software y hardware de
+* Almacena tanto el inventario software y hardware de
   los equipos, permitiendo hacer consultas sobre ellos. Almacena también
-  información de los equipos tales como sus atributos, actualizaciones,
+  información de los equipos tales como sus atributos, sincronizaciones,
   migraciones que se han realizado, etc.
 
 * Consultas. Puedes programar consultas contra la base de datos de

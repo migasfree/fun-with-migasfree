@@ -10,15 +10,14 @@ Probando migasfree
    -- Isaac Newton.
 
 El objetivo de este capítulo es que dispongas rápidamente de un servidor
-y un cliente migasfree totalmente funcional, por eso no me voy a extender
+y un cliente *migasfree* totalmente funcional, por eso no me voy a extender
 en explicaciones.
 
    .. note::
 
       Usa una máquina virtual de virtualbox__ realizando la instalación
-      mínima por red de Debian__ 64 bits para ver el funcionamiento de migasfree
+      mínima por red de Debian__ 64 bits para ver el funcionamiento de *migasfree*
       y familiarizarte con él antes de poner a :ref:`Migasfree en producción`
-
 
 __ https://www.virtualbox.org/
 
@@ -28,18 +27,17 @@ __ http://www.debian.org/
 Instalando el servidor
 ======================
 
-Si ahora no quieres preocuparte de cómo se realiza ésta instalación, nunca has
-usado docker__ o simplemente quieres avanzar más rápido te proporcionamos este
-`Open Virtual Appliance (OVA)`__ para que lo ejecutes con virtualbox. Contiene
-un servidor migasfree ya instalado.
+Si ahora no quieres preocuparte de cómo se realiza esta instalación, nunca has
+usado docker__ o, simplemente, quieres avanzar más rápido, te proporcionamos este
+`Open Virtual Appliance (OVA)`__ para que lo ejecutes con *virtualbox*. Contiene
+un servidor *migasfree* ya instalado.
 
 __ https://www.docker.com/
 __ https://drive.google.com/open?id=1I6zgUeRhURJamHuYkDfGr8iNAHpD2REy
 
-
-Con virtualbox instalado, y una vez descargado el fichero OVA haz doble click en él y a
-continuación observa las siguientes reglas de reenvío de puertos accediendo al
-menú de virtualbox: configuración-red-avanzadas-reenvío de puertos:
+Con *virtualbox* instalado, y una vez descargado el fichero OVA, haz doble click en él y, a
+continuación, observa las siguientes reglas de reenvío de puertos accediendo al
+menú de *virtualbox*: configuración-red-avanzadas-reenvío de puertos:
 
   .. code-block:: none
 
@@ -48,23 +46,22 @@ menú de virtualbox: configuración-red-avanzadas-reenvío de puertos:
     Rule 1   TCP          127.0.0.1     2222    10.0.2.15    22
     Rule 2   TCP          127.0.0.1     8080    10.0.2.15    80
 
-Los usuario/contraseña de esta máquina virtual son: tux/tux y root/root.
+Los usuarios y contraseñas de esta máquina virtual son: tux:tux y root:root.
 
-Para acceder por ssh a esta máquina virtual usa:
+Para acceder por SSH a esta máquina virtual usa:
 
   .. code-block:: none
 
     ssh -p 2222 tux@127.0.0.1
 
-Una vez dentro puedes loguearte como root de la siguiente manera:
+Una vez dentro, puedes loguearte como ``root`` de la siguiente manera:
 
   .. code-block:: none
 
     tux@migasfree:~$ su
 
-Para acceder al servidor web instalado en esta máquina virtual usa la URL
+Para acceder al servidor web instalado en esta máquina virtual, usa la URL
 http://127.0.0.1:8080 desde el equipo anfitrión.
-
 
 Ahora bien, si quieres hacer la instalación tú mismo, accede a la
 máquina debian 64 bits sobre la que vas a instalar el servidor y sigue los
@@ -87,7 +84,6 @@ ido bien, verás la figura 5.1.
 
       figura 5.1. Acceso al servidor migasfree.
 
-
 .. only:: latex
 
    .. figure:: graphics/chapter05/login.png
@@ -96,10 +92,9 @@ ido bien, verás la figura 5.1.
 
       Acceso al servidor migasfree.
 
-
 Pulsa en ``iniciar sesión`` y haz login con el nombre de usuario "admin" y
 password "admin". Verás algo parecido a la figura 5.2. Observa como arriba a la
-derecha pone ``alertas 0``. Esto nos indica que todo está bien.
+derecha pone ``alertas 0``. Esto nos indica que todo está controlado.
 
 .. only:: not latex
 
@@ -108,7 +103,6 @@ derecha pone ``alertas 0``. Esto nos indica que todo está bien.
       :alt: Estado del servidor con 0 alertas.
 
       figura 5.2. Estado del servidor con 0 alertas.
-
 
 .. only:: latex
 
@@ -119,16 +113,15 @@ derecha pone ``alertas 0``. Esto nos indica que todo está bien.
       Estado del servidor con 0 alertas.
 
 
-
 Instalando el cliente
 =====================
 
 Instalando el paquete migasfree-client
 --------------------------------------
 
-Ahora instala el cliente migasfree sobre la misma máquina donde has
+Ahora instala el cliente *migasfree* sobre la misma máquina donde has
 instalado el servidor. Para ello, actualiza la lista de paquetes e
-instala el paquete migasfree-client:
+instala el paquete ``migasfree-client``:
 
   .. code-block:: none
 
@@ -136,19 +129,17 @@ instala el paquete migasfree-client:
 
 
 También puedes instalar el cliente en cualquier otra máquina y editar el fichero
-/etc/migasfree.conf manualmente para configurarlo. Descomenta la línea
+``/etc/migasfree.conf`` manualmente para configurarlo. Descomenta la línea
 ``# Server = localhost`` y asígnale la dirección del servidor web. Te hago notar que
 esta **no es la manera** en que debemos hacerlo, pero por ahora puede servirnos.
 La manera correcta sería empaquetar dicha modificación, cosa que veremos más
 adelante en :ref:`Configurando migasfree-client`
-
 
    .. note::
 
       Cualquier cambio en la configuración de las aplicaciones o del S.O se
       podrán realizar de manera centralizada con suma facilidad, manteniendo
       además la integridad, sólo si dicha configuración ha sido empaquetada.
-
 
 Registrando el cliente
 ----------------------
@@ -263,10 +254,10 @@ navegador web.
 sobre ``2 alertas por comprobar``:
 
     * La primera te notifica que el ordenador ``CID-1`` ha dado de alta la
-      plataforma ``Linux``
+      plataforma ``Linux``.
 
     * La segunda notificación te dice que el ordenador ``CID-1`` ha añadido
-      la version ``debian-x.x``
+      el proyecto ``debian-x.x``.
 
     .. only:: not latex
 
@@ -326,14 +317,13 @@ Desplegando software
 ====================
 
 Y ahora, para ir abriendo boca, vamos a instalar y eliminar aplicaciones
-de manera centralizada usando el servidor migasfree.
+de manera centralizada usando el servidor *migasfree*.
 
 Supón que quieres sustituir ``nano`` por ``vim`` en todos los equipos de tu
 organización.
 
 Accede a ``Liberación - Despliegues`` y pulsa en en símbolo ``+`` para añadir un
 despliegue.
-
 
   .. note::
 
@@ -355,7 +345,7 @@ Introduce los siguientes datos:
 
 Guarda el despliegue.
 
-Ahora ``sincroniza`` el equipo cliente con el servidor migasfree:
+Ahora ``sincroniza`` el equipo cliente con el servidor *migasfree*:
 
   .. code-block:: none
 
@@ -391,7 +381,7 @@ paquete ``vim`` y desinstalado ``nano``.
       despacito, suave, suavecito.
 
 Al poner el atributo ``SET-ALL SYSTEMS`` estamos indicando que se
-aplique este despliegue a todos los ordenadores. Podríamos haber incluído otros
+aplique este despliegue a todos los ordenadores. Podríamos haber incluido otros
 atributos como ``CID-1``, ``NET-10.0.2.0/24``, o una lista de ellos. Sólo se
 aplicará este despliegue a los ordenadores que tengan algún atributo coincidente
 con los atributos incluidos en el despliegue.
@@ -409,21 +399,22 @@ despliegue.
 
   .. note::
 
-Si ahora queremos instalar ``vim`` y ``nano`` en todos los ordenadores, pon sus
-nombres en ``paquetes a instalar`` y deja en blanco ``paquetes a desinstalar``:
+    Si ahora queremos instalar ``vim`` y ``nano`` en todos los ordenadores,
+    pon sus nombres en ``paquetes a instalar`` y deja en blanco
+    ``paquetes a desinstalar``:
 
     * ``paquetes a instalar``: vim nano
 
     * ``paquetes a desinstalar``:
 
-Conforme los equipos se vayan sincronizando se producirán los cambios.
+Conforme los equipos se vayan sincronizando, se producirán los cambios.
 
 Aprenderás más sobre los despliegues en el capítulo dedicado a
 :ref:`La Liberación`.
 
 ¡Enhorabuena de nuevo! Ya sabes como instalar/desinstalar software de manera
 centralizada a un conjunto de ordenadores. No está nada mal para empezar,
-¿no crees?.
+¿no crees?
 
 En el siguiente capítulo vas a aprender a hacer el cambio de
-configuración software al estilo migasfree.
+configuración software al estilo *migasfree*.

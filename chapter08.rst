@@ -12,23 +12,23 @@ La configuración del sistema migasfree
    -- George Bernard Shaw
 
 
-En los capítulos anteriores has aprendido a instalar el servidor y el cliente
+En los capítulos anteriores, has aprendido a instalar el servidor y el cliente
 migasfree, así como a crear paquetes. La creación de paquetes no es una tarea
 trivial, no tanto por su construcción en sí, sino por el hecho de que son necesarios
 amplios conocimientos de los sistemas operativos y de las aplicaciones.
 
 En este y en los siguientes tres capítulos, vas a aprender a adaptar y usar el
-servidor migasfree.
+servidor *migasfree*.
 
 .. _`Fórmulas`:
 
 Fórmulas
 ========
 
-En migasfree, una ``fórmula`` es una característica de los equipos o
+En *migasfree*, una ``fórmula`` es una característica de los equipos o
 de los usuarios, y que nos servirá para desplegar los paquetes.
 
-Como administrador de migasfree, una de las primeras tareas que debes realizar es
+Como administrador de *migasfree*, una de las primeras tareas que debes realizar es
 definir estas fórmulas. Debes preguntarte en función de qué características
 vas a realizar los despliegues. Por ejemplo, ¿te interesa desplegar los paquetes
 por el HOSTNAME de los equipos?, ¿y por subred? ¿Qué tal por el grupo al que
@@ -42,8 +42,8 @@ pertenece el usuario en el LDAP? ¿O por su contexto LDAP?
       CID.
 
 Una ``fórmula`` es un código que se programa en un registro de la
-base de datos de migasfree. Estas fórmulas serán ejecutadas en cada uno de
-los clientes migasfree y su valores de retorno serán devueltos al servidor como
+base de datos de *migasfree*. Estas fórmulas serán ejecutadas en cada uno de
+los clientes *migasfree* y sus valores de retorno serán devueltos al servidor como
 ``atributos``.
 
   .. note::
@@ -52,16 +52,16 @@ los clientes migasfree y su valores de retorno serán devueltos al servidor como
       al ser ejecutada en un equipo.
 
 Veamos un ejemplo sencillo de todo esto con la fórmula *MACHINE NAME*. Accede a
-la web de tu servidor migasfree y ve a ``Configuración-Fórmulas-MACHINE NAME``.
-Verás en este registro el siguiente código escrito en ``python``.
+la web de tu servidor *migasfree* y ve a ``Configuración-Fórmulas-MACHINE NAME``.
+En este registro, verás el siguiente código escrito en ``python``.
 
   .. code-block:: none
 
     import platform
     print platform.node()
 
-Si ejectutas ``python`` en una consola y escribes estas dos líneas verás
-que python muestra, por la salida estándar, el nombre de tu equipo.
+Si ejecutas ``python`` en una consola y escribes estas dos líneas, verás
+que *python* muestra, por la salida estándar, el nombre de tu equipo.
 
   .. code-block:: none
 
@@ -76,13 +76,13 @@ que python muestra, por la salida estándar, el nombre de tu equipo.
 En mi caso me ha devuelto ``white``, que es el nombre de mi portátil. ¿A que
 no aciertas de qué color es?
 
-Esto es, en definitiva, lo que hace el cliente migasfree: obtiene del servidor la
+Esto es, en definitiva, lo que hace el cliente *migasfree*: obtiene del servidor la
 fórmula ``MACHINE NAME`` (su código), la ejecuta y devuelve al servidor el resultado
 como atributo (``HST-white``).
 
 Podrías haber escrito la fórmula también en código ``bash`` simplemente
-llamando al comando de linux ``hostname`` o escribiendo ``echo $HOSTNAME`` (el
-resultado sería el mismo), pero utilizar código python nos permite, en este caso,
+llamando al comando de Linux ``hostname`` o escribiendo ``echo $HOSTNAME`` (el
+resultado sería el mismo), pero utilizar código ``python`` nos permite, en este caso,
 usar la misma ``fórmula`` también para plataformas Windows o Mac OS.
 
 

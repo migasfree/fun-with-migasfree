@@ -10,8 +10,8 @@ Configurando software al estilo migasfree
    -- Alan Cohen.
 
 El objetivo de este capítulo es que veas todo el proceso de la **Gestión
-de la Configuración Software en conjunto**, y lo vamos a hacer desplegando un
-paquete que simplemente instalará unos ficheros de ejemplo (png, gif, mp4, etc.)
+de la Configuración Software en conjunto**. Lo vamos a hacer desplegando un
+paquete que, simplemente, instalará unos ficheros de ejemplo (png, gif, mp4, etc.)
 que pueden servir al personal del Centro de Asistencia Usuarios (CAU) para
 comprobar las asociaciones de archivos y aplicaciones.
 
@@ -20,16 +20,16 @@ Al estilo tradicional
 =====================
 
 Imagina que te llega una petición de cambio para añadir en todos los
-ordenadores de escritorio de tu organización unos determinados ficheros de test
+ordenadores de escritorio de tu organización unos determinados ficheros de *test*
 para facilitar el trabajo de los compañeros del CAU.
 
-Como aún no has pensado como desplegar software en los escritorios linux, decides
-acceder uno a uno a los equipos por ssh y copiarlos manualmente. Tardas unos
+Como aún no has pensado cómo desplegar software en los escritorios GNU/Linux, decides
+acceder uno a uno a los equipos por SSH y copiarlos manualmente. Tardas unos
 días pero al final realizas el trabajo justo antes de cogerte las
 vacaciones de verano, a excepción de algunos equipos que estaban apagados y que
 no has podido acceder remotamente.
 
-Ahora bien, mientras estás de vaciones ¿podría responder fácilmente a las
+Ahora bien, mientras estás de vaciones, ¿podría responder fácilmente a las
 cuestiones siguientes tu compañero de trabajo?
 
 * ¿Qué cambios se han realizado en un determinado equipo desde el 1 de Marzo?
@@ -43,8 +43,8 @@ cuestiones siguientes tu compañero de trabajo?
 Difícilmente tu compañero va a poder reponder estas cuestiones de manera eficaz,
 aunque hayas registrado muy bien tu trabajo.
 
-Podrías haberte ahorrado mucho trabajo usando herramientas como cengine,
-puppet, chef, etc. para el despliegue de estos ficheros, pero aún así no podrías
+Podrías haberte ahorrado mucho trabajo usando herramientas como *cengine*,
+*puppet*, *chef*, etc., para el despliegue de estos ficheros, pero aún así no podrías
 contestar fácilmente a dichas preguntas.
 
 La integridad frente al cambio no está garantizada con este método.
@@ -56,17 +56,15 @@ cambios a los equipos.
    .. note::
 
       Usa la rueda, no la reinventes. Usando el sistema de paquetería para
-      desplegar el software y su configuración nos proporciona integridad
-      frente a los cambios. Cualquier distribución linux tiene un gestor de
+      desplegar el software y su configuración, nos proporciona integridad
+      frente a los cambios. Cualquier distribución GNU/Linux tiene un gestor de
       paquetes y hace muy bien su trabajo.
-
 
 Asumo que tienes un gestor de proyectos, como *Redmine*, donde vas a
 registrar las peticiones de cambio (o al menos que hagas como que lo
 tienes) y que has completado con éxito el capítulo anterior. Todos los
 comandos de este capítulo los vas a ejecutar como **root** en el equipo que
 hayas utilizado en el capítulo anterior.
-
 
 
 Tu primer cambio de configuración
@@ -83,9 +81,8 @@ aceptas en el gestor de proyectos:
 
   .. admonition:: Gestor de proyectos:
 
-     Registro: Copiar distintos ficheros de ejemplos: png, gif, jpg, etc. en
+     Registro: Copiar distintos ficheros de ejemplos: png, gif, jpg, etc., en
      todos los ordenadores para uso y disfrute de los compañeros del CAU.
-
 
 Lo primero que haces es identificar al ECS que afecta, es decir, cuál es
 el paquete que debe ser modificado. Como no existe todavía un paquete
@@ -160,14 +157,14 @@ Usa este comando para subir el paquete generado al servidor.
 Finalmente, asigna la petición de cambio a un liberador (sí, otra vez
 vas a ser tú) y registra en la petición:
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
      Registro: Creado paquete **acme-test-files_1.0-1_all.deb**
 
      Asignado a: *liberador*
 
 ¡Felicidades! Has realizado un cambio de configuración y lo has
-almacenado en el servidor migasfree.
+almacenado en el servidor *migasfree*.
 
 Liberación
 ----------
@@ -239,7 +236,7 @@ Observa que, en ``Alertas``, ya no tienes ningún paquete huérfano.
 
 Registra y cierra la petición de cambio:
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
      Registro: Liberado en Despliegue **ficheros de ejemplo #24543**.
 
@@ -278,22 +275,22 @@ Petición
 --------
 
 Te llega una segunda petición de cambio, ya que a tus compañeros del CAU les
-ha venido bien estos ficheros de ejemplos pero echan de menos un .svg:
+ha venido bien estos ficheros de ejemplos pero echan de menos un SVG:
 
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
-     Registro: Añadir un fichero svg de prueba para el CAU.
+     Registro: Añadir un fichero SVG de prueba para el CAU.
 
 
 Como siempre, identificas primero el ECS al que afecta el cambio: En
 este caso es a ``acme-test-files``. En la petición
 de cambio, asignas al desarrollador y registras:
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
      Registro: Modificar el paquete **acme-test-file** añadiendo el
-     svg de ejemplo: https://commons.wikimedia.org/wiki/File:Tux.svg
+     SVG de ejemplo: https://commons.wikimedia.org/wiki/File:Tux.svg
 
      Asignado a : *desarrollador*.
 
@@ -307,8 +304,8 @@ sencillos de realizar porque, simplemente, se modifica el paquete.
 Empaquetado
 ***********
 
-Descarga el fichero svg de https://commons.wikimedia.org/wiki/File:Tux.svg y
-cópialo en ``acme-test-files/usr/share/acme-test-files``
+Descarga el fichero SVG de https://commons.wikimedia.org/wiki/File:Tux.svg y
+cópialo en ``acme-test-files/usr/share/acme-test-files``.
 
 Edita el fichero del paquete``acme-test-files/debian/changelog`` para registrar el
 cambio realizado. Tendrás que **añadir** estas líneas **al principio
@@ -320,7 +317,7 @@ del fichero**:
 
       * Added file tux.svg
 
-     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
+     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2018 18:25:00 +0100
 
 Presta atención a:
 
@@ -335,9 +332,8 @@ Presta atención a:
       El formato que se utiliza en el **changelog** en paquetes debian es muy estricto.
       Ten cuidado con los espacios, retornos de carro y fechas.
 
-
-Un aspecto que no hay que descuidar es el tema del copyright y licencia. Edita el fichero
-``acme-test-files/debian/copyright`` y añade el copyright y licencia del fichero tux.svg
+Un aspecto que no hay que descuidar es el tema del *copyright* y licencia. Edita el fichero
+``acme-test-files/debian/copyright`` y añade el *copyright* y licencia del fichero tux.svg
 
   .. code-block:: none
 
@@ -379,7 +375,7 @@ Subiendo al servidor el cambio
 * Almacén: acme
 
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
      Registro: Creado paquete **acme-test-files_1.0-2_all.deb**
 
@@ -389,7 +385,7 @@ Subiendo al servidor el cambio
 Liberación
 ----------
 
-Liberando el cambio de configuracion
+Liberando el cambio de configuración
 ************************************
 
 Observa como aparece de nuevo un ``paquete huérfano`` en ``alertas`` y que
@@ -404,7 +400,7 @@ Guarda el despliegue.
 
 Registra y cierra la petición de cambio:
 
-  .. admonition:: Gestor de proyectos:
+  .. admonition:: Gestor de proyectos
 
      Registro: Liberado **acme-test-files_1.0-2_all.deb** en Despliegue
      **ficheros de ejemplo #24543**.
@@ -479,8 +475,7 @@ Aquí podrás ver el registro de los cambios (entre otra información):
 
       * Added file svg
 
-     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2017 18:25:00 +0200
-
+     -- Alberto Gacías <alberto@migasfree.org>  Fri, 3 Feb 2018 18:25:00 +0100
 
     acme-test-files (1.0-1) unstable; urgency=low
 
@@ -498,10 +493,14 @@ Paquete ``acme-test-files-1.0-2`` y obtendrás el resultado.
 Conclusión
 ==========
 
-Aunque requiera un esfuerzo inicial el **empaquetado de los ECS** los
-beneficios que obtendrás justifican sobradamente el uso de este método,
-ya que dispondrás de sistemas más estables, te permitirá hacer el seguimento
-y control de los cambios y mejorarás la resolución de incidencias.
+Aunque el **empaquetado de los ECS** requiera un esfuerzo inicial, los
+beneficios que obtendrás justifican sobradamente el uso de este método:
+
+* Dispondrás de sistemas más estables.
+
+* Te permitirá hacer el seguimento y control de los cambios.
+
+* Y mejorarás la resolución de incidencias.
 
 Beneficios de crear paquetes de configuración
 ---------------------------------------------
@@ -517,8 +516,8 @@ Beneficios de crear paquetes de configuración
 * Proporciona integridad frente a los cambios de la configuración.
 
 
-Desventajas del empaqueteado de la configuración.
--------------------------------------------------
+Desventajas del empaqueteado de la configuración
+------------------------------------------------
 
 * Cuesta más tiempo que otras alternativas ya que hay que crear los paquetes.
 
@@ -526,7 +525,7 @@ Desventajas del empaqueteado de la configuración.
 Beneficios de usar migasfree
 ----------------------------
 
-Utilizar migasfree para la realizar la *Liberación* te permitirá:
+Utilizar *migasfree* para la realizar la *Liberación* te permitirá:
 
 * Controlar a quién y a partir de qué momento se deben aplicar los cambios.
 

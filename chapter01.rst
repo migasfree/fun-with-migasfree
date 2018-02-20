@@ -114,8 +114,8 @@ migasfree.
 
 :ref:`Primeros pasos`
 
-Aquí te enseñaré a instalar y probar un servidor y cliente migasfree
-con la configuración mínima para que puedas verlos en funcionamiento
+Aquí te enseñaré a instalar y probar un servidor y cliente migasfree,
+con la configuración mínima, para que puedas verlos en funcionamiento
 cuanto antes.
 
 :ref:`Guía de uso`
@@ -136,7 +136,7 @@ el servidor migasfree como los clientes.
 
 :ref:`Empaquetado`
 
-Contiene intrucciones para empaquetar migasfree en cualquier Distribución.
+Contiene intrucciones para empaquetar migasfree en cualquier distribución.
 
 :ref:`Anexos`
 
@@ -219,7 +219,7 @@ las migas y los huevos rotos.
 También me gusta escuchar música, el olor a tierra mojada y que me hagan
 reír con cualquier tontada.
 
-Amo a Patricia, y a Jesús nuestro hijo.
+Amo a Patricia, y a Jesús, nuestro hijo.
 
 Nota del autor
 ==============
@@ -261,27 +261,27 @@ causa un perjuicio a la sociedad.
 Enlaces
 =======
 
-`Versión en HTML`__.
+* `Versión en HTML`__.
 
 __ http://fun-with-migasfree.readthedocs.org/
 
-`Versión en PDF`__.
+* `Versión en PDF`__.
 
 __ https://media.readthedocs.org/pdf/fun-with-migasfree/master/fun-with-migasfree.pdf
 
-`Ejemplos usados en el libro`__.
+* `Ejemplos usados en el libro`__.
 
 __ https://github.com/migasfree/fun-with-migasfree-examples/
 
-`Código fuente`__.
+* `Código fuente`__.
 
 __ https://github.com/migasfree/fun-with-migasfree/
 
-`Proyecto migasfree`__.
+* `Proyecto migasfree`__.
 
 __ http://migasfree.org/
 
-Twitter: `@migasfree`__, `@albertogacias`__.
+* Twitter: `@migasfree`__, `@albertogacias`__.
 
 __ https://twitter.com/migasfree
 __ https://twitter.com/albertogacias
