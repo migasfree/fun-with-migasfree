@@ -33,7 +33,7 @@ usado docker__ o, simplemente, quieres avanzar más rápido, te proporcionamos e
 un servidor *migasfree* ya instalado.
 
 __ https://www.docker.com/
-__ https://drive.google.com/open?id=1I6zgUeRhURJamHuYkDfGr8iNAHpD2REy
+__ https://drive.google.com/open?id=1zmaCjOc8Jp6zK6vk8XPw5nDdOcWmRoK4
 
 Con *virtualbox* instalado, y una vez descargado el fichero OVA, haz doble click en él y, a
 continuación, observa las siguientes reglas de reenvío de puertos accediendo al
