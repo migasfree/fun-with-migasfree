@@ -46,6 +46,8 @@ menú de *virtualbox*: configuración-red-avanzadas-reenvío de puertos:
     Rule 1   TCP          127.0.0.1     2222    10.0.2.15    22
     Rule 2   TCP          127.0.0.1     8080    10.0.2.15    80
 
+Ya puedes arrancar la máquina virtual.
+
 Los usuarios y contraseñas de esta máquina virtual son: tux:tux y root:root.
 
 Para acceder por SSH a esta máquina virtual usa:
@@ -65,7 +67,7 @@ http://127.0.0.1:8080 desde el equipo anfitrión.
 
 Ahora bien, si quieres hacer la instalación tú mismo, accede a la
 máquina debian 64 bits sobre la que vas a instalar el servidor y sigue los
-pasos indicados en migasfree-docker__
+pasos indicados en migasfree-docker__.
 
 __ https://github.com/migasfree/migasfree-docker
 
@@ -92,8 +94,8 @@ ido bien, verás la figura 5.1.
 
       Acceso al servidor migasfree.
 
-Pulsa en ``iniciar sesión`` y haz login con el nombre de usuario "admin" y
-password "admin". Verás algo parecido a la figura 5.2. Observa como arriba a la
+Pulsa en ``iniciar sesión`` y haz login con el *nombre de usuario* "admin" y
+*contraseña* "admin". Verás algo parecido a la figura 5.2. Observa como arriba a la
 derecha pone ``alertas 0``. Esto nos indica que todo está controlado.
 
 .. only:: not latex
@@ -343,7 +345,7 @@ Introduce los siguientes datos:
 
     * ``atributos incluidos``: ALL SYSTEMS
 
-Guarda el despliegue.
+Graba el despliegue.
 
 Ahora ``sincroniza`` el equipo cliente con el servidor *migasfree*:
 
@@ -375,7 +377,7 @@ paquete ``vim`` y desinstalado ``nano``.
   .. note::
 
       En el despliegue que acabamos de hacer sólo hemos dado la orden de
-      instalar y desintalar paquetes, pero además se ha creado un repositorio de
+      instalar y desinstalar paquetes, pero además se ha creado un repositorio de
       paquetes ``vacío``. En los siguientes capítulos aprenderás a subir tus propios
       paquetes al servidor e introducirlos en los despliegues, pero vayamos
       despacito, suave, suavecito.
@@ -399,11 +401,11 @@ despliegue.
 
   .. note::
 
-    Si ahora queremos instalar ``vim`` y ``nano`` en todos los ordenadores,
+    Si ahora queremos instalar ``vim`` y ``emacs`` en todos los ordenadores,
     pon sus nombres en ``paquetes a instalar`` y deja en blanco
     ``paquetes a desinstalar``:
 
-    * ``paquetes a instalar``: vim nano
+    * ``paquetes a instalar``: vim emacs
 
     * ``paquetes a desinstalar``:
 
