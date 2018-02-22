@@ -283,12 +283,12 @@ Categorías de etiquetas
 
   .. note::
 
-     En Vitalinux se emplean las etiquetas para cambiar fácilmente de "sabor".
-     Cuando se quiere cambiar de sabor Vitalinux (Infantil, Primaria, Profes, ...),
+     En Vitalinux, se emplean las etiquetas para cambiar fácilmente de "sabor".
+     Cuando se quiere cambiar de "sabor" (Infantil, Primaria, Profes, ...),
      simplemente se eligen las etiquetas mediante el comando
      ``migasfree-tag --set``, produciéndose automáticamente la instalación y
-     desinstalación de los paquetes correspondientes. Tambien se utiliza en la
-     creación del DVDs, permitiendo hacer una ISO para cada sabor o conjunto de
+     desinstalación de los paquetes correspondientes. También se utiliza en la
+     creación del DVD, permitiendo hacer una ISO para cada sabor o conjunto de
      sabores.
 
 Campos de categorías de etiquetas
@@ -398,19 +398,17 @@ Por ejemplo, en el Ayto. de Zaragoza contamos con los siguientes ``proyectos``:
 
     * AZLinux-2 (OpenSUSE 11.2) Se migró a AZLinux-12 (ningún PC).
 
-    * AZLinux-12 (Ubuntu 12.04) En producción (950 PC). En fase de migración a otros AZLinux
+    * AZLinux-12 (Ubuntu 12.04) En producción (900 PC). En fase de migración a otros AZLinux.
 
     * AZLinux-14 (Ubuntu 14.04) En producción (500 PC).
 
-    * AZLinux-16 (Ubuntu 16.04). En producción (20 PC).
+    * AZLinux-16 (Ubuntu 16.04). En producción (100 PC).
 
     * ZA (Ubuntu 10.04 para escritorios tipo kioskos). Obsoleto.
 
-    * WIN-XP (Windows XP). En producción (1700 PC).
+    * WIN-XP (Windows XP). En producción (1600 PC).
 
-    * AZW-10 (Windows 10). En producción (60 PC).
-
-
+    * AZW-10 (Windows 10). En producción (80 PC).
 
 Cada ordenador estará configurado en un único proyecto en un momento dado.
 Cambios de proyecto en un ordenador crean en el sistema un registro de
@@ -431,14 +429,14 @@ Campos del proyecto
 
 * **Plataforma**: a la que pertenece el proyecto.
 
-* **Sistema de gestión de paquetes**: El P.M.S. que se utiliza en el S.O. de
+* **Sistema de gestión de paquetes**: El PMS que se utiliza en el sistema operativo de
   este proyecto.
 
 * **Auto registrar ordenadores**: Si está marcado, se permiten registrar ordenadores desde
   un cliente automáticamente. En este caso, sólo con que un equipo esté configurado
   con el proyecto, será añadido automáticamente a la base datos.
 
-  En caso contrario sólo se podrán registrar ordenadores mediante el uso de un
+  En caso contrario, sólo se podrán registrar ordenadores mediante el uso de un
   usuario que cuente con los permisos adecuados para añadir ordenadores al
   sistema.
 
@@ -465,11 +463,11 @@ registrar automáticamente las plataformas. Puedes consultarlo en
 Perfiles de usuario Migasfree
 =============================
 
-En migasfree existen dos tipos de usuarios, los usuarios que administran
-migasfree y los usuarios que utilizan los ordenadores. Este apartado se refiere
+En *migasfree* existen dos tipos de usuarios, los usuarios que administran
+*migasfree* y los usuarios que utilizan los ordenadores. Este apartado se refiere
 a los primeros.
 
-Cuando se genera la base de datos de migasfree, se crean 7 grupos de usuarios y
+Cuando se genera la base de datos de *migasfree*, se crean 7 grupos de usuarios y
 8 usuarios predeterminados:
 
 Grupos de Usuarios
@@ -477,7 +475,6 @@ Grupos de Usuarios
 
 En función de las tareas que los usuarios de administración de migasfree
 pueden realizar, se establecen los siguientes grupos de usuarios.
-
 
     * ``Configurator`` con permisos de lectura/escritura a:
 
@@ -555,11 +552,11 @@ Usuarios
     * ``reader``. Pertenece  al grupo ``Reader``.
 
 Estos usuarios tienen por defecto como contaseña su nombre, es decir, la
-contraseña de admin es admin, y lo mismo es aplicable al resto de usuarios.
+contraseña de ``admin`` es ``admin``, y lo mismo es aplicable al resto de usuarios.
 
 Estos usuarios son ficticios para realizar pruebas y conviene que
-sean eliminados. Se recomienda crear los usuarios reales que usarán la web del
-servidor migasfree, asignándoles los grupos de usuarios correspondientes.
+sean eliminados. Se recomienda crear los usuarios reales que usarán el
+servidor *migasfree*, asignándoles los grupos de usuarios correspondientes.
 
   .. note::
 
@@ -570,7 +567,7 @@ servidor migasfree, asignándoles los grupos de usuarios correspondientes.
 Cambio de contraseña
 --------------------
 La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
-y que aparece arriba a la derecha en todas las páginas web del servidor.
+y que aparece arriba a la derecha en todas las páginas web de la aplicación.
 
 También puede ser modificada por otro usuario que tenga marcado el campo
 ``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
@@ -592,7 +589,7 @@ Comprobaciones
 ==============
 
 Son un conjunto de comprobaciones que se realizan para alertar al usuario.
-Pulsando en cada una de las ``Alertas`` puedes obtener más información. ver figura 8.1.
+Pulsando en cada una de las ``Alertas`` puedes obtener más información. Ver figura 8.1.
 
 .. only:: not latex
 
@@ -607,14 +604,14 @@ Pulsando en cada una de las ``Alertas`` puedes obtener más información. ver fi
 
    .. figure:: graphics/chapter08/estado.png
       :scale: 50
-      :alt: Alertas del sistema..
+      :alt: Alertas del sistema.
 
       Alertas del sistema.
 
-Hay 7 comprobaciones predeterminadas en migasfree:
+Hay 9 comprobaciones predeterminadas en *migasfree*:
 
-    * ``Errores sin comprobar``. Cuando en un cliente migasfree se produce algún error,
-      éste es enviado al servidor. Esta comprobación hace que se muestren estos
+    * ``Errores sin comprobar``. Cuando en un cliente *migasfree* se produce algún error,
+      es enviado al servidor. Esta comprobación hace que se muestren estos
       errores. Una vez revisado o solucionado un error en el cliente debes editar
       el error en el servidor y marcar el campo ``comprobado``. Esto hará que
       ya no aparezca en la lista de errores a comprobar. Puedes también
@@ -622,9 +619,9 @@ Hay 7 comprobaciones predeterminadas en migasfree:
       de ``acción`` seleccionar ``La comprobación es correcta``.
 
     * ``Fallas sin comprobar``. Cuando en un cliente migasfree se produce una
-      falla, ésta es enviada al servidor. Esta comprobación hace que se muestren
+      falla, es enviada al servidor. Esta comprobación hace que se muestren
       las fallas pendientes. La manera de proceder con las fallas es similar a
-      la de los ``Errors to check``.
+      la de los ``Errores sin comprobar``.
 
     * ``Notificaciones sin comprobar``. Son hechos que se han producido en el sistema y
       que son informados mediante esta comprobación. Un ejemplo de notificación
@@ -648,7 +645,16 @@ Hay 7 comprobaciones predeterminadas en migasfree:
       establecida por defecto en 30 minutos y puede ser modificado mediante el ajuste
       ``MIGASFREE_SECONDS_MESSAGE_ALERT`` de los :ref:`Ajustes del servidor migasfree`.
 
-    * ``Generación de repositorios``. Indica si se están generando los metadatos de algún repositorio físico asociado a algún despliegue.
+    * ``Generación de repositorios``. Indica si se están generando los metadatos
+      de algún repositorio físico asociado a algún despliegue.
+
+    * ``Despliegues con calendario activo``.
+
+    * ``Despliegues con calendario finalizado``. Si hay despliegues que tienen
+      el calendario de distribución finalizado, deberías pasar esa información
+      (paquetes disponibles, a instalar, etc.) a otro despliegue que no tenga
+      calendario y borrar el despliegue original para simplificar la gestión
+      de los mismos.
 
 Las ``alertas`` proporcionan al usuario una vista general de la situación actual del
 sistema, dirigiendo su actuación a lo relevante.
@@ -666,14 +672,14 @@ Una falla es un hecho negativo que se produce en un equipo cliente. Por
 ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
 algo a lo que se debe prestar atención y ser solucionado antes de que sea tarde.
 
-Migasfree mediante las fallas permite lanzar código en el cliente con este
+Migasfree, mediante las fallas, permite lanzar código en el cliente con este
 objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
 muy proactivo.
 
 En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
 escribe algo por la salida estándar, ésta será enviada al servidor como ``Falla``.
 El servidor entonces añadirá un registro de ``Falla``, apareciendo en las
-``Alertas`` de los usuarios de migasfree.
+``Alertas`` de los usuarios de *migasfree*.
 
 Campos de Definición de Falla
 -----------------------------
@@ -701,7 +707,7 @@ Campos de Definición de Falla
 
     * **Atributos excluidos**: Permite excluir a ciertos equipos de la ejecución de la falla.
 
-    * **Usuarios**: Sirve para asignar usuarios de migasfree a los que les
+    * **Usuarios**: Sirve para asignar usuarios de *migasfree* a los que les
       aparecerán las fallas de este tipo cuando se accede desde las ``Alertas``
       (sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
 
@@ -722,7 +728,7 @@ Consultas
 Migasfree incorpora un sistema para crear consultas parametrizables.
 
 Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
-``Consultas``
+``Consultas``.
 
 Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
 las que ya existen.
@@ -754,9 +760,9 @@ Campos de consulta
 
   .. note::
 
-     Para realizar consultas necesitarás conocer un poco los `QuerySet`__ de
+     Para realizar consultas, necesitarás conocer un poco los `QuerySet`__ de
      Django y la ``Documentación del modelo de datos``. Esta última la tienes
-     disponible al final de todas las páginas del servidor pulsando sobre el
+     disponible al final de todas las páginas de la aplicación, pulsando sobre el
      icono de base de datos.
 
 __ https://docs.djangoproject.com/en/dev/ref/models/querysets/
@@ -765,9 +771,9 @@ __ https://docs.djangoproject.com/en/dev/ref/models/querysets/
 Errores autocomprobables
 ========================
 
-Por defecto, los errores producidos por el P.M.S., se añaden al sistema como no
+Por defecto, los errores producidos por el PMS, se añaden al sistema como no
 comprobados. Ahora bien, en ocasiones puede resultar tedioso tener que marcar como
-comprobados uno a uno ciertos errores que más que errores son "alertas".
+comprobados uno a uno ciertos errores que, más que errores, son "alertas".
 
 Para automatizar esta tarea puedes crear un ``error autocomprobable``. Simplemente añade
 un registro con el `patrón de búsqueda`__ deseado y los errores que coincidan son ese
