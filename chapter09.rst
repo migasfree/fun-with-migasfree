@@ -60,7 +60,7 @@ a la ruta:
 
   .. code-block:: none
 
-    http://tuservidor/public/<PROJECT>/STORES.
+    http://tuservidor/public/<PROJECT>/STORES/
 
 Lo anterioriormente expuesto, corresponde al lugar donde se almacenan los archivos
 del paquete, pero además hay una parte lógica que es necesaria llevar en la
