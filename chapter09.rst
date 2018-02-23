@@ -241,9 +241,9 @@ Campos de despliegue
           lista de paquetes separados por espacios o por retornos de carro. Este
           campo sirve para instalar paquetes que configuran repositorios externos
           a migasfree. Un ejemplo de este tipo de paquetes lo tienes en el
-          paquete `vx-repo-openshot`__.
+          paquete `vx-repo-unizar`__.
 
-          __ https://github.com/vitalinux/vx-repo-openshot
+          __ https://github.com/vitalinux/vx-repo-unizar
 
           La razón de la existencia de este campo, es que después de instalar el
           repositorio externo, es necesario obtener de nuevo los metadatos de
