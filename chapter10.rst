@@ -8,18 +8,18 @@ La sincronización de los sistemas
 
    -- Eduardo Galeano
 
-En el capitulo anterior, has aprendido a liberar paquetes desde un servidor
-migasfre. Pero, para que se produzca el cambio de software, no basta sólo con
+En el capítulo anterior, has aprendido a liberar paquetes desde un servidor
+*migasfree*. Pero, para que se produzca el cambio de software, no basta sólo con
 liberarlo. Los clientes deben poder acceder a los despliegues, bajarse los
 paquetes e instalarlos.
 
-En este capítulo vas a centrarte en el cliente migasfree para ir conociendo los
+En este capítulo vas a centrarte en el cliente *migasfree* para ir conociendo los
 comandos que tienes a tu disposición.
 
 El proceso de sincronización
 ============================
 
-Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
+Ahora, creo que es buen momento para aprender qué hace ``migasfree --update`` :
 
     * Envía mensaje de inicio del proceso de sincronización al servidor.
 
@@ -52,8 +52,8 @@ Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
     * Instala los paquetes obligatorios. Conjunto de paquetes definidos en
       el campo ``Paquetes a instalar`` de los ``Despliegues`` efectivos.
 
-    * Actualiza paquetes disponibles. En caso de que en los
-      :ref:`Ajustes del cliente migasfree` ``Auto_Update_Packages`` sea
+    * Actualiza paquetes disponibles. Si en los
+      :ref:`Ajustes del cliente migasfree` ``Auto_Update_Packages`` es
       ``False``, no se producirá esta actualización.
 
     * Envía al servidor el historial de cambios en el software. Es la diferencia
@@ -63,7 +63,7 @@ Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
     * Envía el inventario de software (los paquetes que tiene ahora mismo ese equipo).
 
     * Envía el inventario de hardware periódicamente según ``MIGASFREE_HW_PERIOD``
-      de los :ref:`Ajustes del servidor migasfree`,
+      de los :ref:`Ajustes del servidor migasfree`.
 
     * Envía los errores de ejecución. Si los hay, el servidor creará un registro
       de ``Error``.
@@ -75,13 +75,13 @@ Ahora creo que es buen momento de aprender qué hace ``migasfree --update`` :
       datos que se emplean para hacer diferentes estadísticas.
 
 Puedes ver una simulación de esta sincronización, accediendo al menú
-desplegable del identificador del ordenador en la aplicación web. Ver :ref:`Ordenadores`
+desplegable del identificador del ordenador en la aplicación web. Ver :ref:`Ordenadores`.
 
 
 El comando ``migasfree``
 ========================
 
-La opción del comando migasfree ``--update`` es, sin lugar a dudas, la más
+La opción del comando *migasfree* ``--update`` es, sin lugar a dudas, la más
 importante. Su sintaxis es:
 
       .. code-block:: none
@@ -102,14 +102,12 @@ esté asignado a ``False``. Consulta el ajuste ``Auto_Update_Packages`` de los
 Existen otras opciones que pueden hacer más fácil el mantenimiento a los
 administradores.
 
-En las organizaciones que usan distintos S.O. con sistemas de paquetería diferentes,
-tanto para buscar, instalar o desinstalar paquetes, los administradores tienen
-que utilizar los comandos propios del sistema de paquetería. Utilizar las
-opciones del comando migasfree para realizar estas tareas te permite abstraerte
-del P.M.S. (no tendrás que estar pensando si estás en un sistema basado en
+En las organizaciones que usan distintos sistemas operativos con sistemas de
+paquetería diferentes, tanto para buscar, instalar o desinstalar paquetes, los administradores tienen que utilizar los comandos propios del sistema de paquetería. Utilizar las opciones del comando *migasfree* para realizar estas tareas te permite abstraerte
+del PMS (no tendrás que estar pensando si estás en un sistema basado en
 Debian o en un Redhat p.e.):
 
-    * Para buscar un determinado paquete en los repositorios utiliza:
+    * Para buscar un determinado paquete en los repositorios, utiliza:
 
       .. code-block:: none
 
@@ -131,8 +129,8 @@ Debian o en un Redhat p.e.):
         migasfree --remove --package=<paquete>
 
 Por último, tienes la opción que permite registrar el equipo cliente en
-el servidor migasfree en caso de que en el registro ``Proyecto`` del servidor el
-campo ``Autoregistrado`` esté desmarcado.
+el servidor *migasfree* en caso que en el registro ``Proyecto`` del servidor el
+campo ``Autoregistrado``, esté desmarcado.
 
       .. code-block:: none
 
