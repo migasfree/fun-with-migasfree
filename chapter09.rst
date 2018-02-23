@@ -10,7 +10,7 @@ La Liberación
 
    -- Ernesto Guevara.
 
-Este es el capítulo que mejor define a migasfree, ya que su principal funcionalidad
+Este es el capítulo que mejor define a *migasfree*, ya que su principal funcionalidad
 es la de ofrecer unos determinados repositorios de paquetes que estarán
 disponibles para los clientes en función de sus atributos.
 
@@ -18,7 +18,7 @@ En los proyectos de software libre, la liberación tiene que ver con poner a
 disposición de la comunidad un determinado software. Aspectos como la autoría o
 la licencia son esenciales, tanto o más como el propio software que se libera.
 
-Liberar software en migasfree implica, además, decidir a quién y a partir de qué
+Liberar software en *migasfree* implica, además, decidir a quién y a partir de qué
 momento, un cliente tendrá acceso a dicho software.
 
 Subiendo paquetes al servidor
@@ -45,7 +45,7 @@ de lectura/escritura en la tabla de almacenes y paquetes. Por defecto el usuario
 ``packager`` y el usuario ``admin`` los tienen.
 
 Para no tener que introducir cada vez que subas un paquete al servidor
-el usuario, su contaseña y/o la versión con la que trabajas, puedes asignar
+el usuario, su contaseña y/o el proyecto con el que trabajas, puedes asignar
 los ajustes indicados en la sección [Packager] de
 :ref:`Ajustes del cliente migasfree`.
 
@@ -54,7 +54,7 @@ Almacenes
 
 Un almacén es una ubicación o ruta del servidor donde se colocan los paquetes y/o
 conjuntos de paquetes subidos al servidor. No es más que un directorio colgando
-de la ruta /var/migasfree/repo/<PROJECT>/STORES, y que se utiliza para tener
+de la ruta ``/var/migasfree/repo/<PROJECT>/STORES``, y que se utiliza para tener
 organizados los paquetes. También es accesible desde un explorador web accediendo
 a la ruta:
 
@@ -62,9 +62,9 @@ a la ruta:
 
     http://tuservidor/public/<PROJECT>/STORES.
 
-Lo anterioriormente expuesto corresponde al lugar donde se almacenan los archivos
+Lo anterioriormente expuesto, corresponde al lugar donde se almacenan los archivos
 del paquete, pero además hay una parte lógica que es necesaria llevar en la
-base de datos de migasfree. Es lo que denominamos registros de "Almacén".
+base de datos de *migasfree*. Es lo que denominamos registros de "Almacén".
 
 Cuando se utiliza el comando ``migasfree-upload`` y se indica una ubicación
 inexistente, el servidor automáticamente creará el registro lógico en la base de
@@ -76,7 +76,7 @@ Campos de Almacén
     * ``Nombre``: Denomina al almacén. Corresponde al nombre de la carpeta en el
       sistema de archivos.
 
-    * ``Proyecto``. Indica el proyecto migasfree a la que pertenece el almacén.
+    * ``Proyecto``. Indica el proyecto *migasfree* al que pertenece el almacén.
 
 
 Paquetes
@@ -93,7 +93,7 @@ Campos de Paquete
 
     * ``Nombre``: Es el nombre del fichero del paquete.
 
-    * ``Proyecto``: Indica el proyecto migasfree a la que pertenece el paquete.
+    * ``Proyecto``: Indica el proyecto *migasfree* al que pertenece el paquete.
 
     * ``Almacén``: Especifica la ubicación donde está situado el paquete.
 
@@ -113,8 +113,8 @@ elige ``Eliminar Paquetes/conjuntos seleccionados`` y después pulsa en el botó
 ``ir``.
 
     * ``Eliminar Paquetes/conjuntos seleccionados``. Permite borrar el registro
-      del Paquete. A medida que vayas haciendo cambios en el software,
-      irás teniendo distintas versiones del mismo paquete. Generalmente te
+      del paquete. A medida que vayas haciendo cambios en el software,
+      irás teniendo distintas versiones del mismo paquete. Generalmente, te
       interesará trabajar sólo con la última versión. Si quieres que sólo te
       aparezca ésta a la hora de asignarlo a los ``Despliegues``, puedes borrar
       los registros de ``Paquetes`` antiguos. Borrar el registro no borrará el
@@ -124,8 +124,8 @@ Paquetes huérfanos
 ------------------
 
 Un paquete huérfano es un paquete que no está asignado a ningún despliegue.
-Cuando un paquete es subido al servidor, o cuando lo quitas de un repositorio y
-no está en ningún otro despliegue se convierte en un paquete huérfano.
+Cuando un paquete es subido al servidor, o cuando lo quitas de un despliegue y
+no está en ningún otro, se convierte en un paquete huérfano.
 Existe una comprobación de ``Alerta`` que te avisará de cuáles son estos
 paquetes.
 
@@ -155,8 +155,8 @@ proyecto, y a partir de aquí ha ido creciendo hasta convertirse en lo que es ho
 en día, un gestor de sistemas.
 
 A todos los efectos, y desde el punto de vista del cliente, un despliegue
-en migasfree es un repositorio de paquetes estándar como los que puedas
-encontrar en cualquier distribución. Migasfree permite crear muy fácilmente
+en *migasfree* es un repositorio de paquetes estándar como los que puedas
+encontrar en cualquier distribución. *Migasfree* permite crear muy fácilmente
 estos repositorios y asignarlos a los equipos en función de sus atributos a
 partir de una fecha determinada.
 
@@ -171,7 +171,7 @@ Campos de despliegue
         tarea de redmine al que hace referencia el cambio de software que queremos
         liberar.
 
-    * **Proyecto**: Especifica el proyecto en la que estará disponible el
+    * **Proyecto**: Especifica el proyecto en el que estará disponible el
       despliegue.
 
     * **Habilitado**: Activa o desactiva el despliegue.
@@ -180,7 +180,7 @@ Campos de despliegue
       el despliegue. Es muy conveniente que registres las modificaciones que
       vayas haciendo en este campo, indicando quién, cuándo y qué se ha modificado.
 
-      Un ejemplo de como lo hacemos en AZLinux sería:
+      Un ejemplo de cómo lo hacemos en AZLinux, sería:
 
       .. code-block:: none
 
@@ -191,7 +191,7 @@ Campos de despliegue
         [eduardo@2013-05-10] Detectado problemas en algunos clientes. Desactivo
             el despliegue hasta diagnosticar y encontrar solución.
 
-    * Paquetes:
+    * El qué (paquetes):
 
         * **Paquetes disponibles**: En este campo se seleccionan los ``paquetes`` y/o
           ``conjuntos de paquetes`` que se incluirán en el repositorio físico.
@@ -206,7 +206,7 @@ Campos de despliegue
           la cantidad de paquetes que se tengan que procesar, el tiempo
           para realizar este proceso puede ser largo. En los casos en los que se
           asigne un ``conjunto de paquetes`` donde se incluyan todos los paquetes
-          de un DVD p.e.  puede llegar a ser del orden de decenas de minutos.
+          de un DVD p.e. puede llegar a ser del orden de decenas de minutos.
 
           .. note::
 
@@ -226,14 +226,14 @@ Campos de despliegue
           más una versión.
 
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
-          ``migasfree --update`` y ``migasfree-tags --set``
+          ``migasfree --update`` y ``migasfree-tags --set``.
 
         * **Paquetes a desinstalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro que serán
           desinstalados **obligatorimente** en los clientes.
 
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
-          ``migasfree --update`` y ``migasfree-tags --set``
+          ``migasfree --update`` y ``migasfree-tags --set``.
 
     * Por defecto:
 
@@ -263,7 +263,7 @@ Campos de despliegue
           desinstalados en los clientes que tengan acceso al despliegue al
           ejecutar el comando ``migasfree-tags --set``.
 
-    * Atributos:
+    * A quién (atributos):
 
         * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
           coincida con los asignados en este campo tendrán accesible el
@@ -277,7 +277,7 @@ Campos de despliegue
               * Atributos incluidos: ``NET-192.168.92.0/24``
               * Atributos excluidos:``HST-PC13098``
 
-    * Calendario:
+    * Cuándo (calendario):
         * **Fecha de inicio**: A partir de la cual estará disponible el despliegue
           en los clientes.
 
@@ -294,7 +294,7 @@ fecha de inicio del despliegue.
 
 Por ejemplo, en AZLinux usamos distintos calendarios (LENTO, NORMAL, RÁPIDO,
 MUY RÁPIDO) según la criticidad del cambio de software que se va a liberar
-o de su urgencia. En estos calendarios asignamos días de demora para los
+o de su urgencia. En estos calendarios, asignamos días de demora para los
 distintos servicios de nuestra organización.
 
       .. code-block:: none
@@ -318,7 +318,7 @@ resultante en la columna ``línea temporal`` de ``Liberación-Despliegues``
 
 Asignar un calendario a un despliegue no es obligatorio.
 
-Esta programación de la liberación se utiliza fundamentalmente para conseguir:
+Esta programación de la liberación se utiliza, fundamentalmente, para conseguir:
 
     * No aplicar una liberación de golpe a muchos equipos, lo que puede provocar
       un consumo de tráfico de red intenso (imagina 1000 equipos actualizando
@@ -337,7 +337,8 @@ Un determinado cliente tendrá acceso al despliegue si:
     * O existe un atributo coincidente con el calendario cuya fecha de inicio del despliegue
       más la demora se ha cumplido.
 
-    * Siempre y cuando un atributo del cliente no coincida con  el campo ``atributos excluidos`` del despliegue.
+    * Siempre y cuando un atributo del cliente no coincida con  el campo ``atributos
+      excluidos`` del despliegue.
 
 Una manera en que puedes ver una estimación de la cantidad de equipos que un
 calendario va haciendo efectivos los despliegues a lo largo de los días es
@@ -366,10 +367,10 @@ Campos de calendario
 Repositorios internos vs externos
 =================================
 
-Llamamos repositorio interno al repositorio que controla el servidor migasfree.
+Llamamos repositorio interno al repositorio que controla el servidor *migasfree*.
 
 Un repositorio externo es un repositorio configurado en los clientes y que no
-apunta al servidor migasfree, Los repositorios que vienen por defecto configurados
+apunta al servidor *migasfree*. Los repositorios que vienen por defecto configurados
 en las distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
 
 Si quieres tener un mayor control de tus sistemas, mi recomendación es que te
@@ -402,7 +403,7 @@ repositorios externos en los clientes.
 
 
 Un pequeño script para obtener los paquetes de los repositorios externos
-(en este caso para ubuntu-12.04) podría ser:
+(en este caso para ubuntu-16.04) podría ser:
 
   .. code-block:: none
 
@@ -423,7 +424,7 @@ Un pequeño script para obtener los paquetes de los repositorios externos
       _REPO=$2
       _PATH=`pwd`
       echo "PATH= $_PATH"
-      wget $_SERVER/dists/$_SERIES/$_REPO/binary-i386/$_PKGS.bz2
+      wget $_SERVER/dists/$_SERIES/$_REPO/binary-amd64/$_PKGS.bz2
       bzip2 -d $_PKGS.bz2
       _FILES=`grep "^Filename:" $_PKGS| awk '{print $2}'|sort`
       _TARGET=$_SERIES-$_REPO
@@ -442,10 +443,10 @@ Un pequeño script para obtener los paquetes de los repositorios externos
       rm $_PKGS
     }
 
-    download "precise-security"
-    download "precise-updates"
-    download "precise-backports"
-    download "precise"
+    download "xenial-security"
+    download "xenial-updates"
+    download "xenial-backports"
+    download "xenial"
 
 
 El proceso de la liberación
