@@ -40,9 +40,9 @@ MIGASFREE_AUTOREGISTER
 Valor por defecto:  True
 
 Especifica si los ordenadores pueden autoregistrar la plataforma y
-la versión migasfree.
+el proyecto al ejecutar ``migasfree --update``.
 
-Si no quieres que ningún ordenador registre versiones y/o plataformas
+Si no quieres que ningún ordenador registre proyectos y/o plataformas
 automáticamente, tienes que darlas de alta manualmente y asignar este ajuste a
 False.
 
