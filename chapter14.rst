@@ -283,6 +283,26 @@ Para la versión de migasfree-client 4.7 ó superior usa:
      Si es necesario, vuelve a registrar el cliente ejecutando: ``migasfree --register``.
 
 
+El cliente migasfree devuelve el mensaje: "Autoregistrando ordenador... Error: Error genérico"
+----------------------------------------------------------------------------------------------
+
+Causa
+*****
+
+Este error suele estar relacionado con el propietario de la carpeta ``keys`` del servidor.
+
+
+Solución
+********
+
+Si has migrado el servidor desde una versión inferior a la 4.14. asigna 
+al directorio ``keys`` y su contenido al propietario 890
+
+  .. code-block:: none
+
+    # chown -R 890:890 /var/lib/migasfree/${FQDN}/keys
+
+
 Imposible obtener /PKGS/binary-amd64/Packages  404  Not Found
 -------------------------------------------------------------
 
