@@ -39,6 +39,61 @@ Si necesitas cambiarla, haz esto:
     # ALTER USER migasfree WITH PASSWORD 'mipassword';
 
 
+
+¿Cómo migro el servidor a una versión >= 4.14 con docker?
+---------------------------------------------------------
+
+En primer lugar sigue los pasos indicados en :ref:`Migasfree en producción`.
+
+Observa ahora que en el fichero docker-compose.yml se establecen para 
+el servidor los ``volumes`` siguientes:
+
+  .. code-block:: none 
+  
+    volumes:
+      - "/var/lib/migasfree/${FQDN}/conf:/etc/migasfree-server"
+      - "/var/lib/migasfree/${FQDN}/public:/var/migasfree/repo"
+      - "/var/lib/migasfree/${FQDN}/keys:/usr/share/migasfree-server"
+
+
+Por tanto, deberás mover o copiar los ficheros de la versión antigua 
+a /var/lib/migasfree/${FQDN}/ además de cambiar a estos ficheros el 
+propietario (el servidor >=4.14 utiliza un usuario con uid y gid 890). 
+
+  .. code-block:: none 
+     
+    # cp /etc/migasfree-server/* /var/lib/migasfree/${FQDN}/conf
+    # cp /var/migasfree/repo/* /var/lib/migasfree/${FQDN}/public
+    # cp /usr/share/migasfree-server/* /var/lib/migasfree/${FQDN}/keys
+    # chown -R 890:890 /var/lib/migasfree/${FQDN}/public
+    # chown -R 890:890 /var/lib/migasfree/${FQDN}/keys
+
+Por último, es muy recomendable que regeneres los metadatos de los despliegues.
+Esto evitará que se produzcan errores en el cliente de firmas GPG inválidas, al no 
+estar firmado el fichero ``InRelease`` en los proyectos con sistema de paquetería 
+``apt``, al haberse generado los metadatos de los repositorios con 
+versiones antiguas del servidor:  
+
+  .. code-block:: none 
+  
+    Get:1 http://migasfree/repo/Ubuntu-18.04/REPOSITORIES test InRelease [4213 B]
+    Err:1 http://migasfree/repo/Ubuntu-18.04/REPOSITORIES test InRelease                              
+      The following signatures were invalid: 37CDCDA342A718EADA493BC5827CFFCB9A18B812
+    Hit:2 http://es.archive.ubuntu.com/ubuntu bionic InRelease                                                           
+    Hit:3 http://es.archive.ubuntu.com/ubuntu bionic-updates InRelease                                         
+    Hit:4 http://es.archive.ubuntu.com/ubuntu bionic-backports InRelease    
+    Hit:5 http://security.ubuntu.com/ubuntu bionic-security InRelease
+    Reading package lists... Done                     
+    W: GPG error: http://migasfree/repo/Ubuntu-18.04/REPOSITORIES test InRelease: The following signatures were invalid: 37CDCDA342A718EADA493BC5827CFFCB9A18B812
+    E: The repository 'http://migasfree/repo/Ubuntu-18.04/REPOSITORIES test InRelease' is not signed.
+    N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+    N: See apt-secure(8) manpage for repository creation and user configuration details.
+
+Para ello accede a ``Liberación - Despliegues``, selecciona los despliegues 
+que necesitas  regenerar, en el desplegable ``acción`` elige 
+``regenerar metadatos`` y pulsa finalmente sobre el botón ``ir`` 
+
+
 ¿Cómo hago una fórmula para obtener el contexto LDAP de un usuario?
 ---------------------------------------------------------------------
 
