@@ -365,7 +365,8 @@ Estadísticas
 Es una lista con estadísticas predefinidas.
 
 
-    * **cuadro de mando**: Resumen de las estadísticas más importantes sobre el parque de ordenadores gestionado por el servidor migasfree.
+    * **cuadro de mando**: Resumen de las estadísticas más importantes sobre
+      el parque de ordenadores gestionado por el servidor migasfree.
 
     * **ordenadores actualizados/hora**: Gráfica de barras que indica la cantidad
       (única) de equipos que han completado la actualización de migasfree
@@ -378,6 +379,9 @@ Es una lista con estadísticas predefinidas.
     * **ordenadores actualizados/mes**: Gráfica de barras que indica la cantidad
       (única) de equipos que han completado la actualización de migasfree
       por mes.
+
+    * **resumen de dispositivos**: Varias gráficas relacionadas con los dispositivos.
+
 
 El proceso de las comprobaciones
 ================================
