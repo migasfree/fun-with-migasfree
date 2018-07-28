@@ -15,12 +15,89 @@ generando a consecuencia del proceso de sincronización.
 
 Esto es lo que te vas a encontrar en este capítulo.
 
+
+.. _`Alertas`:
+
 Alertas
 =======
 
 Muestra en lo que debe actuar el administrador para tener un sistema lo
-más íntegro posible. Ya lo viste en apartado :ref:`Comprobaciones` del capítulo
-:ref:`La configuración del sistema migasfree`.
+más íntegro posible.
+
+Son un conjunto de comprobaciones que se realizan para alertar al usuario.
+Pulsando en cada una de las ``Alertas`` puedes obtener más información. Ver figura 11.1.
+
+.. only:: not latex
+
+   .. figure:: graphics/chapter11/alert.png
+      :scale: 100
+      :alt: Alertas del sistema.
+
+      figura 11.1. Alertas del sistema.
+
+
+.. only:: latex
+
+   .. figure:: graphics/chapter11/alert.png
+      :scale: 50
+      :alt: Alertas del sistema.
+
+      Alertas del sistema.
+
+Hay 9 alertas predeterminadas en *migasfree*:
+
+    * ``Errores sin comprobar``. Cuando en un cliente *migasfree* se produce algún error,
+      es enviado al servidor. Esta comprobación hace que se muestren estos
+      errores. Una vez revisado o solucionado un error en el cliente debes editar
+      el error en el servidor y marcar el campo ``comprobado``. Esto hará que
+      ya no aparezca en la lista de errores a comprobar. Puedes también
+      seleccionar un conjunto de errores en la lista de errores y en el desplegable
+      de ``acción`` seleccionar ``La comprobación es correcta``.
+
+    * ``Fallas sin comprobar``. Cuando en un cliente migasfree se produce una
+      falla, es enviada al servidor. Esta comprobación hace que se muestren
+      las fallas pendientes. La manera de proceder con las fallas es similar a
+      la de los ``Errores sin comprobar``.
+
+    * ``Notificaciones sin comprobar``. Son hechos que se han producido en el sistema y
+      que son informados mediante esta comprobación. Un ejemplo de notificación
+      es cuando un equipo da de alta una plataforma o un proyecto nuevo en el
+      sistema.
+
+    * ``Paquetes huérfanos``. Comprueba si hay paquetes que no están asignados
+      a ningún despliegue.
+
+    * ``Ordenadores sincronizándose``. Cuando un equipo está ejecuando el cliente
+      migasfree, éste va informando al servidor de lo que está haciendo mediante
+      un texto que indica el proceso que está realizando. Cuando el cliente
+      migasfree finaliza, envía al servidor un mensaje de texto vacío.
+      Esta comprobación comprueba cuántos de estos mensajes se han recibido.
+
+    * ``Ordenadores retrasados``. Si pasa un determinado tiempo desde que se recibió
+      el último mensaje del cliente, es muy posible que algo ha ido mal en el
+      cliente. Quizás perdió la conexión, o el usuario apagó el equipo en medio
+      de la ejecución del cliente migasfree, o quizás ha habido algún error. Esta
+      comprobación permite detectar estos casos. La cantidad de tiempo viene
+      establecida por defecto en 30 minutos y puede ser modificado mediante el ajuste
+      ``MIGASFREE_SECONDS_MESSAGE_ALERT`` de los :ref:`Ajustes del servidor migasfree`.
+
+    * ``Generación de repositorios``. Indica si se están generando los metadatos
+      de algún repositorio físico asociado a algún despliegue.
+
+    * ``Despliegues con calendario activo``.
+
+    * ``Despliegues con calendario finalizado``. Si hay despliegues que tienen
+      el calendario de distribución finalizado, deberías pasar esa información
+      (paquetes disponibles, a instalar, etc.) a otro despliegue que no tenga
+      calendario y borrar el despliegue original para simplificar la gestión
+      de los mismos.
+
+Las ``alertas`` proporcionan al usuario una vista general de la situación actual del
+sistema, dirigiendo su actuación a lo relevante.
+
+El objetivo en todo momento debería ser mantener el sistema con 0 alertas. Esto
+indicaría que se han revisado los errores, se han comprobado las fallas,
+no hay paquetes huérfanos, etc.
 
 
 .. _`Ordenadores`:
