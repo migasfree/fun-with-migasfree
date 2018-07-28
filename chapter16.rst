@@ -403,6 +403,9 @@ Valor por defecto:
         }
     }
 
+EMAIL
+-----
+
 Otros ajustes importantes son los relacionados con la configuración
 del email. Se emplean para enviar mensajes a los usuarios y asi poder
 restablecer su contraseña. Tambien se usan para enviar a los
