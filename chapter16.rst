@@ -21,6 +21,8 @@ fichero ``/var/lib/migasfree/FQDN/conf/settings.py``.
 Ajustes propios de migasfree
 ============================
 
+.. _`MIGASFREE_ORGANIZATION`:
+
 MIGASFREE_ORGANIZATION
 ----------------------
 
