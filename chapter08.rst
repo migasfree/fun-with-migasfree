@@ -12,7 +12,7 @@ La configuración del sistema migasfree
    -- George Bernard Shaw
 
 
-En los capítulos anteriores, has aprendido a instalar el servidor y el cliente
+En capítulos anteriores, has aprendido a instalar el servidor y el cliente
 migasfree, así como a crear paquetes. La creación de paquetes no es una tarea
 trivial, no tanto por su construcción en sí, sino por el hecho de que son necesarios
 amplios conocimientos de los sistemas operativos y de las aplicaciones.
@@ -384,6 +384,140 @@ Campos de Conjuntos de Atributos
 * **Atributos excluidos**: Lista de ``Atributos`` a excluir del conjunto.
 
 
+.. _`Fallas`:
+
+Fallas
+======
+
+Una falla es un hecho negativo que se produce en un equipo cliente. Por
+ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
+algo a lo que se debe prestar atención y ser solucionado antes de que sea tarde.
+
+Migasfree, mediante las fallas, permite lanzar código en el cliente con este
+objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
+muy proactivo.
+
+En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
+escribe algo por la salida estándar, ésta será enviada al servidor como ``Falla``.
+El servidor entonces añadirá un registro de ``Falla``, apareciendo en las
+``Alertas`` de los usuarios de *migasfree*.
+
+Campos de Definición de Falla
+-----------------------------
+
+    * **Nombre**: Denomina a la falla.
+
+    * **Habilitado**: Activa o desactiva la falla.
+
+    * **Descripción**: Para detallar lo que hace la falla.
+
+    * **Lenguaje de programación**: Especifica en qué lenguaje está escrito el
+      ``código``. Mi recomendación es que programes en la medida de lo posible
+      en **python**.
+
+    * **Código**: Instrucciones que detectan alguna falla en los equipos y que
+      debe poner en la salida estándar un texto que indique la falla producida.
+      Puede serte útil en algunos casos poner también el procedimiento a seguir.
+
+    * **Atributos incluidos**: Permite asignar en qué equipos cliente será efectiva
+      la falla. Por ejemplo si escribes el código en bash, deberías asignar la
+      falla sólo a los equipos con plataforma Linux ``PLT-Linux``,
+      ya que plataformas Windows no serán capaces de ejecutar bash.
+      También te puede interesar programar una falla sólo para obtener
+      información de un equipo o de un grupo de equipos.
+
+    * **Atributos excluidos**: Permite excluir a ciertos equipos de la ejecución de la falla.
+
+    * **Usuarios**: Sirve para asignar usuarios de *migasfree* a los que les
+      aparecerán las fallas de este tipo cuando se accede desde las ``Alertas``
+      (sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
+
+Si una definición de falla no tiene asignado ningún usuario, las fallas
+que se produzcan aparecerán a cualquier usuario autenticado.
+
+  .. note::
+
+      Poder ejecutar código en los clientes proporciona una gran potencia para
+      realizar cualquier cosa. Usa esta capacidad con responsabilidad y sé
+      meticuloso en las comprobaciones antes de activar cualquier falla.
+
+
+Errores autocomprobables
+========================
+
+Por defecto, los errores producidos por el PMS, se añaden al sistema como no
+comprobados. Ahora bien, en ocasiones puede resultar tedioso tener que marcar como
+comprobados uno a uno ciertos errores que, más que errores, son "alertas".
+
+Para automatizar esta tarea puedes crear un ``error autocomprobable``. Simplemente añade
+un registro con el `patrón de búsqueda`__ deseado y los errores que coincidan son ese
+patrón se marcarán automáticamente como comprobados.
+
+__ https://docs.python.org/2/library/re.html#module-re
+
+Por ejemplo, si quisieras que todos los errores que llegan del tipo:
+
+    .. code-block:: none
+
+      2014-10-03 10:44:47
+      Error: Generic error
+      Info: Curl error: Couldn't resolve host 'myserver'
+
+se autocomprobaran, podrías emplear el siguiente patrón:
+
+    .. code-block:: none
+
+      .*\sError: Generic error\sInfo: Curl error: Couldn't resolve host 'myserver'
+
+
+.. _`Consultas`:
+
+Consultas
+=========
+
+Migasfree incorpora un sistema para crear consultas parametrizables.
+
+Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
+``Consultas``.
+
+Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
+las que ya existen.
+
+Campos de consulta
+------------------
+
+    * **Nombre**: Denomina la consulta.
+
+    * **Descripción**: Describe la consulta.
+
+    * **Código**: Instrucción en *Django* de la consulta. Mediante la asignación
+      de unas variables predeterminadas el servidor podrá crear la consulta.
+
+      Las variables en concreto son:
+
+        * **query**: Conjunto de registros de la consulta.
+
+        * **fields**: Lista de los campos del *QuerySet* que se quieren mostrar.
+
+        * **titles**: Lista de los titulos de los campos que se quieren mostrar.
+
+        * **project**: Sirve para obtener el proyecto del usuario y poder hacer
+          filtros cuando se requiera.
+
+    * **Parámetros**: Permite la petición de parámetros de consulta. Se debe
+      crear una función que se llame ``form_params`` y que devuelva una clase
+      que herede de ``ParametersForm``.
+
+  .. note::
+
+     Para realizar consultas, necesitarás conocer un poco los `QuerySet`__ de
+     Django y la ``Documentación del modelo de datos``. Esta última la tienes
+     disponible al final de todas las páginas de la aplicación, pulsando sobre el
+     icono de base de datos.
+
+__ https://docs.djangoproject.com/en/dev/ref/models/querysets/
+
+
 .. _`Proyectos`:
 
 Proyectos
@@ -564,6 +698,9 @@ servidor *migasfree*, asignándoles los grupos de usuarios correspondientes.
      que no se vayan a utilizar o que, al menos, se les cambie la contraseña por
      motivos de seguridad.
 
+
+.. _`Cambio de contraseña`:
+
 Cambio de contraseña
 --------------------
 La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
@@ -577,224 +714,14 @@ Si un usuario olvida su password, y el administrador ha configurado en los
 ajustes del servidor el :ref:`email`, podrá restablecerla.
 
 
-Proyecto por defecto de un usuario
-----------------------------------
+.. _`Dominios`:
 
-Los usuarios tienen un campo ``proyecto`` que sirve para filtrar registros. De
-esta manera, cuando un usuario consulta los despliegues p.e., se muestran por defecto
-los despliegues del proyecto que tiene asignado. Este filtro por defecto se aplica a despliegues, almacenes y paquetes.
+Dominios
+========
 
-Un usuario puede seleccionar su proyecto pulsando en su nombre de usuario y
-luego ``Preferencias``
 
-.. _`Comprobaciones`:
+.. _`Ambitos`:
 
-Comprobaciones
-==============
+Ambitos
+=======
 
-Son un conjunto de comprobaciones que se realizan para alertar al usuario.
-Pulsando en cada una de las ``Alertas`` puedes obtener más información. Ver figura 8.1.
-
-.. only:: not latex
-
-   .. figure:: graphics/chapter08/estado.png
-      :scale: 100
-      :alt: Alertas del sistema.
-
-      figura 8.1. Alertas del sistema.
-
-
-.. only:: latex
-
-   .. figure:: graphics/chapter08/estado.png
-      :scale: 50
-      :alt: Alertas del sistema.
-
-      Alertas del sistema.
-
-Hay 9 comprobaciones predeterminadas en *migasfree*:
-
-    * ``Errores sin comprobar``. Cuando en un cliente *migasfree* se produce algún error,
-      es enviado al servidor. Esta comprobación hace que se muestren estos
-      errores. Una vez revisado o solucionado un error en el cliente debes editar
-      el error en el servidor y marcar el campo ``comprobado``. Esto hará que
-      ya no aparezca en la lista de errores a comprobar. Puedes también
-      seleccionar un conjunto de errores en la lista de errores y en el desplegable
-      de ``acción`` seleccionar ``La comprobación es correcta``.
-
-    * ``Fallas sin comprobar``. Cuando en un cliente migasfree se produce una
-      falla, es enviada al servidor. Esta comprobación hace que se muestren
-      las fallas pendientes. La manera de proceder con las fallas es similar a
-      la de los ``Errores sin comprobar``.
-
-    * ``Notificaciones sin comprobar``. Son hechos que se han producido en el sistema y
-      que son informados mediante esta comprobación. Un ejemplo de notificación
-      es cuando un equipo da de alta una plataforma o un proyecto nuevo en el
-      sistema.
-
-    * ``Paquetes huérfanos``. Comprueba si hay paquetes que no están asignados
-      a ningún despliegue.
-
-    * ``Ordenadores sincronizándose``. Cuando un equipo está ejecuando el cliente
-      migasfree, éste va informando al servidor de lo que está haciendo mediante
-      un texto que indica el proceso que está realizando. Cuando el cliente
-      migasfree finaliza, envía al servidor un mensaje de texto vacío.
-      Esta comprobación comprueba cuántos de estos mensajes se han recibido.
-
-    * ``Ordenadores retrasados``. Si pasa un determinado tiempo desde que se recibió
-      el último mensaje del cliente, es muy posible que algo ha ido mal en el
-      cliente. Quizás perdió la conexión, o el usuario apagó el equipo en medio
-      de la ejecución del cliente migasfree, o quizás ha habido algún error. Esta
-      comprobación permite detectar estos casos. La cantidad de tiempo viene
-      establecida por defecto en 30 minutos y puede ser modificado mediante el ajuste
-      ``MIGASFREE_SECONDS_MESSAGE_ALERT`` de los :ref:`Ajustes del servidor migasfree`.
-
-    * ``Generación de repositorios``. Indica si se están generando los metadatos
-      de algún repositorio físico asociado a algún despliegue.
-
-    * ``Despliegues con calendario activo``.
-
-    * ``Despliegues con calendario finalizado``. Si hay despliegues que tienen
-      el calendario de distribución finalizado, deberías pasar esa información
-      (paquetes disponibles, a instalar, etc.) a otro despliegue que no tenga
-      calendario y borrar el despliegue original para simplificar la gestión
-      de los mismos.
-
-Las ``alertas`` proporcionan al usuario una vista general de la situación actual del
-sistema, dirigiendo su actuación a lo relevante.
-
-El objetivo en todo momento debería ser mantener el sistema con 0 alertas. Esto
-indicaría que se han revisado los errores, se han comprobado las fallas,
-no hay paquetes huérfanos, etc.
-
-.. _`Fallas`:
-
-Fallas
-======
-
-Una falla es un hecho negativo que se produce en un equipo cliente. Por
-ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
-algo a lo que se debe prestar atención y ser solucionado antes de que sea tarde.
-
-Migasfree, mediante las fallas, permite lanzar código en el cliente con este
-objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
-muy proactivo.
-
-En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
-escribe algo por la salida estándar, ésta será enviada al servidor como ``Falla``.
-El servidor entonces añadirá un registro de ``Falla``, apareciendo en las
-``Alertas`` de los usuarios de *migasfree*.
-
-Campos de Definición de Falla
------------------------------
-
-    * **Nombre**: Denomina a la falla.
-
-    * **Habilitado**: Activa o desactiva la falla.
-
-    * **Descripción**: Para detallar lo que hace la falla.
-
-    * **Lenguaje de programación**: Especifica en qué lenguaje está escrito el
-      ``código``. Mi recomendación es que programes en la medida de lo posible
-      en **python**.
-
-    * **Código**: Instrucciones que detectan alguna falla en los equipos y que
-      debe poner en la salida estándar un texto que indique la falla producida.
-      Puede serte útil en algunos casos poner también el procedimiento a seguir.
-
-    * **Atributos incluidos**: Permite asignar en qué equipos cliente será efectiva
-      la falla. Por ejemplo si escribes el código en bash, deberías asignar la
-      falla sólo a los equipos con plataforma Linux ``PLT-Linux``,
-      ya que plataformas Windows no serán capaces de ejecutar bash.
-      También te puede interesar programar una falla sólo para obtener
-      información de un equipo o de un grupo de equipos.
-
-    * **Atributos excluidos**: Permite excluir a ciertos equipos de la ejecución de la falla.
-
-    * **Usuarios**: Sirve para asignar usuarios de *migasfree* a los que les
-      aparecerán las fallas de este tipo cuando se accede desde las ``Alertas``
-      (sólo se muestran las que están pendientes de comprobar por el usuario autenticado).
-
-Si una definición de falla no tiene asignado ningún usuario, las fallas
-que se produzcan aparecerán a cualquier usuario autenticado.
-
-  .. note::
-
-      Poder ejecutar código en los clientes proporciona una gran potencia para
-      realizar cualquier cosa. Usa esta capacidad con responsabilidad y sé
-      meticuloso en las comprobaciones antes de activar cualquier falla.
-
-.. _`Consultas`:
-
-Consultas
-=========
-
-Migasfree incorpora un sistema para crear consultas parametrizables.
-
-Cada consulta se programa en un registro y podrá ser ejecutada accediendo a
-``Consultas``.
-
-Hay una pocas consultas ya predefinidas, pero puedes programar nuevas o adaptar
-las que ya existen.
-
-Campos de consulta
-------------------
-
-    * **Nombre**: Denomina la consulta.
-
-    * **Descripción**: Describe la consulta.
-
-    * **Código**: Instrucción en *Django* de la consulta. Mediante la asignación
-      de unas variables predeterminadas el servidor podrá crear la consulta.
-
-      Las variables en concreto son:
-
-        * **query**: Conjunto de registros de la consulta.
-
-        * **fields**: Lista de los campos del *QuerySet* que se quieren mostrar.
-
-        * **titles**: Lista de los titulos de los campos que se quieren mostrar.
-
-        * **project**: Sirve para obtener el proyecto del usuario y poder hacer
-          filtros cuando se requiera.
-
-    * **Parámetros**: Permite la petición de parámetros de consulta. Se debe
-      crear una función que se llame ``form_params`` y que devuelva una clase
-      que herede de ``ParametersForm``.
-
-  .. note::
-
-     Para realizar consultas, necesitarás conocer un poco los `QuerySet`__ de
-     Django y la ``Documentación del modelo de datos``. Esta última la tienes
-     disponible al final de todas las páginas de la aplicación, pulsando sobre el
-     icono de base de datos.
-
-__ https://docs.djangoproject.com/en/dev/ref/models/querysets/
-
-
-Errores autocomprobables
-========================
-
-Por defecto, los errores producidos por el PMS, se añaden al sistema como no
-comprobados. Ahora bien, en ocasiones puede resultar tedioso tener que marcar como
-comprobados uno a uno ciertos errores que, más que errores, son "alertas".
-
-Para automatizar esta tarea puedes crear un ``error autocomprobable``. Simplemente añade
-un registro con el `patrón de búsqueda`__ deseado y los errores que coincidan son ese
-patrón se marcarán automáticamente como comprobados.
-
-__ https://docs.python.org/2/library/re.html#module-re
-
-Por ejemplo, si quisieras que todos los errores que llegan del tipo:
-
-    .. code-block:: none
-
-      2014-10-03 10:44:47
-      Error: Generic error
-      Info: Curl error: Couldn't resolve host 'myserver'
-
-se autocomprobaran, podrías emplear el siguiente patrón:
-
-    .. code-block:: none
-
-      .*\sError: Generic error\sInfo: Curl error: Couldn't resolve host 'myserver'
