@@ -402,3 +402,20 @@ Valor por defecto:
             'PORT': '',
         }
     }
+
+Otros ajustes importantes son los relacionados con la configuración
+del email. Se emplean para enviar mensajes a los usuarios y asi poder
+restablecer su contraseña. Tambien se usan para enviar a los
+administradores notificaciones de errores vía email.
+
+  .. code-block:: none
+
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'webmail.example.com'
+    EMAIL_PORT = 25
+    EMAIL_HOST_USER = "myaccount@example.com"
+    EMAIL_HOST_PASSWORD = "mypassword"
+    DEFAULT_FROM_EMAIL = "migasfree-server <noreply@example.com>"
+
+    ADMINS = [('John', 'john@example.com'), ('Mary', 'mary@example.com')]
+
