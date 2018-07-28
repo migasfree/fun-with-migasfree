@@ -551,7 +551,7 @@ Usuarios
 
     * ``reader``. Pertenece  al grupo ``Reader``.
 
-Estos usuarios tienen por defecto como contaseña su nombre, es decir, la
+Estos usuarios tienen por defecto como contraseña su nombre, es decir, la
 contraseña de ``admin`` es ``admin``, y lo mismo es aplicable al resto de usuarios.
 
 Estos usuarios son ficticios para realizar pruebas y conviene que
@@ -572,6 +572,10 @@ y que aparece arriba a la derecha en todas las páginas web de la aplicación.
 También puede ser modificada por otro usuario que tenga marcado el campo
 ``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
 directamente su campo ``Contraseña``.
+
+Si un usuario olvida su password, y el administrador ha configurado en los
+ajustes del servidor el :ref:`email`, podrá restablecerla.
+
 
 Proyecto por defecto de un usuario
 ----------------------------------
