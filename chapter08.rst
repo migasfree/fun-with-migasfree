@@ -272,7 +272,7 @@ Categorías de etiquetas
   ya que al ejecutar el comando ``migasfre-tags --set`` se instalarán los
   paquetes definidos en los ``pre-incluidos`` e ``incluidos`` y se desinstalarán los
   paquetes definidos en el campo ``excluidos``, siempre y cuando los atributos
-  asignados al repositorio coincidan con los del equipo. Esto se utiliza para
+  asignados al despliegue coincidan con los del equipo. Esto se utiliza para
   crear la imagen ISO de los escritorios.
 
   .. note::

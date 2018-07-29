@@ -180,7 +180,7 @@ Campos de Ordenador
                         Cuando un ordenador pasa a estado ``Disponible``, se
                         elimina la asignación de todas sus etiquetas y además,
                         si el ``CID`` del ordenador se ha asignado en algún
-                        Repositorio, Conjunto de Atributos, Dispositivo Lógico,
+                        Despliegue, Conjunto de Atributos, Dispositivo Lógico,
                         Definición de Falla y/o Demora de Calendario también
                         será eliminada dicha asignación automáticamente. Esto
                         evita configuraciones inapropiadas derivadas de cambios
@@ -198,7 +198,7 @@ Campos de Ordenador
 
                 Cuando un ordenador pasa a estado ``Baja``, se elimina la
                 asignación de todas sus etiquetas y además, si el ``CID`` del
-                ordenador se ha asignado en algún Repositorio, Conjunto de
+                ordenador se ha asignado en algún Despliegue, Conjunto de
                 Atributos, Dispositivo Lógico, Definición de Falla y/o Demora
                 de Calendario también será eliminada dicha asignación
                 automáticamente.

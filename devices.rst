@@ -224,7 +224,7 @@ Súbelo al servidor
 
      # migasfree-upload -f ../acme-epson-al-m300_1.0-1_all.deb
 
-y libéralo creando un nuevo repositorio en el servidor llamado p.e.
+y libéralo creando un nuevo despliegue en el servidor llamado p.e.
 ``impresoras``. Asígnale el paquete ``acme-epson-al-m300_1.0-1_all.deb`` y en
 atributos asigna ``ALL-SYSTEMS``.
 

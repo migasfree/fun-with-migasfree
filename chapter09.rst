@@ -353,8 +353,8 @@ Campos de calendario
 
     * Demoras: Es un conjunto de días (demoras) a los que se asignan atributos.
 
-        * **Demora**: Número de días desde la fecha del repositorio a los que los
-          atributos asignados serán efectivos en el repositorio. No se tienen
+        * **Demora**: Número de días desde la fecha de inicio del despliegue a los que los
+          atributos asignados serán efectivos. No se tienen
           en cuenta ni sábados ni domingos.
 
         * **Atributos**: Lista de atributos para una demora.
