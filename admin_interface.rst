@@ -97,14 +97,16 @@ tres iconos de ayuda.
       :scale: 100
       :alt: Ayuda.
 
-El primer icono, representa al ``modelo de datos`` de la ``base de datos``.
-Te proporciona información contextual de las tablas y los campos de la base de datos
-junto con sus relaciones con otras tablas. Puede serte útil para obtener información a la
-hora de realizar consultas SQL a la Base de Datos.
+El primer icono, representa al ``modelo de datos``. Te proporciona
+información contextual de las tablas y campos de la Base de Datos
+junto con sus relaciones con otras tablas. Puede serte útil para
+obtener información a la hora de realizar consultas SQL a la
+Base de Datos.
 
 Mediante el segundo icono podrás acceder a la documentación de la
 ``Migasfree REST API``. Desde aquí podrás realizar llamadas directamente a la API
-y ver la respuesta del servidor. Muy útil para el desarrollo de programas.
+y ver la respuesta del servidor. Muy útil para el desarrollo de programas que hacen
+uso de ella.
 
 El último icono, el del libro, también es una ayuda contextual. Pulsando
 en él, y dependiendo de en que menú estés situado, se te dirigirá a la sección
