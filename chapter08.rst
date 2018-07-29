@@ -633,16 +633,111 @@ En *migasfree* existen dos tipos de usuarios, los usuarios que administran
 *migasfree* y los usuarios que utilizan los ordenadores. Este apartado se refiere
 a los primeros.
 
-Cuando se genera la base de datos de *migasfree*, se crean 7 grupos de usuarios y
-8 usuarios predeterminados:
+Cuando se genera la base de datos de *migasfree*, se crean
+8 usuarios predeterminados y varios :ref:`authgroup`:
+
+
+Usuarios por defecto
+--------------------
+
+    * ``admin``. Tiene permisos de lectura/escritura a todas las tablas.
+
+    * ``packager``. Pertenece a los grupos ``Reader`` y ``Packager``.
+
+    * ``configurator``. Pertenece a los grupos ``Reader`` y ``Configurator``.
+
+    * ``installer``. Pertenece a los grupos ``Reader`` y ``Device installer``.
+
+    * ``query``. Pertenece a los grupos ``Reader`` y ``Query``.
+
+    * ``liberator``. Pertenece a los grupos ``Reader`` y ``Liberator``.
+
+    * ``checker``. Pertenece a los grupos ``Reader`` y ``Computer Checker``.
+
+    * ``reader``. Pertenece  al grupo ``Reader``.
+
+Estos usuarios tienen por defecto como contraseña su nombre, es decir, la
+contraseña de ``admin`` es ``admin``, y lo mismo es aplicable al resto de usuarios.
+
+Estos usuarios son ficticios para realizar pruebas y conviene que
+sean eliminados. Se recomienda crear los usuarios reales que usarán el
+servidor *migasfree*, asignándoles los grupos de usuarios correspondientes.
+
+  .. note::
+
+     Es importante que en un entorno de producción se deshabiliten los usuarios
+     que no se vayan a utilizar o que, al menos, se les cambie la contraseña por
+     motivos de seguridad.
+
+Campos de Perfiles de usuarios migasfree
+----------------------------------------
+
+* **Nombre de usuario**: Nombre de la cuenta de usuario.
+
+* **Nombre**: Nombre del usuario.
+
+* **Apellidos**: Apellidos del usuario.
+
+* **Dirección de correo electrónico**: Email.
+
+* **Fecha de alta**: Cuando se añadió el usuario al sistema.
+
+* **Último inicio de sesión**: del usuario.
+
+* **Activo**: Indica si el usuario debe ser tratado como activo. Desmarca
+  esta opción en lugar de borrar la cuenta.
+
+* **Es superusuario**: Indica que este usuario tiene todos los permisos
+  sin asignárselos explícitamente. Cuando marcamos este campo estamos indicando
+  que es un usuario ``administrador``.
+
+* **Es staff**: Indica si el usuario puede entrar en :ref:`El interfaz de administración`
+
+* **Grupos**: Grupos a los que pertenece el usuario.
+
+* **Permisos de usuario**: Permisos adicionales.
+
+* **Dominios**: Lista de dominios que puede administrar el usuario.
+
+* **Dominio**: Dominio que actualmente tiene selecionado el usuario en
+  :ref:`El interfaz de administración`
+
+
+* **Ámbito**: Ámbito que actualmente tiene selecionado el usuario en
+  :ref:`El interfaz de administración`
+
+
+.. _`Cambio de contraseña`:
+
+Cambio de contraseña
+--------------------
+La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
+y que aparece arriba a la derecha en :ref:`El interfaz de administración`.
+
+También puede ser modificada por otro usuario que tenga marcado el campo
+``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
+directamente su campo ``Contraseña``.
+
+Si un usuario olvida su password, y el administrador ha configurado en los
+ajustes del servidor el :ref:`email`, podrá restablecerla.
+
 
 .. _`authgroup`:
 
 Grupos de Usuarios
-------------------
+==================
 
 En función de las tareas que los usuarios de administración de migasfree
 pueden realizar, se establecen los siguientes grupos de usuarios.
+
+
+    * ``Domain Admin``. Cuenta con permisos de lectura/escritura a:
+
+        * Ordenadores.
+
+        * Despliegues.
+
+        * Ambitos
 
     * ``Configurator`` con permisos de lectura/escritura a:
 
@@ -700,52 +795,6 @@ pueden realizar, se establecen los siguientes grupos de usuarios.
 
     * ``Reader``. Permisos de sólo lectura a todas las tablas.
 
-Usuarios
---------
-
-    * ``admin``. Tiene permisos de lectura/escritura a todas las tablas.
-
-    * ``packager``. Pertenece a los grupos ``Reader`` y ``Packager``.
-
-    * ``configurator``. Pertenece a los grupos ``Reader`` y ``Configurator``.
-
-    * ``installer``. Pertenece a los grupos ``Reader`` y ``Device installer``.
-
-    * ``query``. Pertenece a los grupos ``Reader`` y ``Query``.
-
-    * ``liberator``. Pertenece a los grupos ``Reader`` y ``Liberator``.
-
-    * ``checker``. Pertenece a los grupos ``Reader`` y ``Computer Checker``.
-
-    * ``reader``. Pertenece  al grupo ``Reader``.
-
-Estos usuarios tienen por defecto como contraseña su nombre, es decir, la
-contraseña de ``admin`` es ``admin``, y lo mismo es aplicable al resto de usuarios.
-
-Estos usuarios son ficticios para realizar pruebas y conviene que
-sean eliminados. Se recomienda crear los usuarios reales que usarán el
-servidor *migasfree*, asignándoles los grupos de usuarios correspondientes.
-
-  .. note::
-
-     Es importante que en un entorno de producción se deshabiliten los usuarios
-     que no se vayan a utilizar o que, al menos, se les cambie la contraseña por
-     motivos de seguridad.
-
-
-.. _`Cambio de contraseña`:
-
-Cambio de contraseña
---------------------
-La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
-y que aparece arriba a la derecha en todas las páginas web de la aplicación.
-
-También puede ser modificada por otro usuario que tenga marcado el campo
-``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
-directamente su campo ``Contraseña``.
-
-Si un usuario olvida su password, y el administrador ha configurado en los
-ajustes del servidor el :ref:`email`, podrá restablecerla.
 
 
 .. _`serverdomain`:
@@ -755,8 +804,141 @@ ajustes del servidor el :ref:`email`, podrá restablecerla.
 Dominios
 ========
 
+En migasfree llamanos ``dominio`` a un conjunto de ordenadores.
 
-**TODO**
+Mientras que un usuario ``administrador`` ve a todos y cada uno de
+los ordenadores del sistema, un usuario ``administrador de dominio``
+sólo va a poder ver y trabajar con los ordenadores del dominio
+que administra.
+
+Un ejemplo típico de uso de ``administrador de dominio`` sería el de una empresa con varias
+delegaciones donde se requiere que un determinado usuario pueda administrar
+sólo los ordenadores de una de las delegaciones, siendo el resto de ordenadores
+y sus datos "invisibles" para él.
+
+Sólo un usuario ``administrador`` puede crear y editar dominios asignándoles
+usuarios ``administradores de dominio``.
+
+Un ``administrador de dominio`` puede administrar varios ``dominios``.
+
+
+Campos de dominio
+-----------------
+
+    * **Nombre**: Denomina al dominio.
+
+    * **Comentario**: Describe al dominio.
+
+    * **Atributos incluidos**: Aqui se establecen mediante atributos los
+      ordenadores que formarán parte del dominio.
+
+    * **Atributos excluidos**: Permite excluir ordenadores.
+
+    * **Etiquetas**: Especifica que etiquetas serán visibles al ejecutar
+      "migasfree-tags -s" el el cliente para los ordenadores que pertenezcan
+      al dominio
+
+    * **Administradores**: Lista de usuarios ``administradores de dominio``
+      que administran el dominio
+
+
+
+Características del usuario administrador de dominio
+-----------------------------------------------------
+
+* Ve sólo los datos relativos al ``dominio`` que tiene seleccionado en
+  :ref:`El interfaz de administración`.
+
+
+* Pertenece al grupo de usuarios ``Domain Admin`` que establece las
+  siguientes restricciones por defecto:
+
+    * Puede crear **despliegues en el dominio** con objeto de instalar,
+      actualizar o eliminar paquetes en ese dominio, pero no puede subir
+      nuevos paquetes ni modificar despliegues de otros dominios.
+
+    * Puede definir dispositivos pero no modelos de dispositivos.
+
+    * No puede modificar Formulas, Categorias de Etiquetas, ni
+      Definiciones de Fallas.
+
+* No es un ``superusuario``. Ver :ref:`serveruserprofile`
+
+El administrador de dominio debe colaborar estrechamente con el administrador para no duplicar
+configuraciones y crear definiciones generalistas en la medida de lo posible.
+Piensa que un ``administrador`` puede querer p.e. desinstalar obligatoriamente una determinada aplicación a
+todos los equipos y entrar en conflicto con un ``administrador de dominio`` que desea instalarla,
+en este caso se instalará y desinstalará continuamente la aplicación. Ten cuidado con esto.
+
+
+Procedimiento de creación de un dominio
+---------------------------------------
+
+    1. Antes de crear el dominio debemos **crear las etiquetas** que van a estar
+       disponibles en el dominio. Ve a "datos-etiquetas" y añádelas.
+
+       Supongamos que queremos crear el dominio "INSTITUTO GOYA" con la siguiente estructura:
+
+            GOYA
+
+                AULA
+
+                    A
+
+                    B
+
+                    LABORATORIO
+
+                ADMINISTRACION
+
+                    SALA PROFESORES
+
+        las etiquetas que se deben crear son:
+
+            DMN-GOYA.AULA
+
+            DMN-GOYA.AULA.A
+
+            DMN-GOYA.AULA.B
+
+            DMN-GOYA.AULA.LABORATORIO
+
+            DMN-GOYA.ADMINISTACION
+
+            DMN-GOYA.ADMINISTACION.SALA_PROFESORES
+
+
+    2. **Añadir el dominio**.
+
+        * Nombre
+
+        * Comentario
+
+        * Atributos: Añadirlos si se conocen, si no se puede dejar en blanco para añadirlos más tarde.
+
+        * Asignar las tags creadas en el paso anterior.
+
+        * Administradores de dominio: Si ya los has dado de alta, añádelos.
+
+    3. **Registrar los ordenadores** al dominio.
+
+        * OPCION A. Cuando eres un usuario ``administrador``.
+
+            * Se añade el equipo al dominio. (Ir al dominio y asignar en ``atributos incluidos`` el CID)
+
+            * Se asigna cualquiera de las etiquetas del dominio (o varias) en el ordenador.
+
+        * OPCION B. Cuando eres un usuario ``administrador de dominio``
+
+            * Ejecutar el siguiente comando en el ordenador
+              y automáticamente éste se registrará en el dominio que
+              tenga seleccionado en :ref:`El interfaz de administración`
+              en ese momento el administrador de dominio.
+
+              .. code-block:: none
+
+                migasfree -g --user=<user_admin_domain>
+
 
 .. _`serverscope`:
 
@@ -765,4 +947,29 @@ Dominios
 Ambitos
 =======
 
-**TODO**
+Un ámbito en migasfree es un subconjuto de ordenadores para un determinado
+dominio.
+
+Cada usuario es responsable de programarse a su antojo sus propios ámbitos
+que serán sólo accesibles por él.
+
+Cualquier usuario que tenga acceso a :ref:`El interfaz de administración`
+va a poder crearse los ámbitos que desee. No es necesario que sea ni
+``administrador`` ni ``admistrador de dominio``.
+
+Campos de Ambitos.
+------------------
+
+* **Nombre**: Indica el nombre del ambito.
+
+* **Dominio**: Referencia al dominio en el que el ambito se enmarca.
+
+* **atributos incluidos**: Aquí se establecen los atributos que
+  dictarán que ordenadores, del dominio seleccionado, pertenecerán al ámbito.
+
+* **atributos excluidos**: Permite excluir ordenadores al ámbito.
+
+Los ámbitos permiten filtrar ordenadores de una manera personalizada,
+rápida y sencilla. Este filtro no tiene efecto sólo en los ordenadores,
+si no en todos los datos relacionados, incluyendo consultas y estadísticas.
+
