@@ -79,7 +79,7 @@ __ https://es.wikipedia.org/wiki/Miga_de_pan_(inform%C3%A1tica)
 
 
 Ayudas
-------
+======
 
 Ahora fíjate que en el interfaz de administración, abajo a la derecha, hay
 tres iconos de ayuda.
@@ -113,7 +113,7 @@ viendo en ese momento.
 
 
 Datos relacionados
-------------------
+==================
 
 Ahora fíjate en cómo podemos navegar fácilmente por los ``datos relacionados``,
 pulsando en el ``triángulo`` que aparece a la derecha de los elementos.
