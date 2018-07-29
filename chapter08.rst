@@ -20,6 +20,8 @@ amplios conocimientos de los sistemas operativos y de las aplicaciones.
 En este y en los siguientes tres capítulos, vas a aprender a adaptar y usar el
 servidor *migasfree*.
 
+.. _`serverclientproperty`:
+
 .. _`Fórmulas`:
 
 Fórmulas
@@ -191,6 +193,8 @@ que no pueden ser eliminadas del sistema. Lo más característico de ellas es qu
   El ``CID`` aparece por defecto en la etiqueta del ordenador que muestra el
   comando ``migasfree-label``.
 
+.. _`serverserverproperty`:
+
 .. _`Categorías de etiquetas`:
 
 Categorías de etiquetas
@@ -332,6 +336,7 @@ Campos de categorías de etiquetas
 
      Observa que el caracter de delimitación es el punto: ``.``
 
+.. _`serverattributeset`:
 
 .. _`Conjuntos de Atributos`:
 
@@ -383,19 +388,22 @@ Campos de Conjuntos de Atributos
 
 * **Atributos excluidos**: Lista de ``Atributos`` a excluir del conjunto.
 
+.. _`serverfaultdefinition`:
 
 .. _`Fallas`:
 
-Fallas
-======
+Definicion de Fallas
+====================
 
 Una falla es un hecho negativo que se produce en un equipo cliente. Por
 ejemplo que un equipo se quede con poco espacio en la partición de sistema, es
 algo a lo que se debe prestar atención y ser solucionado antes de que sea tarde.
 
 Migasfree, mediante las fallas, permite lanzar código en el cliente con este
-objetivo. Fíjate que las posibilidades son inmensas y que te permite ser
-muy proactivo.
+objetivo. Fíjate que las posibilidades son inmensas y que facilita la
+`proactividad`__.
+
+__ https://es.wikipedia.org/wiki/Proactividad
 
 En definitiva, una falla es un código que se ejecuta en el cliente. Si el código
 escribe algo por la salida estándar, ésta será enviada al servidor como ``Falla``.
@@ -442,6 +450,8 @@ que se produzcan aparecerán a cualquier usuario autenticado.
       meticuloso en las comprobaciones antes de activar cualquier falla.
 
 
+.. _`serverautocheckerror`:
+
 Errores autocomprobables
 ========================
 
@@ -469,6 +479,8 @@ se autocomprobaran, podrías emplear el siguiente patrón:
 
       .*\sError: Generic error\sInfo: Curl error: Couldn't resolve host 'myserver'
 
+
+.. _`serverquery`:
 
 .. _`Consultas`:
 
@@ -517,6 +529,7 @@ Campos de consulta
 
 __ https://docs.djangoproject.com/en/dev/ref/models/querysets/
 
+.. _`serverproject`:
 
 .. _`Proyectos`:
 
@@ -574,6 +587,23 @@ Campos del proyecto
   usuario que cuente con los permisos adecuados para añadir ordenadores al
   sistema.
 
+
+.. _`serverpms`:
+
+
+Sistemas de gestión de paquetes
+===============================
+
+Son los distintos PMS predefinidos que vienen con migasfree.
+
+  .. note::
+
+     En versiones futuras de migasfree está previsto su refactorización
+     y la eliminación de este modelo de datos.
+
+
+.. _`serverplatform`:
+
 Plataformas
 ===========
 
@@ -594,6 +624,8 @@ registrar automáticamente las plataformas. Puedes consultarlo en
 :ref:`Ajustes del servidor migasfree`.
 
 
+.. _`serveruserprofile`:
+
 Perfiles de usuario Migasfree
 =============================
 
@@ -603,6 +635,8 @@ a los primeros.
 
 Cuando se genera la base de datos de *migasfree*, se crean 7 grupos de usuarios y
 8 usuarios predeterminados:
+
+.. _`authgroup`:
 
 Grupos de Usuarios
 ------------------
@@ -714,14 +748,21 @@ Si un usuario olvida su password, y el administrador ha configurado en los
 ajustes del servidor el :ref:`email`, podrá restablecerla.
 
 
+.. _`serverdomain`:
+
 .. _`Dominios`:
 
 Dominios
 ========
 
 
+**TODO**
+
+.. _`serverscope`:
+
 .. _`Ambitos`:
 
 Ambitos
 =======
 
+**TODO**

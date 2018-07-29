@@ -40,6 +40,8 @@ Pasos para la configuración de las impresoras:
   dispositivos lógicos deben instalarse a cada ``atributo``.
 
 
+.. _`serverdevicemanufacturer`:
+
 Fabricantes
 ===========
 
@@ -48,6 +50,8 @@ Campos del Fabricante
 
 * **Nombre**: Nombre del fabricante de la impresora.
 
+
+.. _`serverdevicefeature`:
 
 Prestaciones
 ============
@@ -78,6 +82,8 @@ Campos de la Prestación
 
 * **Nombre**: Nombre la prestación.
 
+
+.. _`serverdevicemodel`:
 
 Modelos
 =======
@@ -119,6 +125,8 @@ Campos del modelo de dispositivo
 
 __ http://www.openprinting.org/printers
 
+
+.. _`serverdevice`:
 
 Dispositivos
 ============

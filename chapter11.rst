@@ -99,6 +99,7 @@ El objetivo en todo momento debería ser mantener el sistema con 0 alertas. Esto
 indicaría que se han revisado los errores, se han comprobado las fallas,
 no hay paquetes huérfanos, etc.
 
+.. _`servercomputer`:
 
 .. _`Ordenadores`:
 
@@ -287,6 +288,8 @@ Campos de Ordenador
 
     * **Dirección MAC**: Direcciones MAC del ordenador.
 
+.. _`serveruser`:
+
 Usuarios
 ========
 
@@ -301,6 +304,9 @@ Campos de Usuario
     * **Nombre**: Nombre de la cuenta de usuario para acceder al equipo.
 
     * **Nombre Completo**: Nombre y apellidos del usuario.
+
+
+.. _`serverclientattribute`:
 
 Atributos
 =========
@@ -320,6 +326,9 @@ Campos de Atributo
 
 Una explicación del funcionamiento de los atributos la puedes obtener en
 el apartado :ref:`Fórmulas` de :ref:`La configuración del sistema migasfree`.
+
+
+.. _`serverserverattribute`:
 
 Etiquetas
 =========
@@ -341,6 +350,31 @@ Campos de Etiqueta
 
     * **Ordenadores**: Permite asignar ordenadores a la etiqueta.
 
+
+.. _`serversynchronization`:
+
+Sincronizaciones
+================
+
+Registra las sincronizaciones que se han ido produciendo en los ordenadores.
+
+Campos de Sincronización
+------------------------
+
+ * **Ordenador**: Referencia al ordenador.
+
+ * **Usuario**: Referencia al usuario.
+
+ * **Proyecto**: Referencia al proyecto en el que estaba el ordenador en
+   el momento de la sincronización.
+
+ * **Fecha**: Momento en que ha finalizado la sincronización. Si una
+   sincronización no termina por el motivo que sea, no se registra ninguna
+   sincronización.
+
+
+.. _`servererror`:
+
 Errores
 =======
 
@@ -361,6 +395,9 @@ Campos de error
 
     * **Descripción**: Mensaje que describe el error. Generalmente corresponde a
       la salida de error del *front-end* del P.M.S.
+
+
+.. _`serverfault`:
 
 Fallas
 ======
@@ -389,6 +426,28 @@ Campos de falla
     * **Resultado**: Mensaje que describe la falla. Corresponde a
       la salida estándar del código de la ``Definición de la falla``.
 
+
+.. _`serverstatuslog`:
+
+Registros de estados
+====================
+
+Aquí se van registrando automáticamente los diversos estados por los que
+ha ido pasando un ordenador. Para una explicación de estos estados,
+mira el campo ``estado`` en :ref:`servercomputer`.
+
+Campos de registro de estados
+-----------------------------
+
+    * **Ordenador**: referencia al ordenador.
+
+    * **Estado**: Al que se ha cambiado el ordenador.
+
+    * **Fecha**: Momento en que se ha producido el cambio de estado.
+
+
+.. _`servermigration`:
+
 Migraciones
 ===========
 
@@ -410,6 +469,9 @@ Campos de Migración
 
     * **Fecha**: Fecha y hora en que se ha detectado el cambio de proyecto.
 
+
+.. _`servernotification`:
+
 Notificaciones
 ==============
 
@@ -426,6 +488,7 @@ Campos de Notificación
     * **Comprobado**:  Campo que se marcará manualmente cuando se ha recibido
       la notificación.
 
+
 Consultas
 =========
 
@@ -435,6 +498,8 @@ Puedes añadir nuevas consultas o modificar las predeterminadas accediendo a
 ``Configuración-Consultas``. Una pequeña explicación de cómo se programan
 la puedes encontrar en el apartado :ref:`Consultas` de
 :ref:`La configuración del sistema migasfree`.
+
+
 
 Estadísticas
 ============

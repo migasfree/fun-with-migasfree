@@ -49,6 +49,8 @@ el usuario, su contaseña y/o el proyecto con el que trabajas, puedes asignar
 los ajustes indicados en la sección [Packager] de
 :ref:`Ajustes del cliente migasfree`.
 
+.. _`serverstore`:
+
 Almacenes
 =========
 
@@ -78,6 +80,7 @@ Campos de Almacén
 
     * ``Proyecto``. Indica el proyecto *migasfree* al que pertenece el almacén.
 
+.. _`serverpackage`:
 
 Paquetes
 ========
@@ -145,6 +148,9 @@ aparecen dos carpetas:
       más que enlaces simbólicos a los paquetes ubicados en ``STORES``.
 
 Si quieres ver los metadatos de un determinado paquete, simplemente, pulsa sobre él.
+
+
+.. _`serverdeployment`:
 
 Despliegues
 ===========
@@ -284,6 +290,7 @@ Campos de despliegue
         * **Calendario**: Especifica una programación del despliegue basada en
           calendario. En el siguiente apartado tienes más información.
 
+.. _`serverschedule`:
 
 Calendarios
 ===========
@@ -363,6 +370,23 @@ Campos de calendario
           los equipos asignados a la demora. O dicho de otra forma, si asignamos
           el atributo ``SET-ALL SYSTEMS`` y una duración de 20 días, obtendríamos un
           incremento diario aproximado del 5% del total de equipos.
+
+
+
+.. _`catalogapplication`:
+
+Aplicaciones
+============
+
+**TODO**
+
+.. _`catalogpolicy`:
+
+Políticas
+=========
+
+**TODO**
+
 
 Repositorios internos vs externos
 =================================
