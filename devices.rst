@@ -128,6 +128,8 @@ __ http://www.openprinting.org/printers
 
 .. _`serverdevice`:
 
+.. _`Dispositivos`:
+
 Dispositivos
 ============
 
@@ -142,6 +144,16 @@ Campos del dispositivo
     * **Modelo**: Modelo de la impresora
 
     * **Conexión**: Como se conecta físicamente la impresora.
+
+    * **disponible para los atributos**: Indica a qué atributos se va a publicar
+      el dispositivo. :ref:`Migasfree Play` hace uso de esta pubicación permitiendo
+      al usuario del ordenador (sin privilegios de administración) instalar las impresoras que
+      se le han publicado. Por ejemplo si publicas el dispositivo al atributo ``AUL-AULA 3``
+      en todos los ordenadores del aula 3 aparecerá esa impresora y se
+      podrá instalar cualquiera de sus prestaciones con :ref:`Migasfree Play`
+      y un sólo "click". Otro ejemplo de uso es asignar en los atributos una subred:
+      cualquier usuario que esté en esa subred le aparecerá la impresora y sus prestaciones.
+
 
     * **Dispositivos lógicos**:
 
