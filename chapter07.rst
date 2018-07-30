@@ -199,34 +199,53 @@ Ejecución del cliente migasfree
 Hasta ahora, siempre hemos ejecutado el cliente *migasfree* desde consola
 mediante el comando ``migasfree -u`` como ``root``. Ahora vamos a hacer
 que se ejecute automáticamente cada vez que el usuario abra una sesión
-gráfica. Para este propósito, existe el paquete ``migasfree-launcher``.
+gráfica. Para este propósito, existe :ref:`Migasfree Play`.
+
+  .. note::
+
+      Hasta la versión 4.15 del servidor migasfree se venía utilizando
+      migasfree-launcher, pero éste ha sido reemplazado por
+      :ref:`Migasfree Play` que tiene más funcionalidades.
+
+A continuación vamos a descargar el paquete y construirlo.
 
   .. code-block:: none
 
-    $ wget https://github.com/migasfree/migasfree-launcher/archive/latest.zip
+    $ wget https://github.com/migasfree/migasfree-play/archive/latest.zip
     $ unzip latest.zip
     $ rm latest.zip
-    $ cd migasfree-launcher-latest
-    $ python setup.py --command-packages=stdeb.command bdist_deb
-    $ cd ..
+    $ cd migasfree-play-latest
+    $ cat README.md
 
-Sube el fichero migasfree-launcher al servidor:
+Instalamos los requerimientos para la construcción del paquete.
 
   .. code-block:: none
 
-    # migasfree-upload -f migasfree-launcher_1.0-1_all.deb
+    # apt-get install devscripts debhelper npm
+
+
+Y ahora sí, construye finalmente el paquete.
+
+  .. code-block:: none
+
+    $ /usr/bin/debuild --no-tgz-check -us -uc
+
+
+Sube el fichero migasfree-play al servidor:
+
+  .. code-block:: none
+
+    # migasfree-upload -f migasfree-play_*.deb
 
 Ahora, observa los ficheros que contiene este paquete:
 
-* ``etc/sudoers.d/migasfree-launcher`` establece los comandos que no
+* ``etc/sudoers.d/migasfree-play`` establece los comandos que no
   requieren **password de root** para que pueden ser ejecutados desde un
   usuario cualquiera. Puedes obtener más información sobre la configuración
   de ``sudoers`` ejecutando ``man sudoers`` en un terminal.
 
-* ``etc/xdg/autostart/migasfree-indicator.desktop`` ejecutará el comando
-  ``/usr/bin/migasfree-indicator`` cuando el usuario inicia sesión gráfica.
-  ``migasfree-indicator`` llamará a ``/usr/bin/migasfree-launcher`` y éste, a
-  su vez, a ``migasfree --update``.
+* ``etc/xdg/autostart/migasfree-play-sync.desktop`` ejecutará el comando
+  ``/usr/bin/migasfree-play`` cuando el usuario inicia sesión gráfica.
 
   Puedes aprender más sobre la especificación de los ficheros **.desktop**
   en `freedesktop.org`__.
@@ -234,7 +253,7 @@ Ahora, observa los ficheros que contiene este paquete:
 __ http://standards.freedesktop.org/desktop-entry-spec/latest/index.html
 
 Ahora que ya tienes los paquetes ``tuempesa-migasfree-client`` y
-``migasfree-launcher`` en el servidor *migasfree*, crea un despliegue en el
+``migasfree-play`` en el servidor *migasfree*, crea un despliegue en el
 servidor y pon estos paquetes en ``paquetes a instalar`` y asígnale el
 atributo ``SET-ALL SYSTEMS``.
 
@@ -284,8 +303,8 @@ Hay varias formas de realizar esta instalación:
 
   * y ``<deployment>`` por el nombre de un despliegue que tenga como
     paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client`` y
-    ``migasfree-launcher``. Como paquetes a instalar puedes poner:
-    ``tuempresa-migasfree-client`` y ``migasfree-launcher``
+    ``migasfree-play``. Como paquetes a instalar puedes poner:
+    ``tuempresa-migasfree-client`` y ``migasfree-play``
 
   Una vez creado este fichero, ejecuta:
 
