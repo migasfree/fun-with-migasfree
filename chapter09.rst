@@ -474,7 +474,7 @@ Vale, de acuerdo, esto funcionaría, pero es tedioso de configurar y de mantener
 
 
 Otro escenario imaginable puede ser el que en un ``proyecto migasfree``
-una determinada aplicacion se lame diferente en otro ``proyecto migasfree``.
+una determinada aplicacion se llame diferente en otro ``proyecto migasfree``.
 No es tan extraño, ocurre a menudo. ¿Como puedo dar una única orden de instalar
 esa aplicación independientemente de como se llame y de qúe proyecto tenga configurado
 cada ordenador?
