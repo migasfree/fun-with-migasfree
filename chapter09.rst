@@ -150,6 +150,8 @@ aparecen dos carpetas:
 Si quieres ver los metadatos de un determinado paquete, simplemente, pulsa sobre él.
 
 
+.. _`Despliegues`:
+
 .. _`serverdeployment`:
 
 Despliegues
@@ -375,17 +377,204 @@ Campos de calendario
 
 .. _`catalogapplication`:
 
+.. _`Aplicaciones`:
+
 Aplicaciones
 ============
 
-**TODO**
+En los sistemas GNU/Linux existen front-ends para los PMS tales como `Synaptic`__
+o el `Centro de software de Ubuntu`__ que permiten a los usuarios buscar e instalar
+aplicaciones de forma sencilla.
+
+__ https://es.wikipedia.org/wiki/Synaptic
+
+__ https://es.wikipedia.org/wiki/Centro_de_software_de_Ubuntu
+
+Ahora bien, estos front-end te permiten instalar miles de aplicaciones y
+por supuesto la mayoría de ellas nunca van a ser instaladas en tu
+organización. Por otra parte un usuario puede verse
+aturdido al ver la cantidad de paquetes que puede instalar, y no encontrar la
+que debe utilizar.
+
+Conviene por tanto que  tu organización cuente con un catálogo de las
+aplicaciones que más usáis.
+
+Pues bien, mediante lo que denominamos ``Aplicaciones`` el servidor migasfree
+**publica** éste catálogo de aplicaciones simplificando este proceso al usuario
+mediante el uso de :ref:`Migasfree Play`.
+
+
+Campos de Aplicaciones.
+-----------------------
+
+* **Nombre**: Identifica la aplicación
+
+* **Categoría**: Permite clasificar la aplicación.
+
+* **Nivel**: El ``nivel de usuario`` indica que no se requerirá tener
+  privilegios de administrador deĺ ordenador para que usuario instalale la aplicación.
+  En cambio si se establece la aplicación de ``nivel administrador`` sólo un
+  usuario con privilegios de administrador en el ordenador podrá instalar la aplicación. En este
+  caso :ref:`Migasfree Play` solicitará dicho usuario y contraseña.
+
+* **Puntuación**: Relevancia para la organización.
+
+* **Icono**: Campo obligatorio.
+
+* **Disponible para los atributos**: La aplicación aparecerá publicada
+  en los ordenadores que cuenten con alguno de los atributos especificados.
+
+* **Descripción**: Campo que se utiliza para descibrir la aplicación. Puedes emplear
+  notación `markdown`__.
+
+__ https://es.wikipedia.org/wiki/Markdown
+
+      .. note::
+
+        Si quieres que el usuario encuentre ``gimp`` cuando busca por ``Photoshop``,
+        puedes añadir en la descripción que: ``gimp es una alternativa a Photoshop``.
+
+
+* **Paquetes por proyectos**: Por cada ``Proyecto`` se deben especificar los
+  ``Paquetes a instalar`` en el ordenador.
+
 
 .. _`catalogpolicy`:
 
 Políticas
 =========
 
-**TODO**
+Las políticas te van a permitir dar órdenes complejas de instalación y
+desinstalación de aplicaciones.
+
+Ya has visto que en los :ref:`Despliegues` puedes dar ordenes de instalar y
+desinstalar paquetes de manera obligatoria a los ordenadores.
+
+Ahora bien, imagina que quieres dar la orden de **instalar obligatoriamente**
+un paquete en un grupo de ordenadores, y que se **desinstale obligatoriamente** en
+el resto de ordenadores. ¿cómo se hace esto?
+
+Una posible solución a este problema sería:
+
+    * Crear un :ref:`Conjunto de atributos` ``A`` en donde incluimos los ordenadores
+      a los que se va instalar el paquete obligatoriamente.
+
+    * Crear otro Conjunto de atributos ``A-`` que sea el inverso de ``A``.
+      Es decir: incluimos ``ALL SYSTEMS`` y excluimos ``A``.
+
+    * Crear dos despliegues.
+
+        * En uno asignamos como atributo el conjunto ``A``
+          y ponemos como ``paquetes a instalar`` dicho paquete.
+
+        * En el segundo asignamos como atributo el conjunto ``A-`` y
+          ponemos el paquete en ``paquetes a desinstalar``
+
+Vale, de acuerdo, esto funcionaría, pero es tedioso de configurar y de mantener.
+
+
+Otro escenario imaginable puede ser el que en un ``proyecto migasfree``
+una determinada aplicacion se lame diferente en otro ``proyecto migasfree``.
+No es tan extraño, ocurre a menudo. ¿Como puedo dar una única orden de instalar
+esa aplicación independientemente de como se llame y de qúe proyecto tenga configurado
+cada ordenador?
+
+Para estas situaciones (y otras similares), hemos creado lo que denominamos Políticas.
+
+Una Politica comprende una **lista ordenada de prioridades** en las que se indica
+que :ref:`Aplicaciones` se van a instalar obligatoriamente a unos determinados
+atributos.
+
+En el proceso de la sincronización del ordenador, un algoritmo recorre esta
+lista ordenada y en cuanto se cumple que los atributos de una prioridad coinciden
+con los del ordenador, se ordena **instalar** las :ref:`Aplicaciones` de esa la prioridad,
+y además se ordenará **desinstalar** las :ref:`Aplicaciones` del resto de prioridades
+siempre y cuando en la Politica esté marcado el campo ``exclusivo``.
+
+
+Campos de Políticas.
+--------------------
+
+* **Nombre**: Denomina la política.
+
+* **Comentario**: Describe la política.
+
+* **Habilitado**: si desmarca este campo, la política está deshabilitada para todos los ordenadores.
+
+* **Exclusivo**: Se ordena desinstalar las :ref:`Aplicaciones` asignadas en las prioridades que no se han cumplido.
+
+* **atributos incluidos**: Permite especificar el área de aplicación de la politica, es decir a que ordenadores
+  va a afectar dicha política.
+
+* **atributos excluidos**: Permite excluir ordenadores del área de aplicación de la politica.
+
+* **Grupos de políticas**: Lista de prioridades.
+
+      * Prioridad: Es un número entero. Sirve únicamente para ordenar.
+
+      * Atributos incluidos: Atributos a los que va se les va a instalar :ref:`Aplicación` indicada en la prioridad.
+
+      * Atributos excluidos: Excluye atributos de la prioridad.
+
+      * Aplicaciones: Lista de Aplicaciones.
+
+
+
+Ejemplo de uso.
+---------------
+
+Julián puede iniciar sesion en cualquier ordenador, pero
+se necesita deshabilitarle el montaje de unidades USB y CDROM sólamente para él.
+
+1. Crea el paquete que deshabilita el montaje de USB y CDROM: :ref:`acme-media-disable`.
+
+2. Pon el paquete ``acme-media-disable`` en un despliegue disponible para ``ALL SYSTEMS``
+
+3. Crea la ``Aplicación NO-MEDIA``.
+
+4. Crea la ``Politica Julián``
+
+    * Nombre: Julian
+
+    * Comentario: No queremos que Julián use USB.
+
+    * Exclusivo: Marcado
+
+    * Atributos incluidos: ``ALL SYSTEMS``
+
+    * Grupos de politicas:
+
+        * Prioridad 1:
+
+             * Atributos incluidos: ``USR-Julian``
+
+             * Aplicaciones: ``NO-MEDIA``
+
+        * Prioridad 2:
+
+             * Atributos incluidos: ``ALL SYSTEMS``
+
+             * Aplicaciones: (vacio)
+
+Cuando Julián inicia sesión en cualquier ordenador y se ejecuta la sincronización con
+el servidor migasfree, el algoritmo de las políticas recorre las prioridades
+en orden:
+
+    * Prioridad 1: Como se cumple (es Julian) se instala la aplicacion `NO-MEDIA`,
+      y cómo está marcado el campo `exclusivo` se desinstala las Aplicaciones del
+      resto de prioridades (no hay ninguna en Prioridad 2)
+
+Veamos ahora como funcionaría para cualquier usuario que **no** sea Julian:
+
+    * Prioridad 1: Como no se cumple (no es Julian) salta a la siguiente prioridad.
+
+    * Prioridad 2: Como se cumple `ALL SYSTEMS`, se instalan las aplicaciones
+      de la prioridad 2 (ninguna en este caso), y cómo está marcado el campo `exclusivo`
+      se desinstalan las Aplicaciones del resto de prioridades. Por tanto se desintalará
+      la aplicación `NO-MEDIA`
+
+En resumen, en cualquier ordenador Julian tendrá instalada la aplicacion `NO-MEDIA`
+y el resto de usuarios no.
 
 
 Repositorios internos vs externos
