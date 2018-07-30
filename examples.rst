@@ -1,3 +1,5 @@
+.. _`Ejemplos prácticos`:
+
 ==================
 Ejemplos prácticos
 ==================
@@ -48,9 +50,8 @@ tampoco el ordenador ``CID-1291``.
 b) Aceptación de la petición
 ----------------------------
 
-Realizaremos lo que denominamos una ``directiva de seguridad basada en un conjunto de atributos``,
-ya que es muy probable que, con el tiempo, esta medida de seguridad puede ir
-cambiando sus reglas asignándose o excluyéndose otros atributos.
+Petición aceptada. Crearemos un conjunto de atributos ya que es muy posible que en el futuro
+vayan asignándose o excluyéndose otros atributos.
 
 
 c) Cambio
@@ -60,6 +61,8 @@ Después de buscar en Internet la forma de bloquear el montaje de dispositivos
 USB, y de varias pruebas, llegamos a la conclusión que realizar un cambio de
 permisos en el directorio ``/media`` es suficiente para alcanzar nuestro objetivo.
 
+
+.. _`acme-media-disable`:
 
 ECS: acme-media-disable (nuevo)
 ...............................
@@ -92,7 +95,7 @@ y súbelo al servidor.
 d) Liberación
 -------------
 
-Creamos el conjunto de atributos ``SET-NO-MEDIA``:
+1. Creamos el conjunto de atributos ``SET-NO-MEDIA``:
 
     ATRIBUTOS:
 
@@ -107,34 +110,41 @@ Creamos el conjunto de atributos ``SET-NO-MEDIA``:
         ``CID-3245``
 
 
-Creamos un despliegue ``MEDIA-DISABLE``:
+2. Creamos un despliegue ``MEDIA-DISABLE``:
 
     Asignamos el paquete: ``acme-media-disable_1.0-1_all.deb``
 
-    Ponemos en paquetes a instalar: ``acme-media-disable``
-
-    asignamos en atributos incluidos: ``SET-NO-MEDIA``
+    asignamos en atributos incluidos: ``ALL SYSTEMS``
 
 
-Ahora es necesario crear otro despliegue, ``MEDIA-ENABLE``, para forzar la desinstalación del
-paquete cuando el ordenador ya no pertenezca al conjunto de atributos ``SET-NO-MEDIA``:
+3. Creamos una Aplicación ``NO-MEDIA``
 
-    Ponemos en paquetes a desinstalar: ``acme-media-disable``
+4. Crea la política ``NO-MEDIA``
 
-    asignamos en atributos incluidos: ``ALL-SYSTEMS``
+    * Nombre: NO-MEDIA
 
-    asignamos en atributos excluidos: ``SET-NO-MEDIA``
+    * Exclusivo: Marcado
+
+    * Atributos incluidos: ``ALL SYSTEMS``
+
+    * Grupos de politicas:
+
+        * Prioridad 1:
+
+             * Atributos incluidos: ``SET-NO-MEDIA``
+
+             * Aplicaciones: ``NO-MEDIA``
+
+        * Prioridad 2:
+
+             * Atributos incluidos: ``ALL SYSTEMS``
+
+             * Aplicaciones: (vacio)
 
 
 Para añadir o exluir atributos en el futuro, simplemente bastará con
 modificar el conjunto de atributos ``SET-NO-MEDIA``.
 
-   .. note::
-
-      Este es un ejemplo de cómo implementar una "directiva de seguridad"". En versiones
-      futuras de migasfree se incluirá un modelo de "directivas" para no tener
-      que añadir ese segundo despliegue que fuerza la desinstalación de los
-      paquetes.
 
 
 Cierre de sesión gráfica en ordenadores HP ProDesk 600 G2 SFF
