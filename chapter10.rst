@@ -151,3 +151,109 @@ El comando ``migasfree-label``
 
 Consulta el ajuste ``MIGASFREE_HELP_DESK`` de los :ref:`Ajustes del servidor migasfree`
 donde se describe este comando.
+
+
+.. _`Migasfree Play`:
+
+Migasfree Play
+==============
+
+Migasfree Play es un frontal para el cliente migasfree.
+
+La función más importante de Migasfree Play es que se produzca la **sincronización**
+con el servidor migasfree en cuanto el usuario **inicia sesión** gŕafica.
+
+  .. note::
+
+      A las 24 horas del inicio de sesión se sincroniza de nuevo automáticamente si
+      el ordenador no se ha apagado.
+
+Además, Migasfree Play permite al usuario buscar e instalar :ref:`Aplicaciones` y :ref:`Dispositivos`
+de forma rápida y sencilla mediante un catálogo personalizado. Un administrador
+del servidor migasfree es el encargado de publicar previamente estas aplicaciones
+y dispositivos.
+
+Descripción de las pantallas
+----------------------------
+
+1. **Catálogo de aplicaciones**
+
+    Permite buscar aplicaciones e instalarlas o desinstalarlas pulsando
+    sobre el icono de ``descargar`` o sobre ``el cubo de basura`` respectivamente.
+
+
+    .. only:: not latex
+
+       .. figure:: graphics/chapter10/migasfree-play-apps.png
+          :scale: 50
+          :alt: Catálogo de aplicaciones
+
+    .. only:: latex
+
+       .. figure:: graphics/chapter10/migasfree-play-apps.png
+          :scale: 50
+          :alt: Catálogo de aplicaciones
+
+
+2. **Catálogo de dispositivos**
+
+    Selecciona o deselecciona las distintas prestaciones de las impresoras
+    que quieras instalar en el ordenador y pulsa a continuación
+    ``PLAY`` (triángulo abajo a la derecha) para forzar la sincronización
+    con el servidor.
+
+    .. only:: not latex
+
+       .. figure:: graphics/chapter10/migasfree-play-devs.png
+          :scale: 50
+          :alt: Catálogo de dispositivos.
+
+    .. only:: latex
+
+       .. figure:: graphics/chapter10/migasfree-play-devs.png
+          :scale: 50
+          :alt: Catálogo de dispositivos.
+
+
+3. **Información del ordenador**
+
+    Muestra información del ordenador.
+
+    .. only:: not latex
+
+       .. figure:: graphics/chapter10/migasfree-play-info.png
+          :scale: 50
+          :alt: Información del ordenador.
+
+    .. only:: latex
+
+       .. figure:: graphics/chapter10/migasfree-play-info.png
+          :scale: 50
+          :alt: Información del ordenador.
+
+
+4. **Detalles**
+
+    Muestra los detalles de cada instalación o desinstalación, así como de las
+    sincronizaciones.
+
+    .. only:: not latex
+
+       .. figure:: graphics/chapter10/migasfree-play-details.png
+          :scale: 50
+          :alt: Detalles del ordenador.
+
+    .. only:: latex
+
+       .. figure:: graphics/chapter10/migasfree-play-details.png
+          :scale: 50
+          :alt: Detalles del ordenador.
+
+
+5. **Ajustes**
+
+    El ajuste ``Mostrar detalles al sincronizar`` hará que al iniciar sesión
+    el usuario, automáticamente aparezca maximizada la pantalla de
+    ``Detalles``. De esta manera el usuario podrá ver el proceso, cada vez
+    que se sincroniza el ordenador.
+
