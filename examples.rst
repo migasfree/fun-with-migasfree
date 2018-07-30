@@ -142,7 +142,7 @@ d) Liberación
              * Aplicaciones: (vacio)
 
 
-Para añadir o exluir atributos en el futuro, simplemente bastará con
+Para añadir o excluir atributos en el futuro, simplemente bastará con
 modificar el conjunto de atributos ``SET-NO-MEDIA``.
 
 
