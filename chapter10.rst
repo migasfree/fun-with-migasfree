@@ -160,7 +160,7 @@ Migasfree Play
 
 Migasfree Play es un frontal para el cliente migasfree.
 
-La función más importante de Migasfree Play es que se produzca la **sincronización**
+La función más importante de Migasfree Play es realizar la **sincronización**
 con el servidor migasfree en cuanto el usuario **inicia sesión** gŕafica.
 
   .. note::
