@@ -116,7 +116,7 @@ Salida
 
     * Lista de diccionarios de plataformas:
 
-        * **plafform**: Nombre de la plataforma.
+        * **platform**: Nombre de la plataforma.
 
         * **projects**: Lista de diccionarios de proyectos:
 
@@ -129,7 +129,7 @@ Veamos un ejemplo. Si en un navegador web accedemos a la siguiente dirección:
 
     http://miservidor/get_projects
 
-Obtendremos una cadena de texto en formato json parecida a esta:
+Obtendremos una cadena de texto, en formato JSON, parecida a esta:
 
   .. code-block:: none
 
@@ -175,11 +175,11 @@ Salida
                 etiquetas.
 
         * **helpdesk**: Cadena de texto MIGASFREE_HELP_DESK de los
-          :ref:`Ajustes del servidor migasfree`
+          :ref:`Ajustes del servidor migasfree`.
 
-        * **id**: Número identificador del ordenador en la tabla de ``Ordenadores``
+        * **id**: Número identificador del ordenador en la tabla de ``Ordenadores``.
 
-        * **uuid**: Identificador único de la placa base del ordenador
+        * **uuid**: Identificador único de la placa base del ordenador.
 
 
 Veamos un ejemplo accediendo a:
@@ -301,7 +301,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -338,7 +338,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -373,7 +373,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -409,11 +409,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
-
-
-
-
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -446,7 +442,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -460,7 +456,7 @@ Pertenece a la API Privada.
 Necesita firmar con KEY de Proyecto.
 
 Envia un mensaje de texto al servidor informando que proceso esta realizando el
-cliente. Es utilizado por ``migasfree --update``
+cliente. Es utilizado por ``migasfree --update``.
 
 API Private Data Input
 ----------------------
@@ -475,7 +471,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -512,7 +508,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -543,12 +539,12 @@ API Private Data Input
 
         * **user**: Cuenta del usuario que esta logueado en la sesión gráfica.
 
-        * **user_fullname**: Nombre completo del usuario
+        * **user_fullname**: Nombre completo del usuario.
 
     * **attributes**: Lista de diccionarios con los ``Atributos`` conseguidos
-      al ejecutar cada una de las ``Propiedades``
+      al ejecutar cada una de las ``Propiedades``.
 
-        * **<ATTRIBUTES_NAME>**: Valor del Atributo
+        * **<ATTRIBUTES_NAME>**: Valor del Atributo.
 
 
 API Private Data Output
@@ -586,7 +582,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -617,7 +613,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -646,7 +642,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -675,7 +671,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -705,7 +701,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -743,7 +739,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -775,7 +771,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -804,7 +800,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 
 .. raw:: latex
@@ -840,7 +836,7 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
 
 .. raw:: latex
 
@@ -853,7 +849,7 @@ Pertenece a la API Privada.
 
 Necesita firmar con KEY de Proyecto.
 
-Asigna las etiquetas al ordenador y como resultado se obtiene los paquetes que
+Asigna las etiquetas al ordenador y, como resultado, se obtienen los paquetes que
 deben instalarse y desinstalarse en función de las etiquetas que anteriormente
 tuviera asignadas el equipo.
 
@@ -882,4 +878,4 @@ API Private Data Output
         * **code**: Código del error. Un valor de cero indica que no ha habido
           error.
 
-        * **info**: Texto desciptivo del error.
+        * **info**: Texto descriptivo del error.
