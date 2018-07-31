@@ -6,7 +6,7 @@ Glosario de términos
 
 **Alerta**. Aviso para que el usuario preste su atención a una determinada situación.
 
-**Ambito**. Subconjunto de ordenadores de un **Dominio**.
+**Ámbito**. Subconjunto de ordenadores de un **Dominio**.
 
 **Atributo**. Valor concreto que toma una **fórmula** al ser ejecutada en un equipo.
 

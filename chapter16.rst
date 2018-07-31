@@ -412,9 +412,9 @@ EMAIL
 -----
 
 Otros ajustes importantes son los relacionados con la configuración
-del email. Se emplean para enviar mensajes a los usuarios y asi poder
-restablecer su contraseña. Tambien se usan para enviar a los
-administradores notificaciones de errores vía email.
+del correo electrónico. Se emplean para enviar mensajes a los usuarios y así poder
+restablecer su contraseña. También se usan para enviar a los
+administradores notificaciones de errores al correo.
 
   .. code-block:: none
 
@@ -426,4 +426,3 @@ administradores notificaciones de errores vía email.
     DEFAULT_FROM_EMAIL = "migasfree-server <noreply@example.com>"
 
     ADMINS = [('John', 'john@example.com'), ('Mary', 'mary@example.com')]
-

@@ -28,7 +28,7 @@ siguiente imagen.
       :alt: interfaz de administración.
 
 
-1. Nombre de tu organización (ó instancia del servidor) definido en
+1. Nombre de tu organización (o instancia del servidor) definido en
    el ajuste de configuración del servidor: :ref:`MIGASFREE_ORGANIZATION`.
 
 
@@ -132,15 +132,3 @@ pulsando en el ``triángulo`` que aparece a la derecha de los elementos.
    .. figure:: graphics/admin_interface/relations.png
       :scale: 100
       :alt: Datos relacionados.
-
-
-
-
-
-
-
-
-
-
-
-

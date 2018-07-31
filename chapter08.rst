@@ -392,7 +392,7 @@ Campos de Conjuntos de Atributos
 
 .. _`Fallas`:
 
-Definicion de Fallas
+Definición de Fallas
 ====================
 
 Una falla es un hecho negativo que se produce en un equipo cliente. Por
@@ -711,6 +711,7 @@ Campos de Perfiles de usuarios migasfree
 
 Cambio de contraseña
 --------------------
+
 La contraseña puede ser cambiada por los usuarios pulsando en su nombre de usuario
 y que aparece arriba a la derecha en :ref:`El interfaz de administración`.
 
@@ -718,7 +719,7 @@ También puede ser modificada por otro usuario que tenga marcado el campo
 ``Es superusuario``, accediendo al registro del usuario en cuestión y modificando
 directamente su campo ``Contraseña``.
 
-Si un usuario olvida su password, y el administrador ha configurado en los
+Si un usuario olvida su contraseña, y el administrador ha configurado en los
 ajustes del servidor el :ref:`email`, podrá restablecerla.
 
 
@@ -733,11 +734,11 @@ pueden realizar, se establecen los siguientes grupos de usuarios.
 
     * ``Domain Admin``. Cuenta con permisos de lectura/escritura a:
 
-        * Ordenadores.
+        * Ordenadores
 
-        * Despliegues.
+        * Despliegues
 
-        * Ambitos
+        * Ámbitos
 
     * ``Configurator`` con permisos de lectura/escritura a:
 
@@ -944,7 +945,7 @@ Procedimiento de creación de un dominio
 
 .. _`Ambitos`:
 
-Ambitos
+Ámbitos
 =======
 
 Un ámbito en migasfree es un subconjuto de ordenadores para un determinado
@@ -957,12 +958,12 @@ Cualquier usuario que tenga acceso a :ref:`El interfaz de administración`
 va a poder crearse los ámbitos que desee. No es necesario que sea ni
 ``administrador`` ni ``admistrador de dominio``.
 
-Campos de Ambitos.
-------------------
+Campos de Ámbitos
+-----------------
 
-* **Nombre**: Indica el nombre del ambito.
+* **Nombre**: Indica el nombre del ámbito.
 
-* **Dominio**: Referencia al dominio en el que el ambito se enmarca.
+* **Dominio**: Referencia al dominio en el que el ámbito se enmarca.
 
 * **atributos incluidos**: Aquí se establecen los atributos que
   dictarán que ordenadores, del dominio seleccionado, pertenecerán al ámbito.
@@ -971,5 +972,4 @@ Campos de Ambitos.
 
 Los ámbitos permiten filtrar ordenadores de una manera personalizada,
 rápida y sencilla. Este filtro no tiene efecto sólo en los ordenadores,
-si no en todos los datos relacionados, incluyendo consultas y estadísticas.
-
+sino en todos los datos relacionados, incluyendo consultas y estadísticas.
