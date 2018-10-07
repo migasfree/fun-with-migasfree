@@ -276,6 +276,12 @@ __ http://www.rpm.org/
 __ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
 
 
+  .. note::
+
+      Otra manera de instalar migasfree-play es ejecutando: 
+      ``wget -O - http://migasfree.org/pub/install-play | bash``
+
+
 Despliegue
 ==========
 
