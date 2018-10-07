@@ -201,78 +201,184 @@ Ejemplo:
 
     MIGASFREE_HELP_DESK = "Teléfono Asistencia Técnica: 555.12.34.56"
 
-MIGASFREE_REMOTE_ADMIN_LINK
----------------------------
 
-Valor por defecto: []
 
-Cuando se asigna un valor a este ajuste, apaceren nuevas acciones por cada
-ordenador. El objetivo es poder ejecutar algún código desde nuestro equipo hacia
-el equipo que se quiere administrar. Generalmente se usa para acceder por ``vnc`` o ``ssh``
-a los ordenadores, pero puede ser utilizado con cualquier otro fin.
+MIGASFREE_EXTERNAL_ACTIONS
+--------------------------
+
+Valor por defecto: {}
+
+Este ajuste aparece por primera vez en la versión 4.16 del servidor y sustituye a 
+``MIGASFREE_REMOTE_ADMIN_LINK``, el cual ha sido eliminado definitivamente en esta misma
+versión.
+
+El objetivo de este ajuste es ejecutar un código externo al servidor migasfree
+sobre los elementos relacionados de un determinado objeto (un atributo, un ordenador,
+un conjunto de atributos, etc).
+
+Veamos un ejemplo de funcionamiento con esta configuración:
+
+  .. code-block:: none
+
+    MIGASFREE_EXTERNAL_ACTIONS = {
+        "computer": {
+            "ping": {"title": "PING", "description": "comprobar conectividad"},
+            "ssh": {"title": "SSH", "description": "control remoto vía ssh"},
+        },
+        "deployment": {
+            "check": {"title": "CHECK", "description": "comprobaciones al despliegue"},
+        }
+    }
+
+Aquí estamos indicando que se añadan al modelo ``computador`` las acciones ``ping`` y ``ssh``.
+Además, para el modelo ``deployment`` se ha definido una acción llamada ``check``.
+
+El servidor simplemente se encarga de mostrar un botón cuando corresponda con el ``título`` 
+de cada acción.
+
 
 .. only:: not latex
 
-   .. figure:: graphics/chapter16/remoteadminlink.png
-      :scale: 50
-      :alt: MIGASFREE_REMOTE_ADMIN_LINK
+   .. figure:: graphics/chapter16/mea.png
+      :scale: 100
+      :alt: MIGASFREE_EXTERNAL_ACTIONS
 
-      figura 16.3. MIGASFREE_REMOTE_ADMIN_LINK
+      figura 16.3. MIGASFREE_EXTERNAL_ACTIONS
 
 
 .. only:: latex
 
-   .. figure:: graphics/chapter16/remoteadminlink.png
+   .. figure:: graphics/chapter16/mea.png
       :scale: 100
-      :alt: MIGASFREE_REMOTE_ADMIN_LINK
+      :alt: MIGASFREE_EXTERNAL_ACTIONS
 
-      MIGASFREE_REMOTE_ADMIN_LINK
+      MIGASFREE_EXTERNAL_ACTIONS
 
 
-Las variables que se pueden usar dentro de este ajuste son:
+Cuando se pulsa sobre una acción determinada en el navegador web, el servidor simplemente
+redigirá a una página con un protocolo que hemos denominado 
+``Migasfree External Action`` (mea).
 
-    ``{{computer.<FIELD>}}`` para cualquier campo del modelo ``Computer``
 
-    ``{{<<PROPERTYPREFIX>>}}`` cualquier propiedad del equipo cliente
+   .. note::
 
-Ejemplo vía ssh:
+       Fijate ahora en la figura 16.3, estamos viendo los objetos relacionados con el conjunto de Atributos 
+       ``AULA-3``. Observa que tiene 14 ordenadores relacionados a los que ahora puedes hacer ``PING`` 
+       y ``SSH`` en bloque. Además este Conjunto de Atributos tambien está incluido en 7 Despliegues 
+       a los que ahora puedes ejecutar una acción ``CHECK``.
 
-  .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = ["ssh://root@{{computer.ip_address}}"]
-
-Ejemplo vía https y puerto (este último definido como propiedad ``PRT``):
-
-  .. code-block:: none
-
-    MIGASFREE_REMOTE_ADMIN_LINK = ["https://myserver/?computer={{computer.name}}&port={{PRT}}"]
-
-Pueden usarse varios protocolos:
+ 
+Un ejemplo de redirección al pulsar sobre la acción ``ping`` (name: ping) desde el 
+``atributo`` (model: atribute) cuyo ``id`` es 18745 (id: 18745) desde el servidor 
+127.0.0.1 (server: 127.0.0.1) podría ser:
 
   .. code-block:: none
 
-    MIGASFREE_REMOTE_ADMIN_LINK = [
-        "vnc://{{computer.ip_address}}",
-        "checkping://{{computer.ip_address}}",
-        "ssh://root@{{computer.ip_address}}",
-    ]
+    mea://{"name": "ping", "related_model": "computer", "server": "127.0.0.1", "related_ids": [3643, 3635, 5499], "model": "attribute", "id": 18745}      
 
-Evidentemente, el navegador con el que se accede a la web del servidor debe saber
-cómo interpretar dichos protocolos. Por ejemplo, si usas Firefox y quieres
-permitir el protocolo ``vnc`` debes acceder a la dirección ``about:config`` y añadir:
+Observa en este ejemplo que el modelo relacionado con el ``atributo`` es el ``ordenador`` 
+(related_model: computer) y los ordenadores concretos en este caso son tres 
+(related_ids: [3643, 3635, 5499]).
 
+Observa también que se hace uso del protocolo ``mea://``.
+
+El navegador web (en tu propio equipo) es el encargado de interpetrar éste nuevo protocolo
+y ejecutar un script con los datos que le llegan.  
+
+Es necesario, por tanto, configurar adecuadamente el navegador para que reconozca el protocolo MEA.
+
+Las posibilidades son muchas: 
+
+    PING, SSH, VNC, WOL, etc.  sobre 1 o un grupo de ordenadores.
+
+    Forzar la sincronización inmediata en ordenadores.
+
+    Listados a tu gusto y necesidades.
+
+    Interactuar con otras aplicaciones como p.e para abrir una incidencia en ``Redmine`` sobre una
+    impresora (o sobre cualquier otro objeto de migasfree).
+
+    etc, etc, y etc ...
+
+    
+Puedes ver un ejemplo de empaquetado de la configuración para Chromium y Firefox, así como de un
+script que interpreta el protocolo mea:// en la carpeta ``acme-migasfree-exetrnal-actions`` de `fun-with-migasfree-examples`__.
+
+
+__ https://github.com/migasfree/fun-with-migasfree-examples
+
+
+
+Instrucciones para intalar el paquete acme-migasfree-external-actions:
+
+  .. code-block:: none    
+
+    $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
+    $ unzip master.zip
+    $ cd fun-with-migasfree-examples-master/acme-migasfree-external-action
+    $ debuild --no-tgz-check -us -uc
+    $ sudo dpkg -i ../acme-migasfree-external-actions_*_all.deb
+
+
+La configuracion del protocolo MEA para ``Firefox`` se encuentra en: ``usr/lib/firefox/defaults/pref/acme-migasfree-external-actions.js``
+
+La configuracion del protocolo MEA para ``Chromium`` se encuentra en: ``usr/share/applications/acme-migasfree-external-actions.desktop``
+
+El script que se ejecuta cuando pulsamos en una acción se encuentra en: ``usr/bin/acme-migasfree-external-actions``
+
+Para obtener información de los ordenadores el paquete acme-migasfree-external-actions hace uso de `migasfree-sdk`__.
+
+__ https://github.com/migasfree/migasfree-sdk
+
+
+Puedes instalarlo mediante:
+
+  .. code-block:: none    
+
+    wget -O - http://migasfree.org/pub/install-sdk | bash
+
+
+
+Para cada acción se puede especificar:
+
+     ``title``: Título de la acción. Es obligatorio especificarlo.
+
+     ``description``: "Tooltip" de la acción. Es opcional.
+
+     ``many``: Por defecto su valor es ``True``. Si se establece a ``False``
+     indica que el botón de la acción sólo se mostrará cuando el número de elementos sea 
+     igual a 1. Si quieres que la acción ``VNC`` del ``ordenador`` sólo se muestre cuando 
+     haya sólo un ordenador relacionado, establécelo como ``"many": False``. Es opcional.
+
+     ``related``: Por defecto se muestra la acción para todos los modelos relacionados. 
+     Si quieres que la acción solo se muestre sólo desde unos determinados modelos debes 
+     especificarlos en una lista. Si quieres que la acción ``UPDATE`` del ``ordenador`` solo se 
+     muestre desde ``ordenadores`` y ``despliegues``, pero no desde el resto de modelos relacionados,
+     en ese caso establece ``"related": ["computer", "deployment"]``. Es opcional.
+
+
+   .. note::
+
+       La primera vez que ejecutes una acción se pedirá la contraseña del usuario
+       ``reader``, empleado para acceder a la API de migasfree. Puedes cambiar ese usuario 
+       modificando ``usr/bin/acme-migasfree-external-actions``
+
+Ejemplo: 
+     
   .. code-block:: none
 
-    network.protocol-handler.expose.vnc false
-
-Luego crea un fichero ejecutable para asociarlo al protocolo vnc para que lanze
-``vinagre`` contra la IP del ordenador:
-
-  .. code-block:: none
-
-    #!/bin/bash
-    URL=${1#vnc://}
-    vinagre $URL
+    MIGASFREE_EXTERNAL_ACTIONS = {
+        "computer": {
+            "ping": {"title": "PING", "description": "comprobar conectividad"},
+            "ssh": {"title": "SSH", "description": "control remoto vía ssh"},
+            "vnc": {"title": "VNC", "description": "control remoto vía vnc", "many": False},
+            "update": {"title": "UPDATE", "description": "Forzar sincronización", related: ['computer', 'deployment']},
+        },
+        "deployment": {
+            "check": {"title": "CHECK", "description": "comprobaciones al despliegue"},
+        }
+    }
 
 
 MIGASFREE_HW_PERIOD
