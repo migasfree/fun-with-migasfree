@@ -202,6 +202,7 @@ Ejemplo:
     MIGASFREE_HELP_DESK = "Teléfono Asistencia Técnica: 555.12.34.56"
 
 
+.. _`MIGASFREE_EXTERNAL_ACTIONS`:
 
 MIGASFREE_EXTERNAL_ACTIONS
 --------------------------

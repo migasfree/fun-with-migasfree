@@ -132,3 +132,15 @@ pulsando en el ``triángulo`` que aparece a la derecha de los elementos.
    .. figure:: graphics/admin_interface/relations.png
       :scale: 100
       :alt: Datos relacionados.
+
+
+Para acceder a los datos relacionados pulsa sobre el **número** de elementos.
+
+Mas adelante, cuando cojas soltura, podrás añadir tus propias ``acciones externas``
+tales como **VNC**, **PING**, **SSH**, etc. mediante el ajuste :ref:`MIGASFREE_EXTERNAL_ACTIONS` 
+de los :ref:`Ajustes del servidor migasfree`, pero por ahora creo que es suficiente.
+
+
+
+
+
