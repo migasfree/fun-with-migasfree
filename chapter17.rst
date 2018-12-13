@@ -136,6 +136,25 @@ Ejemplo:
     Auto_Update_Packages = False
 
 
+Manage_Devices
+--------------
+
+Valor por defecto: True
+
+Especifica si en el ordenador se van a administrar impresoras a través del servidor
+migasfree. Este ajuste está pensado, sobre todo, para aquellos equipos
+(servidores p.e.) donde ni siguiera cups esté instalado.
+
+Este ajuste está disponible a partir de la versión de cliente 4.17.
+
+Ejemplo:
+
+  .. code-block:: none
+
+    Manage_Devices = False
+
+
+
 SSL_Cert
 --------
 
@@ -294,10 +313,11 @@ prioritarias frente a los ajustes del fichero de configuración:
 
 ``MIGASFREE_CLIENT_AUTO_UPDATE_PACKAGES``
 
+``MIGASFREE_CLIENT_MANAGE_DEVICES``
+
 ``MIGASFREE_PROXY``
 
 ``MIGASFREE_CLIENT_PACKAGE_PROXY_CACHE``
-
 
 ``MIGASFREE_PACKAGER_USER``
 
