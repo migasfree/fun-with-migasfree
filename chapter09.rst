@@ -18,13 +18,309 @@ En los proyectos de software libre, la liberación tiene que ver con poner a
 disposición de la comunidad un determinado software. Aspectos como la autoría o
 la licencia son esenciales, tanto o más como el propio software que se libera.
 
-Liberar software en *migasfree* implica, además, decidir a quién y a partir de qué
-momento, un cliente tendrá acceso a dicho software.
+Liberar software en *migasfree* implica, además, **decidir quién tendrá acceso a
+dicho software y a partir de qué momento**. Como vimos en la introducción al
+hablar de :ref:`La liberacion`, esto es importante ya que antes de actualizar un
+determinado software te conviene haberlo probarlo, para más tarde, si procede,
+liberarlo paulatinamente a los equipos que lo requieran.
+
+
+.. _`serversource`:
+
+.. _`Orígenes`:
+
+Orígenes
+========
+
+El primer paso para independizarte de los repositorios públicos
+de tu Distribución GNU/Linux, es estudiarlos para a continuación **eliminarlos** y pasar dicha
+configuración al servidor migasfree mediante lo que denominamos **Orígenes**.
+
+
+    .. only:: not latex
+
+       .. figure:: graphics/chapter09/source.png
+          :scale: 100
+          :alt: Origen migasfree.
+
+          PC1 configurado a un origen de software vs PC2 configurado al mismo origen pero a través de un **origen migasfree**.
+
+
+    .. only:: latex
+
+       .. figure:: graphics/chapter09/source.png
+          :scale: 80
+          :alt: Origen migasfree.
+
+          PC1 configurado a un origen de software vs PC2 configurado al mismo origen pero a través de un **origen migasfree**.
+
+
+Un Origen en migasfree no es más que un **caché de un repositorio de paquetes**. Se configura
+desde :ref:`El interfaz de administración` y por tanto está **centralizado**, lo que es una ventaja.
+
+Cuando se ejecuta la sincronización (migasfree --update) es cuando se
+creará, en el ordenador cliente, el fichero que configura dichos reposisitorios
+(/etc/apt/sources.list.d/migasfree.list para apt y /etc/yum.repos.d/migasfree.repo para yum)
+
+      .. warning::
+
+        Los orígenes migasfree están disponibles desde la versión 4.17 (tanto
+        del cliente como del servidor). Asegúrate que tienes todos los clientes actualizados
+        antes de usar esta funcionalidad.
+
+      .. note::
+
+        Para Distros basadas en apt puedes estudiar los ficheros /etc/apt/sources.list y el
+        directorio /etc/apt/sources.list.d/
+
+      .. note::
+
+        Para Distros basadas en yum mira los ficheros del directorio /etc/yum.repos.d/
+
+
+      .. note::
+
+        Un caché y un mirror de repositorio de paquetes no es lo mismo. El mirror tendrá
+        descargados a priori todos los paquetes del repositorio público. En el caché, en cambio, se
+        van descargando según los ordenadores los vayan solicitando.
+
+      .. note::
+        Si el servidor migasfree lo tienes en tu red local, tener configurados la lista de
+        repositorios en Orígenes te va ahorrar, además, mucho tráfico de internet.
+
+
+Campos de origen
+-----------------
+
+
+    * **Habilitado**: Activa o desactiva el origen.
+
+    * **Nombre**: Denomina al origen.
+
+    * **Proyecto**. Indica el proyecto *migasfree* al que pertenece.
+
+    * **Comentario**: Campo de texto que sirve para registrar aclaraciones sobre
+      el origen.
+
+    * Origen: Aquí especificaremos el origen del repositorio público.
+
+            .. note::
+
+              Para más información consulta: ``man sources.list`` ó ``man yum.conf``, según el caso.
+
+
+        * **base**: URI del repositorio público de la Distro GNU/Linux
+
+        * **suite**: Suele indicar el nombre concreto de tu Distribución: **stretch**, **bionic**,
+          **7** (para centos), etc.
+
+        * **components**: Aquí se enumeran los distintos componentes del origen. Ejemplos pueden
+          ser **main contrib non-free** (para Debian),  **main updates universe multiverse** (para
+          Ubuntu, **os udpates extras** (para Centos)
+
+        * **frozen**: Indica que los **metadatos del repositorio publico** no son actualizados. Con ello
+          indicamos que queremos "congelar" el origen a la fecha de la primera solicitud de datos
+          por parte de los ordenadores. Si se desmarca los metadatos son actualizados desde el repositorio
+          público teniendo en cuenta el campo **expire**.
+
+        * **options**: Permite especificar las distintas opciones que necesitemos para el repositorio.
+
+        * **expire**: Minutos en que los metadatos del repositorio publico permanecerá cacheado. Sólo
+          se tiene en cuenta para el caso que el campo **frozen no esté marcado**.
+
+
+    * El qué (paquetes):
+
+        * **Paquetes a instalar**: Campo de texto que especifica una lista de
+          paquetes separados por espacios o por retornos de carro. Estos paquetes
+          serán instalados **obligatoriamente** a los clientes que tengan acceso
+          al origen.
+
+          Se puede espeficar sólo el nombre del paquete, o el nombre de paquete
+          más una versión.
+
+          Este campo se tiene en cuenta al ejecutar los comandos de cliente
+          ``migasfree --update`` y ``migasfree-tags --set``.
+
+        * **Paquetes a desinstalar**: Campo de texto que especifica una lista de
+          paquetes separados por espacios o por retornos de carro que serán
+          desinstalados **obligatorimente** en los clientes.
+
+          Este campo se tiene en cuenta al ejecutar los comandos de cliente
+          ``migasfree --update`` y ``migasfree-tags --set``.
+
+    * Por defecto:
+
+        * **Paquetes pre-incluidos por defecto**: Campo de texto que especifica una
+          lista de paquetes separados por espacios o por retornos de carro. Este
+          campo sirve para instalar paquetes que configuran repositorios externos
+          a migasfree (ver :ref:`Repositorios internos vs externos`).
+          Un ejemplo de este tipo de paquetes lo tienes en el paquete `vx-repo-unizar`__.
+
+          __ https://github.com/vitalinux/vx-repo-unizar
+
+          La razón de la existencia de este campo, es que después de instalar este
+          repositorio externo, es necesario obtener de nuevo los metadatos de
+          los repositorios (``apt-get update``), a fin de que el cliente tenga acceso
+          inmediatamente a los paquetes contenidos en el repositorio externo.
+
+          Estos paquetes serán instalados a los clientes que tengan acceso al
+          despliegue al ejecutar el comando ``migasfree-tags --set``.
+
+        * **Paquetes incluidos por defecto**: Campo de texto que especifica una lista de
+          paquetes separados por espacios o por retornos de carro. Estos paquetes
+          serán instalados a los clientes que tengan acceso al origen al
+          ejecutar el comando ``migasfree-tags --set``.
+
+        * **Paquetes excluidos por defecto**: Campo de texto que especifica una lista de
+          paquetes separados por espacios o por retornos de carro que serán
+          desinstalados en los clientes que tengan acceso al origen al
+          ejecutar el comando ``migasfree-tags --set``.
+
+    * A quién (atributos):
+
+        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
+          coincida con los asignados en este campo tendrán accesible el
+          origen (a menos que otro atributo lo excluya).
+
+        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
+
+          Por ejemplo, si quieres liberar el origen a toda la subred
+          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
+
+              * Atributos incluidos: ``NET-192.168.92.0/24``
+              * Atributos excluidos:``HST-PC13098``
+
+    * Cuándo (calendario):
+        * **Fecha de inicio**: A partir de la cual estará disponible el origen
+          en los clientes.
+
+        * **Calendario**: Especifica una programación del origen basada en
+          calendario.
+
+
+
+Ejemplos
+--------
+
+Aterrizando, que desde el cielo no se ven a las hormigas: a continuación una lista
+de configuraciones de Origenes a modo de ejemplo para Ubuntu y Centos.
+
+      * **UBUNTU XENIAL**:
+
+
+          * name: BASE
+
+          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+
+          * suite: xenial
+
+          * components: main universe multiverse
+
+          * frozen: True
+
+          * options: [arch=amd64]
+
+
+      * **UBUNTU XENIAL UPDATES**:
+
+          * name: UPDATES
+
+          * comentario: Actualizaciones para errores graves que no afectan
+            la seguridad del sistema.
+
+          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+
+          * suite: xenial-updates
+
+          * components: main universe multiverse
+
+          * frozen: True
+
+          * options: [arch=amd64]
+
+
+      * **UBUNTU XENIAL SECURITY**:
+
+          * name: UPDATES
+
+          * comentario: Parches para vulnerabilidades de seguridad.
+            Están gestionados por el Equipo de seguridad de Ubuntu y están diseñados para
+            cambiar el comportamiento del paquete lo menos posible, de hecho, el mínimo
+            requerido para resolver el problema de seguridad. Como resultado, tienden a
+            ser de muy bajo riesgo de aplicación y se insta a todos los usuarios a
+            aplicar actualizaciones de seguridad.
+
+          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+
+          * suite: xenial-security
+
+          * components: main universe multiverse
+
+          * frozen: False
+
+          * options: [arch=amd64]
+
+          * expire: 1440 minutos (Mantenemos los metadatos cacheados 1 día)
+
+
+      * **UBUNTU XENIAL PPA tacocat/pylink-nightly**
+
+          * name: PYLINK
+
+          * comentario: Ejemplo de uso de PPA
+
+          * base: http://ppa.launchpad.net/tacocat/pylink-nightly/ubuntu
+
+          * suite: xenial
+
+          * components: main
+
+          * frozen: True
+
+          * options: [arch=amd64]
+
+
+      * **CENTOS 7**
+
+          * name: BASE
+
+          * base: http://mirror.centos.org/centos
+
+          * suite: 7
+
+          * components: os updates extras
+
+          * frozen: True
+
+          * options: gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+
+      * **CENTOS 7 EPEL**
+
+          * name: EPEL
+
+          * base: http://download.fedoraproject.org/pub/epel
+
+          * suite: 7
+
+          * components:
+
+          * frozen: True
+
+          * options: gpgcheck=1 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+
+
 
 Subiendo paquetes al servidor
 =============================
 
-Antes de poder liberar el software, obviamente, tienes que subirlo al servidor.
+Acabamos de ver que mediante los :ref:`Orígenes` podemos almacenar paquetes de repositorios
+públicos en el servidor migasfree, pero... ¿ y si quiero liberar un paquete que
+he realizado yo mismo? ¿Como lo hago?
+
+Lo primero que tienes que hacer es **subir el paquete al servidor** ( y después
+ya podrás desplegarlo a los equipos que te interesen, pero vayamos poco a poco ).
 
 Como viste en los primeros capítulos, la manera de hacerlo es utilizando el
 comando de cliente:
@@ -248,8 +544,8 @@ Campos de despliegue
         * **Paquetes pre-incluidos por defecto**: Campo de texto que especifica una
           lista de paquetes separados por espacios o por retornos de carro. Este
           campo sirve para instalar paquetes que configuran repositorios externos
-          a migasfree. Un ejemplo de este tipo de paquetes lo tienes en el
-          paquete `vx-repo-unizar`__.
+          a migasfree (ver :ref:`Repositorios internos vs externos`). Un ejemplo
+          de este tipo de paquetes lo tienes en el paquete `vx-repo-unizar`__.
 
           __ https://github.com/vitalinux/vx-repo-unizar
 
@@ -576,20 +872,23 @@ Veamos ahora como funcionaría para cualquier usuario que **no** sea Julian:
 En resumen, en cualquier ordenador Julian tendrá instalada la aplicacion `NO-MEDIA`
 y el resto de usuarios no.
 
+.. _`Repositorios internos vs externos`:
 
 Repositorios internos vs externos
 =================================
 
-Llamamos repositorio interno al repositorio que controla el servidor *migasfree*.
+Llamamos repositorio interno al repositorio que **controla** el servidor *migasfree*.
 
 Un repositorio externo es un repositorio configurado en los clientes y que no
 apunta al servidor *migasfree*. Los repositorios que vienen por defecto configurados
 en las distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
 
-Si quieres tener un mayor control de tus sistemas, mi recomendación es que te
-bajes todos los paquetes de los repositorios de tu distribución a una fecha y
-luego los subas como ``conjunto de paquetes`` al servidor y crees un despliegue
-al efecto. A esto, lo denominamos ``congelar un repositorio``.
+Si quieres tener un mayor control de tus sistemas, mi recomendación es que hagas uso
+los :ref:`Orígenes`, pero una segunda opción es que te bajes todos los paquetes de los
+repositorios de tu distribución y luego los subas como
+``conjunto de paquetes`` al servidor y crees un despliegue
+al efecto. A esto, lo denominamos ``congelar un repositorio`` y vendría a ser como
+un mirror del repositorio publico.
 
 De esta manera, tendrás congelados a una fecha los repositorios de tu distribución,
 y podrás actualizar sólo el software que te interese. Si te decides por este

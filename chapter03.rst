@@ -235,6 +235,8 @@ recorrer todos los usuarios para aplicar la personalización a cada uno
 de ellos.
 
 
+.. _`La liberacion`:
+
 La liberación
 =============
 
