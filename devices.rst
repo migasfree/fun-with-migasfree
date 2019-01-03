@@ -128,7 +128,7 @@ __ http://www.openprinting.org/printers
 
 .. _`serverdevice`:
 
-.. _`Dispositivos`:
+.. _`Dispositivos físicos`:
 
 Dispositivos
 ============
@@ -171,6 +171,8 @@ Campos del dispositivo
       asociados a ese modelo de impresora y podrán ser asignados entonces
       los atributos.
 
+
+.. _`devicereplacement`:
 
 Reemplazo de dispositivos
 =========================

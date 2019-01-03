@@ -118,14 +118,20 @@ Así, fácilmente podrías ver la cantidad de errores que ha habido en un equipo
 migraciones, actualizaciones, ... Además, en este menú desplegable del ordenador,
 te vas a encontrar con otras opciones interesantes:
 
+.. _`computerevents`:
+
 * **Sucesos**: Sobre un calendario, desde la fecha de entrada del equipo en el servidor,
   se muestra la cantidad diaria de sincronizaciones, errores, fallas, migraciones y
   registros de estado. A más cantidad diaria de sucesos, el color es más oscuro.
+
+.. _`computersimulatesync`:
 
 * **Simular sincronización**: Te permite simular lo que entregaría el servidor
   al cliente cuando éste último ejecuta ``migasfree -u``. De esta manera, y basándonos
   en los actuales atributos del ordenador, puedes ver qué despliegues se configurarían en el
   cliente, qué paquetes se instalarían o eliminarían o qué fallas se ejecutarían.
+
+.. _`hardwareresume`:
 
 * **Hardware**: Nos da acceso al hardware del equipo.
 
@@ -547,6 +553,8 @@ las ``Alertas`` a 0. El sistema te irá avisando qué debes atender.
 
 Otros procesos
 ==============
+
+.. _`computerreplacement`:
 
 .. _`Reemplazo de ordenadores`:
 
