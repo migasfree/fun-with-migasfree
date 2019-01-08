@@ -10,53 +10,203 @@ La Liberación
 
    -- Ernesto Guevara.
 
-Este es el capítulo que mejor define a *migasfree*, ya que su principal funcionalidad
-es la de ofrecer unos determinados repositorios de paquetes que estarán
+Este es el capítulo que mejor define a *migasfree*, ya que la principal funcionalidad
+del servidor es ofrecer unos determinados repositorios de paquetes, que estarán
 disponibles para los clientes en función de sus atributos.
 
 En los proyectos de software libre, la liberación tiene que ver con poner a
 disposición de la comunidad un determinado software. Aspectos como la autoría o
 la licencia son esenciales, tanto o más como el propio software que se libera.
 
-Liberar software en *migasfree* implica, además, **decidir quién tendrá acceso a
+En los sistemas operativos GNU/Linux la liberación de software se realiza mediante
+la configuración de una **lista de repositorios públicos**, también denominados
+**lista de orígenes**.
+
+Liberar software mediante *migasfree* implica, además, **decidir quién tendrá acceso a
 dicho software y a partir de qué momento**. Como vimos en la introducción al
 hablar de :ref:`La liberacion`, esto es importante ya que antes de actualizar un
 determinado software te conviene haberlo probarlo, para más tarde, si procede,
-liberarlo paulatinamente a los equipos que lo requieran.
+liberarlo **paulatinamente** a los equipos que lo requieran.
 
 
-.. _`serversource`:
+.. _`Repositorios estándar vs Repositorios migasfree`:
 
-.. _`Orígenes`:
+Repositorios estándar vs Repositorios migasfree
+===============================================
 
-Orígenes
-========
+Llamamos **repositorio migasfree** al repositorio **controlado por un servidor migasfree**.
+
+      .. note::
+
+        Todos los ``repositorios migasfree`` se encuentran configurados para ``apt`` en el
+        fichero ``/etc/apt/sources.list.d/migasfree.list``.
+
+      .. note::
+
+        Todos los ``repositorios migasfree`` se encuentran configurados para ``yum`` en el
+        fichero ``/etc/yum.repos.d/migasfree.repo``.
+
+
+Un **repositorio estándar** es un repositorio configurado en los clientes y que **no
+apunta al servidor migasfree**. Los repositorios que vienen por defecto configurados
+en las distribuiciones son un ejemplo. Otro serían los típicos repositorios tipo ``ppa``
+de Ubuntu.
+
+Si quieres tener un mayor control de tus sistemas, mi recomendación es que **sustituyas los
+repositorios estándar** por :ref:`Despliegues de origen externo` con el campo ``frozen`` activado.
+
+Otra opción sería que te bajes **todos los paquetes de los repositorios de tu distribución** y luego los subas como
+``conjunto de paquetes`` al servidor y creess :ref:`Despliegues de origen interno`
+al efecto. A esto, lo denominamos ``congelar un repositorio`` y vendría a ser como
+un **mirror del repositorio** estándar.
+
+De esta manera, tendrás congelados a una fecha los repositorios de tu distribución,
+y podrás actualizar sólo el software que te interese. Si te decides por cualquiera
+de estos dos métodos, obviamente tendrás que empaquetar un código que deshabilite los
+repositorios estándar en los clientes.
+
++------------------------------+------------------------------+
+| Repositorios migasfree       | Repositorios estándar        |
++==============================+==============================+
+| Requieren mantenimiento      | No requieren mantenimiento   |
+| ante las actualizaciones de  | ya que es mantenido por el   |
+| los paquetes                 | dueño del repositorio        |
++------------------------------+------------------------------+
+| Mayor control de los sistemas| Menor control frente a los   |
+| frente a los cambios, siendo | cambios                      |
+| tu quién decide qué          |                              |
+| actualizaciones deben        |                              |
+| producirse                   |                              |
++------------------------------+------------------------------+
+| Si el servidor migasfree está| Genera tráfico internet      |
+| en la red local, no produce  |                              |
+| tráfico internet             |                              |
++------------------------------+------------------------------+
+
+
+Un pequeño script para obtener los paquetes de los repositorios estándar
+(en este caso para ubuntu-16.04) podría ser:
+
+  .. code-block:: none
+
+    #!/bin/bash
+
+    function download(){
+      _SERIE_POCKET=$1
+      download_repo "$_SERIE_POCKET" "main"
+      download_repo "$_SERIE_POCKET" "multiverse"
+      download_repo "$_SERIE_POCKET" "restricted"
+      download_repo "$_SERIE_POCKET" "universe"
+    }
+
+    function download_repo(){
+      _SERVER=http://en.archive.ubuntu.com/ubuntu
+      _PKGS=Packages
+      _SERIES=$1
+      _REPO=$2
+      _PATH=`pwd`
+      echo "PATH= $_PATH"
+      wget $_SERVER/dists/$_SERIES/$_REPO/binary-amd64/$_PKGS.bz2
+      bzip2 -d $_PKGS.bz2
+      _FILES=`grep "^Filename:" $_PKGS| awk '{print $2}'|sort`
+      _TARGET=$_SERIES-$_REPO
+      echo "$_FILES" > Packages-$_TARGET
+      mkdir -p $_TARGET
+      cd "$_TARGET"
+      for _f in $_FILES
+      do
+        _file=${_f:6+${#_REPO}}
+        _BASE=`basename $_file`
+        mkdir -p `dirname $_file`
+        echo "Downloading $_SERIES $_f"
+        wget -c -t1  $_SERVER/$_f -O $_file
+      done
+      cd "$_PATH"
+      rm $_PKGS
+    }
+
+    download "xenial-security"
+    download "xenial-updates"
+    download "xenial-backports"
+    download "xenial"
+
+
+.. _`Despliegues`:
+
+.. _`serverdeployment`:
+
+Despliegues
+===========
+
+Me gusta la definición: **migasfree es simplemente un gestor de despliegues
+de paquetes**. En realidad es básicamente esto. De hecho, así es como empezó este
+proyecto, y a partir de aquí ha ido creciendo hasta convertirse en lo que es hoy
+en día, un gestor de sistemas.
+
+A todos los efectos, y desde el punto de vista del cliente, un despliegue
+en *migasfree* es un repositorio de paquetes estándar como los que puedas
+encontrar en cualquier distribución. *Migasfree* permite crear muy fácilmente
+estos repositorios y asignarlos a los equipos en función de sus atributos a
+partir de una fecha determinada mediante los despliegues.
+
+Un despliegue consta de:
+
+     * **Repositorio de paquetes**: Contiene el software que se va a liberar.
+       Incluye los paquetes y los metadatos del repositorio.
+
+     * **Atributos**: Establece a quién se le liberará.
+
+     * **Fecha** y **calendario**: Indica cúando se liberará.
+
+     * **Acciones**: Se puede establecer que se instalen o desinstalen obligatoriamente
+       paquetes en el despliegue.
+
+
+Diferenciamos **dos tipos de despliegues** en función del origen de los paquetes:
+
+    * :ref:`Despliegues de origen externo`: Los paquetes se van obteniendo automáticamente de un
+      repositorio público (mediante técnica de cache).
+
+    * :ref:`Despliegues de origen interno`: Los paquetes son subidos al
+      servidor migasfree manualmente por un administrador;
+      en el momento de asignar estos paquetes al despliegue, automáticamente
+      se crea el repositorio de paquetes.
+
+.. _`Despliegues de origen externo`:
+
+.. _`serverexternalSource`:
+
+Despliegues de origen externo
+=============================
 
 El primer paso para independizarte de los repositorios públicos
 de tu Distribución GNU/Linux, es estudiarlos para a continuación **eliminarlos** y pasar dicha
-configuración al servidor migasfree mediante lo que denominamos **Orígenes**.
+configuración al servidor migasfree mediante lo que denominamos **Despliegues de origen externo**.
 
 
     .. only:: not latex
 
        .. figure:: graphics/chapter09/source.png
           :scale: 100
-          :alt: Origen migasfree.
+          :alt: Origen externo.
 
-          PC1 configurado a un origen de software vs PC2 configurado al mismo origen pero a través de un **origen migasfree**.
+          PC1 configurado a un origen público de software vs PC2 configurado al mismo origen
+          pero a través de un **origen externo**.
 
 
     .. only:: latex
 
        .. figure:: graphics/chapter09/source.png
           :scale: 80
-          :alt: Origen migasfree.
+          :alt: Origen externo.
 
-          PC1 configurado a un origen de software vs PC2 configurado al mismo origen pero a través de un **origen migasfree**.
+          PC1 configurado a un origen público de software vs PC2 configurado al mismo origen
+          pero a través de un **origen externo**.
 
 
-Un Origen en migasfree no es más que un **caché de un repositorio de paquetes**. Se configura
-desde :ref:`El interfaz de administración` y por tanto está **centralizado**, lo que es una ventaja.
+Un despliegue de origen externo creará un repositorio que no es más que un
+**caché del repositorio de paquetes** al que apunta. Se configura
+desde :ref:`El interfaz de administración` y por tanto está **centralizado**.
 
 Cuando se ejecuta la sincronización (migasfree --update) es cuando se
 creará, en el ordenador cliente, el fichero que configura dichos reposisitorios
@@ -64,7 +214,7 @@ creará, en el ordenador cliente, el fichero que configura dichos reposisitorios
 
       .. warning::
 
-        Los orígenes migasfree están disponibles desde la versión 4.17 (tanto
+        Los depliegues de origen externo están disponibles desde la versión 4.17 (tanto
         del cliente como del servidor). Asegúrate que tienes todos los clientes actualizados
         antes de usar esta funcionalidad.
 
@@ -86,21 +236,36 @@ creará, en el ordenador cliente, el fichero que configura dichos reposisitorios
 
       .. note::
         Si el servidor migasfree lo tienes en tu red local, tener configurados la lista de
-        repositorios en Orígenes te va ahorrar, además, mucho tráfico de internet.
+        repositorios de los ordenadores mediante :ref:`Despliegues de origen externo` te va ahorrar, además,
+        mucho tráfico de internet.
 
 
-Campos de origen
------------------
+Campos del despliegue de origen externo
+---------------------------------------
 
 
     * **Habilitado**: Activa o desactiva el origen.
 
-    * **Nombre**: Denomina al origen.
+    * **Nombre**: Denomina al despliegue.
 
     * **Proyecto**. Indica el proyecto *migasfree* al que pertenece.
 
     * **Comentario**: Campo de texto que sirve para registrar aclaraciones sobre
-      el origen.
+      el despliegue
+
+    * A quién (atributos):
+
+        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
+          coincida con los asignados en este campo tendrán accesible el
+          origen (a menos que otro atributo lo excluya).
+
+        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
+
+          Por ejemplo, si quieres liberar el origen a toda la subred
+          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
+
+              * Atributos incluidos: ``NET-192.168.92.0/24``
+              * Atributos excluidos:``HST-PC13098``
 
     * Origen: Aquí especificaremos el origen del repositorio público.
 
@@ -118,8 +283,8 @@ Campos de origen
           ser **main contrib non-free** (para Debian),  **main updates universe multiverse** (para
           Ubuntu, **os udpates extras** (para Centos)
 
-        * **frozen**: Indica que los **metadatos del repositorio publico** no son actualizados. Con ello
-          indicamos que queremos "congelar" el origen a la fecha de la primera solicitud de datos
+        * **frozen**: Indica que los **metadatos del repositorio público** no son actualizados. Con ello
+          indicamos que queremos "congelar" el repositorio a la fecha de la primera solicitud de datos
           por parte de los ordenadores. Si se desmarca los metadatos son actualizados desde el repositorio
           público teniendo en cuenta el campo **expire**.
 
@@ -128,8 +293,7 @@ Campos de origen
         * **expire**: Minutos en que los metadatos del repositorio publico permanecerá cacheado. Sólo
           se tiene en cuenta para el caso que el campo **frozen no esté marcado**.
 
-
-    * El qué (paquetes):
+    * Acciones:
 
         * **Paquetes a instalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
@@ -149,12 +313,10 @@ Campos de origen
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``.
 
-    * Por defecto:
-
         * **Paquetes pre-incluidos por defecto**: Campo de texto que especifica una
           lista de paquetes separados por espacios o por retornos de carro. Este
-          campo sirve para instalar paquetes que configuran repositorios externos
-          a migasfree (ver :ref:`Repositorios internos vs externos`).
+          campo sirve para instalar paquetes que configuran repositorios estándar
+          a migasfree (ver :ref:`Repositorios estándar vs Repositorios migasfree`).
           Un ejemplo de este tipo de paquetes lo tienes en el paquete `vx-repo-unizar`__.
 
           __ https://github.com/vitalinux/vx-repo-unizar
@@ -177,20 +339,6 @@ Campos de origen
           desinstalados en los clientes que tengan acceso al origen al
           ejecutar el comando ``migasfree-tags --set``.
 
-    * A quién (atributos):
-
-        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
-          coincida con los asignados en este campo tendrán accesible el
-          origen (a menos que otro atributo lo excluya).
-
-        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
-
-          Por ejemplo, si quieres liberar el origen a toda la subred
-          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
-
-              * Atributos incluidos: ``NET-192.168.92.0/24``
-              * Atributos excluidos:``HST-PC13098``
-
     * Cuándo (calendario):
         * **Fecha de inicio**: A partir de la cual estará disponible el origen
           en los clientes.
@@ -204,7 +352,7 @@ Ejemplos
 --------
 
 Aterrizando, que desde el cielo no se ven a las hormigas: a continuación una lista
-de configuraciones de Origenes a modo de ejemplo para Ubuntu y Centos.
+de configuraciones, de :ref:`Despliegues de origen externo`, a modo de ejemplo para Ubuntu y Centos.
 
       * **UBUNTU XENIAL**:
 
@@ -311,11 +459,24 @@ de configuraciones de Origenes a modo de ejemplo para Ubuntu y Centos.
           * options: gpgcheck=1 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 
 
+      * **¿Apuntando a otro servidor migasfree?**
+
+          * name: Origen en otro servidor migasfree
+
+          * base: http://<nombre_servidor>/public/<nombre_projecto>/REPOSITORIES
+
+          * suite: <nombre_despliegue>
+
+          * components: PKGS
+
+          * frozen: True
+
+
 
 Subiendo paquetes al servidor
 =============================
 
-Acabamos de ver que mediante los :ref:`Orígenes` podemos almacenar paquetes de repositorios
+Acabamos de ver que mediante los :ref:`Despliegues de origen externo` podemos almacenar paquetes de repositorios
 públicos en el servidor migasfree, pero... ¿ y si quiero liberar un paquete que
 he realizado yo mismo? ¿Como lo hago?
 
@@ -445,27 +606,21 @@ aparecen dos carpetas:
 
 Si quieres ver los metadatos de un determinado paquete, simplemente, pulsa sobre él.
 
+.. _`Despliegues de origen interno`:
 
-.. _`Despliegues`:
+.. _`serverinternalSource`:
 
-.. _`serverdeployment`:
+Despliegues de origen interno
+=============================
 
-Despliegues
-===========
+Permite crear repositorios de paquetes para su liberación. Un administrador
+ha tenido que subir, previamente, dichos paquetes al servidor.
 
-Me gusta la definición: **migasfree es simplemente un gestor de despliegues
-de paquetes**. En realidad es básicamente esto. De hecho, así es como empezó este
-proyecto, y a partir de aquí ha ido creciendo hasta convertirse en lo que es hoy
-en día, un gestor de sistemas.
 
-A todos los efectos, y desde el punto de vista del cliente, un despliegue
-en *migasfree* es un repositorio de paquetes estándar como los que puedas
-encontrar en cualquier distribución. *Migasfree* permite crear muy fácilmente
-estos repositorios y asignarlos a los equipos en función de sus atributos a
-partir de una fecha determinada.
+Campos de despliegue de origen interno
+--------------------------------------
 
-Campos de despliegue
---------------------
+    * **Habilitado**: Activa o desactiva el despliegue.
 
     * **Nombre**: Denomina al despliegue.
 
@@ -477,8 +632,6 @@ Campos de despliegue
 
     * **Proyecto**: Especifica el proyecto en el que estará disponible el
       despliegue.
-
-    * **Habilitado**: Activa o desactiva el despliegue.
 
     * **Comentario**: Campo de texto que sirve para registrar aclaraciones sobre
       el despliegue. Es muy conveniente que registres las modificaciones que
@@ -494,6 +647,20 @@ Campos de despliegue
 
         [eduardo@2013-05-10] Detectado problemas en algunos clientes. Desactivo
             el despliegue hasta diagnosticar y encontrar solución.
+
+    * A quién (atributos):
+
+        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
+          coincida con los asignados en este campo tendrán accesible el
+          despliegue (a menos que otro atributo lo excluya).
+
+        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
+
+          Por ejemplo, si quieres liberar un paquete a toda la subred
+          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
+
+              * Atributos incluidos: ``NET-192.168.92.0/24``
+              * Atributos excluidos:``HST-PC13098``
 
     * El qué (paquetes):
 
@@ -521,6 +688,9 @@ Campos de despliegue
            la asignación de ``paquetes`` y no perdernos entre los miles que
            componen una distribución.
 
+
+    * Acciones:
+
         * **Paquetes a instalar**: Campo de texto que especifica una lista de
           paquetes separados por espacios o por retornos de carro. Estos paquetes
           serán instalados **obligatoriamente** a los clientes que tengan acceso
@@ -539,12 +709,11 @@ Campos de despliegue
           Este campo se tiene en cuenta al ejecutar los comandos de cliente
           ``migasfree --update`` y ``migasfree-tags --set``.
 
-    * Por defecto:
 
         * **Paquetes pre-incluidos por defecto**: Campo de texto que especifica una
           lista de paquetes separados por espacios o por retornos de carro. Este
           campo sirve para instalar paquetes que configuran repositorios externos
-          a migasfree (ver :ref:`Repositorios internos vs externos`). Un ejemplo
+          a migasfree (ver :ref:`Repositorios estándar vs Repositorios migasfree`). Un ejemplo
           de este tipo de paquetes lo tienes en el paquete `vx-repo-unizar`__.
 
           __ https://github.com/vitalinux/vx-repo-unizar
@@ -566,20 +735,6 @@ Campos de despliegue
           paquetes separados por espacios o por retornos de carro que serán
           desinstalados en los clientes que tengan acceso al despliegue al
           ejecutar el comando ``migasfree-tags --set``.
-
-    * A quién (atributos):
-
-        * **Atributos incluidos**: Aquellos clientes que tengan un atributo que
-          coincida con los asignados en este campo tendrán accesible el
-          despliegue (a menos que otro atributo lo excluya).
-
-        * **Atributos excluidos**: Sirve para excluir atributos de la lista anterior.
-
-          Por ejemplo, si quieres liberar un paquete a toda la subred
-          ``192.168.92.0`` menos al equipo ``PC13098``, puedes hacerlo asignando:
-
-              * Atributos incluidos: ``NET-192.168.92.0/24``
-              * Atributos excluidos:``HST-PC13098``
 
     * Cuándo (calendario):
         * **Fecha de inicio**: A partir de la cual estará disponible el despliegue
@@ -871,94 +1026,6 @@ Veamos ahora como funcionaría para cualquier usuario que **no** sea Julian:
 
 En resumen, en cualquier ordenador Julian tendrá instalada la aplicacion `NO-MEDIA`
 y el resto de usuarios no.
-
-.. _`Repositorios internos vs externos`:
-
-Repositorios internos vs externos
-=================================
-
-Llamamos repositorio interno al repositorio que **controla** el servidor *migasfree*.
-
-Un repositorio externo es un repositorio configurado en los clientes y que no
-apunta al servidor *migasfree*. Los repositorios que vienen por defecto configurados
-en las distribuiciones son un ejemplo. Otro serían los repositorios tipo ``ppa``.
-
-Si quieres tener un mayor control de tus sistemas, mi recomendación es que hagas uso
-los :ref:`Orígenes`, pero una segunda opción es que te bajes todos los paquetes de los
-repositorios de tu distribución y luego los subas como
-``conjunto de paquetes`` al servidor y crees un despliegue
-al efecto. A esto, lo denominamos ``congelar un repositorio`` y vendría a ser como
-un mirror del repositorio publico.
-
-De esta manera, tendrás congelados a una fecha los repositorios de tu distribución,
-y podrás actualizar sólo el software que te interese. Si te decides por este
-método, obviamente tendrás que empaquetar un código que deshabilite los
-repositorios externos en los clientes.
-
-+------------------------------+------------------------------+
-| Repositorios Internos        | Repositorios Externos        |
-+==============================+==============================+
-| Requieren mantenimiento      | No requieren mantenimiento   |
-| ante las actualizaciones de  | ya que es mantenido por el   |
-| los paquetes                 | dueño del repositorio        |
-+------------------------------+------------------------------+
-| Mayor control de los sistemas| Menor control frente a los   |
-| frente a los cambios, siendo | cambios                      |
-| tu quién decide qué          |                              |
-| actualizaciones deben        |                              |
-| producirse                   |                              |
-+------------------------------+------------------------------+
-| Si el servidor migasfree está| Genera tráfico internet      |
-| en la red local, no produce  |                              |
-| tráfico internet             |                              |
-+------------------------------+------------------------------+
-
-
-Un pequeño script para obtener los paquetes de los repositorios externos
-(en este caso para ubuntu-16.04) podría ser:
-
-  .. code-block:: none
-
-    #!/bin/bash
-
-    function download(){
-      _SERIE_POCKET=$1
-      download_repo "$_SERIE_POCKET" "main"
-      download_repo "$_SERIE_POCKET" "multiverse"
-      download_repo "$_SERIE_POCKET" "restricted"
-      download_repo "$_SERIE_POCKET" "universe"
-    }
-
-    function download_repo(){
-      _SERVER=http://en.archive.ubuntu.com/ubuntu
-      _PKGS=Packages
-      _SERIES=$1
-      _REPO=$2
-      _PATH=`pwd`
-      echo "PATH= $_PATH"
-      wget $_SERVER/dists/$_SERIES/$_REPO/binary-amd64/$_PKGS.bz2
-      bzip2 -d $_PKGS.bz2
-      _FILES=`grep "^Filename:" $_PKGS| awk '{print $2}'|sort`
-      _TARGET=$_SERIES-$_REPO
-      echo "$_FILES" > Packages-$_TARGET
-      mkdir -p $_TARGET
-      cd "$_TARGET"
-      for _f in $_FILES
-      do
-        _file=${_f:6+${#_REPO}}
-        _BASE=`basename $_file`
-        mkdir -p `dirname $_file`
-        echo "Downloading $_SERIES $_f"
-        wget -c -t1  $_SERVER/$_f -O $_file
-      done
-      cd "$_PATH"
-      rm $_PKGS
-    }
-
-    download "xenial-security"
-    download "xenial-updates"
-    download "xenial-backports"
-    download "xenial"
 
 
 El proceso de la liberación
