@@ -354,43 +354,43 @@ Ejemplos
 Aterrizando, que desde el cielo no se ven a las hormigas: a continuación una lista
 de configuraciones, de :ref:`Despliegues de origen externo`, a modo de ejemplo para Ubuntu y Centos.
 
-      * **UBUNTU XENIAL**:
+      * **UBUNTU BIONIC**:
 
 
-          * name: BASE
+          * nombre: BASE
 
-          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+          * URL base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
 
-          * suite: xenial
+          * suite: bionic
 
-          * components: main universe multiverse
+          * componentes: main universe multiverse
 
-          * frozen: True
+          * congelado: True
 
-          * options: [arch=amd64]
+          * opciones: [arch=amd64]
 
 
-      * **UBUNTU XENIAL UPDATES**:
+      * **UBUNTU BIONIC UPDATES**:
 
-          * name: UPDATES
+          * nombre: UPDATES
 
           * comentario: Actualizaciones para errores graves que no afectan
             la seguridad del sistema.
 
-          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+          * URL base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
 
-          * suite: xenial-updates
+          * suite: bionic-updates
 
-          * components: main universe multiverse
+          * componentes: main universe multiverse
 
-          * frozen: True
+          * congelado: True
 
-          * options: [arch=amd64]
+          * opciones: [arch=amd64]
 
 
-      * **UBUNTU XENIAL SECURITY**:
+      * **UBUNTU BIONIC SECURITY**:
 
-          * name: UPDATES
+          * nombre: UPDATES
 
           * comentario: Parches para vulnerabilidades de seguridad.
             Están gestionados por el Equipo de seguridad de Ubuntu y están diseñados para
@@ -399,77 +399,122 @@ de configuraciones, de :ref:`Despliegues de origen externo`, a modo de ejemplo p
             ser de muy bajo riesgo de aplicación y se insta a todos los usuarios a
             aplicar actualizaciones de seguridad.
 
-          * base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
+          * URL base: http://es.archive.ubuntu.com/ubuntu (ó http://softlibre.unizar.es/ubuntu/archive)
 
-          * suite: xenial-security
+          * suite: bionic-security
 
-          * components: main universe multiverse
+          * componentes: main universe multiverse
 
-          * frozen: False
+          * congelado: False
 
-          * options: [arch=amd64]
+          * opciones: [arch=amd64]
 
           * expire: 1440 minutos (Mantenemos los metadatos cacheados 1 día)
 
 
-      * **UBUNTU XENIAL PPA tacocat/pylink-nightly**
+      * **UBUNTU BIONIC PPA tacocat/pylink-nightly**
 
-          * name: PYLINK
+          * nombre: PYLINK
 
           * comentario: Ejemplo de uso de PPA
 
-          * base: http://ppa.launchpad.net/tacocat/pylink-nightly/ubuntu
+          * URL base: http://ppa.launchpad.net/tacocat/pylink-nightly/ubuntu
 
-          * suite: xenial
+          * suite: bionic
+
+          * componentes: main
+
+          * congelado: True
+
+          * opciones: [arch=amd64]
+
+
+      * **DEBIAN STRETCH**
+
+          * nombre: BASE
+
+          * URL base: http://ftp.es.debian.org/debian
+
+          * suite: stretch
 
           * components: main
 
-          * frozen: True
+          * congelado: True
 
-          * options: [arch=amd64]
+          * opciones: [arch=amd64]
 
 
       * **CENTOS 7**
 
-          * name: BASE
+          * nombre: BASE
 
-          * base: http://mirror.centos.org/centos
+          * URL base: http://mirror.centos.org/centos
 
           * suite: 7
 
-          * components: os updates extras
+          * components: os/x86_64 updates/x86_64 extras/x86_64
 
-          * frozen: True
+          * congelado: True
 
-          * options: gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+          * opciones: gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-$releasever
 
 
       * **CENTOS 7 EPEL**
 
-          * name: EPEL
+          * nombre: EPEL
 
-          * base: http://download.fedoraproject.org/pub/epel
+          * URL base: http://download.fedoraproject.org/pub/epel
 
           * suite: 7
 
-          * components:
+          * componentes:
 
-          * frozen: True
+          * congelado: True
 
-          * options: gpgcheck=1 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+          * opciones: gpgcheck=1 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+
+
+      * **FEDORA 29**
+
+          * nombre: base
+
+          * URL base: http://download.fedoraproject.org/pub/fedora/linux/releases
+
+          * suite: 29
+
+          * componentes: Everything/x86_64/os
+
+          * congelado: True
+
+          * opciones: gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+
+
+      * **OPENSUSE 42.3**
+
+          * nombre: base
+
+          * URL base: http://download.opensuse.org/distribution/leap
+
+          * suite: 42.3
+
+          * componentes: repo/oss/suse
+
+          * congelado: True
+
+          * opciones:
 
 
       * **¿Apuntando a otro servidor migasfree?**
 
-          * name: Origen en otro servidor migasfree
+          * nombre: Origen en otro servidor migasfree
 
-          * base: http://<nombre_servidor>/public/<nombre_projecto>/REPOSITORIES
+          * URL base: http://<nombre_servidor>/public/<nombre_projecto>/REPOSITORIES
 
           * suite: <nombre_despliegue>
 
-          * components: PKGS
+          * componentes: PKGS
 
-          * frozen: True
+          * congelado: True
 
 
 
