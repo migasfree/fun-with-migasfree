@@ -352,7 +352,8 @@ Ejemplos
 --------
 
 Aterrizando, que desde el cielo no se ven a las hormigas: a continuación una lista
-de configuraciones, de :ref:`Despliegues de origen externo`, a modo de ejemplo para Ubuntu y Centos.
+de configuraciones, de :ref:`Despliegues de origen externo`, a modo de ejemplo
+para Ubuntu, Debian, Centos, Fedora y OpenSuse.
 
       * **UBUNTU BIONIC**:
 
