@@ -150,7 +150,7 @@ Usa este comando para subir el paquete generado al servidor.
 
 * Contraseña: admin
 
-* Proyecto: debian-x.x (En mi caso la versión es debian-8.7)
+* Proyecto: debian-x.x (En mi caso la versión es debian-9.8)
 
 * Almacén: acme
 
@@ -203,7 +203,7 @@ Liberando el cambio de configuración
 Ahora, vas a liberar el cambio creando un nuevo *despliegue*.
 
 Para ello, ve a ``Liberación`` (pulsando sobre el icono del camión) y accede a ``Despliegues``.
-Luego pulsa en el botón ``+`` para ``añadir un nuevo despliegue`` e introduce estos datos:
+Pulsa en el botón ``+`` para ``añadir un nuevo despliegue de origen interno`` e introduce estos datos:
 
    .. note::
 
@@ -274,9 +274,10 @@ Tu segundo cambio de configuración
 Petición
 --------
 
-Te llega una segunda petición de cambio, ya que a tus compañeros del CAU les
+Te llega una segunda petición de cambio, ya que a tus compañeros del `CAU`__ les
 ha venido bien estos ficheros de ejemplos pero echan de menos un SVG:
 
+__ https://es.wikipedia.org/wiki/Mesa_de_ayuda
 
   .. admonition:: Gestor de proyectos
 
