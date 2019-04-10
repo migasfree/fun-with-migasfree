@@ -12,9 +12,10 @@ Configurando software al estilo migasfree
 El objetivo de este capítulo es que veas todo el proceso de la **Gestión
 de la Configuración Software en conjunto**. Lo vamos a hacer desplegando un
 paquete que, simplemente, instalará unos ficheros de ejemplo (png, gif, mp4, etc.)
-que pueden servir al personal del Centro de Asistencia Usuarios (CAU) para
+que pueden servir al personal del Centro de Asistencia Usuarios (`CAU`__) para
 comprobar las asociaciones de archivos y aplicaciones.
 
+__ https://es.wikipedia.org/wiki/Mesa_de_ayuda
 
 Al estilo tradicional
 =====================
@@ -274,10 +275,8 @@ Tu segundo cambio de configuración
 Petición
 --------
 
-Te llega una segunda petición de cambio, ya que a tus compañeros del `CAU`__ les
+Te llega una segunda petición de cambio, ya que a tus compañeros del CAU les
 ha venido bien estos ficheros de ejemplos pero echan de menos un SVG:
-
-__ https://es.wikipedia.org/wiki/Mesa_de_ayuda
 
   .. admonition:: Gestor de proyectos
 
