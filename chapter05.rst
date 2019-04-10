@@ -277,11 +277,14 @@ sobre ``2 alertas por comprobar``:
           Notificaciones.
 
 
-* Accede a ``Datos - Ordenadores`` y observa: (figura 5.4)
+* Echa un vistazo rápido al ordenador pulsando en la ``lupa`` y luego en ``ordenador``
+(figura 5.4)
 
-    * Los datos del ordenador ``CID-1`` (pulsando sobre CID-1).
+    * Observa los datos del ordenador pulsando sobre ``CID-1``.
 
-    * Su ``hardware``.
+    * Fíjate en la fecha de la sicronización.
+
+    * Consulta el ``hardware`` pulsando sobre el campo ``producto``.
 
     .. only:: not latex
 
