@@ -504,6 +504,19 @@ para Ubuntu, Debian, Centos, Fedora y OpenSuse.
 
           * opciones:
 
+      * **OPENSUSE 15.0**
+
+          * nombre: base
+
+          * URL base: http://download.opensuse.org/distribution/leap
+
+          * suite: 15.0
+
+          * componentes: repo/oss
+
+          * congelado: True
+
+          * opciones:
 
       * **¿Apuntando a otro servidor migasfree?**
 
