@@ -44,8 +44,6 @@ siguiente imagen.
 
     * Consultas.
 
-    * Estadísticas.
-
 
 3. Búsqueda rápida de ordenador.
 
