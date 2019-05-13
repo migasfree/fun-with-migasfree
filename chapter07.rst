@@ -278,8 +278,57 @@ __ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
 
   .. note::
 
-      Otra manera de instalar migasfree-play es ejecutando: 
+      Otra manera de instalar migasfree-play es ejecutando:
       ``wget -O - http://migasfree.org/pub/install-play | bash``
+
+
+Configurando migasfree-play
+========================
+
+Partiendo del paquete ``acme-migasfree-play`` vamos a crear ahora el paquete
+``tuempresa-migasfree-play`` el cual configurará ``migasfree-play``.
+
+En el proyecto `fun-with-migasfree-examples`__ (que anteriormente ya te has bajado)
+tienes un ejemplo de configuración de migasfree-play.
+
+Adapta acme-migasfree-play tal y como hiciste con acme-migasfree-client.
+Es decir, modifica los ficheros, cambiando donde se requiera, el nombre
+del paquete ``acme-migasfree-play`` por ``tuempresa-migasfree-play`` y
+pon tu ``nombre`` y la ``fecha actual``.
+
+__ https://github.com/migasfree/fun-with-migasfree-examples
+
+Una vez adaptado accede al nuevo directorio tuempresa-migasfree-play y observa
+el contenido, en concreto:
+
+En ``usr/share/divert/usr/share/migasfree-play/package.json`` está el fichero
+de configuración de `NW.js`__  con el que hemos desarrollado
+migasfree-play.
+
+__ https://github.com/nwjs/nw.js
+
+En ``usr/share/divert/usr/share/migasfree-play/settings.json`` puedes
+cambiar el idioma, y deshabilitar puntos de menús.
+
+En ``usr/share/migasfree-play/token`` deberás poner el **token del usuario**
+migasfree-play. Para ello entra en el interfaz de administración del
+servidor - Configuración - Administración del sitio - Tokens. Una vez allí
+añade un token al usuario migasfree-play. El token que se haya generado tendrás
+que ponerlo dentro del fichero ``usr/share/migasfree-play/token``.
+
+Ahora, construye el paquete tuempresa-migasfree-play:
+
+  .. code-block:: none
+
+    $ cd tuempresa-migasfree-play
+    $ /usr/bin/debuild --no-tgz-check -us -uc
+
+y súbelo al servidor:
+
+  .. code-block:: none
+
+    # cd ..
+    # migasfree-upload -f tuempresa-migasfree-play_*.deb
 
 
 Despliegue
@@ -287,11 +336,11 @@ Despliegue
 
 A partir de este momento, vas a poder administrar fácilmente los escritorios
 Ubuntu de tu organización, de forma generalizada, instalando
-simplemente estos dos paquetes.
+estos paquetes.
 
 Hay varias formas de realizar esta instalación:
 
-* Bajando los dos paquetes a cada uno de los escritorios e instalándolos
+* Bajando los paquetes a cada uno de los escritorios e instalándolos
   mediante el comando ``dpkg -i``
 
 * Creando un fichero ``/etc/apt/sources.list.d/migasfree.list`` con el
@@ -308,19 +357,19 @@ Hay varias formas de realizar esta instalación:
   * ``<project>`` por el proyecto que pusiste en /etc/migasfree.conf
 
   * y ``<deployment>`` por el nombre de un despliegue que tenga como
-    paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client`` y
-    ``migasfree-play``. Como paquetes a instalar puedes poner:
-    ``tuempresa-migasfree-client`` y ``migasfree-play``
+    paquetes disponibles: ``tuempresa-migasfree-client``, ``migasfree-client``,
+    ``tuempresa-migasfree-play`` y ``migasfree-play``. Como paquetes a instalar puedes poner:
+    ``tuempresa-migasfree-client`` y ``tuempresa-migasfree-play``
 
   Una vez creado este fichero, ejecuta:
 
     .. code-block:: none
 
       # apt-get update
-      # apt-get install tuempresa-migasfree-client
+      # apt-get install tuempresa-migasfree-client tuempresa-migasfree-play
       # migasfree -u
 
-  y tendrás instalados los 3 paquetes.
+  y tendrás instalados los 4 paquetes.
 
 * Puedes hacer un clon de un equipo donde ya estén instalados estos paquetes,
   utilizando un sistema de clonado como `clonezilla`__. Este es el método
