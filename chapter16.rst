@@ -209,7 +209,7 @@ MIGASFREE_EXTERNAL_ACTIONS
 
 Valor por defecto: {}
 
-Este ajuste aparece por primera vez en la versión 4.16 del servidor y sustituye a 
+Este ajuste aparece por primera vez en la versión 4.16 del servidor y sustituye a
 ``MIGASFREE_REMOTE_ADMIN_LINK``, el cual ha sido eliminado definitivamente en esta misma
 versión.
 
@@ -222,19 +222,19 @@ Veamos un ejemplo de funcionamiento con esta configuración:
   .. code-block:: none
 
     MIGASFREE_EXTERNAL_ACTIONS = {
-        "computer": {
-            "ping": {"title": "PING", "description": "comprobar conectividad"},
-            "ssh": {"title": "SSH", "description": "control remoto vía ssh"},
+        u'computer': {
+            u'ping': {u'title': u'PING', u'description': u'comprobar conectividad'},
+            u'ssh': {u'title': u'SSH', u'description': u'control remoto vía ssh'},
         },
-        "deployment": {
-            "check": {"title": "CHECK", "description": "comprobaciones al despliegue"},
+        u'deployment': {
+            u'check': {u'title': u'CHECK', u'description': u'comprobaciones al despliegue'},
         }
     }
 
 Aquí estamos indicando que se añadan al modelo ``computador`` las acciones ``ping`` y ``ssh``.
 Además, para el modelo ``deployment`` se ha definido una acción llamada ``check``.
 
-El servidor simplemente se encarga de mostrar un botón cuando corresponda con el ``título`` 
+El servidor simplemente se encarga de mostrar un botón cuando corresponda con el ``título``
 de cada acción.
 
 
@@ -257,39 +257,39 @@ de cada acción.
 
 
 Cuando se pulsa sobre una acción determinada en el navegador web, el servidor simplemente
-redigirá a una página con un protocolo que hemos denominado 
+redigirá a una página con un protocolo que hemos denominado
 ``Migasfree External Action`` (mea).
 
 
    .. note::
 
-       Fijate ahora en la figura 16.3, estamos viendo los objetos relacionados con el conjunto de Atributos 
-       ``AULA-3``. Observa que tiene 14 ordenadores relacionados a los que ahora puedes hacer ``PING`` 
-       y ``SSH`` en bloque. Además este Conjunto de Atributos tambien está incluido en 7 Despliegues 
+       Fijate ahora en la figura 16.3, estamos viendo los objetos relacionados con el conjunto de Atributos
+       ``AULA-3``. Observa que tiene 14 ordenadores relacionados a los que ahora puedes hacer ``PING``
+       y ``SSH`` en bloque. Además este Conjunto de Atributos tambien está incluido en 7 Despliegues
        a los que ahora puedes ejecutar una acción ``CHECK``.
 
 
- 
-Un ejemplo de redirección al pulsar sobre la acción ``ping`` (name: ping) desde el 
-``atributo`` (model: atribute) cuyo ``id`` es 18745 (id: 18745) desde el servidor 
+
+Un ejemplo de redirección al pulsar sobre la acción ``ping`` (name: ping) desde el
+``atributo`` (model: atribute) cuyo ``id`` es 18745 (id: 18745) desde el servidor
 127.0.0.1 (server: 127.0.0.1) podría ser:
 
   .. code-block:: none
 
-    mea://{"name": "ping", "related_model": "computer", "server": "127.0.0.1", "related_ids": [3643, 3635, 5499], "model": "attribute", "id": 18745}      
+    mea://{"name": "ping", "related_model": "computer", "server": "127.0.0.1", "related_ids": [3643, 3635, 5499], "model": "attribute", "id": 18745}
 
-Observa en este ejemplo que el modelo relacionado con el ``atributo`` es el ``ordenador`` 
-(related_model: computer) y los ordenadores concretos en este caso son tres 
+Observa en este ejemplo que el modelo relacionado con el ``atributo`` es el ``ordenador``
+(related_model: computer) y los ordenadores concretos en este caso son tres
 (related_ids: [3643, 3635, 5499]).
 
 Observa también que se hace uso del protocolo ``mea://``.
 
 El navegador web (en tu propio equipo) es el encargado de interpetrar éste nuevo protocolo
-y ejecutar un script con los datos que le llegan.  
+y ejecutar un script con los datos que le llegan.
 
 Es necesario, por tanto, configurar adecuadamente el navegador para que reconozca el protocolo MEA.
 
-Las posibilidades son muchas: 
+Las posibilidades son muchas:
 
     PING, SSH, VNC, WOL, etc.  sobre 1 o un grupo de ordenadores.
 
@@ -302,7 +302,7 @@ Las posibilidades son muchas:
 
     etc, etc, y etc ...
 
-    
+
 Puedes ver un ejemplo de empaquetado de la configuración para Chromium y Firefox, así como de un
 script que interpreta el protocolo mea:// en la carpeta ``acme-migasfree-exetrnal-actions`` de `fun-with-migasfree-examples`__.
 
@@ -313,7 +313,7 @@ __ https://github.com/migasfree/fun-with-migasfree-examples
 
 Instrucciones para intalar el paquete acme-migasfree-external-actions:
 
-  .. code-block:: none    
+  .. code-block:: none
 
     $ wget https://github.com/migasfree/fun-with-migasfree-examples/archive/master.zip
     $ unzip master.zip
@@ -335,7 +335,7 @@ __ https://github.com/migasfree/migasfree-sdk
 
 Puedes instalarlo mediante:
 
-  .. code-block:: none    
+  .. code-block:: none
 
     wget -O - http://migasfree.org/pub/install-sdk | bash
 
@@ -348,13 +348,13 @@ Para cada acción se puede especificar:
      ``description``: "Tooltip" de la acción. Es opcional.
 
      ``many``: Por defecto su valor es ``True``. Si se establece a ``False``
-     indica que el botón de la acción sólo se mostrará cuando el número de elementos sea 
-     igual a 1. Si quieres que la acción ``VNC`` del ``ordenador`` sólo se muestre cuando 
+     indica que el botón de la acción sólo se mostrará cuando el número de elementos sea
+     igual a 1. Si quieres que la acción ``VNC`` del ``ordenador`` sólo se muestre cuando
      haya sólo un ordenador relacionado, establécelo como ``"many": False``. Es opcional.
 
-     ``related``: Por defecto se muestra la acción para todos los modelos relacionados. 
-     Si quieres que la acción solo se muestre sólo desde unos determinados modelos debes 
-     especificarlos en una lista. Si quieres que la acción ``UPDATE`` del ``ordenador`` solo se 
+     ``related``: Por defecto se muestra la acción para todos los modelos relacionados.
+     Si quieres que la acción solo se muestre sólo desde unos determinados modelos debes
+     especificarlos en una lista. Si quieres que la acción ``UPDATE`` del ``ordenador`` solo se
      muestre desde ``ordenadores`` y ``despliegues``, pero no desde el resto de modelos relacionados,
      en ese caso establece ``"related": ["computer", "deployment"]``. Es opcional.
 
@@ -362,22 +362,22 @@ Para cada acción se puede especificar:
    .. note::
 
        La primera vez que ejecutes una acción se pedirá la contraseña del usuario
-       ``reader``, empleado para acceder a la API de migasfree. Puedes cambiar ese usuario 
+       ``reader``, empleado para acceder a la API de migasfree. Puedes cambiar ese usuario
        modificando ``usr/bin/acme-migasfree-external-actions``
 
-Ejemplo: 
-     
+Ejemplo:
+
   .. code-block:: none
 
     MIGASFREE_EXTERNAL_ACTIONS = {
-        "computer": {
-            "ping": {"title": "PING", "description": "comprobar conectividad"},
-            "ssh": {"title": "SSH", "description": "control remoto vía ssh"},
-            "vnc": {"title": "VNC", "description": "control remoto vía vnc", "many": False},
-            "update": {"title": "UPDATE", "description": "Forzar sincronización", related: ['computer', 'deployment']},
+        u'computer': {
+            u'ping': {u'title': u'PING', u'description': u'comprobar conectividad'},
+            u'ssh': {u'title': u'SSH', u'description': u'control remoto vía ssh'},
+            u'vnc': {u'title': u'VNC', u'description': u'control remoto vía vnc', u'many': False},
+            u'update': {u'title': u'UPDATE', u'description': u'Forzar sincronización', u'related': [u'computer', u'deployment']},
         },
-        "deployment": {
-            "check": {"title": "CHECK", "description": "comprobaciones al despliegue"},
+        u'deployment': {
+            u'check': {u'title': u'CHECK', u'description': u'comprobaciones al despliegue'},
         }
     }
 
