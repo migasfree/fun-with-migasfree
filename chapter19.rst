@@ -18,60 +18,6 @@ ejecutar el comando ``bin/create-package``
       Si quieres la versión de desarrollo puedes bajar ``master.zip`` en
       vez de ``latest.zip``
 
-Creación del paquete migasfree-server (.deb)
-=====================================================
-
-Abre una terminal como **root** y baja el código fuente de migasfree:
-
-  .. code-block:: none
-
-    wget https://github.com/migasfree/migasfree/archive/latest.zip
-
-Necesitaremos tener instalado ``unzip`` para descomprimir el fichero *zip*:
-
-  .. code-block:: none
-
-    apt-get install unzip
-
-Descomprimimos el fichero ``latest.zip``:
-
-  .. code-block:: none
-
-    unzip latest.zip
-    rm latest.zip
-
-Ahora tendrás una carpeta llamada ``migasfree-latest``.
-
-Creamos a continuacion el paquete ``migasfree-server``. Para ello
-necesitamos tener instalado el paquete ``python-stdeb``:
-
-  .. code-block:: none
-
-    apt-get install python-stdeb
-
-Nos situamos en la carpeta bin del proyecto y ejecutamos el script
-``create-package``:
-
-  .. code-block:: none
-
-    cd migasfree-latest/bin
-    ./create-package
-    cd ../..
-
-Ahora en la carpeta ``deb_dist`` tenemos el paquete *deb* que instalamos:
-
-  .. code-block:: none
-
-    dpkg -i migasfree-latest/deb_dist/migasfree-server_*_all.deb
-
-Por problemas de dependencias, seguramente se dejará sin configurar el
-servidor de migasfree. Para instalar las dependencias que faltan,
-haremos:
-
-  .. code-block:: none
-
-    apt-get -f install
-
 
 Creación del paquete migasfree-client (.deb)
 =====================================================
