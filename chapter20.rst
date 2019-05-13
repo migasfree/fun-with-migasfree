@@ -11,10 +11,9 @@ Empaquetando proyectos python
 
    -- Albert Einstein
 
-Es muy posible que en la distribución en la que has instalado el servidor migasfree
-no encuentres los paquetes que se requieren para instalar el servidor, bien porque
-simplemente no están disponibles o bien porque la versión disponible no es
-suficientemente reciente como para ejecutar el servidor.
+Es posible que necesites crear un paquete desde un proyecto escrito en python,
+bien porque tu Distribución no te lo proporciona o bien porque la versión
+que necesitas no esté disponible.
 
 En este capítulo vas a empaquetar ``django`` como ejemplo y el método que
 usarás es válido para la mayoría de proyectos escritos en ``python``.
