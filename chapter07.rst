@@ -282,8 +282,9 @@ __ http://fedoraproject.org/wiki/How_to_create_an_RPM_package
       ``wget -O - http://migasfree.org/pub/install-play | bash``
 
 
+===========================
 Configurando migasfree-play
-========================
+===========================
 
 Partiendo del paquete ``acme-migasfree-play`` vamos a crear ahora el paquete
 ``tuempresa-migasfree-play`` el cual configurará ``migasfree-play``.
