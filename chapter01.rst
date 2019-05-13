@@ -7,7 +7,7 @@ Licencia y Copyright
 
     Fun with migasfree
 
-    Copyright (C)  2013  Alberto Gacías and contributors.
+    Copyright (C)  2013 - 2019 Alberto Gacías and contributors.
     Permission is granted to copy, distribute and/or modify this document
     under the terms of the :ref:`GNU Free Documentation License`, Version 1.3
     or any later version published by the Free Software Foundation;
