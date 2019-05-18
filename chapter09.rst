@@ -274,24 +274,24 @@ Campos del despliegue de origen externo
               Para más información consulta: ``man sources.list`` ó ``man yum.conf``, según el caso.
 
 
-        * **base**: URI del repositorio público de la Distro GNU/Linux
+        * **URL base**: URI del repositorio público de la Distro GNU/Linux
 
         * **suite**: Suele indicar el nombre concreto de tu Distribución: **stretch**, **bionic**,
           **7** (para centos), etc.
 
-        * **components**: Aquí se enumeran los distintos componentes del origen. Ejemplos pueden
+        * **componentes**: Aquí se enumeran los distintos componentes del origen. Ejemplos pueden
           ser **main contrib non-free** (para Debian),  **main updates universe multiverse** (para
           Ubuntu, **os udpates extras** (para Centos)
 
-        * **frozen**: Indica que los **metadatos del repositorio público** no son actualizados. Con ello
+        * **congelado**: Indica que los **metadatos del repositorio público** no son actualizados. Con ello
           indicamos que queremos "congelar" el repositorio a la fecha de la primera solicitud de datos
           por parte de los ordenadores. Si se desmarca los metadatos son actualizados desde el repositorio
-          público teniendo en cuenta el campo **expire**.
+          público teniendo en cuenta el campo **expiración**.
 
-        * **options**: Permite especificar las distintas opciones que necesitemos para el repositorio.
+        * **opciones**: Permite especificar las distintas opciones que necesitemos para el repositorio.
 
-        * **expire**: Minutos en que los metadatos del repositorio publico permanecerá cacheado. Sólo
-          se tiene en cuenta para el caso que el campo **frozen no esté marcado**.
+        * **expiración**: Minutos en que los metadatos del repositorio publico permanecerá cacheado. Sólo
+          se tiene en cuenta para el caso que el campo **congelado no esté marcado**.
 
     * Acciones:
 
@@ -346,6 +346,14 @@ Campos del despliegue de origen externo
         * **Calendario**: Especifica una programación del origen basada en
           calendario.
 
+
+      .. note::
+
+        Si te has confundido con los campos ``URL base`` ``suite`` o
+        ``componentes``, a medida que los clientes soliciten estos recursos,
+        se irán generando :ref:`servernotification` para
+        indicarte la url de los ficheros que el servidor migasfree intenta
+        bajarse. Esto te ayudará a localizar el error.
 
 
 Ejemplos
