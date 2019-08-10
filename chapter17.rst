@@ -174,7 +174,7 @@ Ejemplo:
 
   .. code-block:: none
 
-    SSL_Cert = "/path/to/ssl/cert"
+    SSL_Cert = /path/to/ssl/cert
 
 Proxy
 -----
