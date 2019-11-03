@@ -249,6 +249,32 @@ En el servidor tendrás que crear una nueva fórmula:
     if __name__ == '__main__':
         run()
 
+
+Estoy en México y las horas son incorrectas.
+--------------------------------------------
+
+Causa
+*****
+
+Configuración incorrecta.
+
+Solución
+********
+
+Modifica la variable ``TZ`` del fichero ``variable`` del proyecto
+migasfree-docker:
+
+  .. code-block:: none
+
+    export TZ=America/Mexico_City
+
+Modifica también la variable ``TIME_ZONE`` en el fichero ``settings.py``:
+
+  .. code-block:: none
+
+    TIME_ZONE = 'America/Mexico_City'
+
+
 Sobre el cliente migasfree
 ==========================
 
