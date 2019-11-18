@@ -154,28 +154,6 @@ Ejemplo:
     Manage_Devices = False
 
 
-
-SSL_Cert
---------
-
-Valor por defecto: No establecido.
-
-Ruta al fichero de certificado SSL de servidor en el cliente.
-
-Si este fichero de certificado no existe se utilizará igualmente **https** para la
-privacidad, pero la autenticación entre extremos no estará garantizada. En este
-caso aparece en consola el siguiente mensaje:
-
-  .. code-block:: none
-
-    Certificate does not exist and authentication is not guaranteed
-
-Ejemplo:
-
-  .. code-block:: none
-
-    SSL_Cert = "/path/to/ssl/cert"
-
 Proxy
 -----
 
