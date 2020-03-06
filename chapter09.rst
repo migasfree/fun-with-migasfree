@@ -453,6 +453,21 @@ para Ubuntu, Debian, Centos, Fedora y OpenSuse.
           * opciones: [arch=amd64]
 
 
+      * **CENTOS 8**
+
+          * nombre: BASE
+
+          * URL base: http://mirror.centos.org/centos
+
+          * suite: 8
+
+          * components: BaseOS/x86_64/os
+
+          * congelado: True
+
+          * opciones: gpgcheck=1 gpgkey==file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+
       * **CENTOS 7**
 
           * nombre: BASE
@@ -483,13 +498,13 @@ para Ubuntu, Debian, Centos, Fedora y OpenSuse.
           * opciones: gpgcheck=1 gpgkey=https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 
 
-      * **FEDORA 29**
+      * **FEDORA 31**
 
           * nombre: base
 
           * URL base: http://download.fedoraproject.org/pub/fedora/linux/releases
 
-          * suite: 29
+          * suite: 31
 
           * componentes: Everything/x86_64/os
 
@@ -512,13 +527,13 @@ para Ubuntu, Debian, Centos, Fedora y OpenSuse.
 
           * opciones:
 
-      * **OPENSUSE 15.0**
+      * **OPENSUSE 15.1**
 
           * nombre: base
 
           * URL base: http://download.opensuse.org/distribution/leap
 
-          * suite: 15.0
+          * suite: 15.1
 
           * componentes: repo/oss
 
